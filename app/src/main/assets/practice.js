@@ -1,39 +1,55 @@
 (()=>{'use strict';
-const words=Array.isArray(window.WOLFIE_WORDS)?window.WOLFIE_WORDS:[];
-const phrases=(window.WOLFIE_LESSONS||[]).flatMap(x=>x.pairs.map(p=>({...p,level:x.level})));
+const words=[...(Array.isArray(window.WOLFIE_WORDS)?window.WOLFIE_WORDS:[]),...(Array.isArray(window.WOLFIE_EXTRA_WORDS)?window.WOLFIE_EXTRA_WORDS:[])].map(x=>({...x,topic:x.topic||'Основы'}));
+const phrases=[...(window.WOLFIE_LESSONS||[]).flatMap(x=>x.pairs.map(p=>({...p,level:x.level,topic:x.title}))),...(window.WOLFIE_EXTRA_PHRASES||[])];
 const levels=['A2','B1','B2'];
 let root=null,core=null,round=null;
 const h=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
 const levelOptions=()=>levels.map(l=>`<option value="${l}">${l}</option>`).join('');
 function prefs(){if(!core.store.practicePrefs||typeof core.store.practicePrefs!=='object')core.store.practicePrefs={};return core.store.practicePrefs;}
-function currentPool(type,level){return (type==='words'?words:phrases).filter(x=>x.level===level);}
-function sortedPool(type,level){const now=Date.now(),list=shuffle(currentPool(type,level));return list.sort((a,b)=>{
+function currentPool(type,level,topic='all'){return (type==='words'?words:phrases).filter(x=>x.level===level&&(topic==='all'||x.topic===topic));}
+function topics(type,level){return [...new Set(currentPool(type,level).map(x=>x.topic||'Основы'))].sort((a,b)=>a.localeCompare(b,'ru'));}
+function options(type,level,selected){return '<option value="all">Все темы</option>'+topics(type,level).map(t=>`<option value="${h(t)}" ${selected===t?'selected':''}>${h(t)} · ${currentPool(type,level,t).length}</option>`).join('');}
+function sortedPool(type,level,topic='all'){const now=Date.now(),list=shuffle(currentPool(type,level,topic));return list.sort((a,b)=>{
   const aS=core.store.items[a.id],bS=core.store.items[b.id];
   const score=s=>!s?1:Number(s.due)<=now?0:2;
   return score(aS)-score(bS);
 });}
 function mount(el,api){root=el;core=api;round=null;showMenu();}
-function showMenu(){round=null;const p=prefs(),level=levels.includes(p.level)?p.level:'A2';const wordCount=words.filter(w=>w.level===level).length;const phraseCount=phrases.filter(w=>w.level===level).length;
+function showMenu(){
+round=null;
+const p=prefs(),level=levels.includes(p.level)?p.level:'A2';
+const wordCount=words.filter(w=>w.level===level).length,phraseCount=phrases.filter(w=>w.level===level).length;
 const dueWords=words.filter(w=>w.level===level&&core.store.items[w.id]&&Number(core.store.items[w.id].due)<=Date.now()).length;
-root.innerHTML=`<h1>Практика 🎧</h1><p>Слушай английскую речь, выбирай русский перевод и закрепляй слова карточками. Начни с A2 и постепенно переходи к B1 и B2.</p>
+const selectedType=['words','phrases'].includes(p.type)?p.type:'words';
+const selectedSide=['en','ru'].includes(p.side)?p.side:'en';
+const currentAudioTopic=topics('phrases',level).includes(p.listenTopic)?p.listenTopic:'all';
+const currentCardTopic=topics(selectedType,level).includes(p[selectedType+'Topic'])?p[selectedType+'Topic']:'all';
+root.innerHTML=`<h1>Практика 🎧</h1><p>Большой тематический словарь и фразы от A2 до B2. Начни с A2, затем переходи к B1 и B2. Выбирай интересующую тему и тренируйся небольшими порциями.</p>
+<div class="library-stats"><div class="stat"><b>${words.length}</b><small>Слов и выражений</small></div><div class="stat"><b>${phrases.length}</b><small>Предложений</small></div></div>
 <label class="field-label" for="practice-level">Уровень материала</label><select class="input" id="practice-level">${levelOptions()}</select>
-<div class="practice-modes"><section class="practice-mode"><div class="mode-symbol">🎧</div><h2>Аудирование</h2><p>Услышь английскую фразу, затем выбери её значение на русском. Английский текст скрыт до ответа.</p><button class="primary" id="start-listen" type="button">Начать · 10 вопросов</button></section>
-<section class="practice-mode"><div class="mode-symbol">🃏</div><h2>Карточки</h2><p>Слова и целые выражения: переворачивай карточку, слушай произношение и отмечай, что запомнил.</p><label class="field-label" for="card-type">Что учим?</label><select id="card-type" class="input"><option value="words">Слова (${wordCount})</option><option value="phrases">Фразы (${phraseCount})</option></select>
-<label class="field-label" for="card-side">Сначала показывать</label><select id="card-side" class="input"><option value="en">Английский → русский</option><option value="ru">Русский → английский</option></select>
-<button class="primary" id="start-cards" type="button">Учить · 12 карточек</button><div class="muted">К повторению слов сегодня: ${dueWords}</div></section></div>
-<p class="muted">🔊 Озвучивание использует английский голос на твоём устройстве. Для офлайн-работы должен быть установлен голос английского языка.</p>`;
+<div class="practice-modes"><section class="practice-mode"><div class="mode-symbol">🎧</div><h2>Аудирование</h2><p>Слушай английскую речь и выбирай перевод. Внимание на смысл, а не только слова.</p><div class="muted">${phraseCount} фраз · ${level}</div>
+<label class="field-label" for="listen-topic">Тема для аудирования</label><select class="input" id="listen-topic">${options('phrases',level,currentAudioTopic)}</select>
+<button class="primary" id="start-listen" type="button">Начать · 10 вопросов</button></section>
+<section class="practice-mode"><div class="mode-symbol">🃏</div><h2>Карточки</h2><p>Перевод в обе стороны, произношение и повторение сложных элементов.</p>
+<label class="field-label" for="card-type">Что учим?</label><select id="card-type" class="input"><option value="words">Слова (${wordCount})</option><option value="phrases">Фразы (${phraseCount})</option></select>
+<label class="field-label" for="card-topic">Тема карточек</label><select id="card-topic" class="input">${options(selectedType,level,currentCardTopic)}</select>
+<label class="field-label" for="card-side">Направление перевода</label><select id="card-side" class="input"><option value="en">Английский → русский</option><option value="ru">Русский → английский</option></select>
+<button class="primary" id="start-cards" type="button">Учить · до 12 карточек</button><div class="muted">К повторению слов сегодня: ${dueWords}</div></section></div>
+<p class="muted">🧠 Ошибки возвращаются в повторение. Словарный запас сам по себе не гарантирует B2: практикуй также свободные ответы, аудирование и диалоги.</p>
+<p class="muted">🔊 Для работы без интернета установи английский голос синтеза речи в настройках Android.</p>`;
 const sel=root.querySelector('#practice-level');sel.value=level;
 sel.addEventListener('change',()=>{prefs().level=sel.value;core.save();showMenu();});
-root.querySelector('#card-type').value=['words','phrases'].includes(p.type)?p.type:'words';
-root.querySelector('#card-side').value=['en','ru'].includes(p.side)?p.side:'en';
-root.querySelector('#start-listen').addEventListener('click',()=>startListening(sel.value));
-root.querySelector('#start-cards').addEventListener('click',()=>{const type=root.querySelector('#card-type').value,side=root.querySelector('#card-side').value;prefs().type=type;prefs().side=side;core.save();startCards(type,sel.value,side);});
+const cardType=root.querySelector('#card-type'),cardTopic=root.querySelector('#card-topic');
+cardType.value=selectedType;root.querySelector('#card-side').value=selectedSide;
+cardType.addEventListener('change',()=>{const topic=prefs()[cardType.value+'Topic'];cardTopic.innerHTML=options(cardType.value,sel.value,topics(cardType.value,sel.value).includes(topic)?topic:'all');});
+root.querySelector('#start-listen').addEventListener('click',()=>{const topic=root.querySelector('#listen-topic').value;prefs().listenTopic=topic;core.save();startListening(sel.value,topic);});
+root.querySelector('#start-cards').addEventListener('click',()=>{const type=cardType.value,side=root.querySelector('#card-side').value,topic=cardTopic.value;prefs().type=type;prefs().side=side;prefs()[type+'Topic']=topic;core.save();startCards(type,sel.value,side,topic);});
 }
-function showVoiceError(level){root.innerHTML=`<section class="practice-mode"><div class="mode-symbol">🔇</div><h2>Английский голос недоступен</h2><p>Для аудирования нужен работающий синтез речи и установленный английский голос. Проверь настройки преобразования текста в речь на телефоне и вернись к тренировке.</p><button class="primary" id="retry-tts">Проверить ещё раз</button><button class="secondary full" id="voice-back">К практике</button></section>`;
-root.querySelector('#retry-tts').addEventListener('click',()=>startListening(level));root.querySelector('#voice-back').addEventListener('click',showMenu);}
-function startListening(level){if(!core.voiceAvailable()){showVoiceError(level);return;}const pool=shuffle(currentPool('phrases',level)).slice(0,10);if(pool.length<4){showMenu();return;}round={kind:'audio',level,items:pool,index:0,correct:0,answered:false,token:Symbol('audio')};renderAudio();}
-function renderAudio(){const r=round;if(!r||r.kind!=='audio')return;if(r.index>=r.items.length){finishRound();return;}r.answered=false;const item=r.items[r.index];const pool=currentPool('phrases',r.level);
+function showVoiceError(level,topic='all'){root.innerHTML=`<section class="practice-mode"><div class="mode-symbol">🔇</div><h2>Английский голос недоступен</h2><p>Для аудирования нужен работающий синтез речи и установленный английский голос. Проверь настройки преобразования текста в речь на телефоне и вернись к тренировке.</p><button class="primary" id="retry-tts">Проверить ещё раз</button><button class="secondary full" id="voice-back">К практике</button></section>`;
+root.querySelector('#retry-tts').addEventListener('click',()=>startListening(level,topic));root.querySelector('#voice-back').addEventListener('click',showMenu);}
+function startListening(level,topic='all'){if(!core.voiceAvailable()){showVoiceError(level,topic);return;}const pool=sortedPool('phrases',level,topic).slice(0,10);if(pool.length<4){showMenu();return;}round={kind:'audio',level,topic,items:pool,index:0,correct:0,answered:false,token:Symbol('audio')};renderAudio();}
+function renderAudio(){const r=round;if(!r||r.kind!=='audio')return;if(r.index>=r.items.length){finishRound();return;}r.answered=false;const item=r.items[r.index];const pool=currentPool('phrases',r.level,r.topic).length>=4?currentPool('phrases',r.level,r.topic):currentPool('phrases',r.level);
 const uniqueOthers=[...new Map(shuffle(pool.filter(x=>x.id!==item.id&&x.ru!==item.ru)).map(x=>[x.ru,x])).values()];const options=shuffle([item,...uniqueOthers.slice(0,3)]);
 root.innerHTML=`<div class="top-actions"><button class="secondary" id="practice-exit">✕ Назад</button><span class="question-progress">${r.index+1} / ${r.items.length}</span><span class="pill">🎧 ${r.level}</span></div><div class="bar"><div style="width:${100*r.index/r.items.length}%"></div></div><section class="question-card"><div class="question-label">Послушай и выбери перевод</div><p class="muted">Нажми на динамик. Слова на английском появятся после ответа.</p><button class="speak audio-hero" id="audio-play" type="button" aria-label="Прослушать английскую фразу">🔊</button><div class="answers">${options.map(o=>`<button type="button" class="answer" data-id="${h(o.id)}">${h(o.ru)}</button>`).join('')}</div></section><div id="practice-notice" aria-live="polite"></div>`;
 root.querySelector('#practice-exit').addEventListener('click',showMenu);
@@ -47,7 +63,7 @@ root.querySelectorAll('.answer').forEach(b=>b.addEventListener('click',()=>{
 // The sound is also playable with a dedicated tap for browsers that block autoplay.
 setTimeout(()=>{if(round===r&&!r.answered&&r.items[r.index]===item)core.speak(item.en);},250);
 }
-function startCards(type,level,side){const pool=sortedPool(type,level).slice(0,12);if(!pool.length){showMenu();return;}round={kind:'cards',type,side,level,items:pool,index:0,correct:0,flipped:false,requeues:{}};renderCard();}
+function startCards(type,level,side,topic='all'){const pool=sortedPool(type,level,topic).slice(0,12);if(!pool.length){showMenu();return;}round={kind:'cards',type,side,level,topic,items:pool,index:0,correct:0,flipped:false,requeues:{}};renderCard();}
 function renderCard(){const r=round;if(!r||r.kind!=='cards')return;if(r.index>=r.items.length){finishRound();return;}r.flipped=false;const item=r.items[r.index];const front=r.side==='en'?item.en:item.ru;const back=r.side==='en'?item.ru:item.en;
 root.innerHTML=`<div class="top-actions"><button type="button" class="secondary" id="cards-exit">✕ Назад</button><span class="question-progress">${r.index+1} / ${r.items.length}</span><span class="pill">${r.type==='words'?'📖 Слова':'💬 Фразы'} · ${r.level}</span></div><div class="bar"><div style="width:${100*r.index/r.items.length}%"></div></div><section class="question-card"><div class="question-label">Вспомни перевод, затем открой ответ</div><button class="flashcard" type="button" id="flip" aria-label="Перевернуть карточку"><span class="card-face-label" id="card-label">${r.side==='en'?'ENGLISH':'РУССКИЙ'}</span><span class="card-phrase" id="card-phrase">${h(front)}</span><span class="card-hint" id="card-hint">Нажми, чтобы перевернуть ↻</span></button><div class="card-audio"><button class="secondary" id="card-speak" type="button" ${r.side==='ru'?'disabled':''}>🔊 Произношение</button></div><div id="card-rating" class="two-buttons" hidden><button type="button" class="secondary" id="card-again">🔁 Повторить</button><button type="button" class="primary" id="card-know">✅ Я вспомнил</button></div></section>`;
 root.querySelector('#cards-exit').addEventListener('click',showMenu);

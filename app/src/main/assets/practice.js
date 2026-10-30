@@ -15,7 +15,7 @@ function sortedPool(type,level,topic='all'){const now=Date.now(),list=shuffle(cu
   const score=s=>!s?1:Number(s.due)<=now?0:2;
   return score(aS)-score(bS);
 });}
-function mount(el,api){root=el;core=api;round=null;showMenu();}
+function mount(el,api,mode='menu'){root=el;core=api;round=null;const p=prefs(),level=levels.includes(p.level)?p.level:'A2';if(mode==='cards-words'||mode==='cards-phrases'){const type=mode==='cards-words'?'words':'phrases',side=['en','ru'].includes(p.side)?p.side:'en';const topic=topics(type,level).includes(p[type+'Topic'])?p[type+'Topic']:'all';startCards(type,level,side,topic);}else if(mode==='listen'){const topic=topics('phrases',level).includes(p.listenTopic)?p.listenTopic:'all';startListening(level,topic);}else showMenu();}
 function showMenu(){
 round=null;
 const p=prefs(),level=levels.includes(p.level)?p.level:'A2';

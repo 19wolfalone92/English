@@ -23,6 +23,11 @@ async def main():
             await page.set_content(html)
             assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
             assert await page.locator('.shortcut').count() == 6
+            await page.get_by_role('button',name='Слова Пополняй словарь').click()
+            assert await page.locator('#card-phrase').is_visible()
+            await page.get_by_role('button',name='✕ Назад').click()
+            await page.get_by_role('button',name='Уроки').click()
+            assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
             assert await page.locator('.logo-img').count() == 1
             assert await page.evaluate('getComputedStyle(document.documentElement).colorScheme') == 'light'
             await page.get_by_role('button',name='Практика').click()

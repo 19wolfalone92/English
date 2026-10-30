@@ -9,7 +9,7 @@ async def main():
     html=(asset_dir/'index.html').read_text(encoding='utf-8')
     html=html.replace('<link rel="stylesheet" href="styles.css">', '<style>'+ (asset_dir/'styles.css').read_text(encoding='utf-8') + '</style>')
     html=html.replace('<link rel="stylesheet" href="ui.css">', '<style>'+ (asset_dir/'ui.css').read_text(encoding='utf-8') + '</style>')
-    for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'):
+    for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','roadmap.js','app.js'):
         html=html.replace(f'<script src="{asset}" defer></script>', '')
     scripts=''.join('<script>'+ (asset_dir/asset).read_text(encoding='utf-8') + '</script>' for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'))
     html=html.replace('</body>',scripts+'</body>')
@@ -23,6 +23,14 @@ async def main():
             await page.set_content(html)
             assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
             assert await page.locator('.shortcut').count() == 6
+            assert await page.get_by_role('heading',name='Курс на 10 месяцев').is_visible()
+            assert await page.locator('.course-month').count() == 10
+            await page.locator('[data-course="0"]').click()
+            assert await page.get_by_text('Present Simple',exact=True).count() >= 1
+            await page.get_by_role('button',name='Начать тренировку →').click()
+            assert '1 / 10' in await page.locator('.question-progress').inner_text()
+            await page.get_by_role('button',name='✕ Завершить').click()
+            await page.get_by_role('button',name='Уроки').click()
             await page.get_by_role('button',name='Слова Пополняй словарь').click()
             assert await page.locator('#card-phrase').is_visible()
             await page.get_by_role('button',name='✕ Назад').click()

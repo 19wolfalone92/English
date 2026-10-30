@@ -20,6 +20,8 @@ jobs:
           git diff --exit-code -- app/src/main/assets/expanded.js
       - name: Validate bilingual content and stable IDs
         run: python3 scripts/validate_content.py
+      - name: Validate 300-day course
+        run: node scripts/verify_course.mjs
       - name: Check JavaScript syntax
         run: |
           for file in app/src/main/assets/*.js; do node --check "$file"; done
@@ -39,6 +41,6 @@ jobs:
       - name: Upload installable APK
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.4.0-debug
+          name: Wolfie-English-v0.5.0-debug
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error

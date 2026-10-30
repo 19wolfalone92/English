@@ -43,3 +43,9 @@ Open **Практика** (bottom navigation), choose A2/B1/B2, a thematic categ
 ## Build note
 
 GitHub Actions checks that the generated vocabulary bank matches the editable source files, validates IDs, checks JS syntax, builds and publishes a debug APK. Do not merge or ship if checks fail. Confirm installation and speech synthesis on device.
+
+## Guided 300-day path (v0.5.0)
+
+Ten study-months × 30 sessions = 300 sequenced practice days: 120 A2, 90 B1 and 90 B2 sessions. Each day includes 10 automatically graded exercises chosen from the current reviewed word/phrase collection; 40 grammar points have new guided explanations and examples. Vocabulary, phrases, device-based listening, typing and spaced reviews rotate. Score 70% to unlock the next day. Progress stays offline; the original 25 mini-lessons are still available in a collapsed section.
+
+**Important scope:** 300 sessions do not mean 300 unique original teaching texts: words and phrases recur intentionally. Longer speaking and writing tasks are self-directed and are not automatically evaluated. B2 proficiency cannot be claimed without substantial additional authentic reading/listening, assessed writing and speaking practice. Check course integrity via: node scripts/verify_course.mjs.

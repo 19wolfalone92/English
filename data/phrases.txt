@@ -1,0 +1,816 @@
+# A2|Утро и вечер
+Я уже проснулся, но ещё лежу в постели.|I'm awake, but I'm still in bed.
+Я обычно принимаю душ перед завтраком.|I usually take a shower before breakfast.
+Мне нужно встать через пять минут.|I need to get up in five minutes.
+Я забыл поставить будильник.|I forgot to set my alarm.
+Я выключил свет и лёг спать.|I turned off the light and went to bed.
+Я сегодня не выспался.|I didn't get enough sleep last night.
+Мы можем поговорить перед сном?|Can we talk before going to bed?
+Я почти готов к работе.|I'm almost ready for work.
+Я вернусь домой после шести.|I'll be home after six.
+Сегодня я собираюсь лечь пораньше.|I'm going to bed early tonight.
+# A2|Домашние дела
+Помоги мне накрыть на стол, пожалуйста.|Please help me set the table.
+Я только что помыл посуду.|I've just washed the dishes.
+Можешь вынести мусор?|Could you take out the rubbish?
+Я забыл закрыть дверь.|I forgot to lock the door.
+В комнате стало гораздо светлее.|The room is much brighter now.
+Пожалуйста, положи ключи на полку.|Please put the keys on the shelf.
+Я ищу зарядное устройство.|I'm looking for my charger.
+Стиральная машина ещё работает.|The washing machine is still running.
+Я открою окно на несколько минут.|I'll open the window for a few minutes.
+У нас закончилось моющее средство.|We've run out of washing-up liquid.
+# A2|Покупки и цены
+Мне нужна рубашка большего размера.|I need a larger shirt.
+У вас есть эта модель в чёрном цвете?|Do you have this model in black?
+Я просто смотрю, спасибо.|I'm just looking, thanks.
+Это немного дороже, чем я ожидал.|It's a little more expensive than I expected.
+Можно вернуть эту покупку?|Can I return this purchase?
+Я потерял чек.|I've lost the receipt.
+Мы купили всё по списку.|We bought everything on the list.
+Сколько стоит доставка?|How much is delivery?
+Давайте сравним цены в двух магазинах.|Let's compare prices at two shops.
+Я лучше подожду распродажи.|I'd rather wait for a sale.
+# A2|Готовим вместе
+Сначала почисти картофель.|Peel the potatoes first.
+Нарежь лук маленькими кусочками.|Chop the onion into small pieces.
+Не забудь добавить немного соли.|Don't forget to add a little salt.
+Нам нужно разогреть сковороду.|We need to heat up the pan.
+Осторожно, масло горячее.|Be careful, the oil is hot.
+Это блюдо готовится около двадцати минут.|This dish takes about twenty minutes to cook.
+Я люблю готовить для друзей.|I enjoy cooking for my friends.
+Ты хочешь попробовать мой суп?|Would you like to try my soup?
+Слишком остро для меня.|It's too spicy for me.
+Оставим немного еды на завтра.|Let's save some food for tomorrow.
+# A2|Городские маршруты
+Сколько остановок до центра?|How many stops are there to the city centre?
+Мы должны выйти на следующей остановке.|We need to get off at the next stop.
+Ближайшая аптека за углом.|The nearest pharmacy is around the corner.
+Я могу показать тебе дорогу.|I can show you the way.
+Нам лучше идти пешком.|We'd better walk.
+До вокзала примерно десять минут.|The station is about ten minutes away.
+Мне нужно купить билет туда и обратно.|I need to buy a return ticket.
+Водитель остановил автобус у моста.|The driver stopped the bus near the bridge.
+Этот путь короче.|This route is shorter.
+Я ещё никогда не был в этом районе.|I've never been to this neighborhood before.
+# A2|Небольшие разговоры
+Как давно ты здесь живёшь?|How long have you lived here?
+Ты любишь свою работу?|Do you like your job?
+Что ты собираешься делать завтра?|What are you going to do tomorrow?
+Я могу задать тебе вопрос?|Can I ask you a question?
+Мне очень понравился твой рассказ.|I really enjoyed your story.
+Спасибо, что подождал меня.|Thanks for waiting for me.
+Извини, я немного опоздал.|Sorry, I'm a little late.
+Пожалуйста, скажи это ещё раз.|Please say that again.
+Я не знаю, как это объяснить.|I don't know how to explain it.
+Давай поговорим об этом позже.|Let's talk about it later.
+# A2|Мой английский
+Я понимаю больше слов, чем раньше.|I understand more words than before.
+Иногда я забываю простые выражения.|Sometimes I forget simple expressions.
+Как правильно произнести это слово?|How do you pronounce this word?
+Я попробую ответить без перевода.|I'll try to answer without translating.
+Мне нужно пополнить словарный запас.|I need to build my vocabulary.
+Я учусь понемногу каждый вечер.|I study a little every evening.
+Можешь исправить мою ошибку?|Could you correct my mistake?
+Я хочу запомнить эту фразу.|I want to remember this phrase.
+Мне нравится учиться с помощью карточек.|I like learning with flashcards.
+Я стал быстрее находить нужные слова.|I'm getting faster at finding the right words.
+# A2|Путешествие на выходных
+Я собираюсь поехать в другой город.|I'm going to visit another city.
+Во сколько отправляется поезд?|What time does the train leave?
+Я ещё не собрал чемодан.|I haven't packed my suitcase yet.
+Мы можем остановиться в небольшой гостинице.|We can stay at a small hotel.
+Я хочу попробовать местную еду.|I want to try the local food.
+Давай сделаем несколько фотографий.|Let's take some photos.
+Мы вернёмся в воскресенье вечером.|We'll come back on Sunday evening.
+Здесь очень красивый вид.|The view is beautiful here.
+На улице сегодня довольно холодно.|It's quite cold outside today.
+Я рад, что мы приехали.|I'm glad we came.
+# A2|Планы и желания
+Я хотел бы однажды посетить Филиппины.|I'd like to visit the Philippines someday.
+Мне бы хотелось увидеть океан.|I'd love to see the ocean.
+Если будет время, мы погуляем.|If we have time, we'll go for a walk.
+Я собираюсь копить на поездку.|I'm going to save up for a trip.
+Я думаю, тебе это понравится.|I think you'll like it.
+Может быть, мы сможем встретиться летом.|Maybe we can meet in the summer.
+Я хочу узнать больше о твоей стране.|I want to learn more about your country.
+Я с удовольствием покажу тебе свой город.|I'd be happy to show you my city.
+Я предпочитаю тихие вечера дома.|I prefer quiet evenings at home.
+Давай придумаем что-нибудь интересное.|Let's think of something fun to do.
+# A2|Самочувствие и отдых
+У меня немного болит голова.|I've got a slight headache.
+Я чувствую себя лучше после отдыха.|I feel better after resting.
+Мне нужно выпить воды.|I need to drink some water.
+Сегодня я очень устал.|I'm very tired today.
+Я немного прогуляюсь на свежем воздухе.|I'll go for a short walk outside.
+Я постараюсь спать достаточно.|I'll try to get enough sleep.
+Ты хорошо себя чувствуешь?|Are you feeling okay?
+Я записался к врачу.|I've made an appointment with the doctor.
+Сегодня я пропущу тренировку.|I'll skip my workout today.
+Давай немного отдохнём.|Let's take a short break.
+# A2|Хобби и свободное время
+Я люблю слушать музыку во время прогулки.|I like listening to music while walking.
+Иногда я играю в видеоигры.|I sometimes play video games.
+Этот сериал очень интересный.|This series is really interesting.
+Я хочу научиться играть на гитаре.|I want to learn to play the guitar.
+Ты хотел бы посмотреть фильм вместе?|Would you like to watch a movie together?
+Мы можем позвонить друг другу вечером.|We can call each other tonight.
+Я читаю книгу перед сном.|I read a book before bed.
+В выходные я обычно отдыхаю.|I usually relax at weekends.
+Мне нравится делать что-то своими руками.|I like making things with my hands.
+У меня появилось новое увлечение.|I've taken up a new hobby.
+# A2|Погода и сезоны
+Кажется, скоро пойдёт дождь.|It looks like it's going to rain.
+Сегодня гораздо теплее, чем вчера.|It's much warmer today than yesterday.
+Возьми куртку, на улице ветрено.|Take a jacket; it's windy outside.
+Зимой здесь часто идёт снег.|It often snows here in winter.
+Небо сегодня совершенно ясное.|The sky is completely clear today.
+Мы не пойдём гулять во время грозы.|We won't go for a walk during the storm.
+Я люблю прохладные осенние вечера.|I love cool autumn evenings.
+Весной дни становятся длиннее.|The days get longer in spring.
+Я проверю прогноз перед поездкой.|I'll check the forecast before the trip.
+После дождя выглянуло солнце.|The sun came out after the rain.
+# B1|Карьера и заработок
+Я подумываю сменить работу в следующем году.|I'm thinking about changing jobs next year.
+Мне интересны вакансии в международных компаниях.|I'm interested in vacancies at international companies.
+Я бы хотел работать удалённо хотя бы часть недели.|I'd like to work remotely at least part of the week.
+На собеседовании меня спросили об опыте.|They asked me about my experience during the interview.
+Я стараюсь развивать навыки, полезные в других странах.|I'm trying to develop skills that are useful abroad.
+Мне нужен более гибкий рабочий график.|I need a more flexible work schedule.
+Я надеюсь получить повышение в будущем.|I hope to get promoted in the future.
+На этой должности требуется хороший английский.|This position requires good English.
+Моя работа иногда связана с большой ответственностью.|My job sometimes involves a lot of responsibility.
+Я решил обновить своё резюме.|I've decided to update my CV.
+Работа с иностранными клиентами поможет мне практиковаться.|Working with international clients will help me practise.
+Я хочу зарабатывать больше, не жертвуя всем свободным временем.|I want to earn more without sacrificing all my free time.
+# B1|Работа инженера
+Прежде чем включать оборудование, проверь соединения.|Check the connections before switching on the equipment.
+Нам нужно найти причину неисправности.|We need to find the cause of the fault.
+Реле сработало раньше, чем ожидалось.|The relay operated earlier than expected.
+Мы измерили напряжение на входе.|We measured the voltage at the input.
+Система должна оставаться отключённой во время ремонта.|The system must remain switched off during repairs.
+Техник заменил повреждённый кабель.|The technician replaced the damaged cable.
+Я записал результаты испытания в журнал.|I recorded the test results in the log.
+Нам придётся повторить проверку завтра.|We'll have to repeat the check tomorrow.
+Показания прибора меняются слишком быстро.|The meter readings are changing too quickly.
+Сначала убедись, что это безопасно.|First, make sure it's safe.
+После ремонта оборудование снова работает.|The equipment is working again after the repair.
+Не начинай работу без необходимого разрешения.|Don't start work without the required authorization.
+# B1|Совещания и переписка
+Можем ли мы перенести встречу на завтра?|Could we move the meeting to tomorrow?
+Я вышлю тебе документы после обеда.|I'll send you the documents after lunch.
+Пожалуйста, проверь вложение перед отправкой.|Please check the attachment before sending it.
+Мы обсудим детали на следующем совещании.|We'll discuss the details at the next meeting.
+Я не совсем уверен, что понял задачу.|I'm not entirely sure I understood the task.
+Не могли бы вы уточнить крайний срок?|Could you clarify the deadline?
+Я подготовил краткое описание проблемы.|I've prepared a brief description of the problem.
+Спасибо, что так быстро ответили.|Thank you for getting back to me so quickly.
+Я свяжусь с вами, как только появятся новости.|I'll get back to you as soon as I have an update.
+Давайте сначала определим приоритеты.|Let's set our priorities first.
+Мы пока не получили подтверждение.|We haven't received confirmation yet.
+Мне потребуется дополнительный день на проверку.|I'll need an extra day to check everything.
+# B1|Доверие и границы
+Мне важно честно говорить о своих чувствах.|It's important to me to speak honestly about my feelings.
+Я не хочу делать выводы без доказательств.|I don't want to jump to conclusions without evidence.
+Давай обсудим это, когда оба будем спокойны.|Let's discuss this when we're both calm.
+Я понимаю, что тебе нужно личное пространство.|I understand that you need some personal space.
+Мне иногда трудно объяснить, что я чувствую.|I sometimes find it hard to explain how I feel.
+Я стараюсь слушать, не перебивая.|I'm trying to listen without interrupting.
+Мне бы хотелось услышать твою точку зрения.|I'd like to hear your point of view.
+Ты не обязана отвечать сразу.|You don't have to reply immediately.
+Я ценю, когда мы говорим открыто.|I appreciate it when we communicate openly.
+Давай не будем спорить из-за предположений.|Let's not argue over assumptions.
+Я хочу научиться справляться с беспокойством.|I want to learn to manage my anxiety.
+Мы оба можем ошибаться и учиться.|We can both make mistakes and learn from them.
+# B1|Условия и планы
+Если я закончу работу рано, я тебе позвоню.|If I finish work early, I'll call you.
+Если бы я жил ближе, мы виделись бы чаще.|If I lived closer, we'd see each other more often.
+Я бы путешествовал больше, если бы у меня было время.|I'd travel more if I had the time.
+Если погода не испортится, устроим пикник.|If the weather stays nice, we'll have a picnic.
+Я помогу тебе, если ты попросишь.|I'll help you if you ask.
+На твоём месте я бы проверил информацию ещё раз.|If I were you, I'd check the information again.
+Если бы я свободно говорил по-английски, мне было бы проще.|If I spoke English fluently, things would be easier for me.
+Даже если будет сложно, я продолжу учиться.|Even if it's difficult, I'll keep learning.
+Мы не успеем, если выйдем слишком поздно.|We won't make it if we leave too late.
+Если понадобится, мы изменим план.|We'll change the plan if necessary.
+Я бы не беспокоился так сильно на твоём месте.|I wouldn't worry so much if I were you.
+А что бы ты сделал в такой ситуации?|What would you do in that situation?
+# B1|Прошлый опыт
+Когда я приехал, поезд уже ушёл.|By the time I arrived, the train had already left.
+Я раньше никогда не встречал такого человека.|I'd never met anyone like that before.
+Пока я готовил ужин, мне позвонили.|Someone called me while I was making dinner.
+Я работал весь день и очень устал.|I'd been working all day, and I was exhausted.
+Мы долго обсуждали проблему, прежде чем нашли решение.|We discussed the problem for a long time before finding a solution.
+Раньше я боялся говорить по-английски.|I used to be afraid of speaking English.
+Я не знал, что ты уже уехал.|I didn't know you'd already left.
+Я собирался ответить, но отвлёкся.|I was going to reply, but I got distracted.
+С тех пор я стал намного спокойнее.|I've become much calmer since then.
+Я понял ошибку только после разговора.|I only realized my mistake after the conversation.
+Это напомнило мне о нашем первом знакомстве.|It reminded me of when we first met.
+Я бы хотел поступить иначе, если такое повторится.|I'd like to handle it differently if it happens again.
+# B1|Проблемы путешественника
+Оказалось, что наш рейс перенесли на утро.|It turned out that our flight had been moved to the morning.
+Я не могу найти подтверждение бронирования.|I can't find my booking confirmation.
+Мы опоздали из-за пробки.|We were late because of a traffic jam.
+Где находится стойка регистрации?|Where is the check-in desk?
+Мне кажется, я оставил сумку в такси.|I think I left my bag in the taxi.
+Можно поменять место у окна?|Could I change to a window seat?
+Мой багаж пока не прибыл.|My luggage hasn't arrived yet.
+Подскажите, как добраться до центра города.|Could you tell me how to get to the city centre?
+Я хотел бы отменить бронь без штрафа.|I'd like to cancel the booking without a fee.
+Мы решили остаться на одну ночь дольше.|We decided to stay an extra night.
+Эта улица выглядит знакомой, но я не уверен.|This street looks familiar, but I'm not sure.
+Нам стоит заранее изучить местные правила.|We should learn about the local rules in advance.
+# B1|Деньги и решения
+Я хочу откладывать часть зарплаты каждый месяц.|I want to save part of my salary every month.
+Прежде чем покупать это, сравним варианты.|Let's compare our options before buying it.
+Это оказалось дороже, чем я планировал.|It turned out to be more expensive than I'd planned.
+Я стараюсь не тратить деньги на ненужные вещи.|I try not to spend money on things I don't need.
+Иногда стоит заплатить больше за качество.|Sometimes it's worth paying more for quality.
+У нас нет достаточного бюджета на это.|We don't have enough budget for that.
+Я хотел бы иметь финансовую подушку безопасности.|I'd like to have a financial safety net.
+Важно учитывать не только цену, но и расходы потом.|It's important to consider not just the price but the costs afterwards.
+Мой доход зависит от количества рабочих часов.|My income depends on how many hours I work.
+Эта покупка не входит в мои планы.|This purchase isn't part of my plan.
+Я пока не готов рисковать сбережениями.|I'm not ready to risk my savings yet.
+В первую очередь я хочу избавиться от долгов.|First of all, I want to get out of debt.
+# B1|Здоровые привычки
+Я заметил, что лучше сплю после прогулки.|I've noticed that I sleep better after a walk.
+Мне трудно сосредоточиться, когда я устал.|I find it hard to concentrate when I'm tired.
+Я стараюсь больше двигаться в течение дня.|I'm trying to move more throughout the day.
+Мне нужно делать перерывы во время работы.|I need to take breaks while working.
+Я стараюсь есть более регулярно.|I'm trying to eat more regularly.
+Небольшая тренировка лучше, чем ничего.|A short workout is better than nothing.
+Если я не высплюсь, мне сложнее учиться.|If I don't get enough sleep, studying becomes harder.
+Я постепенно уменьшаю время перед экраном.|I'm gradually reducing my screen time.
+Сегодня я решил не пить кофе вечером.|I've decided not to drink coffee tonight.
+Я чувствую себя спокойнее после отдыха.|I feel calmer after getting some rest.
+Я не хочу слишком быстро увеличивать нагрузку.|I don't want to increase the workload too quickly.
+Важно давать себе время на восстановление.|It's important to give yourself time to recover.
+# B1|Учебные стратегии
+Я стараюсь вспоминать слова без подсказок.|I try to recall words without looking at hints.
+Когда я ошибаюсь, я записываю правильный вариант.|When I make a mistake, I write down the correct version.
+Мне помогает повторять фразы вслух.|Repeating phrases aloud helps me.
+Я могу понять текст, но не всегда могу ответить.|I can understand the text, but I can't always respond.
+Я хочу научиться говорить более естественно.|I want to learn to speak more naturally.
+Я иногда составляю воображаемые диалоги.|I sometimes make up imaginary conversations.
+Мне нужно больше практики в аудировании.|I need more listening practice.
+Я начал узнавать знакомые фразы без перевода.|I've started recognizing familiar phrases without translating.
+Неизвестные слова я стараюсь объяснять другими словами.|I try to explain unfamiliar words using other words.
+Я хочу проверять свой прогресс раз в месяц.|I want to check my progress once a month.
+Мне полезно учиться небольшими порциями.|It's helpful for me to study in short sessions.
+Я не хочу просто запоминать готовые ответы.|I don't want to just memorize ready-made answers.
+# B1|Мнения и обсуждения
+Я частично согласен, но у меня есть сомнения.|I partly agree, but I have some doubts.
+По моему опыту, это занимает больше времени.|In my experience, it takes longer.
+Мне кажется, есть более простой способ.|I think there's a simpler way.
+С другой стороны, у этого решения есть преимущества.|On the other hand, this solution has advantages.
+Можешь объяснить, почему ты так считаешь?|Could you explain why you think that?
+Я изменил своё мнение после разговора.|I changed my mind after our conversation.
+Возможно, мы смотрим на проблему с разных сторон.|Perhaps we're looking at the problem from different angles.
+Я предпочитаю сначала проверить факты.|I prefer to check the facts first.
+Я не согласен с тем, как это было сделано.|I don't agree with the way it was done.
+У каждого варианта есть свои недостатки.|Each option has its drawbacks.
+Мне кажется, это зависит от ситуации.|I think it depends on the situation.
+В целом я считаю идею полезной.|Overall, I think the idea is useful.
+# B1|Техника и приложения
+Приложение перестало отвечать после обновления.|The app stopped responding after the update.
+Я хочу сохранять данные без подключения к интернету.|I want to save my data without an internet connection.
+Сначала сделай резервную копию.|Make a backup first.
+Программа показывает неправильное значение.|The program is displaying the wrong value.
+Я обнаружил ошибку и сообщил о ней.|I found a bug and reported it.
+Эта функция экономит мне много времени.|This feature saves me a lot of time.
+Ты проверил настройки безопасности?|Have you checked the security settings?
+Мне нужно освободить место на телефоне.|I need to free up some space on my phone.
+После перезапуска проблема исчезла.|The problem disappeared after a restart.
+Пожалуйста, не удаляй старую версию пока.|Please don't delete the old version yet.
+Я хочу проверить приложение на разных устройствах.|I want to test the app on different devices.
+Не забудь сохранить изменения перед выходом.|Don't forget to save your changes before exiting.
+# B1|Знакомства и культура
+Я хочу лучше понимать традиции других стран.|I want to understand the traditions of other countries better.
+Мы выросли в разных культурах.|We grew up in different cultures.
+Иногда одна и та же шутка звучит по-разному.|Sometimes the same joke comes across differently.
+Как принято здороваться в твоей стране?|How do people usually greet each other in your country?
+Я не хотел показаться грубым.|I didn't mean to sound rude.
+Можно рассказать тебе о нашем празднике?|Can I tell you about one of our holidays?
+Мне интересно попробовать местную кухню.|I'm interested in trying the local cuisine.
+Я стараюсь уважать чужие привычки.|I try to respect other people's customs.
+Некоторые выражения трудно перевести буквально.|Some expressions are difficult to translate literally.
+Иногда культурные различия приводят к недоразумениям.|Cultural differences sometimes lead to misunderstandings.
+Чем больше мы разговариваем, тем лучше понимаем друг друга.|The more we talk, the better we understand each other.
+Мне нравится узнавать новые способы смотреть на мир.|I enjoy discovering new ways of looking at the world.
+# B1|Новости и интернет
+Я предпочитаю читать новости из нескольких источников.|I prefer to read news from several sources.
+Я не уверен, что эта информация верна.|I'm not sure this information is correct.
+Проверь дату публикации статьи.|Check the publication date of the article.
+Этот заголовок кажется слишком эмоциональным.|This headline seems too emotional.
+Я случайно нашёл интересное интервью.|I came across an interesting interview by chance.
+У меня не открывается ссылка.|I can't open the link.
+Мне прислали видео с полезным советом.|Someone sent me a video with a useful tip.
+Я отключил лишние уведомления.|I turned off unnecessary notifications.
+Эта статья помогла мне лучше понять тему.|This article helped me understand the topic better.
+Я не хочу делиться личной информацией публично.|I don't want to share personal information publicly.
+Нужно проверить источник, прежде чем пересылать новость.|You should check the source before forwarding a story.
+Не всему в интернете можно доверять.|You can't trust everything you read online.
+# B1|Решение бытовых проблем
+Кран на кухне снова протекает.|The tap in the kitchen is leaking again.
+Нам нужно заменить эту деталь.|We need to replace this part.
+Я посмотрю, можно ли это починить самостоятельно.|I'll see whether I can fix it myself.
+Похоже, батарея полностью разрядилась.|It looks like the battery has run out.
+В комнате внезапно пропало электричество.|The power suddenly went out in the room.
+Эта дверь плохо закрывается.|This door doesn't close properly.
+Мне не хватает нужного инструмента.|I don't have the right tool.
+Я заказал новую запчасть.|I've ordered a replacement part.
+Лучше обратиться к специалисту.|It's better to call a professional.
+Я проверил всё, но проблема осталась.|I've checked everything, but the problem is still there.
+Мы закончим ремонт к выходным.|We'll finish the repairs by the weekend.
+Не трогай провод, пока питание не отключено.|Don't touch the wire until the power is off.
+# B1|Долгосрочные цели
+Я хочу составить реалистичный план обучения.|I want to make a realistic study plan.
+Мне важно видеть даже небольшой прогресс.|It's important for me to see even small improvements.
+Я стараюсь разбивать большие цели на этапы.|I try to break big goals into smaller steps.
+Некоторые навыки требуют месяцев практики.|Some skills take months of practice.
+Я не хочу сравнивать себя с другими каждый день.|I don't want to compare myself with others every day.
+Я стараюсь не бросать начатое после ошибки.|I try not to give up after making a mistake.
+Важнее заниматься регулярно, чем идеально.|Practising regularly matters more than being perfect.
+Я постепенно учусь лучше управлять временем.|I'm gradually learning to manage my time better.
+Я хочу оценивать результаты, а не только усилия.|I want to evaluate results, not just effort.
+Даже медленный прогресс остаётся прогрессом.|Even slow progress is still progress.
+Новая привычка становится легче со временем.|A new habit gets easier over time.
+Я буду менять план, если он перестанет работать.|I'll adjust the plan if it stops working.
+# B2|Тонкие оттенки мнения
+Я бы не стал утверждать, что это единственная причина.|I wouldn't go so far as to say that's the only reason.
+Мне кажется, вопрос гораздо сложнее, чем выглядит.|I think the issue is considerably more complex than it appears.
+Возможно, я ошибаюсь, но мне кажется, мы упускаем деталь.|I might be wrong, but I think we're missing a detail.
+Я согласен с общей идеей, но не с её реализацией.|I agree with the general idea, but not with how it's being implemented.
+Это убедительный аргумент, хотя и не окончательный.|That's a convincing argument, though not a conclusive one.
+На мой взгляд, нам не хватает информации.|From my perspective, we don't have enough information.
+Я бы предпочёл рассмотреть несколько альтернатив.|I'd rather consider several alternatives.
+Нельзя исключать влияние других факторов.|We can't rule out the influence of other factors.
+Я не утверждаю, что это всегда так.|I'm not claiming that's always the case.
+Разумеется, многое зависит от контекста.|Of course, a lot depends on the context.
+Это разумное предположение, но его стоит проверить.|That's a reasonable assumption, but it's worth checking.
+Я не уверен, что такой вывод оправдан.|I'm not sure that conclusion is justified.
+В целом я поддерживаю предложение с небольшими оговорками.|On balance, I support the proposal with a few reservations.
+Меня больше беспокоят долгосрочные последствия.|I'm more concerned about the long-term consequences.
+Мне было бы интересно узнать противоположную точку зрения.|I'd be interested to hear the opposing point of view.
+Давай различать факты и предположения.|Let's distinguish between facts and assumptions.
+# B2|Контраргументы и дискуссия
+Я понимаю твою позицию, однако вижу один недостаток.|I understand your position; however, I can see one drawback.
+В этом аргументе есть смысл, но он не учитывает все случаи.|That argument has merit, but it doesn't account for every case.
+Это может быть верно в теории, но не на практике.|That may be true in theory, but not in practice.
+Я бы оспорил предположение, на котором основан этот вывод.|I'd challenge the assumption underlying that conclusion.
+Какие доказательства подтверждают твоё утверждение?|What evidence supports your claim?
+Этот пример не обязательно отражает общую ситуацию.|That example doesn't necessarily reflect the bigger picture.
+С одной стороны, мы экономим деньги, но теряем время.|On the one hand, we save money, but we lose time.
+Стоит также учитывать возможные исключения.|We should also take possible exceptions into account.
+Возможно, проблема не в методе, а в его применении.|Perhaps the problem isn't the method but the way it's applied.
+Я согласен лишь до определённой степени.|I only agree up to a point.
+Однако нельзя игнорировать опыт других людей.|However, we shouldn't ignore other people's experiences.
+Я бы предложил сравнить фактические результаты.|I'd suggest comparing the actual results.
+Нам следует отдельно рассмотреть краткосрочные выгоды и риски.|We should examine short-term benefits and risks separately.
+Эта точка зрения заслуживает внимания.|That perspective deserves consideration.
+Я бы хотел прояснить один спорный момент.|I'd like to clarify one point of disagreement.
+Итак, в чём именно мы расходимся?|So, what exactly do we disagree on?
+# B2|Сложные условные предложения
+Если бы мы начали раньше, сейчас уже закончили бы.|If we'd started earlier, we'd be finished by now.
+Если бы не задержка, мы успели бы на встречу.|Had it not been for the delay, we would have made the meeting.
+Предположим, данные окажутся неверными: что тогда?|Suppose the data turns out to be wrong. What then?
+Я согласился бы при условии, что сроки реалистичны.|I'd agree provided that the deadlines were realistic.
+Если возникнут новые обстоятельства, мы пересмотрим план.|Should new circumstances arise, we'll reconsider the plan.
+Даже если бы я мог, я бы не стал обещать невозможное.|Even if I could, I wouldn't promise the impossible.
+Если бы ты предупредил меня, я бы подготовился заранее.|If you'd warned me, I would have prepared in advance.
+Если бы я лучше понимал ситуацию, мне было бы проще решить.|If I understood the situation better, it would be easier to decide.
+Если бы не его опыт, проект мог бы провалиться.|Without his experience, the project might have failed.
+Я бы согласился только в том случае, если бы условия изменились.|I'd only agree if the conditions changed.
+Будь у нас больше времени, мы могли бы провести дополнительные испытания.|If we had more time, we could run additional tests.
+Если случится что-то неожиданное, действуй по инструкции.|If anything unexpected happens, follow the procedure.
+Если бы они проверили данные, ошибка не попала бы в отчёт.|If they'd checked the data, the mistake wouldn't have made it into the report.
+Не будь этих ограничений, мы могли бы действовать быстрее.|If it weren't for these restrictions, we could move faster.
+Даже если результат окажется отрицательным, это полезный опыт.|Even if the result is negative, it'll still be a useful experience.
+Если честно, я бы предпочёл не рисковать без необходимости.|To be honest, I'd rather not take unnecessary risks.
+# B2|Сожаление и гипотетическое прошлое
+Жаль, что я не задал этот вопрос раньше.|I wish I'd asked that question sooner.
+Если бы только я не спешил с выводами.|If only I hadn't rushed to conclusions.
+Мне следовало внимательнее выслушать собеседника.|I should have listened more carefully.
+Я мог бы поступить иначе, но тогда не знал всех фактов.|I could have acted differently, but I didn't have all the facts then.
+Возможно, нам стоило отложить разговор.|Perhaps we should have postponed the conversation.
+Без твоей помощи я бы вряд ли справился.|I would hardly have managed without your help.
+Я хотел бы, чтобы мы обсудили это лично.|I wish we'd discussed this in person.
+Тебе не нужно было так сильно переживать.|You needn't have worried so much.
+Возможно, я слишком резко выразился.|I might have expressed myself too harshly.
+Оглядываясь назад, я понимаю, что мог поступить лучше.|Looking back, I realize I could have handled it better.
+Нам не следовало игнорировать предупреждение.|We shouldn't have ignored the warning.
+Это могло закончиться намного хуже.|It could have ended much worse.
+Я бы никогда не догадался об этом без подсказки.|I'd never have figured that out without a hint.
+Если бы я проверил дважды, ошибки бы не было.|If I'd double-checked, the mistake wouldn't have happened.
+Возможно, им стоило сообщить об изменении заранее.|Perhaps they should have announced the change in advance.
+Но теперь важно решить, что делать дальше.|But what matters now is deciding what to do next.
+# B2|Пассивный залог и отчётность
+Результаты были проверены двумя независимыми специалистами.|The results were checked by two independent specialists.
+Ожидается, что новое оборудование поступит в понедельник.|The new equipment is expected to arrive on Monday.
+Было решено провести дополнительные испытания.|It was decided that additional tests would be carried out.
+На данный момент причина неисправности не установлена.|The cause of the fault has not yet been established.
+Сообщается, что проект был завершён вовремя.|The project is reported to have been completed on time.
+Документация должна быть обновлена до запуска.|The documentation must be updated before launch.
+Отчёт будет предоставлен после окончательной проверки.|The report will be provided after the final inspection.
+Эта процедура была разработана для снижения риска.|This procedure was designed to reduce risk.
+О неисправности сообщили ещё до начала смены.|The fault had been reported before the shift began.
+Никаких дополнительных действий не требуется.|No further action is required.
+Все изменения должны регистрироваться в журнале.|All changes must be recorded in the log.
+Предполагается, что система восстановится автоматически.|The system is expected to recover automatically.
+Полученные данные нельзя использовать без проверки.|The collected data must not be used without verification.
+Предложение находится на рассмотрении руководства.|The proposal is currently being reviewed by management.
+Решение будет принято после обсуждения.|A decision will be made after the discussion.
+Рекомендуется сохранить копию предыдущей версии.|It is recommended that a copy of the previous version be kept.
+# B2|Письменная аргументация
+Основная цель этого сообщения — объяснить наше решение.|The main purpose of this message is to explain our decision.
+Прежде всего я хотел бы обозначить контекст проблемы.|First of all, I'd like to outline the context of the problem.
+На первый взгляд этот подход выглядит привлекательным.|At first glance, this approach appears attractive.
+Тем не менее существуют серьёзные ограничения.|Nevertheless, there are significant limitations.
+Кроме того, следует рассмотреть альтернативные варианты.|Furthermore, alternative options should be considered.
+Из этого следует, что нужны дополнительные данные.|It follows that additional data is needed.
+В отличие от предыдущего метода, новый занимает меньше времени.|Unlike the previous method, the new one takes less time.
+Для наглядности рассмотрим конкретный пример.|To illustrate this, let's consider a specific example.
+Важно подчеркнуть, что это предварительные результаты.|It is important to emphasize that these are preliminary results.
+В конечном счёте решение зависит от приоритетов.|Ultimately, the decision depends on our priorities.
+На основании приведённых аргументов я предлагаю другой подход.|Based on the arguments above, I propose a different approach.
+Таким образом, мы можем сделать осторожный вывод.|We can therefore draw a cautious conclusion.
+В этом отношении ситуация существенно изменилась.|In this respect, the situation has changed significantly.
+Я бы не стал считать эти результаты окончательными.|I wouldn't regard these results as final.
+Приведённые ниже примеры иллюстрируют основную мысль.|The examples below illustrate the main point.
+Подводя итог, преимущества перевешивают недостатки.|To sum up, the advantages outweigh the disadvantages.
+# B2|Профессиональное письмо
+Благодарю вас за подробное разъяснение.|Thank you for the detailed clarification.
+Я обращаюсь к вам по поводу недавнего обновления.|I'm writing regarding the recent update.
+Не могли бы вы подтвердить, что получили документы?|Could you confirm that you've received the documents?
+Прилагаю исправленную версию отчёта.|I've attached the revised version of the report.
+Надеюсь, эта информация поможет решить проблему.|I hope this information will help resolve the issue.
+Прошу сообщить, если возникнут дополнительные вопросы.|Please let me know if you have any further questions.
+Буду признателен за ответ до конца недели.|I'd appreciate a response by the end of the week.
+Мы заинтересованы в дальнейшем сотрудничестве.|We're interested in continuing our cooperation.
+К сожалению, мы вынуждены перенести крайний срок.|Unfortunately, we have to postpone the deadline.
+Я хотел бы предложить удобное для всех время.|I'd like to suggest a time that works for everyone.
+Пожалуйста, обратите внимание на выделенные изменения.|Please note the highlighted changes.
+Я готов предоставить дополнительные сведения при необходимости.|I'm happy to provide further details if necessary.
+Прошу принять во внимание ограниченные сроки.|Please take the tight schedule into account.
+На данный момент мы ожидаем официального подтверждения.|We're currently awaiting official confirmation.
+Приносим извинения за возможные неудобства.|We apologize for any inconvenience this may cause.
+Спасибо за понимание и терпение.|Thank you for your understanding and patience.
+# B2|Проведение встреч
+Предлагаю начать с краткого обзора текущего состояния.|I suggest we start with a brief overview of the current situation.
+Прежде чем продолжить, давайте уточним цель встречи.|Before we continue, let's clarify the purpose of the meeting.
+Могу я добавить несколько замечаний?|May I add a few comments?
+Я хотел бы вернуться к предыдущему вопросу.|I'd like to return to the previous point.
+У нас осталось мало времени, поэтому перейдём к выводам.|We're running short on time, so let's move on to the conclusions.
+Не могли бы вы немного подробнее раскрыть эту тему?|Could you elaborate on that a little?
+Кажется, мы отклонились от основной темы.|I think we've drifted away from the main topic.
+Давайте зафиксируем договорённости письменно.|Let's put our agreements in writing.
+Кто возьмёт на себя ответственность за следующий этап?|Who will take responsibility for the next stage?
+Я предлагаю назначить отдельную встречу для деталей.|I suggest scheduling a separate meeting for the details.
+У всех была возможность высказаться?|Has everyone had a chance to speak?
+Мы можем принять решение уже сегодня?|Can we make a decision today?
+Если возражений нет, перейдём к следующему пункту.|If there are no objections, let's move on to the next item.
+Я подведу итог того, о чём мы договорились.|I'll summarize what we've agreed on.
+Пожалуйста, сообщите, если я что-то упустил.|Please let me know if I've missed anything.
+Постараемся придерживаться согласованного плана.|Let's try to stick to the agreed plan.
+# B2|Проверка технических систем
+Прежде чем искать неисправность, необходимо убедиться в безопасном состоянии оборудования.|Before troubleshooting, we must make sure the equipment is in a safe state.
+Показания следует сравнить с предыдущими измерениями.|The readings should be compared with previous measurements.
+Нам нужно установить, что именно вызвало отключение.|We need to determine exactly what caused the trip.
+Результат может зависеть от выбранных уставок.|The result may depend on the selected settings.
+Срабатывание защиты не всегда указывает на неисправность самого реле.|A protection trip doesn't always indicate a fault in the relay itself.
+Потребуется дополнительная проверка цепей управления.|Further inspection of the control circuits will be required.
+Мы должны исключить ошибку измерения.|We must rule out a measurement error.
+В отчёте следует указать условия проведения испытания.|The test conditions should be specified in the report.
+Оборудование нельзя вводить в эксплуатацию до завершения проверок.|The equipment must not be commissioned before all checks are complete.
+Все результаты нужно связать с конкретным временем измерения.|Every result should be linked to the time it was measured.
+Проблема проявляется только при высокой нагрузке.|The problem only appears under heavy load.
+Повторный запуск может скрыть первоначальную причину сбоя.|Restarting may conceal the original cause of the failure.
+Резервная защита должна работать независимо от основной.|The backup protection must operate independently of the main protection.
+Нам необходимо проверить согласованность уставок.|We need to check that the protection settings are coordinated.
+Некорректная последовательность операций может привести к повреждениям.|An incorrect sequence of operations may cause damage.
+После устранения неисправности следует проверить всю цепочку событий.|After fixing the fault, we should review the entire sequence of events.
+# B2|Надёжность и риски
+Сначала определим наиболее вероятные причины отказа.|Let's identify the most likely causes of failure first.
+Следует учитывать не только вероятность, но и тяжесть последствий.|We should consider not only likelihood but also the severity of the consequences.
+Эта мера снизит риск, но не устранит его полностью.|This measure will reduce the risk, but it won't eliminate it entirely.
+Надёжность системы зависит от нескольких независимых компонентов.|The system's reliability depends on several independent components.
+Одного успешного испытания недостаточно для подтверждения стабильности.|One successful test is not enough to confirm stability.
+Мы должны проверить поведение системы при отказе связи.|We must test how the system behaves when communication fails.
+Предусмотрен ли безопасный режим при непредвиденной ошибке?|Is there a safe fallback mode for unexpected errors?
+Наиболее опасный сценарий требует отдельного анализа.|The most dangerous scenario requires a separate analysis.
+Данные о предыдущих отказах могут выявить закономерности.|Data from previous failures may reveal patterns.
+Предлагаю сохранить возможность быстрого отката изменений.|I suggest keeping the option to roll back changes quickly.
+Не следует полагаться только на один источник данных.|We shouldn't rely on a single data source.
+Устойчивость к сбоям важнее максимальной скорости.|Fault tolerance matters more than maximum speed.
+Риск должен оставаться в заранее согласованных пределах.|The risk must remain within the agreed limits.
+В таком случае предпочтительнее остановить процесс.|In that case, it would be preferable to stop the process.
+Нам нужно проверить не только обычную работу, но и восстановление.|We need to test not just normal operation but recovery as well.
+Любое исключение должно фиксироваться для последующего анализа.|Every exception should be recorded for later analysis.
+# B2|Анализ данных и вероятности
+Эта закономерность заметна, но её причина пока неизвестна.|The pattern is noticeable, but its cause is still unknown.
+Корреляция сама по себе не доказывает причинно-следственную связь.|Correlation alone does not prove causation.
+Размер выборки слишком мал для уверенного вывода.|The sample size is too small for a confident conclusion.
+Мы можем оценить вероятность, но не гарантировать результат.|We can estimate the probability, but we can't guarantee the outcome.
+Данные за один день могут быть нерепрезентативными.|Data from a single day may not be representative.
+Предлагаю сравнить результаты на независимой выборке.|I suggest comparing the results on an independent sample.
+Необходимо определить, какие предположения заложены в модель.|We need to identify the assumptions built into the model.
+Существует риск, что мы подстроились под прошлые данные.|There's a risk that we've overfitted to historical data.
+Этот показатель сам по себе мало что объясняет.|This metric doesn't tell us much on its own.
+Разброс результатов оказался выше ожидаемого.|The variation in results was greater than expected.
+Нужно учитывать неопределённость каждого прогноза.|We need to account for the uncertainty of each prediction.
+Проверка должна включать случаи, которых модель раньше не видела.|Testing should include cases the model has never seen before.
+Возможные ошибки разметки могут исказить результаты.|Potential labeling errors may distort the results.
+Без контрольной группы трудно оценить влияние изменений.|Without a control group, it's difficult to assess the impact of the changes.
+Точность повысилась, однако устойчивость всё ещё не доказана.|Accuracy has improved, but robustness has not yet been demonstrated.
+Я бы не делал выводов, опираясь на один удачный пример.|I wouldn't draw conclusions based on a single successful example.
+# B2|Сотрудничество и ответственность
+Для успешного сотрудничества необходимо распределить обязанности.|To work together successfully, we need to divide responsibilities.
+Важно, чтобы каждый понимал свою область ответственности.|It's important that everyone understands their area of responsibility.
+Мы можем прийти к компромиссу, не отказываясь от ключевых принципов.|We can reach a compromise without abandoning our core principles.
+Отсутствие обратной связи не обязательно означает согласие.|A lack of feedback doesn't necessarily mean agreement.
+Нужно заранее договориться о способе принятия решений.|We need to agree in advance on how decisions will be made.
+Я готов пересмотреть свою позицию при появлении новых фактов.|I'm willing to reconsider my position if new facts emerge.
+При возникновении разногласий следует обсудить их напрямую.|If disagreements arise, we should discuss them directly.
+Давайте сосредоточимся на общей цели.|Let's focus on our shared goal.
+Важно сообщать о проблемах до того, как они станут критическими.|It's important to report problems before they become critical.
+Я ценю конструктивную критику, если она конкретна.|I value constructive criticism when it's specific.
+Каждый должен иметь возможность выразить сомнения.|Everyone should have a chance to express their concerns.
+Это решение затронет не только нашу команду.|This decision will affect more than just our team.
+Нам нужно согласовать ожидания всех участников.|We need to align everyone's expectations.
+Я возьму на себя координацию следующего этапа.|I'll take responsibility for coordinating the next stage.
+Договорённость должна быть понятной и выполнимой.|The agreement should be clear and achievable.
+После завершения стоит обсудить, чему мы научились.|Afterwards, we should discuss what we've learned.
+# B2|Общение на расстоянии
+Я стараюсь не путать занятость с отсутствием интереса.|I'm trying not to confuse being busy with a lack of interest.
+Если мне что-то непонятно, лучше спокойно спросить.|If something isn't clear to me, it's better to ask calmly.
+Мне важно уважать твой распорядок и личное пространство.|It's important to me to respect your routine and personal space.
+Я не могу знать, что ты чувствуешь, пока мы это не обсудим.|I can't know how you feel until we talk about it.
+Я не хочу, чтобы наши разговоры превращались в допрос.|I don't want our conversations to turn into interrogations.
+Мы можем по-разному выражать заботу и привязанность.|We may express care and affection in different ways.
+Давай договоримся о времени, когда обоим удобно поговорить.|Let's agree on a time when we're both free to talk.
+Я понимаю, что тебе не всегда хочется разговаривать.|I understand that you don't always feel like talking.
+Мне хочется делиться событиями дня, не ожидая немедленного ответа.|I'd like to share my day without expecting an immediate reply.
+Нам важно находить время друг для друга без давления.|It's important that we make time for each other without pressure.
+Я хочу понять, что мы оба ожидаем от этих отношений.|I want to understand what we both expect from this relationship.
+Иногда короткий разговор может быть искреннее долгого.|Sometimes a short conversation can feel more genuine than a long one.
+Расстояние усложняет общение, но не делает его невозможным.|Distance makes communication harder, but not impossible.
+Я учусь выражать просьбы, не превращая их в требования.|I'm learning to make requests without turning them into demands.
+Я предпочитаю честный разговор догадкам.|I'd rather have an honest conversation than rely on guesses.
+Нам не нужно соглашаться во всём, чтобы уважать друг друга.|We don't have to agree on everything to respect each other.
+# B2|Самоанализ и эмоции
+Я заметил, что тревожные мысли не всегда отражают реальность.|I've noticed that anxious thoughts don't always reflect reality.
+Мне помогает отделять предположения от наблюдений.|It helps me to separate assumptions from observations.
+Иногда я мысленно проигрываю разговоры, которых никогда не было.|Sometimes I mentally rehearse conversations that have never happened.
+Я стараюсь не возвращаться бесконечно к одному и тому же вопросу.|I'm trying not to dwell on the same question endlessly.
+Когда эмоции сильные, мне полезно сделать паузу.|When my emotions are intense, taking a break helps.
+Я могу чувствовать неуверенность, не действуя под её влиянием.|I can feel insecure without acting on that feeling.
+Мне не обязательно сразу искать объяснение чужому поведению.|I don't have to explain someone else's behavior immediately.
+Я учусь не делать категорических выводов в неопределённости.|I'm learning not to jump to definite conclusions when things are uncertain.
+Я стараюсь отвечать осознанно, а не реагировать импульсивно.|I'm trying to respond thoughtfully rather than react impulsively.
+Мне важно сохранять собственные интересы и цели.|It's important to me to maintain my own interests and goals.
+Я могу признать ошибку, не унижая себя.|I can admit a mistake without putting myself down.
+Хорошая коммуникация требует не только слов, но и умения слушать.|Good communication requires more than words; it also takes listening skills.
+Я пытаюсь быть внимательнее к тому, что действительно контролирую.|I'm trying to pay more attention to what I can actually control.
+Прошлый опыт не обязательно определяет будущее.|Past experiences don't necessarily determine the future.
+Мне важно замечать прогресс, а не только недостатки.|It's important to notice my progress, not just my shortcomings.
+Я учусь терпеть неопределённость, не заполняя её догадками.|I'm learning to tolerate uncertainty without filling the gaps with guesses.
+# B2|Культурные различия
+То, что считается вежливым в одной культуре, может казаться странным в другой.|What is considered polite in one culture may seem strange in another.
+Не стоит автоматически переносить собственные ожидания на других.|We shouldn't automatically project our expectations onto others.
+Интонация иногда меняет смысл фразы сильнее, чем сами слова.|Intonation can sometimes change the meaning of a sentence more than the words themselves.
+Некоторые способы выражения уважения трудно перевести буквально.|Some ways of showing respect are difficult to translate literally.
+Я бы хотел лучше понять культурный контекст этой традиции.|I'd like to understand the cultural context of this tradition better.
+Важно задавать вопросы, а не делать предположения.|It's important to ask questions rather than make assumptions.
+В разных странах по-разному принято говорить о личных чувствах.|People talk about personal feelings differently in different countries.
+Прямой ответ не всегда считается грубым.|A direct answer isn't always considered rude.
+Я пытаюсь объяснять свои намерения, а не полагаться на намёки.|I'm trying to explain my intentions rather than rely on hints.
+Неловкие ситуации могут стать хорошим опытом обучения.|Awkward situations can become valuable learning experiences.
+Мы можем уважать различия, даже если не всё понимаем.|We can respect differences even when we don't understand everything.
+Одна и та же фраза может звучать дружелюбно или резко.|The same phrase can sound friendly or harsh.
+Надо учитывать не только язык, но и обстоятельства общения.|We need to consider not just the language but also the situation.
+Лучший способ избежать недопонимания — переспросить.|The best way to avoid a misunderstanding is to ask for clarification.
+Мне приятно изучать язык человека, который мне дорог.|I enjoy learning the language of someone I care about.
+Знание языка помогает замечать нюансы, которые теряются в переводе.|Knowing the language helps you notice nuances that get lost in translation.
+# B2|Улучшение английского
+Я понимаю общий смысл, даже если не узнаю каждое слово.|I can follow the general meaning even when I don't recognize every word.
+Мне легче читать сложные тексты, чем быстро отвечать вслух.|I find it easier to read complex texts than to respond quickly aloud.
+Я хочу перестать переводить каждую мысль слово в слово.|I want to stop translating every thought word for word.
+Мне нужно научиться перефразировать мысль, когда я забываю слово.|I need to learn to rephrase an idea when I forget a word.
+Понимание выражения не означает, что я могу сразу его использовать.|Understanding an expression doesn't mean I can use it immediately.
+Я стараюсь замечать устойчивые сочетания слов.|I'm trying to notice common word combinations.
+Если я не знаю точного слова, я могу объяснить его смысл.|If I don't know the exact word, I can explain what I mean.
+Я хочу говорить естественно, а не просто без ошибок.|I want to sound natural, not just avoid mistakes.
+Иногда я могу объяснить сложную идею простыми словами.|Sometimes I can explain a complicated idea in simple words.
+Повторение с увеличивающимися интервалами помогает мне запоминать.|Spaced repetition helps me remember what I learn.
+Мне полезно слушать разных носителей английского.|It's useful for me to listen to different English speakers.
+Я хочу научиться понимать речь без субтитров.|I want to learn to understand speech without subtitles.
+Сложные задания показывают, какие темы мне нужно повторить.|Difficult tasks show me which topics I need to review.
+Моя цель — свободно общаться, а не просто пройти тест.|My goal is to communicate fluently, not just pass a test.
+Знание большего количества слов не заменит практику разговора.|Knowing more words won't replace speaking practice.
+Мне важно не только узнавать фразы, но и самостоятельно строить новые.|It's important for me not just to recognize phrases but to build new ones myself.
+# B2|Экология и общество
+Переход к чистой энергии требует долгосрочных инвестиций.|The transition to clean energy requires long-term investment.
+Не все экологические решения одинаково доступны по цене.|Not all environmental solutions are equally affordable.
+Энергосбережение может снизить расходы без ухудшения качества жизни.|Saving energy can reduce costs without lowering quality of life.
+Важно оценивать воздействие на окружающую среду на всех этапах.|It's important to assess environmental impact at every stage.
+Местные сообщества должны участвовать в принятии решений.|Local communities should be involved in decision-making.
+Краткосрочная выгода иногда противоречит долгосрочным интересам.|Short-term gains sometimes conflict with long-term interests.
+Общественное мнение может меняться по мере появления новых данных.|Public opinion may change as new evidence emerges.
+Неравный доступ к образованию влияет на будущие возможности.|Unequal access to education affects future opportunities.
+Технологии способны облегчить жизнь, но создают новые риски.|Technology can make life easier, but it also creates new risks.
+Для сложной проблемы редко существует одно простое решение.|There is rarely a single simple solution to a complex problem.
+Эффективная политика требует как ресурсов, так и доверия общества.|Effective policy requires both resources and public trust.
+Нам следует учитывать интересы будущих поколений.|We should consider the interests of future generations.
+Экономический рост сам по себе не гарантирует благополучия.|Economic growth alone doesn't guarantee well-being.
+Поддержка уязвимых групп требует последовательных действий.|Supporting vulnerable groups requires consistent action.
+Я бы хотел понять, как это решение повлияет на обычных людей.|I'd like to understand how this decision would affect ordinary people.
+Предложение заслуживает обсуждения, даже если оно несовершенно.|The proposal deserves discussion even if it isn't perfect.
+# B2|Медиа и критическое чтение
+Заголовок может создавать впечатление, не соответствующее содержанию.|A headline can create an impression that doesn't match the content.
+Перед тем как делиться новостью, полезно проверить первоисточник.|Before sharing a story, it's worth checking the original source.
+Некоторые публикации намеренно провоцируют сильные эмоции.|Some posts are deliberately designed to provoke strong emotions.
+Надёжность источника зависит не только от его популярности.|A source's reliability doesn't depend solely on its popularity.
+Отсутствие доказательств не следует выдавать за доказательство отсутствия.|A lack of evidence shouldn't be presented as evidence of absence.
+Мне важно понимать, где заканчиваются факты и начинается мнение автора.|I want to know where the facts end and the author's opinion begins.
+Иногда два источника описывают одно событие по-разному.|Sometimes two sources describe the same event differently.
+Нужно учитывать дату и контекст опубликованной информации.|We need to consider the date and context of the information published.
+Алгоритмы рекомендаций могут усиливать существующие предпочтения.|Recommendation algorithms can reinforce existing preferences.
+Короткое видео редко объясняет всю сложность проблемы.|A short video rarely explains the full complexity of an issue.
+Я стараюсь замечать эмоционально окрашенные формулировки.|I try to notice emotionally charged wording.
+Этот вывод основан на ограниченном количестве примеров.|This conclusion is based on a limited number of examples.
+Не стоит путать личную историю с общим правилом.|We shouldn't confuse a personal story with a general rule.
+Анонимный комментарий не является надёжным подтверждением.|An anonymous comment isn't reliable confirmation.
+Стоит поискать независимые подтверждения утверждения.|It's worth looking for independent confirmation of the claim.
+Я бы предпочёл прочитать полное исследование, а не только пересказ.|I'd rather read the full study than just a summary.
+# B2|Технологии и автоматизация
+Автоматизация помогает избежать повторяющихся ручных действий.|Automation helps eliminate repetitive manual tasks.
+Удобство не должно достигаться за счёт безопасности.|Convenience shouldn't come at the expense of security.
+Важные решения не следует принимать на основе непроверенных данных.|Important decisions shouldn't be based on unverified data.
+Приложение должно корректно восстанавливаться после сбоя.|The application should recover properly after a failure.
+Необходимо сохранять историю изменений для последующего анализа.|We need to preserve the change history for later analysis.
+Система должна сообщать об ошибке, а не скрывать её.|The system should report an error rather than hide it.
+Слишком сложный интерфейс может замедлять работу.|An overly complicated interface can slow people down.
+Новые возможности нужно проверять на реальных сценариях.|New features should be tested against realistic scenarios.
+Мы не можем считать тест успешным только потому, что программа запустилась.|We can't consider a test successful just because the program started.
+Журнал событий поможет восстановить последовательность действий.|The event log will help reconstruct the sequence of actions.
+Важно отделять предположения модели от проверенных фактов.|It's important to distinguish a model's assumptions from verified facts.
+Не все задачи стоит автоматизировать полностью.|Not every task should be fully automated.
+Я предпочитаю простой инструмент, который стабильно работает.|I prefer a simple tool that works reliably.
+Сначала стоит проверить основные функции, затем добавлять новые.|We should verify the core functions before adding new ones.
+Для работы без интернета данные должны храниться локально.|For offline use, data must be stored locally.
+Нам нужна возможность проверить, почему система приняла решение.|We need a way to check why the system made a decision.
+# B2|Переговоры о работе
+Я хотел бы обсудить условия трудового договора.|I'd like to discuss the terms of the employment contract.
+Мне хотелось бы уточнить, какие навыки требуются для этой должности.|I'd like to clarify which skills are required for this position.
+Я открыт к переезду, если условия будут подходящими.|I'm open to relocating if the conditions are right.
+При выборе работы я учитываю не только зарплату.|I consider more than just salary when choosing a job.
+Могу ли я узнать, какие возможности для обучения предлагает компания?|Could you tell me what training opportunities the company offers?
+Мне важно понимать, как будет оцениваться моя работа.|I want to understand how my performance will be assessed.
+Я готов взять на себя дополнительные обязанности при соответствующей поддержке.|I'm willing to take on additional responsibilities with appropriate support.
+Я предпочёл бы обсудить зарплатные ожидания после уточнения обязанностей.|I'd rather discuss salary expectations after clarifying the responsibilities.
+Какие задачи будут для меня основными в первые месяцы?|What would my main responsibilities be during the first few months?
+Я заинтересован в долгосрочном профессиональном развитии.|I'm interested in long-term professional development.
+Мне хотелось бы узнать, насколько гибкий график работы.|I'd like to know how flexible the work schedule is.
+Мой предыдущий опыт может быть полезен вашей команде.|My previous experience could be valuable to your team.
+Я готов пройти дополнительное обучение при необходимости.|I'm prepared to undergo additional training if necessary.
+Предложенные условия в целом соответствуют моим ожиданиям.|The proposed terms broadly meet my expectations.
+Мне потребуется немного времени, чтобы рассмотреть предложение.|I'll need a little time to consider the offer.
+Благодарю за возможность обсудить эту должность.|Thank you for the opportunity to discuss this position.
+# B2|Сложные вопросы и ответы
+Чтобы ответить точно, мне нужно уточнить одно обстоятельство.|To answer accurately, I need to clarify one point.
+Это зависит от того, что именно ты имеешь в виду.|That depends on what exactly you mean.
+Я бы разделил этот вопрос на две отдельные части.|I'd break this question down into two separate parts.
+Мне трудно дать однозначный ответ без дополнительного контекста.|It's difficult to give a definite answer without more context.
+Можно ли переформулировать вопрос немного проще?|Could you rephrase the question a little more simply?
+Я не уверен в деталях, но общий принцип мне понятен.|I'm not sure about the details, but I understand the general principle.
+Я попробую объяснить это на конкретном примере.|I'll try to explain it with a concrete example.
+Возможно, мы используем одно слово в разных значениях.|Perhaps we're using the same word in different senses.
+Мне нужно несколько секунд, чтобы подобрать слова.|I need a few seconds to find the right words.
+Если я правильно понял, тебя беспокоит результат, а не сам процесс.|If I understood correctly, you're concerned about the result rather than the process.
+Мне хотелось бы сначала услышать твоё объяснение.|I'd like to hear your explanation first.
+Давай уточним, о каком периоде времени идёт речь.|Let's clarify which period of time we're talking about.
+Это интересный вопрос, потому что у него нет простого ответа.|That's an interesting question because there isn't a simple answer.
+Я могу объяснить свою позицию, даже если ты с ней не согласишься.|I can explain my position even if you disagree with it.
+Пожалуй, я бы сформулировал свою мысль немного иначе.|Actually, I'd put my point a little differently.
+Возможно, ключ к ответу — в наших разных ожиданиях.|Perhaps the key to the answer lies in our different expectations.
+# B2|Будущее и цели
+Мне хотелось бы иметь возможность выбирать, где и как работать.|I'd like to have the freedom to choose where and how I work.
+Я предпочитаю строить планы, которые можно корректировать.|I prefer making plans that can be adjusted.
+В долгосрочной перспективе навыки важнее быстрых результатов.|In the long run, skills matter more than quick results.
+Я не хочу зависеть от одного источника дохода.|I don't want to depend on a single source of income.
+Хорошее владение языком может расширить выбор возможностей.|A good command of the language can broaden my options.
+Я понимаю, что уверенность приходит с практикой.|I realize that confidence comes with practice.
+Моя цель — стать самостоятельнее, а не просто избежать ошибок.|My goal is to become more independent, not just avoid mistakes.
+Если я продолжу заниматься регулярно, со временем станет легче.|If I keep practising consistently, things will get easier over time.
+Я хотел бы иметь достаточно времени для близких людей.|I'd like to have enough time for the people I care about.
+Успех для меня связан не только с деньгами.|To me, success isn't just about money.
+Я готов менять привычки, если это улучшит мою жизнь.|I'm willing to change my habits if it improves my life.
+Мне важно сохранять любознательность даже после достижения цели.|It's important to stay curious even after reaching a goal.
+Я предпочитаю проверять маленькие гипотезы, прежде чем рисковать многим.|I prefer testing small ideas before taking major risks.
+Неудача может показать, какие навыки следует развивать дальше.|A setback can reveal which skills I need to develop next.
+Я хочу научиться принимать решения увереннее и спокойнее.|I want to learn to make decisions more confidently and calmly.
+Постепенное развитие кажется мне надёжнее резких перемен.|Gradual improvement seems more reliable to me than sudden change.
+# B2|Сложные связки в речи
+Несмотря на усталость, я решил закончить начатое.|Despite being tired, I decided to finish what I'd started.
+Хотя мы и не согласились, разговор оказался полезным.|Although we didn't agree, the conversation was useful.
+Учитывая ограниченное время, нам следует упростить план.|Given the limited time, we should simplify the plan.
+Вместо того чтобы спорить, попробуем уточнить факты.|Rather than argue, let's try to clarify the facts.
+Независимо от результата, опыт окажется полезным.|Regardless of the outcome, the experience will be useful.
+Чем больше я практикуюсь, тем легче мне отвечать.|The more I practise, the easier it becomes to respond.
+Как только мы получим подтверждение, продолжим работу.|As soon as we receive confirmation, we'll continue working.
+До тех пор пока проблема не решена, рисковать не стоит.|As long as the problem remains unresolved, we shouldn't take risks.
+В случае возникновения вопросов свяжитесь со мной.|Should you have any questions, please contact me.
+Наряду с преимуществами нужно учитывать недостатки.|Alongside the benefits, we need to consider the drawbacks.
+На случай отключения связи предусмотрен резервный механизм.|A backup mechanism is in place in case communication is lost.
+По мере накопления опыта мои ответы становятся естественнее.|As I gain experience, my answers are becoming more natural.
+Даже если мы не найдём решение сегодня, обсудим следующие шаги.|Even if we don't find a solution today, let's discuss the next steps.
+Я не столько боюсь ошибки, сколько её последствий.|I'm not so much afraid of making a mistake as of its consequences.
+То, что кажется очевидным мне, может быть неочевидным другим.|What seems obvious to me may not be obvious to others.
+Вместо поспешного вывода я предпочитаю задать уточняющий вопрос.|Instead of jumping to a conclusion, I prefer to ask a clarifying question.
+# B2|Понимание на слух
+Можешь говорить чуть медленнее, не упрощая саму мысль?|Could you speak a bit more slowly without simplifying the idea?
+Я понял основную мысль, но пропустил несколько деталей.|I got the main point, but I missed a few details.
+Твою последнюю фразу было трудно расслышать из-за шума.|I had trouble catching your last sentence because of the noise.
+Сможешь произнести это выражение в обычном темпе?|Could you say that expression at a natural speed?
+Мне легче понимать, когда я знаю тему разговора.|I find it easier to follow when I know the topic of the conversation.
+Некоторые слова звучат иначе в беглой речи.|Some words sound different in connected speech.
+Я начинаю узнавать сокращения на слух.|I'm starting to recognize contractions by ear.
+Иногда я понимаю смысл, даже не различая каждое слово.|Sometimes I understand the meaning without catching every word.
+Повтори, пожалуйста, часть после слова «however».|Could you repeat the part after the word "however"?
+Можно я кратко перескажу, что услышал?|Can I briefly summarize what I've heard?
+Я хочу понимать разные акценты, а не только один.|I want to understand different accents, not just one.
+Когда люди говорят одновременно, мне сложно сосредоточиться.|I find it hard to concentrate when people speak at the same time.
+Быстрая речь требует больше практики.|Fast speech takes more practice to understand.
+Прослушивание одного и того же отрывка помогает мне замечать детали.|Listening to the same passage again helps me notice details.
+Я пытаюсь догадаться о значении слова из контекста.|I try to work out a word's meaning from context.
+Если я чего-то не понял, я могу попросить пояснить.|If I didn't understand something, I can ask for clarification.
+# B2|Фразовые глаголы в контексте
+Мне нужно разобраться, почему это перестало работать.|I need to figure out why this stopped working.
+Мы случайно наткнулись на старый отчёт.|We came across an old report by chance.
+Не откладывай решение, если проблема становится серьёзнее.|Don't put off making a decision if the problem is getting worse.
+Я хочу сначала выяснить, что произошло на самом деле.|I want to find out what actually happened first.
+Эта задача оказалась сложнее, чем я рассчитывал.|This task turned out to be harder than I expected.
+Нам удалось придумать более простой подход.|We managed to come up with a simpler approach.
+Руководитель указал на ошибку в расчётах.|The manager pointed out an error in the calculations.
+Я постараюсь не возвращаться к этому спору.|I'll try not to bring up that argument again.
+Они отклонили предложение из-за стоимости.|They turned down the proposal because of the cost.
+Нам нужно подробно разобраться в причинах сбоя.|We need to look into the causes of the failure in detail.
+Я не хочу сдаваться после первой неудачи.|I don't want to give up after the first setback.
+Команда возьмёт на себя следующий этап проекта.|The team will take over the next stage of the project.
+Я решил сократить время в социальных сетях.|I've decided to cut down on social media.
+Нам нужно уладить разногласия до встречи.|We need to sort out our differences before the meeting.
+Иногда план не срабатывает, хотя идея была разумной.|Sometimes a plan doesn't work out even though the idea was reasonable.
+Я готов довести дело до конца, если мы согласуем условия.|I'm ready to follow through if we agree on the terms.
+# B2|Точные словосочетания
+Мы должны учитывать все доступные данные.|We must take all available data into account.
+Это решение может создать нежелательный прецедент.|This decision may set an unwanted precedent.
+Я предлагаю провести чёткую границу между двумя случаями.|I suggest drawing a clear distinction between the two cases.
+Нам удалось найти баланс между качеством и скоростью.|We managed to strike a balance between quality and speed.
+Перед выбором нужно тщательно взвесить варианты.|We need to weigh the options carefully before choosing.
+Эта перемена окажет влияние на всю команду.|This change will have an impact on the entire team.
+Сроки были соблюдены несмотря на непредвиденные трудности.|The deadlines were met despite unexpected difficulties.
+Нам нужно обратить внимание на повторяющиеся ошибки.|We need to pay attention to recurring mistakes.
+Я хочу взять ответственность за результат своей работы.|I want to take responsibility for the outcome of my work.
+Предлагаю достичь соглашения по основным пунктам.|I suggest reaching an agreement on the main points.
+Это утверждение представляет серьёзный риск для доверия.|This claim poses a serious risk to trust.
+Мы достигли прогресса, но работы ещё много.|We've made progress, but there's still a lot to do.
+Важно учитывать интересы всех участников.|It's important to consider the interests of everyone involved.
+Этот пример помогает объяснить основную мысль.|This example helps illustrate the main point.
+Я не хочу принимать решение под давлением.|I don't want to make a decision under pressure.
+Мы должны определить приоритеты, прежде чем действовать.|We need to set priorities before taking action.
+# B2|Перефразирование и ясность
+Иными словами, нам нужна более надёжная проверка.|In other words, we need a more reliable test.
+Позволь мне выразить эту мысль иначе.|Let me put that another way.
+Я имею в виду не скорость, а качество результата.|What I mean is the quality of the result, not the speed.
+Говоря проще, мы не можем пока это подтвердить.|Put simply, we can't confirm that yet.
+Чтобы избежать путаницы, уточню значение слова.|To avoid confusion, let me clarify what I mean by that word.
+Это не совсем то, что я пытался сказать.|That's not quite what I was trying to say.
+Вернее будет сказать, что решение пока предварительное.|It would be more accurate to say that the decision is still provisional.
+Другими словами, мы пока рассматриваем несколько вариантов.|In other words, we're still considering several options.
+Позволь привести аналогию из моей работы.|Let me draw an analogy from my work.
+Я попробую объяснить без технических терминов.|I'll try to explain it without technical terms.
+Под словом «надёжность» я понимаю устойчивую работу при сбоях.|By "reliability," I mean stable operation when failures occur.
+Важно не путать вероятность события с его неизбежностью.|It's important not to confuse the probability of an event with its inevitability.
+Я говорю об общей тенденции, а не о каждом отдельном случае.|I'm talking about the general trend, not every individual case.
+Если коротко, нам нужен план с запасным вариантом.|In short, we need a plan with a fallback option.
+Суть моего аргумента заключается в необходимости проверки.|The point I'm making is that verification is necessary.
+Надеюсь, теперь моя мысль звучит яснее.|I hope my point is clearer now.
+# B2|Развёрнутые ответы
+На данный момент я склоняюсь к первому варианту, хотя окончательно ещё не решил.|At the moment, I'm leaning towards the first option, although I haven't made a final decision yet.
+Мне хотелось бы сравнить результаты на практике, прежде чем выбирать.|I'd like to compare the results in practice before making a choice.
+Судя по имеющейся информации, оба подхода имеют свои преимущества.|Based on the information available, both approaches have their advantages.
+Всё зависит от того, насколько быстро мы сможем устранить основные риски.|It all depends on how quickly we can address the main risks.
+Я считаю полезным признать неопределённость, вместо того чтобы создавать ложную уверенность.|I think it's better to acknowledge uncertainty than to create false confidence.
+Хотя я понимаю преимущества предложения, меня беспокоит его долгосрочная стоимость.|Although I understand the benefits of the proposal, I'm concerned about its long-term cost.
+Если мы заранее согласуем критерии, результаты будет легче оценивать объективно.|If we agree on the criteria in advance, it will be easier to assess the results objectively.
+Мне кажется, основное разногласие связано с нашими разными приоритетами.|I think our main disagreement comes from having different priorities.
+Даже если решение не окажется идеальным, оно должно быть проверяемым и обратимым.|Even if the decision isn't perfect, it should be testable and reversible.
+Я бы предпочёл открыто обсудить ограничения, чем обещать то, чего не могу гарантировать.|I'd rather discuss the limitations openly than promise something I can't guarantee.
+Самое важное сейчас — понять причину проблемы, а не искать виноватых.|The most important thing right now is to understand the cause of the problem, not to look for someone to blame.
+Пока мы не получим подтверждения, я бы не стал делать окончательных выводов.|Until we receive confirmation, I wouldn't draw any final conclusions.
+Нам стоит подумать не только о том, что произойдёт в лучшем случае, но и о том, что мы будем делать при неудаче.|We should consider not only the best-case scenario but also what we'll do if things go wrong.
+Этот опыт убедил меня, что регулярная практика полезнее редких интенсивных занятий.|This experience has convinced me that regular practice is more useful than occasional intensive sessions.
+Я хочу научиться объяснять свою точку зрения так, чтобы собеседник понимал не только слова, но и смысл.|I want to learn to express my point of view so that the other person understands the meaning, not just the words.
+Я понимаю, что свободное владение языком требует не только словарного запаса, но и умения поддерживать беседу.|I understand that fluency requires not just vocabulary but also the ability to keep a conversation going.

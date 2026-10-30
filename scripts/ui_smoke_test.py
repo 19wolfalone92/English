@@ -8,9 +8,9 @@ async def main():
     asset_dir=Path(__file__).resolve().parents[1]/'app/src/main/assets'
     html=(asset_dir/'index.html').read_text(encoding='utf-8')
     html=html.replace('<link rel="stylesheet" href="styles.css">', '<style>'+ (asset_dir/'styles.css').read_text(encoding='utf-8') + '</style>')
-    for asset in ('curriculum.js','vocab.js','practice.js','app.js'):
+    for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'):
         html=html.replace(f'<script src="{asset}" defer></script>', '')
-    scripts=''.join('<script>'+ (asset_dir/asset).read_text(encoding='utf-8') + '</script>' for asset in ('curriculum.js','vocab.js','practice.js','app.js'))
+    scripts=''.join('<script>'+ (asset_dir/asset).read_text(encoding='utf-8') + '</script>' for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'))
     html=html.replace('</body>',scripts+'</body>')
     async with async_playwright() as p:
         browser=await p.chromium.launch(headless=True,executable_path='/usr/bin/chromium',args=['--no-sandbox','--allow-file-access-from-files'])
@@ -23,7 +23,17 @@ async def main():
             await page.get_by_role('button',name='Практика').click()
             assert await page.get_by_role('heading',name='Практика 🎧').is_visible()
             assert await page.get_by_role('button',name='Начать · 10 вопросов').is_visible()
-            await page.get_by_role('button',name='Учить · 12 карточек').click()
+            totals=await page.evaluate("""[window.WOLFIE_WORDS.length + window.WOLFIE_EXTRA_WORDS.length, window.WOLFIE_LESSONS.flatMap(x=>x.pairs).length + window.WOLFIE_EXTRA_PHRASES.length]""" )
+            assert totals[0]>=1000 and totals[1]>=1000, totals
+            assert await page.locator('#listen-topic option').count()>=10
+            assert await page.locator('#card-topic option').count()>=10
+            await page.locator('#practice-level').select_option('B2')
+            assert await page.locator('#listen-topic option').count()>=20
+            await page.locator('#card-type').select_option('phrases')
+            assert await page.locator('#card-topic option').count()>=20
+            await page.locator('#card-type').select_option('words')
+            await page.locator('#practice-level').select_option('A2')
+            await page.get_by_role('button',name='Учить · до 12 карточек').click()
             assert await page.locator('#card-phrase').is_visible()
             initial=await page.locator('#card-phrase').inner_text()
             await page.locator('#flip').click()
@@ -34,7 +44,7 @@ async def main():
             await page.get_by_role('button',name='✕ Назад').click()
             await page.locator('#card-type').select_option('phrases')
             await page.locator('#card-side').select_option('ru')
-            await page.get_by_role('button',name='Учить · 12 карточек').click()
+            await page.get_by_role('button',name='Учить · до 12 карточек').click()
             assert 'РУССКИЙ' == await page.locator('#card-label').inner_text()
             assert await page.locator('#card-speak').is_disabled()
             await page.locator('#flip').click()

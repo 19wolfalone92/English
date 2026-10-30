@@ -1,0 +1,1014 @@
+# A2|Дом и повседневность
+apartment|квартира
+bedroom|спальня
+kitchen|кухня
+bathroom|ванная комната
+hallway|коридор
+ceiling|потолок
+floor|пол
+wall|стена
+roof|крыша
+balcony|балкон
+shelf|полка
+drawer|выдвижной ящик
+pillow|подушка
+blanket|одеяло
+mirror|зеркало
+curtain|штора
+carpet|ковёр
+lamp|лампа
+switch|выключатель
+socket|розетка
+furniture|мебель
+neighbor|сосед
+rent|арендная плата
+address|адрес
+entrance|вход
+# A2|Еда и кухня
+vegetable|овощ
+fruit|фрукт
+potato|картофель
+carrot|морковь
+onion|лук
+garlic|чеснок
+tomato|помидор
+cucumber|огурец
+cabbage|капуста
+mushroom|гриб
+cheese|сыр
+butter|сливочное масло
+flour|мука
+sugar|сахар
+salt|соль
+pepper|перец
+soup|суп
+salad|салат
+breakfast|завтрак
+lunch|обед
+dinner|ужин
+recipe|рецепт
+ingredient|ингредиент
+portion|порция
+flavor|вкус
+# A2|Действия на кухне
+boil|варить в кипящей воде
+fry|жарить
+bake|запекать
+slice|нарезать ломтиками
+chop|рубить, нарезать
+stir|помешивать
+mix|смешивать
+pour|наливать
+peel|чистить от кожуры
+serve|подавать на стол
+taste|пробовать на вкус
+smell|пахнуть
+wash|мыть
+dry|сушить
+heat|нагревать
+cool|охлаждать
+prepare|подготавливать
+share|делиться
+spoon|ложка
+fork|вилка
+knife|нож
+plate|тарелка
+bowl|миска
+pan|сковорода
+pot|кастрюля
+# A2|Время и распорядок
+minute|минута
+hour|час
+week|неделя
+month|месяц
+year|год
+morning|утро
+afternoon|время после полудня
+evening|вечер
+midnight|полночь
+yesterday|вчера
+tomorrow|завтра
+today|сегодня
+soon|скоро
+later|позже
+already|уже
+still|всё ещё
+often|часто
+rarely|редко
+early|рано
+late|поздно
+schedule|расписание
+appointment|назначенная встреча
+weekend|выходные дни
+weekday|будний день
+holiday|праздник
+# A2|Тело и здоровье
+head|голова
+shoulder|плечо
+arm|рука от плеча до кисти
+hand|кисть руки
+finger|палец руки
+leg|нога
+knee|колено
+foot|ступня
+back|спина
+stomach|живот
+heart|сердце
+throat|горло
+tooth|зуб
+eye|глаз
+ear|ухо
+skin|кожа
+pain|боль
+fever|жар, повышенная температура
+cough|кашель
+medicine|лекарство
+pharmacy|аптека
+doctor|врач
+nurse|медсестра
+healthy|здоровый
+sick|больной
+# A2|Город и дорога
+street|улица
+road|дорога
+bridge|мост
+square|площадь
+corner|угол
+station|станция
+platform|платформа
+airport|аэропорт
+bus|автобус
+train|поезд
+tram|трамвай
+taxi|такси
+ticket|билет
+passenger|пассажир
+driver|водитель
+traffic|дорожное движение
+crossing|переход
+sidewalk|тротуар
+map|карта
+route|маршрут
+direction|направление
+distance|расстояние
+nearby|поблизости
+straight|прямо
+opposite|напротив
+# A2|Магазин и деньги
+shop|магазин
+market|рынок
+customer|покупатель
+cashier|кассир
+price|цена
+cost|стоимость
+cash|наличные деньги
+change|сдача
+receipt|чек
+discount|скидка
+sale|распродажа
+size|размер
+color|цвет
+brand|бренд
+quality|качество
+quantity|количество
+packet|пакет
+basket|корзина
+wallet|кошелёк
+coin|монета
+banknote|банкнота
+payment|платёж
+refund|возврат денег
+exchange|обмен
+budget|бюджет
+# A2|Погода и природа
+weather|погода
+sunshine|солнечный свет
+rain|дождь
+snow|снег
+wind|ветер
+cloud|облако
+storm|буря
+fog|туман
+ice|лёд
+sky|небо
+river|река
+lake|озеро
+forest|лес
+mountain|гора
+hill|холм
+field|поле
+beach|пляж
+island|остров
+flower|цветок
+grass|трава
+leaf|лист
+branch|ветка
+root|корень
+warm|тёплый
+freezing|очень холодный, морозный
+# A2|Одежда и вещи
+shirt|рубашка
+T-shirt|футболка
+sweater|свитер
+jacket|куртка
+coat|пальто
+trousers|брюки
+jeans|джинсы
+skirt|юбка
+dress|платье
+shoe|туфля, ботинок
+boot|сапог
+sock|носок
+hat|шапка, шляпа
+glove|перчатка
+scarf|шарф
+belt|ремень
+pocket|карман
+zipper|молния на одежде
+button|пуговица
+umbrella|зонт
+backpack|рюкзак
+suitcase|чемодан
+watch|наручные часы
+ring|кольцо
+necklace|ожерелье
+# A2|Люди и общение
+friend|друг
+family|семья
+parent|родитель
+child|ребёнок
+relative|родственник
+colleague|коллега
+stranger|незнакомец
+guest|гость
+host|хозяин, принимающая сторона
+couple|пара
+partner|партнёр
+conversation|разговор
+message|сообщение
+call|звонок
+invitation|приглашение
+reply|ответ
+opinion|мнение
+idea|идея
+story|история
+joke|шутка
+smile|улыбка
+laughter|смех
+voice|голос
+accent|акцент
+language|язык
+# A2|Описание и чувства
+happy|счастливый
+sad|грустный
+angry|сердитый
+nervous|нервничающий
+excited|взволнованный, радостно возбуждённый
+bored|скучающий
+surprised|удивлённый
+afraid|испуганный
+relaxed|расслабленный
+lonely|одинокий
+kind|добрый
+polite|вежливый
+friendly|дружелюбный
+honest|честный
+patient|терпеливый
+brave|смелый
+shy|застенчивый
+serious|серьёзный
+funny|смешной
+calm|спокойный
+curious|любопытный
+proud|гордый
+useful|полезный
+simple|простой
+difficult|трудный
+# A2|Обучение и техника
+book|книга
+page|страница
+chapter|глава
+lesson|урок
+exercise|упражнение
+example|пример
+translation|перевод
+meaning|значение
+sentence|предложение
+phrase|фраза
+word|слово
+pronunciation|произношение
+grammar|грамматика
+spelling|правописание
+vocabulary|словарный запас
+notebook|тетрадь
+keyboard|клавиатура
+screen|экран
+charger|зарядное устройство
+battery|батарея
+headphones|наушники
+speaker|динамик
+application|приложение
+website|веб-сайт
+password|пароль
+# B1|Работа и профессиональные навыки
+employee|сотрудник
+employer|работодатель
+salary|зарплата
+income|доход
+wage|оплата труда
+promotion|повышение по службе
+interview|собеседование
+vacancy|вакансия
+candidate|кандидат
+qualification|квалификация
+skill|навык
+training|обучение
+performance|результативность
+career|карьера
+profession|профессия
+position|должность
+contract|договор
+workplace|рабочее место
+deadline|крайний срок
+shift|рабочая смена
+overtime|сверхурочная работа
+task|задача
+priority|приоритет
+assignment|поручение
+feedback|обратная связь
+# B1|Техническая работа
+circuit|электрическая цепь
+current|электрический ток
+voltage|напряжение
+resistance|сопротивление
+power|мощность
+transformer|трансформатор
+relay|реле
+protection|защита
+breaker|автоматический выключатель
+fuse|предохранитель
+wire|провод
+cable|кабель
+terminal|клемма
+connection|соединение
+insulation|изоляция
+sensor|датчик
+measurement|измерение
+reading|показание прибора
+fault|неисправность
+failure|отказ
+repair|ремонт
+maintenance|техническое обслуживание
+inspection|осмотр
+replacement|замена
+installation|установка оборудования
+# B1|Процессы и действия
+adjust|настраивать
+attach|прикреплять
+connect|подключать
+disconnect|отключать
+remove|удалять
+replace|заменять
+install|устанавливать
+test|испытывать
+measure|измерять
+record|записывать
+monitor|контролировать
+check|проверять
+confirm|подтверждать
+prevent|предотвращать
+reduce|уменьшать
+increase|увеличивать
+avoid|избегать
+solve|решать
+fix|исправлять
+identify|определять
+inspect|осматривать
+operate|эксплуатировать
+control|управлять
+recover|восстанавливать
+report|сообщать, докладывать
+# B1|Общение на работе
+meeting|совещание
+discussion|обсуждение
+proposal|предложение
+request|запрос
+instruction|инструкция
+procedure|процедура
+requirement|требование
+explanation|объяснение
+summary|краткое изложение
+detail|подробность
+attachment|вложение
+file|файл
+document|документ
+report|отчёт
+project|проект
+update|обновление
+revision|пересмотр
+approval|одобрение
+permission|разрешение
+agreement|соглашение
+colleague|коллега
+manager|руководитель
+supervisor|непосредственный начальник
+team|команда
+client|клиент
+# B1|Отношения и эмоции
+affection|нежность
+admiration|восхищение
+concern|беспокойство
+anxiety|тревога
+jealousy|ревность
+patience|терпение
+compassion|сострадание
+empathy|сопереживание
+forgiveness|прощение
+apology|извинение
+argument|ссора, спор
+conflict|конфликт
+misunderstanding|недопонимание
+boundary|личная граница
+closeness|близость
+attention|внимание
+appreciation|признательность
+rejection|отвержение
+attachment|привязанность
+doubt|сомнение
+hope|надежда
+disappointment|разочарование
+relief|облегчение
+regret|сожаление
+encouragement|ободрение
+# B1|Размышления и решения
+consider|рассматривать, обдумывать
+assume|предполагать
+believe|полагать, верить
+notice|замечать
+observe|наблюдать
+wonder|задаваться вопросом
+reflect|размышлять
+analyze|анализировать
+investigate|исследовать
+research|изучать
+predict|предсказывать
+expect|ожидать
+estimate|оценивать приблизительно
+judge|судить, оценивать
+conclude|делать вывод
+choose|выбирать
+plan|планировать
+prepare|готовиться
+concentrate|сосредотачиваться
+focus|фокусироваться
+adapt|приспосабливаться
+react|реагировать
+respond|отвечать, реагировать
+imagine|представлять
+visualize|представлять мысленно
+# B1|Учёба и улучшение
+revision|повторение материала
+review|повторение, обзор
+progress|прогресс
+improvement|улучшение
+knowledge|знания
+understanding|понимание
+fluency|беглость речи
+accuracy|точность
+strength|сильная сторона
+weakness|слабая сторона
+habit|привычка
+routine|распорядок
+motivation|мотивация
+effort|усилие
+attention span|длительность концентрации
+memory|память
+recall|воспоминание, извлечение из памяти
+recognition|узнавание
+practice session|тренировочное занятие
+flashcard|учебная карточка
+quiz|небольшой тест
+mistake|ошибка
+correction|исправление
+achievement|достижение
+milestone|важный этап
+# B1|Путешествия и культура
+destination|пункт назначения
+journey|поездка, путешествие
+itinerary|маршрут путешествия
+reservation|бронирование
+accommodation|жильё для поездки
+hostel|хостел
+check-in|регистрация при заселении
+check-out|выписка из отеля
+passport|паспорт
+visa|виза
+border|граница
+customs|таможня
+luggage|багаж
+baggage allowance|норма багажа
+security check|досмотр безопасности
+boarding pass|посадочный талон
+departure|отправление
+arrival|прибытие
+delay|задержка
+cancellation|отмена
+sightseeing|осмотр достопримечательностей
+landmark|достопримечательность
+tradition|традиция
+custom|обычай
+local|местный житель
+# B1|Бытовые проблемы
+leak|утечка, протечка
+crack|трещина
+scratch|царапина
+stain|пятно
+noise|шум
+smoke|дым
+alarm|сигнал тревоги
+lock|замок
+key|ключ
+handle|ручка
+hinge|петля двери
+pipe|труба
+tap|водопроводный кран
+drain|слив
+filter|фильтр
+plug|штепсельная вилка
+extension cord|удлинитель
+ladder|лестница-стремянка
+toolbox|ящик с инструментами
+screwdriver|отвёртка
+pliers|плоскогубцы
+wrench|гаечный ключ
+hammer|молоток
+bolt|болт
+nut|гайка
+# B1|Финансы и планирование
+savings|сбережения
+expense|расход
+cost of living|стоимость жизни
+debt|долг
+loan|заём
+interest|процент
+investment|инвестиция
+profit|прибыль
+loss|убыток
+fund|фонд, средства
+safety net|финансовая подушка
+payment plan|план платежей
+bank account|банковский счёт
+transaction|операция, транзакция
+fee|комиссия
+invoice|счёт на оплату
+bill|счёт к оплате
+subscription|подписка
+insurance|страхование
+coverage|страховое покрытие
+financial goal|финансовая цель
+financial freedom|финансовая свобода
+side income|дополнительный доход
+pay rise|повышение зарплаты
+tax|налог
+# B1|СМИ и цифровая жизнь
+headline|заголовок новости
+article|статья
+source|источник
+interview|интервью
+podcast|подкаст
+channel|канал
+subscriber|подписчик
+comment|комментарий
+notification|уведомление
+privacy|конфиденциальность
+account|учётная запись
+profile|профиль
+settings|настройки
+feature|функция
+bug|программная ошибка
+backup|резервная копия
+storage|хранилище данных
+file size|размер файла
+upload|загрузка на сервер
+download|загрузка с сервера
+connection speed|скорость соединения
+network|сеть
+wireless|беспроводной
+update available|доступное обновление
+login|вход в учётную запись
+# B1|Спорт и самочувствие
+exercise|физическое упражнение
+workout|тренировка
+warm-up|разминка
+stretching|растяжка
+strength|сила
+endurance|выносливость
+balance|равновесие
+posture|осанка
+fitness|физическая форма
+recovery|восстановление
+rest day|день отдыха
+sleep quality|качество сна
+hydration|достаточное потребление воды
+nutrition|питание
+appetite|аппетит
+stress|стресс
+fatigue|усталость
+breathing|дыхание
+heartbeat|сердцебиение
+blood pressure|артериальное давление
+routine check|плановая проверка
+symptom|симптом
+appointment|приём у врача
+recovery time|время восстановления
+well-being|благополучие
+# B2|Аргументация и логика
+argument|аргумент
+claim|утверждение
+evidence|доказательство
+proof|доказательство, подтверждение
+reasoning|рассуждение
+inference|умозаключение
+implication|следствие, подразумеваемый смысл
+counterargument|контраргумент
+objection|возражение
+rebuttal|опровержение
+premise|исходная посылка
+conclusion|вывод
+bias|предвзятость
+fallacy|логическая ошибка
+assumption|допущение
+hypothesis|гипотеза
+uncertainty|неопределённость
+probability|вероятность
+likelihood|вероятность наступления
+plausibility|правдоподобие
+relevance|уместность
+contradiction|противоречие
+consistency|последовательность, согласованность
+qualification|оговорка, уточнение
+nuance|нюанс
+# B2|Обсуждение и риторика
+nevertheless|тем не менее
+nonetheless|тем не менее
+furthermore|кроме того
+moreover|более того
+consequently|следовательно
+therefore|поэтому, следовательно
+thus|таким образом
+whereas|тогда как
+although|хотя
+albeit|хотя и
+provided that|при условии что
+assuming that|предполагая что
+regardless of|независимо от
+in contrast|напротив, в отличие
+by comparison|для сравнения
+in addition|кроме того
+on balance|если взвесить всё
+in principle|в принципе
+in practice|на практике
+in retrospect|оглядываясь назад
+in the meantime|тем временем
+for the sake of|ради, в интересах
+in light of|с учётом
+according to|согласно
+with regard to|что касается
+# B2|Анализ и оценивание
+assess|оценивать
+appraise|давать оценку
+scrutinize|тщательно изучать
+examine|исследовать
+interpret|интерпретировать
+differentiate|различать
+categorize|классифицировать
+prioritize|расставлять приоритеты
+quantify|измерять количественно
+verify|проверять достоверность
+validate|подтверждать корректность
+corroborate|подкреплять доказательствами
+refute|опровергать
+acknowledge|признавать
+clarify|прояснять
+specify|уточнять
+elaborate|рассказывать подробнее
+summarize|подводить итог
+highlight|подчёркивать
+emphasize|делать акцент
+illustrate|иллюстрировать
+justify|обосновывать
+account for|объяснять причину
+attribute to|объяснять чем-либо
+infer|делать вывод из фактов
+# B2|Точность и характеристики
+accurate|точный
+precise|точный, детальный
+reliable|надёжный
+valid|обоснованный, действительный
+consistent|последовательный, согласованный
+relevant|уместный, относящийся к делу
+significant|значительный
+substantial|существенный
+marginal|незначительный
+minor|второстепенный
+major|основной, крупный
+critical|критически важный
+essential|необходимый
+optional|необязательный
+feasible|осуществимый
+viable|жизнеспособный
+sustainable|устойчивый, долгосрочно поддерживаемый
+flexible|гибкий
+robust|устойчивый к сбоям
+fragile|хрупкий
+ambiguous|неоднозначный
+explicit|явно выраженный
+implicit|подразумеваемый
+objective|объективный
+subjective|субъективный
+# B2|Эмоциональный интеллект
+self-awareness|самоосознание
+self-esteem|самооценка
+self-respect|самоуважение
+emotional regulation|управление эмоциями
+emotional resilience|эмоциональная устойчивость
+vulnerability|уязвимость
+insecurity|неуверенность в себе
+reassurance|успокоение, заверение
+validation|признание чувств и переживаний
+reciprocity|взаимность
+mutual respect|взаимное уважение
+emotional distance|эмоциональная дистанция
+emotional support|эмоциональная поддержка
+attachment style|стиль привязанности
+communication pattern|модель общения
+self-reflection|самоанализ
+rumination|навязчивое пережёвывание мыслей
+coping strategy|стратегия совладания
+self-discipline|самодисциплина
+impulse control|контроль импульсов
+self-confidence|уверенность в себе
+mindset|образ мышления
+personal growth|личностный рост
+perspective-taking|умение видеть чужую точку зрения
+emotional maturity|эмоциональная зрелость
+# B2|Переговоры и сотрудничество
+stakeholder|заинтересованная сторона
+consensus|согласие, консенсус
+compromise|компромисс
+concession|уступка
+negotiation|переговоры
+mediation|посредничество
+cooperation|сотрудничество
+collaboration|совместная работа
+coordination|координация
+alignment|согласованность действий
+misalignment|расхождение целей
+expectation|ожидание
+commitment|обязательство
+accountability|ответственность за результат
+ownership|личная ответственность за задачу
+transparency|прозрачность
+trustworthiness|заслуживающее доверия качество
+confidentiality|конфиденциальность
+conflict resolution|разрешение конфликта
+follow-up|последующее действие
+trade-off|компромисс между выгодами и потерями
+common ground|точки соприкосновения
+shared goal|общая цель
+long-term goal|долгосрочная цель
+binding agreement|обязательное соглашение
+# B2|Инженерия и надёжность
+redundancy|резервирование
+interlock|блокировка безопасности
+commissioning|ввод в эксплуатацию
+troubleshooting|поиск и устранение неисправностей
+calibration|калибровка
+sensitivity|чувствительность
+selectivity|селективность
+coordination study|исследование согласованности защит
+short circuit|короткое замыкание
+overcurrent|сверхток
+undervoltage|пониженное напряжение
+overvoltage|повышенное напряжение
+ground fault|замыкание на землю
+trip signal|сигнал отключения
+operating threshold|порог срабатывания
+setpoint|уставка
+fault current|ток короткого замыкания
+load shedding|отключение нагрузки
+power outage|отключение электроэнергии
+failure mode|вид отказа
+root cause|первопричина
+preventive maintenance|профилактическое обслуживание
+acceptance testing|приёмочные испытания
+compliance|соответствие требованиям
+audit trail|журнал аудита
+# B2|Данные и технологии
+dataset|набор данных
+sample|выборка
+sampling bias|ошибка смещения выборки
+benchmark|контрольный ориентир
+baseline|исходный уровень
+metric|метрика
+indicator|показатель
+variable|переменная
+parameter|параметр
+constraint|ограничение
+threshold|порог
+anomaly|аномалия
+outlier|выброс, нетипичное значение
+pattern|закономерность
+trend|тенденция
+correlation|корреляция
+causation|причинно-следственная связь
+prediction|прогноз
+forecast|прогноз на будущее
+confidence interval|доверительный интервал
+uncertainty estimate|оценка неопределённости
+data integrity|целостность данных
+reproducibility|воспроизводимость
+version control|контроль версий
+rollback|откат изменений
+# B2|Карьера и развитие
+competency|профессиональная компетенция
+expertise|экспертные знания
+specialization|специализация
+transferable skills|универсальные навыки
+leadership|лидерство
+initiative|инициатива
+proficiency|высокий уровень владения навыком
+professional development|профессиональное развитие
+performance review|оценка эффективности сотрудника
+career advancement|карьерный рост
+career transition|смена карьерного направления
+job satisfaction|удовлетворённость работой
+work-life balance|баланс работы и личной жизни
+flexible schedule|гибкий график
+remote position|удалённая должность
+employment contract|трудовой договор
+negotiable salary|зарплата, обсуждаемая на собеседовании
+benefits package|социальный пакет
+salary expectations|зарплатные ожидания
+probation period|испытательный срок
+notice period|срок уведомления об увольнении
+reference letter|рекомендательное письмо
+professional network|сеть профессиональных контактов
+mentorship|наставничество
+upskilling|повышение квалификации
+# B2|Общество и государство
+policy|политика, курс действий
+regulation|нормативное регулирование
+legislation|законодательство
+institution|учреждение, институт
+public service|государственная услуга
+infrastructure|инфраструктура
+urbanization|урбанизация
+inequality|неравенство
+accessibility|доступность
+representation|представительство
+participation|участие
+citizenship|гражданство
+migration|миграция
+integration|интеграция
+diversity|разнообразие
+inclusion|вовлечение
+civil rights|гражданские права
+freedom of expression|свобода выражения мнения
+public awareness|осведомлённость общества
+community|сообщество
+volunteering|волонтёрство
+social mobility|социальная мобильность
+public funding|государственное финансирование
+public health|общественное здравоохранение
+safety standards|нормы безопасности
+# B2|Экология и ресурсы
+climate|климат
+emission|выброс
+pollution|загрязнение
+environmental impact|воздействие на окружающую среду
+carbon footprint|углеродный след
+renewable energy|возобновляемая энергия
+fossil fuel|ископаемое топливо
+energy efficiency|энергоэффективность
+energy consumption|потребление энергии
+conservation|сохранение природных ресурсов
+biodiversity|биоразнообразие
+ecosystem|экосистема
+habitat|среда обитания
+deforestation|вырубка лесов
+recycling|переработка отходов
+waste management|обращение с отходами
+scarcity|дефицит
+resource allocation|распределение ресурсов
+sustainable development|устойчивое развитие
+supply chain|цепочка поставок
+raw material|сырьё
+resilience|устойчивость
+adaptation|адаптация
+mitigation|смягчение последствий
+long-term impact|долгосрочное воздействие
+# B2|Научное мышление
+experiment|эксперимент
+observation|наблюдение
+methodology|методология
+research question|исследовательский вопрос
+control group|контрольная группа
+experimental group|экспериментальная группа
+peer review|экспертное рецензирование
+publication|публикация
+finding|результат исследования
+limitation|ограничение исследования
+assumption check|проверка допущений
+statistical significance|статистическая значимость
+replication|повторное исследование
+measurement error|погрешность измерения
+precision|точность измерений
+reliability|надёжность
+validity|валидность
+randomization|рандомизация
+confounding factor|смешивающий фактор
+interpretation|толкование результатов
+generalization|обобщение
+causal relationship|причинная связь
+empirical evidence|эмпирические доказательства
+informed decision|обоснованное решение
+critical thinking|критическое мышление
+# B2|Медиа и информационная грамотность
+misinformation|недостоверная информация
+disinformation|преднамеренная дезинформация
+fact-checking|проверка фактов
+credible source|заслуживающий доверия источник
+primary source|первоисточник
+secondary source|вторичный источник
+editorial|редакционная статья
+commentary|комментарий, аналитическое мнение
+news coverage|освещение событий в новостях
+media literacy|медиаграмотность
+algorithm|алгоритм
+recommendation system|рекомендательная система
+engagement|вовлечённость аудитории
+clickbait|кликбейт
+headline framing|подача новости в заголовке
+confirmation bias|склонность подтверждать свою точку зрения
+filter bubble|информационный пузырь
+privacy settings|настройки конфиденциальности
+digital footprint|цифровой след
+identity theft|кража личности
+cybersecurity|кибербезопасность
+authentication|проверка подлинности
+verification|подтверждение
+consent|согласие
+personal data|персональные данные
+# B2|Фразовые глаголы
+bring up|поднять тему
+carry out|выполнить
+come across|случайно встретить, наткнуться
+come up with|придумать
+cut down on|сократить потребление
+figure out|разобраться
+find out|выяснить
+get along with|ладить с
+get over|преодолеть, оправиться
+give up|сдаваться, бросать
+look into|разобраться, расследовать
+look up to|уважать, восхищаться
+make up for|компенсировать
+point out|указывать
+put off|откладывать
+run into|случайно столкнуться
+set up|настроить, организовать
+sort out|разобраться, уладить
+take over|перенять управление
+turn down|отклонить
+work out|получиться, решить
+follow through|довести до конца
+break down|сломаться, разделить на части
+hold back|сдерживать
+rule out|исключить
+# B2|Устойчивые словосочетания
+make a decision|принять решение
+take responsibility|взять ответственность
+raise awareness|повысить осведомлённость
+reach an agreement|достичь соглашения
+meet a deadline|уложиться в срок
+make progress|добиваться прогресса
+set priorities|установить приоритеты
+weigh the options|взвесить варианты
+reach a conclusion|прийти к выводу
+provide evidence|предоставить доказательства
+address a concern|рассмотреть проблему
+pose a risk|представлять риск
+carry a risk|сопровождаться риском
+achieve a goal|достичь цели
+make an effort|приложить усилие
+face a challenge|столкнуться с трудностью
+take into account|принимать во внимание
+keep in mind|иметь в виду
+come to terms with|примириться с фактом
+make an assumption|сделать предположение
+strike a balance|найти баланс
+draw a distinction|провести различие
+set a precedent|создать прецедент
+have an impact|оказывать влияние
+play a role|играть роль

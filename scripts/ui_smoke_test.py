@@ -40,6 +40,7 @@ async def main():
             await page.locator('#flip').click()
             assert 'ENGLISH' == await page.locator('#card-label').inner_text()
             await page.get_by_role('button',name='Повторить').click()
+            assert '2 / 13' in await page.locator('.question-progress').inner_text()
             await page.get_by_role('button',name='✕ Назад').click()
             await page.get_by_role('button',name='Начать · 10 вопросов').click()
             if await page.get_by_role('heading',name='Английский голос недоступен').count():

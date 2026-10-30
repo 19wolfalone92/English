@@ -10,7 +10,7 @@ function prefs(){if(!core.store.practicePrefs||typeof core.store.practicePrefs!=
 function currentPool(type,level){return (type==='words'?words:phrases).filter(x=>x.level===level);}
 function sortedPool(type,level){const now=Date.now(),list=shuffle(currentPool(type,level));return list.sort((a,b)=>{
   const aS=core.store.items[a.id],bS=core.store.items[b.id];
-  const score=s=>!s?0:Number(s.due)<=now?1:2;
+  const score=s=>!s?1:Number(s.due)<=now?0:2;
   return score(aS)-score(bS);
 });}
 function mount(el,api){root=el;core=api;round=null;showMenu();}
@@ -47,14 +47,14 @@ root.querySelectorAll('.answer').forEach(b=>b.addEventListener('click',()=>{
 // The sound is also playable with a dedicated tap for browsers that block autoplay.
 setTimeout(()=>{if(round===r&&!r.answered&&r.items[r.index]===item)core.speak(item.en);},250);
 }
-function startCards(type,level,side){const pool=sortedPool(type,level).slice(0,12);if(!pool.length){showMenu();return;}round={kind:'cards',type,side,level,items:pool,index:0,correct:0,flipped:false};renderCard();}
+function startCards(type,level,side){const pool=sortedPool(type,level).slice(0,12);if(!pool.length){showMenu();return;}round={kind:'cards',type,side,level,items:pool,index:0,correct:0,flipped:false,requeues:{}};renderCard();}
 function renderCard(){const r=round;if(!r||r.kind!=='cards')return;if(r.index>=r.items.length){finishRound();return;}r.flipped=false;const item=r.items[r.index];const front=r.side==='en'?item.en:item.ru;const back=r.side==='en'?item.ru:item.en;
 root.innerHTML=`<div class="top-actions"><button type="button" class="secondary" id="cards-exit">✕ Назад</button><span class="question-progress">${r.index+1} / ${r.items.length}</span><span class="pill">${r.type==='words'?'📖 Слова':'💬 Фразы'} · ${r.level}</span></div><div class="bar"><div style="width:${100*r.index/r.items.length}%"></div></div><section class="question-card"><div class="question-label">Вспомни перевод, затем открой ответ</div><button class="flashcard" type="button" id="flip" aria-label="Перевернуть карточку"><span class="card-face-label" id="card-label">${r.side==='en'?'ENGLISH':'РУССКИЙ'}</span><span class="card-phrase" id="card-phrase">${h(front)}</span><span class="card-hint" id="card-hint">Нажми, чтобы перевернуть ↻</span></button><div class="card-audio"><button class="secondary" id="card-speak" type="button" ${r.side==='ru'?'disabled':''}>🔊 Произношение</button></div><div id="card-rating" class="two-buttons" hidden><button type="button" class="secondary" id="card-again">🔁 Повторить</button><button type="button" class="primary" id="card-know">✅ Я вспомнил</button></div></section>`;
 root.querySelector('#cards-exit').addEventListener('click',showMenu);
 const card=root.querySelector('#flip');const speaker=root.querySelector('#card-speak');if(!core.voiceAvailable()){speaker.disabled=true;speaker.textContent='🔇 Голос недоступен';}speaker.addEventListener('click',()=>core.speak(item.en));
 card.addEventListener('click',()=>{r.flipped=!r.flipped;root.querySelector('#card-label').textContent=r.flipped?(r.side==='en'?'РУССКИЙ':'ENGLISH'):(r.side==='en'?'ENGLISH':'РУССКИЙ');root.querySelector('#card-phrase').textContent=r.flipped?back:front;root.querySelector('#card-hint').textContent=r.flipped?'Нажми, чтобы увидеть исходную фразу ↻':'Нажми, чтобы перевернуть ↻';speaker.disabled=!core.voiceAvailable()||(r.side==='ru'&&!r.flipped);root.querySelector('#card-rating').hidden=!r.flipped;});
-for(const [id,ok] of [['card-again',false],['card-know',true]]){root.querySelector('#'+id).addEventListener('click',()=>{if(!r.flipped)return;core.score(item,ok);r.correct+=Number(ok);r.index++;renderCard();});}
+for(const [id,ok] of [['card-again',false],['card-know',true]]){root.querySelector('#'+id).addEventListener('click',()=>{if(!r.flipped)return;core.score(item,ok);r.correct+=Number(ok);if(!ok){const tries=r.requeues[item.id]||0;if(tries<2){r.requeues[item.id]=tries+1;r.items.splice(Math.min(r.index+3,r.items.length),0,item);}}r.index++;renderCard();});}
 }
-function finishRound(){const r=round;round=null;root.innerHTML=`<section class="hero" style="text-align:center"><div class="mode-symbol">${r.kind==='audio'?'🎧':'🃏'}</div><h1>Тренировка завершена!</h1><p>${r.kind==='audio'?'Правильных переводов':'Отмечено как выученное'}: <b>${r.correct} из ${r.items.length}</b></p><p>Сложные слова и фразы появятся снова в повторениях. Прогресс сохранён на устройстве.</p><button id="practice-home" type="button" class="primary">К упражнениям</button></section>`;root.querySelector('#practice-home').addEventListener('click',showMenu);}
+function finishRound(){const r=round;round=null;root.innerHTML=`<section class="hero" style="text-align:center"><div class="mode-symbol">${r.kind==='audio'?'🎧':'🃏'}</div><h1>Тренировка завершена!</h1><p>${r.kind==='audio'?'Правильных переводов':'Отмечено как выученное'}: <b>${r.correct} из ${r.items.length}</b></p><p>Забытые слова и фразы повторяются в тренировке и возвращаются позже по расписанию. Прогресс сохранён на устройстве.</p><button id="practice-home" type="button" class="primary">К упражнениям</button></section>`;root.querySelector('#practice-home').addEventListener('click',showMenu);}
 window.WOLFIE_PRACTICE={mount};
 })();

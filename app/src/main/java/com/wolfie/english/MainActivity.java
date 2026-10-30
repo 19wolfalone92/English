@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
 import android.speech.tts.TextToSpeech;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
@@ -20,15 +21,19 @@ public final class MainActivity extends Activity {
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
-        getWindow().setStatusBarColor(Color.rgb(13, 24, 42));
-        getWindow().setNavigationBarColor(Color.rgb(13, 24, 42));
+        getWindow().setStatusBarColor(Color.rgb(245, 248, 255));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setNavigationBarColor(Color.rgb(245, 248, 255));
+        if (android.os.Build.VERSION.SDK_INT >= 26) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        }
         tts = new TextToSpeech(this, code -> {
             if (code == TextToSpeech.SUCCESS && tts != null) {
                 ttsReady = tts.setLanguage(Locale.US) != TextToSpeech.LANG_MISSING_DATA;
             }
         });
         webView = new WebView(this);
-        webView.setBackgroundColor(Color.rgb(13, 24, 42));
+        webView.setBackgroundColor(Color.rgb(245, 248, 255));
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setAllowFileAccess(true);

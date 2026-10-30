@@ -8,6 +8,7 @@ async def main():
     asset_dir=Path(__file__).resolve().parents[1]/'app/src/main/assets'
     html=(asset_dir/'index.html').read_text(encoding='utf-8')
     html=html.replace('<link rel="stylesheet" href="styles.css">', '<style>'+ (asset_dir/'styles.css').read_text(encoding='utf-8') + '</style>')
+    html=html.replace('<link rel="stylesheet" href="ui.css">', '<style>'+ (asset_dir/'ui.css').read_text(encoding='utf-8') + '</style>')
     for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'):
         html=html.replace(f'<script src="{asset}" defer></script>', '')
     scripts=''.join('<script>'+ (asset_dir/asset).read_text(encoding='utf-8') + '</script>' for asset in ('curriculum.js','vocab.js','expanded.js','practice.js','app.js'))
@@ -20,6 +21,15 @@ async def main():
             errors=[]
             page.on('pageerror',lambda err: errors.append(str(err)))
             await page.set_content(html)
+            assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
+            assert await page.locator('.shortcut').count() == 6
+            await page.get_by_role('button',name='Слова Пополняй словарь').click()
+            assert await page.locator('#card-phrase').is_visible()
+            await page.get_by_role('button',name='✕ Назад').click()
+            await page.get_by_role('button',name='Уроки').click()
+            assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
+            assert await page.locator('.logo-img').count() == 1
+            assert await page.evaluate('getComputedStyle(document.documentElement).colorScheme') == 'light'
             await page.get_by_role('button',name='Практика').click()
             assert await page.get_by_role('heading',name='Практика 🎧').is_visible()
             assert await page.get_by_role('button',name='Начать · 10 вопросов').is_visible()

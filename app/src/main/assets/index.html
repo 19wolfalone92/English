@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark"><title>Wolfie English</title>
+<meta name="color-scheme" content="light"><title>Wolfie English</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ui.css">
 <script src="curriculum.js" defer></script>
 <script src="vocab.js" defer></script>
 <script src="expanded.js" defer></script>
@@ -11,7 +12,7 @@
 <script src="app.js" defer></script>
 </head>
 <body><div id="root">
-<header class="top"><div class="brand"><span class="logo">🐺</span><div><b>Wolfie English</b><small>Твой путь от A2 до B2</small></div></div><div class="indicators"><span id="streak" title="Дней подряд">🔥 0</span><span id="xp" title="Очки опыта">⚡ 0 XP</span></div></header>
+<header class="top"><div class="brand"><img class="logo-img" src="wolfie_icon.webp" alt="" width="47" height="47"><div><b>Wolfie English</b><small>Твой путь от A2 до B2</small></div></div><div class="indicators"><span id="streak" title="Дней подряд">🔥 0</span><span id="xp" title="Очки опыта">⚡ 0 XP</span></div></header>
 <main id="view" aria-live="polite"><section class="splash"><h1>Говори смелее. Каждый день.</h1><p>Подбираем твою следующую тренировку…</p></section></main>
-<nav class="bottom" aria-label="Разделы приложения"><button type="button" data-tab="home" class="selected"><span>🗺️</span>Уроки</button><button type="button" data-tab="practice"><span>🎧</span>Практика</button><button type="button" data-tab="review"><span>🧠</span>Повторение</button><button type="button" data-tab="stats"><span>📈</span>Прогресс</button></nav>
+<nav class="bottom" aria-label="Разделы приложения"><button type="button" data-tab="home" class="selected"><span aria-hidden="true">⌂</span>Уроки</button><button type="button" data-tab="practice"><span aria-hidden="true">◉</span>Практика</button><button type="button" data-tab="review"><span aria-hidden="true">↻</span>Повторение</button><button type="button" data-tab="stats"><span aria-hidden="true">▥</span>Прогресс</button></nav>
 </div></body></html>

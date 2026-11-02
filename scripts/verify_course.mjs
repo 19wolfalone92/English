@@ -27,6 +27,9 @@ assert.equal(Object.keys(w.WOLFIE_GRAMMAR_BANK).length,40,'authored grammar guid
 assert.ok(course.months.every(m=>m.grammar.every(g=>w.WOLFIE_GRAMMAR_BANK[g.title]?.examples?.length===2)),'two extra examples per grammar topic');
 assert.equal(w.WOLFIE_READINGS.length,20,'one authored passage per month');
 assert.ok(w.WOLFIE_READINGS.every(x=>x.paragraphs.length>=2&&x.questions.length===3));
+assert.equal(w.WOLFIE_SCENARIOS.length,10);
+assert.ok(w.WOLFIE_SCENARIOS.every(month=>month.length===4));
+assert.equal(new Set(units.map(u=>w.WOLFIE_MISSIONS.get(u).opening)).size,300,'unique contextual daily missions');
 assert.equal(w.WOLFIE_STUDY.stages.length,7);
 assert.ok(['vocab','grammar','reading','listening','speaking','writing'].every(key=>typeof w.WOLFIE_STUDY_TASKS.handlers[key]==='function'));
 assert.ok(new Set(units.flatMap(x=>x.pairs.map(z=>z.id))).size>=600,'insufficient diverse content');

@@ -15,6 +15,12 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.util.Base64;
+import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 /** Offline activity: bundled HTML only, Android SharedPreferences for durable progress and native TTS. */
@@ -59,13 +65,38 @@ public final class MainActivity extends Activity {
         private final Context context;
         Bridge(Context context) { this.context = context; }
         @JavascriptInterface public String loadProgress() {
-            return context.getSharedPreferences("wolfie_english", Context.MODE_PRIVATE)
+            String data = context.getSharedPreferences("wolfie_english", Context.MODE_PRIVATE)
                 .getString("progress_v1", "{}");
+            if (!data.startsWith("gz:")) return data;
+            try {
+                byte[] zip = Base64.decode(data.substring(3), Base64.NO_WRAP);
+                GZIPInputStream input = new GZIPInputStream(new ByteArrayInputStream(zip));
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                byte[] buffer = new byte[4096]; int count;
+                while ((count = input.read(buffer)) != -1) {
+                    if (output.size() + count > 5000000) return "{}";
+                    output.write(buffer, 0, count);
+                }
+                input.close();
+                return new String(output.toByteArray(), StandardCharsets.UTF_8);
+            } catch (Exception error) {
+                android.util.Log.e("WolfieEnglish", "Could not decode saved progress", error);
+                return "{}";
+            }
         }
         @JavascriptInterface public void saveProgress(String data) {
-            if (data == null || data.length() > 500000) return;
-            context.getSharedPreferences("wolfie_english", Context.MODE_PRIVATE)
-                .edit().putString("progress_v1", data).apply();
+            if (data == null || data.length() > 5000000) return;
+            try {
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                GZIPOutputStream gzip = new GZIPOutputStream(output);
+                gzip.write(data.getBytes(StandardCharsets.UTF_8));
+                gzip.close();
+                String encoded = "gz:" + Base64.encodeToString(output.toByteArray(), Base64.NO_WRAP);
+                context.getSharedPreferences("wolfie_english", Context.MODE_PRIVATE)
+                    .edit().putString("progress_v1", encoded).apply();
+            } catch (Exception error) {
+                android.util.Log.e("WolfieEnglish", "Could not save progress", error);
+            }
         }
         @JavascriptInterface public void speak(String text) {
             if (text == null || text.length() > 250 || !ttsReady || tts == null) return;

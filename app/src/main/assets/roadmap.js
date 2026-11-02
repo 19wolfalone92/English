@@ -27,6 +27,11 @@ function unit(index){if(!Number.isInteger(index)||index<0||index>=300)return nul
  if(pairs.length<10)add(phrases,10-pairs.length,seed+18);
  if(pairs.length<10)add(words,10-pairs.length,seed+32);
  if(pairs.length<10)add(phrases,10-pairs.length,seed+50);
+ const otherUsed=new Set(pairs.map(function(p){return p.id;})),practicePairs=[];
+ function addPractice(list,n,shift){practicePairs.push.apply(practicePairs,pick(list,n,seed+shift,otherUsed));}
+ addPractice(fw,8,21);addPractice(fp,10,29);
+ if(practicePairs.length<18)addPractice(words,18-practicePairs.length,43);
+ if(practicePairs.length<18)addPractice(phrases,18-practicePairs.length,71);
  const challenges={
  grammar:"Изучи правило, прочитай пример и придумай два собственных предложения.",
  words:"Составь три собственных предложения с новыми словами.",
@@ -37,7 +42,7 @@ function unit(index){if(!Number.isInteger(index)||index<0||index>=300)return nul
  review:"Повтори материал недели и объясни правило своими словами.",
  final:"Пройди контрольный тест и напиши краткий рассказ из пяти предложений."
  };
- return {id:"course-"+String(index+1).padStart(3,"0"),index:index,month:mi+1,day:day+1,level:m.level,title:names[mode]+" · "+m.title,courseKind:mode,grammar:mode==="grammar"?grammar:null,challenge:challenges[mode],pairs:pairs};
+ return {id:"course-"+String(index+1).padStart(3,"0"),index:index,month:mi+1,day:day+1,level:m.level,title:names[mode]+" · "+m.title,courseKind:mode,grammar:mode==="grammar"?grammar:null,challenge:challenges[mode],pairs:pairs,practicePairs:practicePairs};
 }
 window.WOLFIE_ROADMAP={months:months,names:names,unit:unit,build:function(){return Array.from({length:300},function(_,i){return unit(i);});},grammarPairs:grammarPairs};
 })();

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url);
-const w={},context=vm.createContext({window:w});
+const w={},context=vm.createContext({window:w,setInterval:()=>0,clearInterval:()=>{},document:{hidden:false}});
 for(const file of ['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','study_tasks_a.js','study_tasks_b.js','study.js']){
  vm.runInContext(fs.readFileSync(new URL(file,root),'utf8'),context,{filename:file});
 }
@@ -49,4 +49,21 @@ handlers.get('quick:click')();
 assert.match(view.innerHTML,/Present Simple/);
 assert.match(view.innerHTML,/Начать тренировку/);
 
-console.log('PASS: 300 days, 10 months, 28 prompts per day, 7 study stages and 10 reading passages');
+
+// Guided curriculum UI smoke with a small DOM shim: 7 stages and authored reading.
+const studyNodes=new Map();let stageButtons=[];
+const studyView={
+ innerHTML:'',
+ querySelector(sel){if(!studyNodes.has(sel))studyNodes.set(sel,{textContent:'',onclick:null,addEventListener(){}});return studyNodes.get(sel);},
+ querySelectorAll(sel){if(sel==='[data-study]'){stageButtons=[...this.innerHTML.matchAll(/data-study="([^"]+)"/g)].map(x=>({dataset:{study:x[1]},onclick:null}));return stageButtons;}return [];}
+};
+const studyStore={};
+w.WOLFIE_STUDY.mount(studyView,{unit:units[0],store:studyStore,save(){},onExit(){},onExam(){},speak(){},voiceAvailable:()=>false});
+assert.equal(stageButtons.length,7,'all daily stages visible');
+assert.match(studyView.innerHTML,/Учебный день/);
+assert.ok(studyView.innerHTML.includes('data-study="exam" disabled'),'exam locked before study stages');
+stageButtons.find(x=>x.dataset.study==='reading').onclick();
+assert.match(studyView.innerHTML,/Проверь понимание/);
+assert.equal((studyView.innerHTML.match(/class="study-question"/g)||[]).length,3);
+console.log('PASS: 300 days, 40 grammar topics, 20 reading passages, 7 stages and UI smoke');
+

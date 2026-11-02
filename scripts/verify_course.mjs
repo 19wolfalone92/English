@@ -23,6 +23,8 @@ for(let i=0;i<300;i++){
  if(u.courseKind==='grammar')assert.ok(u.grammar&&u.pairs.some(x=>x.id===u.grammar.example.id));
 }
 assert.equal(course.grammarPairs().length,40);
+assert.equal(Object.keys(w.WOLFIE_GRAMMAR_BANK).length,40,'authored grammar guide coverage');
+assert.ok(course.months.every(m=>m.grammar.every(g=>w.WOLFIE_GRAMMAR_BANK[g.title]?.examples?.length===2)),'two extra examples per grammar topic');
 assert.equal(w.WOLFIE_READINGS.length,20,'one authored passage per month');
 assert.ok(w.WOLFIE_READINGS.every(x=>x.paragraphs.length>=2&&x.questions.length===3));
 assert.equal(w.WOLFIE_STUDY.stages.length,7);

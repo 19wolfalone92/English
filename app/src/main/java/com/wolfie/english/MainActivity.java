@@ -2,6 +2,11 @@ package com.wolfie.english;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.content.Intent;
+import android.content.ActivityNotFoundException;
+import android.speech.RecognizerIntent;
+import org.json.JSONObject;
+import java.util.ArrayList;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
@@ -17,6 +22,7 @@ public final class MainActivity extends Activity {
     private WebView webView;
     private TextToSpeech tts;
     private volatile boolean ttsReady;
+    private static final int SPEECH_REQUEST = 1042;
     private static final String LOCAL_URL = "file:///android_asset/index.html";
 
     @Override public void onCreate(Bundle state) {
@@ -66,6 +72,31 @@ public final class MainActivity extends Activity {
             runOnUiThread(() -> tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "wolfie-speech"));
         }
         @JavascriptInterface public boolean isSpeechAvailable() { return ttsReady; }
+        @JavascriptInterface public void recognizeSpeech() {
+            runOnUiThread(() -> {
+                Intent voice = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                voice.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                voice.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "en-US");
+                voice.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say your English answer");
+                try { startActivityForResult(voice, SPEECH_REQUEST); }
+                catch (ActivityNotFoundException error) { speechToWeb(""); }
+            });
+        }
+    }
+
+    private void speechToWeb(String text) {
+        if (webView != null) webView.evaluateJavascript("if(window.WOLFIE_SPEECH_CALLBACK){window.WOLFIE_SPEECH_CALLBACK("+JSONObject.quote(text)+");}", null);
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode != SPEECH_REQUEST) return;
+        String answer = "";
+        if (resultCode == RESULT_OK && data != null) {
+            ArrayList<String> phrases = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (phrases != null && !phrases.isEmpty()) answer = phrases.get(0);
+        }
+        speechToWeb(answer);
     }
 
     @Override protected void onDestroy() {

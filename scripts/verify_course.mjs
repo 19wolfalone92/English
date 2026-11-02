@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url);
 const w={},context=vm.createContext({window:w});
-for(const file of ['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','study_tasks_a.js','study_tasks_b.js','study.js']){
+for(const file of ['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','study_tasks_a.js','study_tasks_b.js','study.js']){
  vm.runInContext(fs.readFileSync(new URL(file,root),'utf8'),context,{filename:file});
 }
 const course=w.WOLFIE_ROADMAP,units=course.build();
@@ -23,7 +23,7 @@ for(let i=0;i<300;i++){
  if(u.courseKind==='grammar')assert.ok(u.grammar&&u.pairs.some(x=>x.id===u.grammar.example.id));
 }
 assert.equal(course.grammarPairs().length,40);
-assert.equal(w.WOLFIE_READINGS.length,10,'one authored passage per month');
+assert.equal(w.WOLFIE_READINGS.length,20,'one authored passage per month');
 assert.ok(w.WOLFIE_READINGS.every(x=>x.paragraphs.length>=2&&x.questions.length===3));
 assert.equal(w.WOLFIE_STUDY.stages.length,7);
 assert.ok(['vocab','grammar','reading','listening','speaking','writing'].every(key=>typeof w.WOLFIE_STUDY_TASKS.handlers[key]==='function'));

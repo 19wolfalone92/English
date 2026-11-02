@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url);
 const w={},context=vm.createContext({window:w,setInterval:()=>0,clearInterval:()=>{},document:{hidden:false}});
-for(const file of ['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','study_tasks_a.js','study_tasks_b.js','study.js']){
+for(const file of ['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','missions_a.js','missions_b.js','missions_c.js','missions.js','study_tasks_a.js','study_tasks_b.js','study.js']){
  vm.runInContext(fs.readFileSync(new URL(file,root),'utf8'),context,{filename:file});
 }
 const course=w.WOLFIE_ROADMAP,units=course.build();

@@ -29,14 +29,14 @@ function mount(view,api){
  let timer=null;
  const stop=()=>{if(timer)clearInterval(timer);timer=null;save();};
  function panel(key,title,html){
-  stop();
+  stop();if(key!=='speaking')window.WOLFIE_SPEECH_CALLBACK=null;
   view.innerHTML='<div class="study-wrap"><button id="study-back" class="secondary" type="button">← План дня</button><h1>'+title+'</h1><div class="study-panel-content">'+html+'</div><p class="study-time">Время в этом блоке: <b id="study-clock">'+Math.floor((log.time[key]||0)/60)+' мин</b></p></div>';
   view.querySelector('#study-back').onclick=home;
   timer=setInterval(()=>{if(!document.hidden){log.time[key]=(log.time[key]||0)+1;const t=view.querySelector('#study-clock');if(t)t.textContent=Math.floor(log.time[key]/60)+' мин';if(log.time[key]%10===0)save();}},1000);
  }
  function complete(key){log.done[key]=true;log.completedAt=log.completedAt||{};log.completedAt[key]=Date.now();save();home();}
  function home(){
-  stop();
+  stop();window.WOLFIE_SPEECH_CALLBACK=null;
   const done=learningStages.filter(x=>log.done[x.key]).length;
   const examEnabled=done===learningStages.length;
   const examDone=!!log.done.exam;
@@ -51,7 +51,7 @@ function mount(view,api){
   view.querySelector('#study-exit').onclick=()=>{stop();onExit();};
   view.querySelectorAll('[data-study]').forEach(b=>b.onclick=()=>open(b.dataset.study));
  }
- function open(key){if(key==='exam'){stop();onExam();return;}window.WOLFIE_STUDY_TASKS.open({key,unit,log,view,panel,complete,esc,save,speak,voiceAvailable,voiceLocale,getReviewItems,onReview});}
+ function open(key){if(key==='exam'){if(!learningStages.every(x=>log.done[x.key]))return;stop();onExam();return;}window.WOLFIE_STUDY_TASKS.open({key,unit,log,view,panel,complete,esc,save,speak,voiceAvailable,voiceLocale,getReviewItems,onReview});}
  home();
 }
 window.WOLFIE_STUDY={mount,stages};

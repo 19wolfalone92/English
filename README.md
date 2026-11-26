@@ -1,4 +1,4 @@
-# Wolfie English 0.7.1
+# Wolfie English 0.7.2
 
 Offline-first Android English-learning app for a Russian-speaking learner following a 300-day A2 → B1 → B2 route.
 
@@ -38,7 +38,7 @@ The course does not award B2 solely for completing 300 days. Internal results ar
 ## Verification and build
 GitHub Actions checks reproducible content generation, bilingual IDs, the 300-day course, topic integrity, JavaScript syntax, Playwright UI smoke tests at 360px/700px, Android lint, unit tests, Debug APK assembly and SHA-256 verification.
 
-Expected artifact: **Wolfie-English-v0.7.1-debug**. It is a test build, not a Play Store release.
+Expected artifact: **Wolfie-English-v0.7.2-debug**. It is a test build, not a Play Store release.
 
 ```bash
 python3 scripts/build_expanded_content.py
@@ -51,3 +51,6 @@ gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
 ```
 
 Progress keys and the original 25 mini-lessons are retained. Do not reset user progress or merge the working branch until CI and upgrade migration are reviewed.
+
+## Assessment integrity update
+Listening resumes from the saved item and draft, uses six actual phrase-bank items and requires a playback request before each answer. A playback request is not proof of audible output. Duplicate submissions cannot advance the same item. Vocabulary quizzes use the displayed 15 cards; early repeated correct answers do not advance the SRS interval. Manual edits invalidate speech-transcript provenance. Native device testing remains required.

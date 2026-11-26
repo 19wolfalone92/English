@@ -25,6 +25,8 @@ jobs:
         run: python3 scripts/validate_content.py
       - name: Validate complete course and learning gates
         run: node scripts/verify_course.mjs
+      - name: Regression tests for assessment evidence
+        run: node scripts/verify_assessment.mjs
       - name: Install Playwright Chromium
         run: |
           python -m pip install --upgrade playwright
@@ -53,7 +55,7 @@ jobs:
       - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.7.1-debug
+          name: Wolfie-English-v0.7.2-debug
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/debug/app-debug.apk.sha256

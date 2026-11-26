@@ -26,4 +26,4 @@ vm.runInContext(app,vm.createContext({window:w,document:doc,localStorage:{getIte
 assert.match(view.innerHTML,/Курс на 10 месяцев/);assert.equal((view.innerHTML.match(/class="course-month"/g)||[]).length,10);assert.match(view.innerHTML,/data-course="299"/);
 handlers.get('quick:click')();handlers.get('begin-course:click')();const stages=view.querySelectorAll('[data-study]');assert.equal(stages.length,8);assert.match(view.innerHTML,/data-study="exam" disabled/);
 stages.find(x=>x.dataset.study==='review').onclick();assert.match(view.innerHTML,/Очередь пуста/);view.querySelector('#study-complete').onclick();assert.match(view.innerHTML,/✓ выполнено/);
-console.log('PASS: 300 days, 1,102 words, 1,008 phrases, 40 readings, 40 grammar topics/80 checks, 300 unique missions, strict topics and 77-minute 8-stage gate');
+console.log('PASS: 300 days, 1,226 words, 1,048 phrases, 40 readings, 40 grammar topics/80 checks, 300 unique missions, strict topics and 77-minute 8-stage gate');

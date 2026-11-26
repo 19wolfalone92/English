@@ -1,6 +1,6 @@
 # Wolfie English — Learning Assessment and Evidence Boundaries
 
-Version: 0.7.1 · Route: 300 days (120 A2, 90 B1, 90 B2)
+Version: 0.7.2 · Route: 300 days (120 A2, 90 B1, 90 B2)
 
 ## Daily evidence
 
@@ -39,7 +39,10 @@ The reading library remains below the 80–120 target. The authentic-audio targe
 The app must not label a learner B2 because 300 days or internal quizzes are complete.
 
 ## Platform acceptance still required
-The 0.7.1 implementation adds locale-aware TTS/recognition, strict voice availability, edge-to-edge Android system/IME insets, theme synchronization, adjustable text size, local drafts and CI browser/Android checks. Actual Android 13–16 testing is still required for install/upgrade migration, offline cold start, IME resize, rotation, system bars, TalkBack, US/UK voice packs, recognition availability, process death and restore. Playwright does not substitute for device testing.
+The 0.7.2 implementation adds locale-aware TTS/recognition, strict voice availability, edge-to-edge Android system/IME insets, theme synchronization, adjustable text size, local drafts and CI browser/Android checks. Actual Android 13–16 testing is still required for install/upgrade migration, offline cold start, IME resize, rotation, system bars, TalkBack, US/UK voice packs, recognition availability, process death and restore. Playwright does not substitute for device testing.
 
 ## Release acceptance
 Do not merge or call this a qualified B2 course until content generation, 300-day topic checks, browser gates, Android lint/unit tests, APK+SHA-256 and Android 13–16 device qualification all pass. Keep authentic audio, assessed speaking/writing and independent CEFR qualification explicitly outstanding until delivered.
+
+## Evidence integrity update
+The listening checkpoint stores item index, draft, check state and score. Playback request is mandatory; actual audible output and authentic listening remain unverified. Correct answers repeated before their SRS due time do not advance the interval. Edited speech transcripts are marked manual. These are practice evidence, not independent language proficiency.

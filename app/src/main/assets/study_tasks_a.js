@@ -13,15 +13,18 @@ function choicesFor(item){
  for(const x of candidates){if(!seen.has(x.ru)){selected.push(x);seen.add(x.ru);}if(selected.length===3)break;}
  return shuffle([item,...selected]);
 }
-function renderRecall(c,container,items,key,passPercent,onDone){
+function renderRecall(c,container,items,key,passPercent,onDone,credited=new Set()){
+ let submitted=false;
  let html='<fieldset class="study-questions"><legend>Вспомни перевод без подсказки</legend>';
  html+=items.map((item,i)=>'<div class="study-question"><b>'+(i+1)+'. '+esc(item.en)+'</b>'+choicesFor(item).map((o,j)=>'<label><input type="radio" name="'+key+i+'" value="'+(o.id===item.id?'1':'0')+'"> '+esc(o.ru)+'</label>').join('')+'</div>').join('');
  html+='</fieldset><p id="'+key+'-error" role="status"></p><button type="button" class="primary" id="'+key+'-check">Проверить ответы</button><div id="'+key+'-result" aria-live="polite"></div>';
  container.innerHTML=html;
  container.querySelector('#'+key+'-check').onclick=()=>{
+  if(submitted)return;
   const selected=[];for(let i=0;i<items.length;i++){const v=container.querySelector('input[name="'+key+i+'"]:checked');if(!v){container.querySelector('#'+key+'-error').textContent='Ответь на все вопросы.';return;}selected.push(v.value==='1');}
+  submitted=true;container.querySelector('#'+key+'-check').disabled=true;
   const correct=selected.filter(Boolean).length;
-  selected.forEach((ok,i)=>{if(c.onReview)c.onReview(items[i],ok);});
+  selected.forEach((ok,i)=>{if(!credited.has(items[i].id)){if(c.onReview)c.onReview(items[i],ok);if(ok)credited.add(items[i].id);}});
   const percent=Math.round(correct/items.length*100);
   c.log.answers[key]={correct,total:items.length,percent,at:Date.now()};
   c.log.assessment=c.log.assessment||{};
@@ -32,7 +35,7 @@ function renderRecall(c,container,items,key,passPercent,onDone){
    container.querySelector('#'+key+'-finish').onclick=onDone;
   }else{
    container.querySelector('#'+key+'-result').innerHTML='<div class="feedback bad"><strong>'+correct+'/'+items.length+' — нужно не менее '+Math.ceil(items.length*passPercent)+' правильных ответов.</strong><p>Повтори материал и пройди проверку ещё раз.</p><button type="button" class="secondary" id="'+key+'-retry">Повторить проверку</button></div>';
-   container.querySelector('#'+key+'-retry').onclick=()=>renderRecall(c,container,items,key,passPercent,onDone);
+   container.querySelector('#'+key+'-retry').onclick=()=>renderRecall(c,container,items,key,passPercent,onDone,credited);
   }
  };
 }
@@ -47,7 +50,7 @@ handlers.review=c=>{
 };
 handlers.vocab=c=>{
  const words=(c.unit.practicePairs||c.unit.pairs).slice(0,15);
- const quizItems=shuffle(c.unit.practicePairs||c.unit.pairs).slice(0,5);
+ const quizItems=shuffle(words).slice(0,5);
  const html='<p>Просмотри карточки, затем проверь активное воспроизведение: выбери русский смысл без открытия подсказки. Пять ответов попадут в интервальное повторение.</p><div class="study-pairs">'+words.map((p,i)=>'<details class="study-pair"><summary>'+(i+1)+'. '+esc(p.en)+'</summary><p>'+esc(p.ru)+'</p></details>').join('')+'</div><div id="vocab-quiz"></div>';
  c.panel('vocab','Новая лексика',html);
  renderRecall(c,c.view.querySelector('#vocab-quiz'),quizItems,'vocabQuiz',.8,()=>c.complete('vocab'));

@@ -26,6 +26,11 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: Set up Android SDK command-line tools
+        uses: android-actions/setup-android@07976c6290703d34c16d382cb36445f98bb43b1f # v3.2.0
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: 'false'
       - name: Check KVM and SDK image availability
         env:
           API: ${{ matrix.api }}
@@ -44,7 +49,7 @@ jobs:
           API: ${{ matrix.api }}
         run: |
           set -euo pipefail
-          nohup "$ANDROID_HOME/emulator/emulator" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
+          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
           timeout 300 adb wait-for-device
           for i in $(seq 1 150); do
             if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi

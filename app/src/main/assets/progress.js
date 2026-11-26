@@ -20,11 +20,14 @@ function validate(raw){
  for(const x of Object.values(v.days||{}))if(!integer(x))throw Error('Некорректная дневная статистика.');
  for(const [id,x] of Object.entries(v.study||{})){if(!map(x))throw Error('Некорректный урок '+id);for(const k of ['done','answers','time','assessment','completedAt'])if(own(x,k)&&!map(x[k]))throw Error('Некорректный раздел урока '+k);}
  if(own(v,'contextLessons'))for(const [id,x] of Object.entries(v.contextLessons)){
-  if(!/^mission-v2-\d{3}$/.test(id)||!map(x)||!integer(x.version)||!['overview','vocab','grammar','reading','audio','speaking','writing','result'].includes(x.tab))throw Error('Некорректная тематическая миссия.');
+  if(!/^mission-v2-\d{3}$/.test(id)||!map(x)||!integer(x.version)||!['overview','review','vocab','grammar','reading','audio','speaking','writing','final','result'].includes(x.tab))throw Error('Некорректная тематическая миссия.');
   for(const k of ['answers','drafts','checks'])if(!map(x[k]))throw Error('Некорректный раздел миссии.');
-  for(const [k,a] of Object.entries(x.answers))if(!/^(v\d+|g\d+|r\d+|audio)$/.test(k)||!(typeof a==='string'||integer(a)||Array.isArray(a)&&a.every(integer)))throw Error('Некорректный ответ миссии.');
+  for(const [k,a] of Object.entries(x.answers))if(!/^(v\d+|g\d+|r\d+|rev\d+|f\d+|audio)$/.test(k)||!(typeof a==='string'||integer(a)||Array.isArray(a)&&a.every(integer)))throw Error('Некорректный ответ миссии.');
   for(const a of Object.values(x.drafts))if(typeof a!=='string')throw Error('Некорректный черновик миссии.');
   for(const a of Object.values(x.checks))if(!map(a)||typeof a.ok!=='boolean')throw Error('Некорректная проверка миссии.');
+  if(own(x,'mode')&&!['quick','short','standard','intensive','free'].includes(x.mode))throw Error('Некорректный режим миссии.');
+  if(own(x,'finalSubmitted')&&typeof x.finalSubmitted!=='boolean')throw Error('Некорректный итог миссии.');
+  if(own(x,'reviewItems')&&(!Array.isArray(x.reviewItems)||x.reviewItems.length>8||x.reviewItems.some(r=>!map(r)||typeof r.id!=='string'||typeof r.en!=='string'||typeof r.ru!=='string')))throw Error('Некорректное повторение миссии.');
   if(own(x,'writingIndex')&&(!integer(x.writingIndex)||x.writingIndex>2))throw Error('Некорректный вариант письма.');
  }
  if(own(v,'diagnostic')){

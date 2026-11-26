@@ -30,8 +30,9 @@ async def main():
      await page.locator('#begin-course').click()
      await page.locator('#study-context').click()
      assert await page.get_by_role('heading',name=pack['ru'],exact=True).is_visible()
-     for tab in ('vocab','grammar','reading','audio','speaking','writing','result'):
+     for tab in ('review','vocab','grammar','reading','audio','speaking','writing','final','result'):
       await page.locator(f'[data-ctx-tab="{tab}"]').click()
+      if tab=='final':assert await page.locator('#ctx-final-submit').is_visible()
       if tab=='vocab':assert await page.locator('[data-ctx-vcheck]').count()==11
       if tab=='grammar':assert await page.locator('[id^="ctx-gcheck-"]').count()==3
       if tab=='reading':assert await page.locator('.study-reading').is_visible()
@@ -41,6 +42,19 @@ async def main():
        await page.wait_for_function("document.querySelector('#ctx-audio').readyState>=1")
        assert await page.locator('#ctx-audio').evaluate('(a)=>Number.isFinite(a.duration)&&a.duration>5')
      if i==0:
+      await page.locator('[data-ctx-tab="overview"]').click()
+      await page.locator('#ctx-mode').select_option('quick')
+      assert await page.locator('[data-ctx-jump]').count()==2
+      await page.locator('#ctx-mode').select_option('standard')
+      assert await page.locator('[data-ctx-jump]').count()==8
+      await page.locator('[data-ctx-tab="final"]').click()
+      await page.locator('#ctx-final-submit').click()
+      assert await page.locator('#ctx-final-error').is_visible()
+      await page.locator('[name="ctx-final-0"][value="1"]').check()
+      await page.locator('#ctx-final-1').fill('a few')
+      await page.locator('[name="ctx-final-2"][value="0"]').check()
+      await page.locator('#ctx-final-submit').click()
+      assert await page.get_by_role('heading',name='Результат: 3/3').is_visible()
       await page.locator('[data-ctx-tab="vocab"]').click()
       expected=await page.evaluate('window.WOLFIE_CONTEXT.packs[0].cards[0].en')
       await page.locator('#ctx-v-0').fill(expected);await page.locator('[data-ctx-vcheck="0"]').click()
@@ -76,6 +90,7 @@ async def main():
       s=saved['contextLessons'][pack['id']]
       assert all(s['checks'][k]['ok'] for k in ('v0','g0','g1','g2'))
       assert s['checks']['audio']['assisted']
+      assert s['finalSubmitted'] and all(s['checks'][k]['ok'] for k in ('f0','f1','f2'))
       assert not saved.get('finished',{}).get('course-002',{}).get('done',False)
       await page.get_by_role('button',name='Включить тёмную тему').click()
       await page.screenshot(path=str(EVIDENCE/f'context-writing-dark-{width}.png'))

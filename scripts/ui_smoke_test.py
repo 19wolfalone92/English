@@ -4,6 +4,8 @@ from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from playwright.async_api import async_playwright
 ASSETS=Path(__file__).resolve().parents[1]/'app'/'src'/'main'/'assets'
+SCREENSHOTS=ASSETS.parents[3]/'ui-evidence'
+SCREENSHOTS.mkdir(exist_ok=True)
 class QuietHandler(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 async def main():
@@ -18,11 +20,32 @@ async def main():
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
     assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
     assert await page.locator('.course-month').count()==10
+    await page.screenshot(path=str(SCREENSHOTS/f'home-{width}-light.png'))
+    await page.locator('#open-diagnostic').click()
+    await page.locator('[data-diag-level="A2"]').click()
+    await page.screenshot(path=str(SCREENSHOTS/f'diagnostic-{width}-light.png'))
+    await page.locator('[name="diag-choice"]').nth(1).check()
+    await page.locator('#diag-next').click()
+    await page.reload(wait_until='networkidle')
+    await page.locator('#open-diagnostic').click()
+    await page.locator('#diag-resume').click()
+    assert await page.get_by_text('2/8',exact=False).is_visible()
+    for _ in range(7):await page.locator('#diag-skip').click()
+    await page.locator('#diag-writing').fill('A draft for a teacher.')
+    await page.locator('#diag-finish').click()
+    assert await page.get_by_text('Listening · Speaking · Writing — не оценены').is_visible()
+    await page.locator('#diag-menu').click()
+    await page.locator('[data-diag-level="A2"]').click()
+    active=await page.evaluate("JSON.parse(localStorage.getItem('wolfie-progress')).diagnostic.active.formId")
+    assert active=='diagnostic-A2-b'
+    await page.locator('#diag-back').click()
+    assert await page.locator('[data-course="1"]').is_enabled()
     month=page.locator('.course-month').first
     if not await month.evaluate('(e)=>e.open'):await month.locator('summary').click()
     await page.locator('[data-course="0"]').click();await page.get_by_role('button',name='Начать тренировку →').click()
     assert await page.locator('[data-study]').count()==8 and await page.locator('[data-study="exam"]').is_disabled()
     await page.get_by_role('button',name='Включить тёмную тему').click();assert await page.locator('html').get_attribute('data-theme')=='dark'
+    await page.screenshot(path=str(SCREENSHOTS/f'lesson-{width}-dark.png'))
     await page.get_by_role('button',name='Включить светлую тему').click()
     await page.locator('[data-study="review"]').click();assert await page.get_by_text('Очередь пуста').is_visible();await page.locator('#study-complete').click()
     await page.locator('[data-study="vocab"]').click();assert await page.locator('.study-pair').count()==15

@@ -51,7 +51,7 @@ handlers.review=c=>{
 handlers.vocab=c=>{
  const words=(c.unit.practicePairs||c.unit.pairs).slice(0,15);
  const quizItems=shuffle(words).slice(0,5);
- const html='<p>Просмотри карточки, затем проверь активное воспроизведение: выбери русский смысл без открытия подсказки. Пять ответов попадут в интервальное повторение.</p><div class="study-pairs">'+words.map((p,i)=>'<details class="study-pair"><summary>'+(i+1)+'. '+esc(p.en)+'</summary><p>'+esc(p.ru)+'</p></details>').join('')+'</div><div id="vocab-quiz"></div>';
+ const html='<p>Просмотри карточки, затем проверь узнавание: выбери русский смысл без открытия подсказки. Пять ответов попадут в интервальное повторение.</p><div class="study-pairs">'+words.map((p,i)=>'<details class="study-pair"><summary>'+(i+1)+'. '+esc(p.en)+'</summary><p>'+esc(p.ru)+'</p></details>').join('')+'</div><div id="vocab-quiz"></div>';
  c.panel('vocab','Новая лексика',html);
  renderRecall(c,c.view.querySelector('#vocab-quiz'),quizItems,'vocabQuiz',.8,()=>c.complete('vocab'));
 };
@@ -77,8 +77,8 @@ handlers.grammar=c=>{
  };
 };
 handlers.reading=c=>{
- const slot=Math.min(3,Math.floor((c.unit.day-1)/8));
- const index=slot<2?(c.unit.month-1)+slot*10:20+(c.unit.month-1)*2+(slot-2);
+ const slot=Math.min(4,Math.floor((c.unit.day-1)/6));
+ const index=slot===4?40+c.unit.month-1:slot<2?(c.unit.month-1)+slot*10:20+(c.unit.month-1)*2+(slot-2);
  const text=window.WOLFIE_READINGS[index],questions=text.questions;
  let html='<p class="muted">Прочитай текст без переводчика. Вопросы проверяют основную мысль, детали, выводы, лексику и авторскую позицию.</p><article class="study-reading"><h2>'+esc(text.title)+'</h2>'+text.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'</article><fieldset class="study-questions"><legend>Проверь понимание</legend>'+questions.map((q,i)=>'<div class="study-question"><small class="question-label">'+esc(q.type||'comprehension')+'</small><b>'+(i+1)+'. '+esc(q.q)+'</b>'+q.options.map((o,j)=>'<label><input type="radio" name="rq'+i+'" value="'+j+'"> '+esc(o)+'</label>').join('')+'</div>').join('')+'</fieldset><p id="study-error" role="status"></p><button id="study-complete" class="primary" type="button">Проверить ответы</button>';
  c.panel('reading','Чтение',html);

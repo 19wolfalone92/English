@@ -260,3 +260,14 @@ button,input,select,textarea{font-size:1rem}small,.muted{font-size:.82rem}
 .skill-card .bar{height:7px;margin:10px 0 4px}
 @media(max-width:370px){.skill-grid{grid-template-columns:1fr}}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #4f8cff;outline-offset:3px}
+
+/* Language Adventure: independent assessment and responsive entry point. */
+.diagnostic-entry,.diagnostic-shell{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin:18px 0;box-shadow:var(--shadow)}
+.diagnostic-entry .eyebrow,.diagnostic-shell .eyebrow{display:block;color:var(--accent);margin-top:12px}
+.diagnostic-entry h2{margin:8px 0}.diagnostic-shell h1,.diagnostic-shell h2{color:var(--text);overflow-wrap:anywhere}
+.diagnostic-shell .primary,.diagnostic-shell .secondary{margin-top:12px}.diagnostic-shell input[type=text],.diagnostic-shell textarea{width:100%;max-width:100%;color:var(--text);background:var(--card);border:1px solid var(--line)}
+.diag-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.diag-levels button{min-height:48px;padding:8px}
+.diagnostic-shell fieldset label{display:block;padding:12px 6px;min-height:48px;line-height:1.5}.diagnostic-shell .study-reading{overflow-wrap:anywhere}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(max-width:390px){.diagnostic-entry,.diagnostic-shell{padding:14px}.diag-levels{grid-template-columns:1fr}}

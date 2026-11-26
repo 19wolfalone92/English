@@ -29,6 +29,8 @@ jobs:
         run: node scripts/verify_assessment.mjs
       - name: Verify isolated diagnostic forms
         run: node scripts/verify_diagnostic.mjs
+      - name: Verify progress schema and backup integrity
+        run: node scripts/verify_progress.mjs
       - name: Install Playwright Chromium
         run: |
           python -m pip install --upgrade playwright
@@ -38,7 +40,7 @@ jobs:
       - name: Upload browser screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.8.0-browser-evidence
+          name: Wolfie-English-v0.8.1-browser-evidence
           path: ui-evidence/*.png
           if-no-files-found: error
       - name: Check JavaScript syntax
@@ -54,7 +56,7 @@ jobs:
       - name: Verify Android SDK
         run: test -d "$ANDROID_HOME"
       - name: Run Android lint, unit tests and build
-        run: gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
+        run: gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug :app:assemblePreview
       - name: Generate and verify APK checksum
         run: |
           cd app/build/outputs/apk/debug
@@ -64,8 +66,23 @@ jobs:
       - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.8.0-debug
+          name: Wolfie-English-v0.8.1-debug
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+
+      - name: Verify preview APK
+        run: |
+          cd app/build/outputs/apk/preview
+          "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs app-preview.apk
+          sha256sum app-preview.apk > app-preview.apk.sha256
+          sha256sum -c app-preview.apk.sha256
+      - name: Upload side-by-side preview APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-English-v0.8.1-preview
+          path: |
+            app/build/outputs/apk/preview/app-preview.apk
+            app/build/outputs/apk/preview/app-preview.apk.sha256
           if-no-files-found: error

@@ -1,0 +1,43 @@
+(()=>{'use strict';
+const LIMIT=5000000;
+const map=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
+const integer=x=>Number.isSafeInteger(x)&&x>=0;
+const bytes=s=>new TextEncoder().encode(s);
+const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+function validate(raw){
+ if(typeof raw!=='string'||bytes(raw).length>LIMIT)throw Error('Размер прогресса превышает 5 МБ.');
+ const v=JSON.parse(raw);
+ if(!map(v))throw Error('Некорректный формат прогресса.');
+ let count=0;
+ function safe(x,depth=0){if(depth>32||++count>300000)throw Error('Слишком сложная структура.');if(x!==null&&typeof x==='object'){for(const k of Object.keys(x)){if(['__proto__','constructor','prototype'].includes(k))throw Error('Недопустимый ключ.');safe(x[k],depth+1);}}}
+ safe(v);
+ if(own(v,'schemaVersion')&&![1,2].includes(v.schemaVersion))throw Error('Неподдерживаемая версия прогресса.');
+ for(const k of ['items','finished','days','study','settings','selfReviews'])if(own(v,k)&&!map(v[k]))throw Error('Некорректный раздел '+k);
+ for(const k of ['xp','correct','attempts'])if(own(v,k)&&!integer(v[k]))throw Error('Некорректный счётчик '+k);
+ if((v.correct||0)>(v.attempts||0))throw Error('Некорректное число правильных ответов.');
+ for(const [id,x] of Object.entries(v.items||{}))if(!map(x)||!integer(x.stage)||x.stage>5||!integer(x.due))throw Error('Некорректная карточка '+id);
+ for(const [id,x] of Object.entries(v.finished||{}))if(!map(x)||typeof x.done!=='boolean'||!integer(x.best))throw Error('Некорректный результат '+id);
+ for(const x of Object.values(v.days||{}))if(!integer(x))throw Error('Некорректная дневная статистика.');
+ for(const [id,x] of Object.entries(v.study||{})){if(!map(x))throw Error('Некорректный урок '+id);for(const k of ['done','answers','time','assessment','completedAt'])if(own(x,k)&&!map(x[k]))throw Error('Некорректный раздел урока '+k);}
+ if(own(v,'diagnostic')){
+  const d=v.diagnostic;if(!map(d)||!Array.isArray(d.history)||!(d.active===null||map(d.active)))throw Error('Некорректная диагностика.');
+  const forms=window.WOLFIE_DIAGNOSTIC_FORMS||[];
+  const form=id=>forms.find(f=>f.id===id);
+  if(d.active){const f=form(d.active.formId);if(!f||!integer(d.active.index)||d.active.index>f.items.length||!map(d.active.answers)||typeof d.active.writing!=='string'||typeof d.active.speaking!=='string')throw Error('Некорректный черновик диагностики.');}
+  for(const h of d.history){if(!map(h)||!form(h.formId)||!map(h.answers)||!map(h.report)||!integer(h.at))throw Error('Некорректный результат диагностики.');}
+ }
+ return {...{items:{},finished:{},xp:0,days:{},correct:0,attempts:0,speed:false,study:{},settings:{}},...v,schemaVersion:2};
+}
+async function hash(raw,android){
+ if(android&&typeof android.progressHash==='function'){const h=android.progressHash(raw);if(!/^[a-f0-9]{64}$/.test(h))throw Error('Не удалось вычислить контрольную сумму.');return h;}
+ if(!globalThis.crypto?.subtle)throw Error('Контрольная сумма недоступна на этом устройстве.');
+ const d=await globalThis.crypto.subtle.digest('SHA-256',bytes(raw));return [...new Uint8Array(d)].map(n=>n.toString(16).padStart(2,'0')).join('');
+}
+async function makeBackup(store,android){const payload=JSON.stringify(store);validate(payload);return JSON.stringify({format:'wolfie-progress',schema:1,sha256:await hash(payload,android),payload});}
+async function readBackup(raw,android){
+ if(typeof raw!=='string'||bytes(raw).length>10000000)throw Error('Файл резервной копии слишком большой.');
+ const e=JSON.parse(raw);if(!map(e)||e.format!=='wolfie-progress'||e.schema!==1||typeof e.payload!=='string'||!/^[a-f0-9]{64}$/.test(e.sha256||''))throw Error('Неподдерживаемый формат резервной копии.');
+ const v=validate(e.payload);if(await hash(e.payload,android)!==e.sha256)throw Error('Контрольная сумма не совпадает.');return v;
+}
+window.WOLFIE_PROGRESS={validate,makeBackup,readBackup};
+})();

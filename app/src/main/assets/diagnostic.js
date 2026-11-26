@@ -14,7 +14,7 @@ function mount(view,{store,save,onExit,onPractice}){
  const model=store.diagnostic||(store.diagnostic={history:[],active:null});
  model.history=Array.isArray(model.history)?model.history:[];
  const node=s=>view.querySelector(s);
- const draw=html=>{view.innerHTML='<section class="diagnostic-shell"><button id="diag-back" class="secondary" type="button">← К курсу</button>'+html+'</section>';node('#diag-back').onclick=onExit;};
+ const draw=html=>{view.innerHTML='<section class="diagnostic-shell"><button id="diag-back" class="secondary" type="button">← К курсу</button>'+html+'</section>';node('#diag-back').onclick=onExit;if(typeof window.scrollTo==='function')window.scrollTo(0,0);};
  function menu(){
   const last=model.history.at(-1);
   draw('<span class="eyebrow">WOLFIE · CHECKPOINT</span><h1>Диагностика знаний</h1><p>Короткий независимый скрининг: словарь, грамматика с вводом ответа и чтение. Восемь заданий на форму. Не официальный экзамен CEFR.</p><div class="diag-levels">'+['A2','B1','B2'].map(l=>'<button class="secondary" data-diag-level="'+l+'">'+l+' · начать</button>').join('')+'</div>'+(model.active?'<button class="primary" id="diag-resume">Продолжить незавершённый тест</button>':'')+(last?'<div class="question-card"><h2>Последний результат · '+esc(getForm(last.formId)?.level||'')+'</h2>'+scoreHtml(last.report)+'<button id="diag-last" class="secondary">Разбор ответов</button></div>':'')+'<p class="muted">Устная и письменная речь требуют независимой оценки. Аудирование не входит в эту версию скрининга.</p>');

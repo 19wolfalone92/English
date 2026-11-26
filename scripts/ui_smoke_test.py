@@ -77,8 +77,32 @@ async def main():
     await page.locator('#study-exit').click();await page.locator('[data-tab="stats"]').click()
     await page.locator('#font-scale').select_option('1.2');assert await page.locator('html').evaluate('(e)=>getComputedStyle(e).fontSize')!='16px'
     if width==360:assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+    # Test the real browser backup flow, including tamper rejection and migration.
+    await page.screenshot(path=str(SCREENSHOTS/f'progress-{width}-light.png'))
+    await page.locator('#backup-export').scroll_into_view_if_needed()
+    async with page.expect_download() as downloaded:
+     await page.locator('#backup-export').click()
+    download=await downloaded.value
+    path=await download.path()
+    import json
+    backup=json.loads(path.read_text())
+    baseline=json.loads(backup['payload'])
+    assert baseline['study']['course-001']['done']['writing']
+    await page.locator('#backup-file').set_input_files({'name':'corrupt.json','mimeType':'application/json','buffer':json.dumps({**backup,'sha256':'0'*64}).encode()})
+    await page.get_by_text('Импорт отклонён:',exact=False).wait_for()
+    page.once('dialog',lambda dialog:dialog.accept())
+    await page.locator('#backup-file').set_input_files({'name':'valid.json','mimeType':'application/json','buffer':json.dumps(backup).encode()})
+    await page.get_by_text('Прогресс восстановлен.',exact=True).wait_for()
+    saved=await page.evaluate("JSON.parse(localStorage.getItem('wolfie-progress'))")
+    assert saved['study']==baseline['study'] and saved['diagnostic']==baseline['diagnostic']
+    # Corrupted current record must restore the previous valid generation, not clear it.
+    await page.evaluate("""v=>{localStorage.setItem('wolfie-progress-prev',JSON.stringify(v));localStorage.setItem('wolfie-progress','broken')}""",baseline)
+    await page.reload(wait_until='networkidle')
+    assert await page.get_by_text('Восстановлена предыдущая копия прогресса.',exact=True).is_visible()
+    await page.locator('[data-tab="stats"]').click()
+    assert await page.get_by_text('Прогресс и навыки',exact=True).is_visible()
     assert not errors,errors;await context.close()
    await browser.close()
  finally:server.shutdown();server.server_close()
- print('PASS: mobile/tablet browser flow, 8 stages, scored vocabulary/grammar/reading, listening lock, speaking evidence, writing rubric, themes and font scaling')
+ print('PASS: browser lesson and diagnostic, themes, font scaling, backup export/import, corrupt checksum rejection, previous-generation recovery at 360/700 px')
 if __name__=='__main__':asyncio.run(main())

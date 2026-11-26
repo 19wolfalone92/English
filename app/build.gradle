@@ -6,9 +6,21 @@ android {
         applicationId 'com.wolfie.english'
         minSdk 24
         targetSdk 35
-        versionCode 10
-        versionName '0.8.0'
+        versionCode 11
+        versionName '0.8.1'
+        manifestPlaceholders = [appLabel: 'Wolfie English']
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
-    buildTypes { release { minifyEnabled false } }
+    buildTypes {
+        release { minifyEnabled false }
+        preview {
+            initWith debug
+            applicationIdSuffix '.preview'
+            versionNameSuffix '-preview'
+            manifestPlaceholders = [appLabel: 'Wolfie English Preview']
+            matchingFallbacks = ['debug']
+        }
+    }
 }
+
+dependencies { testImplementation 'junit:junit:4.13.2' }

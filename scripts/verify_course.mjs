@@ -1,7 +1,7 @@
 import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url),w={};
 const ctx=vm.createContext({window:w,document:{hidden:false},setInterval:()=>1,clearInterval:()=>{},console,Date,Math});
-const files=['curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','readings_g.js','readings_h.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','grammar_quiz.js','missions_a.js','missions_b.js','missions_c.js','missions.js','study_tasks_a.js','study_tasks_b.js','study.js'];
+const files=['progress.js','curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','readings_g.js','readings_h.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','grammar_quiz.js','missions_a.js','missions_b.js','missions_c.js','missions.js','study_tasks_a.js','study_tasks_b.js','study.js'];
 for(const f of files)vm.runInContext(fs.readFileSync(new URL(f,root),'utf8'),ctx,{filename:f});
 const course=w.WOLFIE_ROADMAP,units=course.build();
 assert.equal(units.length,300);assert.equal(new Set(units.map(x=>x.id)).size,300);

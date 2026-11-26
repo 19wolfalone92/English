@@ -6,9 +6,34 @@ const view=document.getElementById('view');
 const all=[...lessons.flatMap(u=>u.pairs.map(p=>({...p,lessonId:u.id,level:u.level,topic:u.title}))),...(window.WOLFIE_EXTRA_PHRASES||[]),...(window.WOLFIE_WORDS||[]),...(window.WOLFIE_EXTRA_WORDS||[]),...(roadmap?roadmap.grammarPairs():[])];
 const byId=Object.fromEntries(all.map(p=>[p.id,p]));
 const Android=typeof window.WolfieAndroid!=='undefined'?window.WolfieAndroid:null;
-let store={items:{},finished:{},xp:0,days:{},correct:0,attempts:0,speed:false,study:{},settings:{}};
-try {const saved=Android?Android.loadProgress():localStorage.getItem('wolfie-progress');if(saved){const v=JSON.parse(saved);if(v&&typeof v==='object'){store={...store,...v,items:v.items||{},finished:v.finished||{},days:v.days||{},study:v.study||{},settings:v.settings||{}};}}}catch(e){console.warn('Unable to load progress',e);}
-const save=()=>{try{const str=JSON.stringify(store);if(Android)Android.saveProgress(str);else localStorage.setItem('wolfie-progress',str);}catch(e){console.warn('Unable to save progress',e);}};
+let store={schemaVersion:2,items:{},finished:{},xp:0,days:{},correct:0,attempts:0,speed:false,study:{},settings:{}};
+let loadError=false,storageNotice='',lastSaved=null;
+function storageMessage(message){storageNotice=message;const el=document.getElementById('storage-notice');if(el){el.textContent=message;el.hidden=!message;}}
+try{
+ const saved=Android?Android.loadProgress():localStorage.getItem('wolfie-progress');
+ if(saved!==null&&saved!==undefined){try{store=window.WOLFIE_PROGRESS.validate(saved);lastSaved=saved;}catch(e){if(Android)throw e;const previous=localStorage.getItem('wolfie-progress-prev');if(!previous)throw e;store=window.WOLFIE_PROGRESS.validate(previous);storageNotice='Восстановлена предыдущая копия прогресса.';}}
+ else if(Android)throw Error('Повреждён прогресс');
+ if(Android&&typeof Android.progressStatus==='function'&&Android.progressStatus().startsWith('recovered'))storageNotice='Восстановлена предыдущая копия прогресса; последние изменения могли быть потеряны.';
+}catch(e){loadError=true;storageNotice='Прогресс повреждён или недоступен. Автосохранение отключено. Открой настройки и импортируй резервную копию.';console.warn('Unable to load progress',e);}
+function persist(raw,restore=false){
+ if(loadError&&!restore)return false;
+ try{
+  if(raw===lastSaved&&!restore)return true;
+  if(Android){
+   if(restore&&typeof Android.restoreProgress==='function'){if(!Android.restoreProgress(raw))throw Error('restore failed');}
+   else if(typeof Android.saveProgressVerified==='function'){if(!Android.saveProgressVerified(raw))throw Error('save failed');}
+   else {if(restore)throw Error('verified restore unavailable');Android.saveProgress(raw);}
+  }else{
+   const prev=localStorage.getItem('wolfie-progress');let valid=false;
+   if(prev){try{window.WOLFIE_PROGRESS.validate(prev);valid=true;}catch{}}
+   if(valid&&prev!==raw)localStorage.setItem('wolfie-progress-prev',prev);
+   localStorage.setItem('wolfie-progress',raw);
+   if(localStorage.getItem('wolfie-progress')!==raw)throw Error('write readback mismatch');
+  }
+  lastSaved=raw;return true;
+ }catch(e){storageMessage('Не удалось сохранить прогресс. Экспортируй резервную копию перед выходом.');console.warn('Unable to save progress',e);return false;}
+}
+const save=()=>persist(JSON.stringify(store));
 const dateKey=(d=new Date())=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
 const daysAgo=n=>{const d=new Date();d.setDate(d.getDate()-n);return dateKey(d)};
 const streak=()=>{let n=0,offset=(store.days[dateKey()]||0)>0?0:1;while((store.days[daysAgo(offset)]||0)>0&&n<3650){n++;offset++;}return n;};
@@ -25,7 +50,7 @@ const selectedVoice=()=>store.settings?.voiceLocale||'en-US';
 const voiceAvailable=(locale=selectedVoice())=>{try{if(Android){return typeof Android.isSpeechAvailableFor==='function'?Android.isSpeechAvailableFor(locale):Android.isSpeechAvailable();}if(!window.speechSynthesis)return false;const voices=speechSynthesis.getVoices?speechSynthesis.getVoices():[];return voices.some(v=>String(v.lang||'').toLowerCase().startsWith(String(locale).toLowerCase()));}catch{return false;}};
 function speak(s,locale=selectedVoice()){try{if(Android){if(typeof Android.speakLocalized==='function')Android.speakLocalized(s,locale);else Android.speak(s);return voiceAvailable(locale);}if(!window.speechSynthesis||!voiceAvailable(locale))return false;speechSynthesis.cancel();const a=new SpeechSynthesisUtterance(s);a.lang=locale;a.rate=.9;const voice=speechSynthesis.getVoices().find(v=>String(v.lang||'').toLowerCase().startsWith(String(locale).toLowerCase()));if(voice)a.voice=voice;speechSynthesis.speak(a);return true;}catch(e){console.warn('Speech failed',e);return false;}}
 function applyPreferences(){store.settings=store.settings||{};const theme=store.settings.theme==='dark'?'dark':'light';document.documentElement.dataset.theme=theme;if(Android&&typeof Android.setDarkMode==='function')Android.setDarkMode(theme==='dark');const scale=[1,1.1,1.2].includes(Number(store.settings.fontScale))?Number(store.settings.fontScale):1;document.documentElement.style.setProperty('--font-scale',String(scale));const b=document.getElementById('theme-toggle');if(b){b.textContent=theme==='dark'?'☀':'◐';b.setAttribute('aria-label',theme==='dark'?'Включить светлую тему':'Включить тёмную тему');b.title=theme==='dark'?'Светлая тема':'Тёмная тема';}}
-function header(){document.getElementById('xp').textContent=`⚡ ${store.xp||0} XP`;document.getElementById('streak').textContent=`🔥 ${streak()}`;}
+function header(){storageMessage(storageNotice);document.getElementById('xp').textContent=`⚡ ${store.xp||0} XP`;document.getElementById('streak').textContent=`🔥 ${streak()}`;}
 let tab='home',sess=null,clock=null;
 function clearClock(){if(clock){clearInterval(clock);clock=null;}}
 function nav(show=true){document.querySelector('.bottom').hidden=!show;document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('selected',b.dataset.tab===tab));}
@@ -62,14 +87,15 @@ function showStats(){
  const skill=(title,value,note,percent)=>'<div class="skill-card"><strong>'+title+' · '+value+'</strong>'+(percent===null?'':'<div class="bar"><div style="width:'+percent+'%"></div></div>')+'<small>'+note+'</small></div>';
  store.settings=store.settings||{};
  const locale=selectedVoice(),scale=Number(store.settings.fontScale)||1;
- view.innerHTML='<h1>Прогресс и навыки</h1><p>Показываются результаты выполненных проверок, а не только число пройденных дней.</p><div class="mini-stats"><div class="stat"><b>'+courseDone()+'/300</b><small>Дней большого курса</small></div><div class="stat"><b>'+Math.floor(courseDone()/30)+'/10</b><small>Месяцев завершено</small></div><div class="stat"><b>'+(store.xp||0)+'</b><small>Всего XP</small></div><div class="stat"><b>'+streak()+'</b><small>Дней подряд</small></div><div class="stat"><b>'+completed+'/'+lessons.length+'</b><small>Дополнительных уроков</small></div><div class="stat"><b>'+mastered+'</b><small>Карточек с 3+ успешными повторами</small></div><div class="stat"><b>'+(store.attempts?Math.round(store.correct/store.attempts*100):0)+'%</b><small>Точность карточных тестов</small></div><div class="stat"><b>'+today()+'</b><small>Ответов сегодня</small></div></div><h2>Карта языковых навыков</h2><div class="skill-grid">'+
- skill('Vocabulary',metric('vocabulary'),'Активное воспроизведение и SRS',average('vocabulary'))+
+ view.innerHTML='<h1>Прогресс и навыки</h1><p>Показываются результаты выполненных проверок, а не только число пройденных дней.</p><div class="mini-stats"><div class="stat"><b>'+courseDone()+'/300</b><small>Дней большого курса</small></div><div class="stat"><b>'+roadmap.months.filter(m=>course.slice((m.number-1)*30,m.number*30).every(u=>store.finished[u.id]?.done)).length+'/10</b><small>Месяцев завершено</small></div><div class="stat"><b>'+(store.xp||0)+'</b><small>Всего XP</small></div><div class="stat"><b>'+streak()+'</b><small>Дней подряд</small></div><div class="stat"><b>'+completed+'/'+lessons.length+'</b><small>Дополнительных уроков</small></div><div class="stat"><b>'+mastered+'</b><small>Карточек с 3+ успешными повторами</small></div><div class="stat"><b>'+(store.attempts?Math.round(store.correct/store.attempts*100):0)+'%</b><small>Точность карточных тестов</small></div><div class="stat"><b>'+today()+'</b><small>Ответов сегодня</small></div></div><h2>Карта языковых навыков</h2><div class="skill-grid">'+
+ skill('Vocabulary',metric('vocabulary'),'Узнавание и SRS',average('vocabulary'))+
  skill('Grammar / Use of English',metric('grammar'),'Два проверяемых задания по теме',average('grammar'))+
  skill('Reading',metric('reading'),'Понимание текста и выводы',average('reading'))+
  skill('Listening',metric('listening'),'Диктант через синтезированную речь устройства',average('listening'))+
  skill('Speaking',speakingText,'Число ответов с системной транскрипцией; произношение не оценивается',null)+
  skill('Writing',writingText,'Структурные критерии; грамматика и орфография не подтверждаются',null)+
- '</div><p class="muted">Эти показатели являются учебной аналитикой, а не официальными баллами CEFR. Для B2 необходима независимая оценка естественного аудирования, устной речи и письменных работ.</p><h2>Настройки приложения</h2><label class="toggle"><span><strong>Режим скорости</strong><br><span class="muted">20 секунд на выбор, 45 секунд на письмо</span></span><input id="speed" type="checkbox" '+(store.speed?'checked':'')+'></label><label class="field-label" for="voice-locale">Английский голос</label><select class="input" id="voice-locale"><option value="en-US" '+(locale==='en-US'?'selected':'')+'>English (United States)</option><option value="en-GB" '+(locale==='en-GB'?'selected':'')+'>English (United Kingdom)</option></select><p id="voice-status" class="muted" role="status"></p><label class="field-label" for="font-scale">Размер текста</label><select class="input" id="font-scale"><option value="1" '+(scale===1?'selected':'')+'>Стандартный</option><option value="1.1" '+(scale===1.1?'selected':'')+'>Увеличенный</option><option value="1.2" '+(scale===1.2?'selected':'')+'>Крупный</option></select><p class="muted">Прогресс хранится локально на этом устройстве. Синтезированная речь и транскрипция не заменяют аутентичные аудиоматериалы и оценку произношения.</p>';
+ '</div><p class="muted">Эти показатели являются учебной аналитикой, а не официальными баллами CEFR. Для B2 необходима независимая оценка естественного аудирования, устной речи и письменных работ.</p><h2>Настройки приложения</h2><label class="toggle"><span><strong>Режим скорости</strong><br><span class="muted">20 секунд на выбор, 45 секунд на письмо</span></span><input id="speed" type="checkbox" '+(store.speed?'checked':'')+'></label><label class="field-label" for="voice-locale">Английский голос</label><select class="input" id="voice-locale"><option value="en-US" '+(locale==='en-US'?'selected':'')+'>English (United States)</option><option value="en-GB" '+(locale==='en-GB'?'selected':'')+'>English (United Kingdom)</option></select><p id="voice-status" class="muted" role="status"></p><label class="field-label" for="font-scale">Размер текста</label><select class="input" id="font-scale"><option value="1" '+(scale===1?'selected':'')+'>Стандартный</option><option value="1.1" '+(scale===1.1?'selected':'')+'>Увеличенный</option><option value="1.2" '+(scale===1.2?'selected':'')+'>Крупный</option></select><p class="muted">Прогресс хранится локально на этом устройстве. Синтезированная речь и транскрипция не заменяют аутентичные аудиоматериалы и оценку произношения.</p><section class="question-card"><h2>Резервная копия</h2><p>Файл содержит личные учебные ответы и историю. Храни его в доверенном месте. Импорт заменяет текущий прогресс только после проверки контрольной суммы и подтверждения.</p><button id="backup-export" class="primary">Экспорт прогресса</button><button id="backup-import" class="secondary">Импорт прогресса</button><input id="backup-file" type="file" accept=".json,application/json" hidden><p id="backup-status" role="status"></p></section>';
+ bindBackup();
  document.getElementById('speed').addEventListener('change',e=>{store.speed=e.target.checked;save();});
  const voiceSelect=document.getElementById('voice-locale'),voiceStatus=document.getElementById('voice-status');
  const updateVoice=()=>{voiceStatus.textContent=voiceAvailable(voiceSelect.value)?'Выбранный голос доступен.':'Голос не обнаружен. Установи языковые данные TTS в Android; аудирование останется непроверенным; другие уроки доступны.';};
@@ -77,12 +103,36 @@ function showStats(){
  updateVoice();
  document.getElementById('font-scale').addEventListener('change',e=>{store.settings.fontScale=Number(e.target.value);applyPreferences();save();});
 }
+function bindBackup(){
+ const status=msg=>{const el=document.getElementById('backup-status');if(el)el.textContent=msg;};
+ window.WOLFIE_BACKUP_STATUS=m=>{const labels={'Export saved':'Резервная копия сохранена.','Cancelled':'Операция отменена.','Export failed':'Не удалось записать файл.','Import failed or file too large':'Файл не прочитан или слишком велик.','Document picker unavailable':'Системный выбор файла недоступен.','Backup too large':'Файл слишком большой.','Export interrupted; try again':'Экспорт прерван. Повтори попытку.'};status(labels[m]||'Операция не подтверждена.');};
+ const importRaw=async raw=>{
+  try{
+   const next=await window.WOLFIE_PROGRESS.readBackup(raw,Android);
+   if(!confirm('Контрольная сумма верна. Заменить текущий прогресс содержимым резервной копии?')){status('Импорт отменён.');return;}
+   if(!persist(JSON.stringify(next),true))throw Error('Не удалось подтвердить запись. Текущий прогресс оставлен в памяти.');
+   store=next;loadError=false;storageNotice='';applyPreferences();showStats();status('Прогресс восстановлен.'); 
+  }catch(e){status('Импорт отклонён: '+e.message);}
+ };
+ window.WOLFIE_BACKUP_IMPORT=importRaw;
+ document.getElementById('backup-export').onclick=async()=>{
+  if(loadError){status('Исходные данные повреждены. Импортируй существующую копию, не экспортируй пустой прогресс.');return;}
+  try{
+   const raw=await window.WOLFIE_PROGRESS.makeBackup(store,Android);
+   if(Android&&typeof Android.exportProgress==='function'){Android.exportProgress(raw);status('Выбери место сохранения файла.');}
+   else{const url=URL.createObjectURL(new Blob([raw],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='wolfie-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status('Файл подготовлен к скачиванию.');}
+  }catch(e){status('Экспорт отклонён: '+e.message);}
+ };
+ const file=document.getElementById('backup-file');
+ document.getElementById('backup-import').onclick=()=>{if(Android&&typeof Android.importProgress==='function')Android.importProgress();else file.click();};
+ file.onchange=async()=>{const f=file.files?.[0];if(!f)return;if(f.size>10000000){status('Файл слишком большой.');return;}try{await importRaw(await f.text());}catch(e){status('Файл не прочитан.');}finally{file.value='';}};
+}
 function showCourseUnit(index){
  const u=course[index];if(!u||!courseEligible(u))return;
  clearClock();sess=null;tab='home';nav(false);header();
  let intro='<section class="course-guide"><button class="secondary" id="course-back" type="button">← К программе</button><span class="eyebrow">МЕСЯЦ '+u.month+' · ДЕНЬ '+u.day+' / 30 · '+u.level+'</span><h1>'+h(u.title)+'</h1><p>'+h(u.challenge)+'</p>';
  if(u.grammar){const g=u.grammar;intro+='<div class="grammar-box"><strong>'+h(g.title)+'</strong><p>'+h(g.rule)+'</p><p class="grammar-example"><b>'+h(g.example.en)+'</b><br>'+h(g.example.ru)+'</p></div>';}
- intro+='<div class="course-rules"><strong>Сегодня: полноценный учебный день</strong><p>7 учебных блоков и итоговый тест — 77 минут. Для перехода нужны все блоки и минимум 7 правильных ответов из 10.</p></div><button type="button" class="primary" id="begin-course">Начать тренировку →</button></section>';
+ intro+='<div class="course-rules"><strong>Сегодня: полноценный учебный день</strong><p>7 учебных блоков и итоговый тест — 77 минут. Для отметки завершения нужны все блоки и минимум 7 правильных ответов из 10. Другие дни доступны независимо.</p></div><button type="button" class="primary" id="begin-course">Начать тренировку →</button></section>';
  view.innerHTML=intro;
  document.getElementById('course-back').addEventListener('click',showHome);
  document.getElementById('begin-course').addEventListener('click',()=>window.WOLFIE_STUDY.mount(view,{unit:u,store,save,onExit:showHome,onExam:()=>startSession(u.pairs,u),speak,voiceAvailable,voiceLocale:selectedVoice(),getReviewItems:()=>shuffle(due()).slice(0,8),onReview:score}));

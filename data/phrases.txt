@@ -814,3 +814,47 @@
 Этот опыт убедил меня, что регулярная практика полезнее редких интенсивных занятий.|This experience has convinced me that regular practice is more useful than occasional intensive sessions.
 Я хочу научиться объяснять свою точку зрения так, чтобы собеседник понимал не только слова, но и смысл.|I want to learn to express my point of view so that the other person understands the meaning, not just the words.
 Я понимаю, что свободное владение языком требует не только словарного запаса, но и умения поддерживать беседу.|I understand that fluency requires not just vocabulary but also the ability to keep a conversation going.
+
+# B2|Инженерия и надёжность
+Автомат защиты отключил выключатель после обнаружения сверхтока.|The protective relay tripped the circuit breaker after detecting an overcurrent condition.
+Дифференциальная защита контролирует токи по обе стороны трансформатора.|Differential protection monitors the currents on both sides of the transformer.
+Ток намагничивания может вызвать кратковременный дифференциальный ток.|Magnetising inrush can produce a temporary differential current.
+Трансформатор тока может насыщаться при большом токе короткого замыкания.|A current transformer may saturate during a high short-circuit current.
+Реле сформировало команду отключения для выключателя.|The relay issued a trip command to the circuit breaker.
+Регистратор аварийных событий сохранил осциллограмму.|The disturbance recorder stored the fault waveform.
+Журнал событий показывает последовательность срабатывания защит.|The event log shows the sequence of protection operations.
+Резервная защита должна сработать при отказе основной защиты.|The backup protection should operate if the primary protection fails.
+Селективность позволяет отключить только повреждённый участок.|Selectivity allows only the faulted section to be disconnected.
+Уставки реле сверили с утверждённой картой настроек.|The relay settings were checked against the approved setting sheet.
+Контроль цепи отключения обнаружил возможный обрыв.|Trip-circuit supervision detected a possible open circuit.
+Вспомогательный контакт не изменил состояние после команды отключения.|The auxiliary contact did not change state after the trip command.
+Выключатель не завершил операцию отключения.|The circuit breaker did not complete the opening operation.
+Защита отказа выключателя обеспечивает резервное отключение.|Breaker-failure protection provides a backup tripping function.
+Шинный соединительный выключатель связывает две секции шин.|The bus coupler connects two busbar sections.
+Отходящая ячейка содержит оборудование одной линии.|The feeder bay contains the equipment for one outgoing circuit.
+Трансформаторная ячейка включает измерительные и защитные цепи.|The transformer bay includes measurement and protection circuits.
+Сигнал SCADA поступил на диспетчерский пункт.|The SCADA signal was received at the control centre.
+Устройство телемеханики передало состояние выключателя.|The remote terminal unit transmitted the circuit-breaker status.
+Сообщения GOOSE используются для быстрого обмена сигналами.|GOOSE messages are used for fast signal exchange.
+Испытательный блок позволяет изолировать измерительную цепь для проверки.|The test block allows the measurement circuit to be isolated for testing.
+Протокол испытаний содержит результаты вторичной подачи тока.|The test report includes the secondary-injection results.
+Сопротивление изоляции сравнили с предыдущими результатами.|The insulation resistance was compared with previous test results.
+Переходное сопротивление контактов оказалось выше установленного предела.|The contact resistance was above the specified limit.
+Аккумуляторная батарея обеспечивает постоянным током цепи управления.|The station battery supplies DC power to the control circuits.
+Зарядное устройство поддерживает батарею в рабочем диапазоне.|The battery charger keeps the station battery within its operating range.
+Зона защиты охватывает трансформатор и его соединения.|The protection zone covers the transformer and its connections.
+Осциллограмма помогла восстановить последовательность аварии.|The waveform helped reconstruct the sequence of the fault.
+Схема блокировки предотвращает недопустимую комбинацию переключений.|The interlocking scheme prevents an unsafe switching combination.
+Отчёт различает первичное повреждение и реакцию защиты.|The report distinguishes the initiating fault from the protection response.
+
+# B2|Надёжность и риски
+Программа переключений должна быть утверждена до начала работ.|The switching programme must be approved before work begins.
+Наряд-допуск подтверждает согласованный объём работ и меры безопасности.|The permit to work confirms the agreed scope and safety controls.
+Оценка риска определяет необходимые меры защиты от электрической дуги.|The risk assessment identifies the required arc-flash protection measures.
+Работы выполняют уполномоченные специалисты по утверждённой процедуре.|The work is carried out by authorised personnel under the approved procedure.
+Перед возвратом оборудования в работу проверяют все условия допуска.|All release conditions are checked before the equipment is returned to service.
+Схема заземления должна соответствовать утверждённому проекту.|The grounding arrangement must comply with the approved design.
+В отчёте указаны максимальный и минимальный уровни тока повреждения.|The report states the maximum and minimum fault levels.
+Координация защит снижает риск отключения исправных участков.|Protection coordination reduces the risk of disconnecting healthy sections.
+Хронологию событий восстановили по синхронизированным записям.|The event chronology was reconstructed from time-synchronised records.
+Инструкция по переключениям прошла независимую проверку.|The switching instruction underwent an independent review.

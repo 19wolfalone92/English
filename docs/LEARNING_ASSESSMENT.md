@@ -1,6 +1,6 @@
 # Wolfie English — Learning Assessment and Evidence Boundaries
 
-Version: 0.7.0 · Route: 300 days (120 A2, 90 B1, 90 B2)
+Version: 0.7.1 · Route: 300 days (120 A2, 90 B1, 90 B2)
 
 ## Daily evidence
 
@@ -14,14 +14,18 @@ Version: 0.7.0 · Route: 300 days (120 A2, 90 B1, 90 B2)
 | Writing | One extended response; length, sentence, linker and lexical-diversity checks | Minimum word target and ≥3/4 checks | No independent grammar, spelling, punctuation, coherence or register assessment |
 
 ## Daily time budget
-
 Review 8 min; vocabulary 10; grammar 10; listening 12; reading 10; speaking 10; writing 12; final test 5. Total: **77 minutes**. Fifteen minutes of free immersion is recommended separately.
+
+## Month 9 technical English module
+The month 9 B2 bank contains 124 newly added specialist vocabulary items and 40 newly added technical phrases. The combined topic bank contains at least 149 vocabulary entries and 56 phrases. Four mission scenarios cover a substation feeder trip, transformer differential protection, busbar fault analysis and safety communication around a switching programme.
+
+The terminology includes switchgear, circuit breakers, busbars, feeders, transformer bays, relay protection, differential/overcurrent/earth-fault protection, CT/VT, inrush current, trip circuits, breaker-failure protection, SCADA, RTU, IEC 61850, GOOSE, disturbance records, testing, switching documentation, permits to work and electrical safety language. These are English-learning materials for explaining and reporting engineering situations, not instructions for carrying out switching operations.
 
 ## Progression
 A course day completes only when all seven learning blocks are complete and at least 70% of the ten-item final test is correct. Completion does not establish CEFR level.
 
 ## Content baseline
-1,102 bilingual vocabulary items; 1,008 phrases/sentences; 40 grammar topics and 80 objective checks; 40 reading passages (20 new); 300 distinct daily mission openings. Every day has 10 test and 18 practice items. Topic fallback is disabled and insufficient coverage fails validation.
+1,226 bilingual vocabulary items; 1,048 phrases/sentences; 40 grammar topics and 80 objective checks; 40 reading passages (20 new); 300 distinct daily mission openings. Every day has 10 test and 18 practice items. Topic fallback is disabled and insufficient coverage fails validation.
 
 The reading library remains below the 80–120 target. The authentic-audio target is unmet; the current listening stage uses device TTS.
 
@@ -35,7 +39,7 @@ The reading library remains below the 80–120 target. The authentic-audio targe
 The app must not label a learner B2 because 300 days or internal quizzes are complete.
 
 ## Platform acceptance still required
-The 0.7.0 code adds locale-aware TTS/recognition, strict voice availability, edge-to-edge Android insets, theme synchronization, adjustable text size, local drafts and CI browser/Android checks. Actual Android 13–16 testing is still required for install/upgrade migration, offline cold start, IME resize, rotation, system bars, TalkBack, US/UK voice packs, recognition availability, process death and restore. Playwright does not substitute for device testing.
+The 0.7.1 implementation adds locale-aware TTS/recognition, strict voice availability, edge-to-edge Android system/IME insets, theme synchronization, adjustable text size, local drafts and CI browser/Android checks. Actual Android 13–16 testing is still required for install/upgrade migration, offline cold start, IME resize, rotation, system bars, TalkBack, US/UK voice packs, recognition availability, process death and restore. Playwright does not substitute for device testing.
 
 ## Release acceptance
 Do not merge or call this a qualified B2 course until content generation, 300-day topic checks, browser gates, Android lint/unit tests, APK+SHA-256 and Android 13–16 device qualification all pass. Keep authentic audio, assessed speaking/writing and independent CEFR qualification explicitly outstanding until delivered.

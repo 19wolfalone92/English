@@ -1092,3 +1092,129 @@ reword|переформулировать
 simplify|упрощать
 streamline|упрощать / оптимизировать
 omit|опускать
+
+# B2|Инженерия и надёжность
+substation|подстанция
+switchgear|комплектное распределительное устройство
+circuit breaker|выключатель
+disconnector|разъединитель
+earthing switch|заземляющий нож / заземлитель
+busbar|сборная шина
+bus coupler|шинный соединительный выключатель
+bus section|секция шин
+feeder|фидер / отходящая линия
+feeder bay|ячейка фидера
+transformer bay|трансформаторная ячейка
+protective relay|реле защиты
+relay protection|релейная защита
+differential protection|дифференциальная защита
+overcurrent protection|максимальная токовая защита
+earth-fault protection|защита от замыканий на землю
+distance protection|дистанционная защита
+directional protection|направленная защита
+busbar protection|защита шин
+breaker-failure protection|защита отказа выключателя
+backup protection|резервная защита
+protection coordination|согласование защит
+interlocking|блокировка
+switching order|распоряжение на переключение
+permit to work|наряд-допуск
+isolation|изоляция / отделение от сети
+de-energisation|снятие напряжения
+energisation|подача напряжения
+inrush current|ток броска намагничивания
+current transformer|трансформатор тока
+voltage transformer|трансформатор напряжения
+CT saturation|насыщение трансформатора тока
+trip coil|катушка отключения
+closing coil|катушка включения
+trip circuit|цепь отключения
+trip-circuit supervision|контроль цепи отключения
+auxiliary contact|вспомогательный контакт
+lockout relay|промежуточное реле блокировки
+disturbance recorder|регистратор аварийных событий
+event log|журнал событий
+fault record|запись аварийного режима
+SCADA|система диспетчерского управления и сбора данных
+RTU|устройство телемеханики
+IEC 61850|стандарт IEC 61850
+GOOSE message|сообщение GOOSE
+intertrip|межсистемная команда отключения
+protection setting|уставка защиты
+setting group|группа уставок
+test block|испытательный блок
+secondary injection|вторичная подача тока / напряжения
+primary injection|первичная подача тока
+insulation resistance|сопротивление изоляции
+contact resistance|переходное сопротивление контактов
+station battery|аккумуляторная батарея подстанции
+DC supply|питание постоянного тока
+battery charger|зарядное устройство аккумуляторной батареи
+arc flash|электрическая дуга
+grounding grid|заземляющая сетка
+switching programme|программа переключений
+mimic panel|мнемосхема
+protection panel|панель релейной защиты
+marshalling kiosk|шкаф сбора цепей
+terminal block|клеммный блок
+protection zone|зона защиты
+waveform|осциллограмма
+alarm annunciator|панель аварийной сигнализации
+remote control|дистанционное управление
+local/remote selector|переключатель местного / дистанционного управления
+restoration report|отчёт о восстановлении
+breaker mechanism|механизм выключателя
+synchronism check|контроль синхронизма
+ring main unit|кольцевое распределительное устройство
+gas-insulated switchgear|элегазовое комплектное распределительное устройство
+vacuum circuit breaker|вакуумный выключатель
+surge arrester|ограничитель перенапряжений
+tap changer|устройство регулирования ответвлений
+zero-sequence current|ток нулевой последовательности
+residual current|остаточный ток
+time-current curve|времятоковая характеристика
+pickup current|ток срабатывания
+differential current|дифференциальный ток
+restraining current|тормозной ток
+harmonic restraint|блокировка по гармоникам
+breaker timing test|проверка временных характеристик выключателя
+single-line diagram|однолинейная схема
+control cable|кабель управления
+switching sequence|последовательность переключений
+safety clearance|допуск по безопасности
+earthing point|точка заземления
+time synchronisation|синхронизация времени
+sequence of events|последовательность событий
+return to service|возврат в работу
+load transfer|перевод нагрузки
+trip matrix|матрица отключений
+protection scheme|схема релейной защиты
+trip latch|защёлка отключения
+spring-charging motor|двигатель взвода пружины
+anti-pumping relay|реле защиты от многократного включения
+interposing relay|промежуточное реле
+fault locator|устройство определения места повреждения
+disturbance analysis|анализ аварийной осциллограммы
+ground potential rise|подъём потенциала заземляющего устройства
+touch voltage|напряжение прикосновения
+step voltage|шаговое напряжение
+insulation coordination|координация изоляции
+partial discharge|частичный разряд
+dielectric strength|электрическая прочность изоляции
+contact gap|межконтактный промежуток
+opening time|время отключения
+closing time|время включения
+pole discrepancy|несинхронность полюсов выключателя
+station service supply|система собственных нужд подстанции
+control circuit|цепь управления
+protection engineer|инженер по релейной защите
+fault analysis|анализ повреждения
+fault waveform|осциллограмма повреждения
+SCADA alarm|сигнализация SCADA
+remote terminal unit|устройство телемеханики
+test terminal|испытательная клемма
+isolation certificate|документ об изоляции оборудования
+switching authority|ответственный за переключения
+authorised person|уполномоченное лицо
+protective equipment|средства защиты
+arc-flash boundary|граница опасной зоны электрической дуги

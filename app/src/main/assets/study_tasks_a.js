@@ -63,7 +63,7 @@ handlers.grammar=c=>{
  c.view.querySelector('#study-complete').onclick=()=>{
   let correct=0;const explanations=[];
   for(let i=0;i<quiz.length;i++){const selected=c.view.querySelector('input[name="grammar-q'+i+'"]:checked');if(!selected){c.view.querySelector('#grammar-error').textContent='Ответь на оба вопроса Use of English.';return;}const ok=Number(selected.value)===quiz[i].correct;correct+=Number(ok);explanations.push('<p>'+(ok?'✓ ':'✕ ')+esc(quiz[i].explanation)+'</p>');}
-  const sentences=area.value.split(/\n+/).filter(x=>x.trim().split(/\s+/).length>=4);
+  const sentences=area.value.split(/[.!?]+/).filter(x=>x.trim().split(/\s+/).length>=4);
   c.log.answers.grammar=area.value;c.log.answers.grammarQuiz={correct,total:quiz.length,percent:Math.round(correct/quiz.length*100)};
   c.log.assessment=c.log.assessment||{};c.log.assessment.grammar={correct,total:quiz.length,percent:Math.round(correct/quiz.length*100)};
   c.save();

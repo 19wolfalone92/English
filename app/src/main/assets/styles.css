@@ -271,3 +271,5 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(max-width:390px){.diagnostic-entry,.diagnostic-shell{padding:14px}.diag-levels{grid-template-columns:1fr}}
+
+.storage-notice:not([hidden]){margin:12px 16px;padding:12px;border:1px solid var(--danger);border-radius:12px;color:var(--text);background:var(--card)}

@@ -59,7 +59,7 @@ async def main():
     ans=await page.evaluate("()=>window.WOLFIE_READINGS[0].questions.map((q,i)=>({i,c:q.correct}))")
     for x in ans:await page.locator(f'input[name="rq{x["i"]}"][value="{x["c"]}"]').check()
     await page.locator('#study-complete').click()
-    await page.locator('[data-study="listening"]').click();assert await page.locator('.study-warning').is_visible()
+    await page.locator('[data-study="listening"]').click();assert await page.locator('.study-panel-content .study-warning').is_visible()
     assert await page.locator('#study-complete').count()==0;await page.locator('#study-back').click()
     await page.locator('[data-study="speaking"]').click()
     answers=['I would explain the problem and describe what happened first.','I would compare two possible solutions and choose the safer option.','I think clear communication helps everyone understand the next step.']

@@ -1,6 +1,6 @@
 import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url),w={};
-const ctx=vm.createContext({window:w,document:{hidden:false},setInterval:()=>1,clearInterval:()=>{},console,Date,Math});
+const ctx=vm.createContext({window:w,TextEncoder,document:{hidden:false},setInterval:()=>1,clearInterval:()=>{},console,Date,Math});
 const files=['progress.js','curriculum.js','vocab.js','expanded.js','roadmap.js','readings_a.js','readings_b.js','readings_c.js','readings_d.js','readings_e.js','readings_f.js','readings_g.js','readings_h.js','grammar_a.js','grammar_b.js','grammar_c.js','grammar_d.js','grammar_quiz.js','missions_a.js','missions_b.js','missions_c.js','missions.js','study_tasks_a.js','study_tasks_b.js','study.js'];
 for(const f of files)vm.runInContext(fs.readFileSync(new URL(f,root),'utf8'),ctx,{filename:f});
 const course=w.WOLFIE_ROADMAP,units=course.build();
@@ -22,7 +22,7 @@ assert.ok(java.includes('isSpeechAvailableFor(String languageTag)')&&java.includ
 const handlers=new Map(),els=new Map(),view={innerHTML:'',querySelector(s){return node(s);},querySelectorAll(s){if(s==='[data-study]')return [...this.innerHTML.matchAll(/data-study="([^"]+)"/g)].map(m=>{const k='stage:'+m[1];if(!els.has(k))els.set(k,{dataset:{study:m[1]},onclick:null});return els.get(k);});return[];}};
 function node(id){if(id==='view')return view;if(!els.has(id))els.set(id,{textContent:'',hidden:false,value:'',dataset:{},style:{},classList:{toggle(){},add(){},remove(){}},addEventListener(t,cb){handlers.set(id+':'+t,cb);},setAttribute(){},onclick:null});return els.get(id);}
 const doc={hidden:false,documentElement:{dataset:{},style:{setProperty(){}}},getElementById:node,querySelector:()=>node('bottom'),querySelectorAll:()=>[]};
-vm.runInContext(app,vm.createContext({window:w,document:doc,localStorage:{getItem:()=>null,setItem(){}},console,Date,Math,confirm:()=>true,setTimeout:()=>1,clearTimeout:()=>{},setInterval:()=>1,clearInterval:()=>{}}),{filename:'app.js'});
+const local=new Map();vm.runInContext(app,vm.createContext({window:w,document:doc,localStorage:{getItem:k=>local.get(k)??null,setItem(k,v){local.set(k,v);}},console,Date,Math,confirm:()=>true,setTimeout:()=>1,clearTimeout:()=>{},setInterval:()=>1,clearInterval:()=>{}}),{filename:'app.js'});
 assert.match(view.innerHTML,/Курс на 10 месяцев/);assert.equal((view.innerHTML.match(/class="course-month"/g)||[]).length,10);assert.match(view.innerHTML,/data-course="299"/);
 handlers.get('quick:click')();handlers.get('begin-course:click')();const stages=view.querySelectorAll('[data-study]');assert.equal(stages.length,8);assert.match(view.innerHTML,/data-study="exam" disabled/);
 stages.find(x=>x.dataset.study==='review').onclick();assert.match(view.innerHTML,/Очередь пуста/);view.querySelector('#study-complete').onclick();assert.match(view.innerHTML,/✓ выполнено/);

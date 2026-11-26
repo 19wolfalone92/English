@@ -1,0 +1,80 @@
+name: Android emulator qualification
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - '.github/workflows/device-qualification.yml'
+  workflow_dispatch:
+jobs:
+  device:
+    name: Android API ${{ matrix.api }} native qualification
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        api: [33, 34, 35, 36, 37]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Check KVM and SDK image availability
+        env:
+          API: ${{ matrix.api }}
+        run: |
+          set -euo pipefail
+          test -c /dev/kvm || { echo "::error::Hardware acceleration unavailable"; exit 1; }
+          sudo chmod a+rw /dev/kvm
+          mkdir -p device-evidence
+          sdkmanager --list > device-evidence/sdk-packages.txt
+          image="system-images;android-$API;google_apis;x86_64"
+          grep -F "$image" device-evidence/sdk-packages.txt >/dev/null || { echo "::error::Requested API image unavailable: $image"; exit 1; }
+          sdkmanager --install "$image" "emulator" "platform-tools"
+          echo no | avdmanager create avd -n wolfie -k "$image" --force
+      - name: Boot real Android emulator and verify API
+        env:
+          API: ${{ matrix.api }}
+        run: |
+          set -euo pipefail
+          nohup "$ANDROID_HOME/emulator/emulator" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
+          timeout 300 adb wait-for-device
+          for i in $(seq 1 150); do
+            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi
+            sleep 2
+          done
+          test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1
+          test "$(adb shell getprop ro.build.version.sdk | tr -d '\r')" = "$API"
+          adb shell input keyevent 82
+          adb shell settings put global window_animation_scale 0
+          adb shell settings put global transition_animation_scale 0
+          adb shell settings put global animator_duration_scale 0
+          adb shell svc wifi disable
+          adb shell svc data disable
+          adb shell getprop > device-evidence/device-properties.txt
+      - name: Instrumented WebView and storage tests offline
+        run: gradle --no-daemon :app:connectedDebugAndroidTest
+      - name: Real Android screenshot after process restart
+        run: |
+          adb shell am force-stop com.wolfie.english
+          adb shell am start -W -n com.wolfie.english/.MainActivity | tee device-evidence/activity-start.txt
+          sleep 4
+          adb exec-out screencap -p > device-evidence/wolfie-native.png
+          adb logcat -d -t 300 > device-evidence/logcat.txt
+      - name: Upload qualification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-Android-API-${{ matrix.api }}-evidence
+          path: |
+            device-evidence/
+            app/build/outputs/androidTest-results/connected/
+            app/build/reports/androidTests/connected/
+          if-no-files-found: warn

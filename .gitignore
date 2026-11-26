@@ -4,3 +4,7 @@
 local.properties
 *.iml
 .DS_Store
+
+# Generated from the original dialogue scripts during CI
+/app/src/main/assets/context_audio/
+/ui-evidence/

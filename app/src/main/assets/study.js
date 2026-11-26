@@ -26,6 +26,7 @@ function mount(view,api){
  store.study=store.study||{};
  const log=store.study[unit.id]||(store.study[unit.id]={done:{},answers:{},time:{},assessment:{}});
  log.done=log.done||{};log.answers=log.answers||{};log.time=log.time||{};log.assessment=log.assessment||{};
+ const pack=window.WOLFIE_CONTEXT?.get(unit);
  let timer=null;
  const stop=()=>{if(timer)clearInterval(timer);timer=null;save();};
  function panel(key,title,html){
@@ -40,7 +41,9 @@ function mount(view,api){
   const done=learningStages.filter(x=>log.done[x.key]).length;
   const examEnabled=done===learningStages.length;
   const examDone=!!log.done.exam;
-  let html='<div class="study-wrap"><button class="secondary" id="study-exit" type="button">← К курсу</button><h1>Учебный день '+unit.day+'</h1><p>'+unit.level+' · 7 учебных блоков и итоговый тест · 77 минут. Дополнительно: 15 минут свободного погружения.</p><div class="bar" role="progressbar" aria-label="Прогресс учебного дня" aria-valuemin="0" aria-valuemax="7" aria-valuenow="'+done+'"><div style="width:'+Math.round(done/7*100)+'%"></div></div><p class="muted">Завершено учебных блоков: '+done+'/7. Итоговый тест открывается после всех семи блоков.</p><div class="study-stages">';
+  let html='<div class="study-wrap"><button class="secondary" id="study-exit" type="button">← К курсу</button><h1>Учебный день '+unit.day+'</h1><p>'+unit.level+' · 7 учебных блоков и итоговый тест · 77 минут. Дополнительно: 15 минут свободного погружения.</p><div class="bar" role="progressbar" aria-label="Прогресс учебного дня" aria-valuemin="0" aria-valuemax="7" aria-valuenow="'+done+'"><div style="width:'+Math.round(done/7*100)+'%"></div></div><p class="muted">Завершено учебных блоков: '+done+'/7. Итоговый тест открывается после всех семи блоков.</p>';
+  if(pack)html+='<section class="context-entry"><h2>'+esc(pack.ru)+'</h2><p>'+esc(pack.goal)+'</p><button class="primary" id="study-context">Тематическая миссия · открыть</button><small>Новый связанный комплект, отдельный прогресс; старые 8 блоков сохранены ниже.</small></section>';
+  html+='<div class="study-stages">';
   for(const stage of stages){
    const enabled=stage.key!=='exam'||examEnabled;
    const completed=!!log.done[stage.key]||(stage.key==='exam'&&examDone);
@@ -49,6 +52,7 @@ function mount(view,api){
   html+='</div><p class="muted">Система проверяет ответы и структуру письменной работы. Транскрипция речи не является оценкой произношения; синтезированная речь не заменяет аутентичные аудиозаписи.</p></div>';
   view.innerHTML=html;
   view.querySelector('#study-exit').onclick=()=>{stop();onExit();};
+  if(pack)view.querySelector('#study-context').onclick=()=>{stop();window.WOLFIE_CONTEXT.mount(view,{pack,store,save,score:onReview,onExit:home,speak});};
   view.querySelectorAll('[data-study]').forEach(b=>b.onclick=()=>open(b.dataset.study));
  }
  function open(key){if(key==='exam'){if(!learningStages.every(x=>log.done[x.key]))return;stop();onExam();return;}window.WOLFIE_STUDY_TASKS.open({key,unit,log,view,panel,complete,esc,save,speak,voiceAvailable,voiceLocale,getReviewItems,onReview});}

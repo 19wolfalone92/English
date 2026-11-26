@@ -31,16 +31,25 @@ jobs:
         run: node scripts/verify_diagnostic.mjs
       - name: Verify progress schema and backup integrity
         run: node scripts/verify_progress.mjs
+      - name: Validate authored contextual learning packages
+        run: node scripts/verify_context.mjs
+      - name: Build offline synthetic dialogue audio
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak ffmpeg
+          python3 scripts/build_context_audio.py
       - name: Install Playwright Chromium
         run: |
           python -m pip install --upgrade playwright
           python -m playwright install --with-deps chromium
       - name: Run real browser UI smoke tests
         run: python3 scripts/ui_smoke_test.py
+      - name: Verify all authored context packages in real browser
+        run: python3 scripts/ui_context_test.py
       - name: Upload browser screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.8.1-browser-evidence
+          name: Wolfie-English-v0.8.2-browser-evidence
           path: ui-evidence/*.png
           if-no-files-found: error
       - name: Check JavaScript syntax
@@ -57,6 +66,8 @@ jobs:
         run: test -d "$ANDROID_HOME"
       - name: Run Android lint, unit tests and build
         run: gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug :app:assemblePreview
+      - name: Verify packaged lessons and audio in both APKs
+        run: python3 scripts/verify_context_apk.py app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/preview/app-preview.apk
       - name: Generate and verify APK checksum
         run: |
           cd app/build/outputs/apk/debug
@@ -66,7 +77,7 @@ jobs:
       - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.8.1-debug
+          name: Wolfie-English-v0.8.2-debug
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/debug/app-debug.apk.sha256
@@ -81,7 +92,7 @@ jobs:
       - name: Upload side-by-side preview APK
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.8.1-preview
+          name: Wolfie-English-v0.8.2-preview
           path: |
             app/build/outputs/apk/preview/app-preview.apk
             app/build/outputs/apk/preview/app-preview.apk.sha256

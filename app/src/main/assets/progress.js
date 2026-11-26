@@ -12,13 +12,21 @@ function validate(raw){
  function safe(x,depth=0){if(depth>32||++count>300000)throw Error('Слишком сложная структура.');if(x!==null&&typeof x==='object'){for(const k of Object.keys(x)){if(['__proto__','constructor','prototype'].includes(k))throw Error('Недопустимый ключ.');safe(x[k],depth+1);}}}
  safe(v);
  if(own(v,'schemaVersion')&&![1,2].includes(v.schemaVersion))throw Error('Неподдерживаемая версия прогресса.');
- for(const k of ['items','finished','days','study','settings','selfReviews'])if(own(v,k)&&!map(v[k]))throw Error('Некорректный раздел '+k);
+ for(const k of ['items','finished','days','study','settings','selfReviews','contextLessons'])if(own(v,k)&&!map(v[k]))throw Error('Некорректный раздел '+k);
  for(const k of ['xp','correct','attempts'])if(own(v,k)&&!integer(v[k]))throw Error('Некорректный счётчик '+k);
  if((v.correct||0)>(v.attempts||0))throw Error('Некорректное число правильных ответов.');
  for(const [id,x] of Object.entries(v.items||{}))if(!map(x)||!integer(x.stage)||x.stage>5||!integer(x.due))throw Error('Некорректная карточка '+id);
  for(const [id,x] of Object.entries(v.finished||{}))if(!map(x)||typeof x.done!=='boolean'||!integer(x.best))throw Error('Некорректный результат '+id);
  for(const x of Object.values(v.days||{}))if(!integer(x))throw Error('Некорректная дневная статистика.');
  for(const [id,x] of Object.entries(v.study||{})){if(!map(x))throw Error('Некорректный урок '+id);for(const k of ['done','answers','time','assessment','completedAt'])if(own(x,k)&&!map(x[k]))throw Error('Некорректный раздел урока '+k);}
+ if(own(v,'contextLessons'))for(const [id,x] of Object.entries(v.contextLessons)){
+  if(!/^mission-v2-\d{3}$/.test(id)||!map(x)||!integer(x.version)||!['overview','vocab','grammar','reading','audio','speaking','writing','result'].includes(x.tab))throw Error('Некорректная тематическая миссия.');
+  for(const k of ['answers','drafts','checks'])if(!map(x[k]))throw Error('Некорректный раздел миссии.');
+  for(const [k,a] of Object.entries(x.answers))if(!/^(v\d+|g\d+|r\d+|audio)$/.test(k)||!(typeof a==='string'||integer(a)||Array.isArray(a)&&a.every(integer)))throw Error('Некорректный ответ миссии.');
+  for(const a of Object.values(x.drafts))if(typeof a!=='string')throw Error('Некорректный черновик миссии.');
+  for(const a of Object.values(x.checks))if(!map(a)||typeof a.ok!=='boolean')throw Error('Некорректная проверка миссии.');
+  if(own(x,'writingIndex')&&(!integer(x.writingIndex)||x.writingIndex>2))throw Error('Некорректный вариант письма.');
+ }
  if(own(v,'diagnostic')){
   const d=v.diagnostic;if(!map(d)||!Array.isArray(d.history)||!(d.active===null||map(d.active)))throw Error('Некорректная диагностика.');
   const forms=window.WOLFIE_DIAGNOSTIC_FORMS||[];

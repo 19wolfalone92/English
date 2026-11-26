@@ -3,7 +3,7 @@ const lessons=Array.isArray(window.WOLFIE_LESSONS)?window.WOLFIE_LESSONS:[];
 const roadmap=window.WOLFIE_ROADMAP;
 const course=roadmap?roadmap.build():[];
 const view=document.getElementById('view');
-const all=[...lessons.flatMap(u=>u.pairs.map(p=>({...p,lessonId:u.id,level:u.level,topic:u.title}))),...(window.WOLFIE_EXTRA_PHRASES||[]),...(window.WOLFIE_WORDS||[]),...(window.WOLFIE_EXTRA_WORDS||[]),...(roadmap?roadmap.grammarPairs():[])];
+const all=[...lessons.flatMap(u=>u.pairs.map(p=>({...p,lessonId:u.id,level:u.level,topic:u.title}))),...(window.WOLFIE_EXTRA_PHRASES||[]),...(window.WOLFIE_WORDS||[]),...(window.WOLFIE_EXTRA_WORDS||[]),...(roadmap?roadmap.grammarPairs():[]),...(window.WOLFIE_CONTEXT?.newCards||[])];
 const byId=Object.fromEntries(all.map(p=>[p.id,p]));
 const Android=typeof window.WolfieAndroid!=='undefined'?window.WolfieAndroid:null;
 let store={schemaVersion:2,items:{},finished:{},xp:0,days:{},correct:0,attempts:0,speed:false,study:{},settings:{}};
@@ -64,7 +64,7 @@ for(const m of roadmap.months){
  out+='<details class="course-month" '+(expanded?'open':'')+'><summary><span class="month-emblem">'+m.number+'</span><span class="month-description"><strong>Месяц '+m.number+'. '+h(m.title)+'</strong><small>'+m.level+' · '+completed+'/30 дней</small></span><span class="month-chevron">⌄</span></summary><div class="course-days">';
  for(const u of course.slice(start,end)){
   const finished=!!store.finished[u.id]?.done,unlocked=courseEligible(u);
-  out+='<button type="button" class="course-day '+(finished?'completed':'')+'" data-course="'+u.index+'" '+(unlocked?'':'disabled')+' aria-label="Месяц '+m.number+', день '+u.day+': '+h(u.title)+'"><span class="day-badge">'+(finished?'✓':unlocked?'▶':u.day)+'</span><span class="day-text"><strong>День '+u.day+' · '+h(roadmap.names[u.courseKind])+'</strong><small>'+h(m.grammar[Math.min(3,Math.floor((u.day-1)/7))].title)+(finished?' · пройдено':'')+'</small></span></button>';
+  out+='<button type="button" class="course-day '+(finished?'completed':'')+'" data-course="'+u.index+'" '+(unlocked?'':'disabled')+' aria-label="Месяц '+m.number+', день '+u.day+': '+h(u.title)+'"><span class="day-badge">'+(finished?'✓':unlocked?'▶':u.day)+'</span><span class="day-text"><strong>День '+u.day+' · '+h(window.WOLFIE_CONTEXT?.get(u)?.ru||roadmap.names[u.courseKind])+'</strong><small>'+h(m.grammar[Math.min(3,Math.floor((u.day-1)/7))].title)+(finished?' · пройдено':'')+'</small></span></button>';
  }
  out+='</div></details>';
 }
@@ -130,7 +130,7 @@ function bindBackup(){
 function showCourseUnit(index){
  const u=course[index];if(!u||!courseEligible(u))return;
  clearClock();sess=null;tab='home';nav(false);header();
- let intro='<section class="course-guide"><button class="secondary" id="course-back" type="button">← К программе</button><span class="eyebrow">МЕСЯЦ '+u.month+' · ДЕНЬ '+u.day+' / 30 · '+u.level+'</span><h1>'+h(u.title)+'</h1><p>'+h(u.challenge)+'</p>';
+ let intro='<section class="course-guide"><button class="secondary" id="course-back" type="button">← К программе</button><span class="eyebrow">МЕСЯЦ '+u.month+' · ДЕНЬ '+u.day+' / 30 · '+u.level+'</span><h1>'+h(window.WOLFIE_CONTEXT?.get(u)?.ru||u.title)+'</h1><p>'+h(window.WOLFIE_CONTEXT?.get(u)?.goal||u.challenge)+'</p>';
  if(u.grammar){const g=u.grammar;intro+='<div class="grammar-box"><strong>'+h(g.title)+'</strong><p>'+h(g.rule)+'</p><p class="grammar-example"><b>'+h(g.example.en)+'</b><br>'+h(g.example.ru)+'</p></div>';}
  intro+='<div class="course-rules"><strong>Сегодня: полноценный учебный день</strong><p>7 учебных блоков и итоговый тест — 77 минут. Для отметки завершения нужны все блоки и минимум 7 правильных ответов из 10. Другие дни доступны независимо.</p></div><button type="button" class="primary" id="begin-course">Начать тренировку →</button></section>';
  view.innerHTML=intro;

@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       max-parallel: 5
       matrix:
-        api: [33] # Qualify one image before scaling to the rest.
+        api: [33] # Expand after first successful native qualification.
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -31,6 +31,11 @@ jobs:
         with:
           packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
           log-accepted-android-sdk-licenses: 'false'
+      - name: Generate the same offline audio assets
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak ffmpeg
+          python3 scripts/build_context_audio.py
       - name: Check KVM and SDK image availability
         env:
           API: ${{ matrix.api }}
@@ -49,8 +54,11 @@ jobs:
           echo "ANDROID_AVD_HOME=$ANDROID_AVD_HOME" >> "$GITHUB_ENV"
           printf 'no\n' | avdmanager create avd -n wolfie -k "$image" --path "$ANDROID_AVD_HOME/wolfie.avd" --force
           avdmanager list avd | tee device-evidence/avds.txt
-          test -f "$ANDROID_AVD_HOME/wolfie.ini"
           test -f "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          if [ ! -f "$ANDROID_AVD_HOME/wolfie.ini" ]; then
+            printf 'avd.ini.encoding=UTF-8\npath=%s/wolfie.avd\ntarget=android-%s\n' "$ANDROID_AVD_HOME" "$API" > "$ANDROID_AVD_HOME/wolfie.ini"
+          fi
+          cat "$ANDROID_AVD_HOME/wolfie.ini" | tee device-evidence/wolfie-ini.txt
           "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" -list-avds | tee device-evidence/emulator-avds.txt
           grep -x wolfie device-evidence/emulator-avds.txt
       - name: Boot real Android emulator and verify API
@@ -63,77 +71,11 @@ jobs:
           adb start-server
           for i in $(seq 1 120); do
             if ! kill -0 "$pid" 2>/dev/null; then cat device-evidence/emulator.log; exit 1; fi
-            if adb devices | grep -q '^emulator-.*device
-          for i in $(seq 1 150); do
-            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi
-            sleep 2
-          done
-          test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1
-          test "$(adb shell getprop ro.build.version.sdk | tr -d '\r')" = "$API"
-          adb shell input keyevent 82
-          adb shell settings put global window_animation_scale 0
-          adb shell settings put global transition_animation_scale 0
-          adb shell settings put global animator_duration_scale 0
-          adb shell svc wifi disable
-          adb shell svc data disable
-          adb shell getprop > device-evidence/device-properties.txt
-      - name: Instrumented WebView and storage tests offline
-        run: gradle --no-daemon :app:connectedDebugAndroidTest
-      - name: Real Android screenshot after process restart
-        run: |
-          adb shell am force-stop com.wolfie.english
-          adb shell am start -W -n com.wolfie.english/.MainActivity | tee device-evidence/activity-start.txt
-          sleep 4
-          adb exec-out screencap -p > device-evidence/wolfie-native.png
-          adb logcat -d -t 300 > device-evidence/logcat.txt
-      - name: Upload qualification evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Wolfie-Android-API-${{ matrix.api }}-evidence
-          path: |
-            device-evidence/
-            app/build/outputs/androidTest-results/connected/
-            app/build/reports/androidTests/connected/
-          if-no-files-found: warn
-; then break; fi
+            if adb devices | grep -Eq '^emulator-[0-9]+[[:space:]]+device$'; then break; fi
             sleep 2
           done
           adb devices | tee device-evidence/adb-devices.txt
-          if ! grep -q '^emulator-.*device
-          for i in $(seq 1 150); do
-            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi
-            sleep 2
-          done
-          test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1
-          test "$(adb shell getprop ro.build.version.sdk | tr -d '\r')" = "$API"
-          adb shell input keyevent 82
-          adb shell settings put global window_animation_scale 0
-          adb shell settings put global transition_animation_scale 0
-          adb shell settings put global animator_duration_scale 0
-          adb shell svc wifi disable
-          adb shell svc data disable
-          adb shell getprop > device-evidence/device-properties.txt
-      - name: Instrumented WebView and storage tests offline
-        run: gradle --no-daemon :app:connectedDebugAndroidTest
-      - name: Real Android screenshot after process restart
-        run: |
-          adb shell am force-stop com.wolfie.english
-          adb shell am start -W -n com.wolfie.english/.MainActivity | tee device-evidence/activity-start.txt
-          sleep 4
-          adb exec-out screencap -p > device-evidence/wolfie-native.png
-          adb logcat -d -t 300 > device-evidence/logcat.txt
-      - name: Upload qualification evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Wolfie-Android-API-${{ matrix.api }}-evidence
-          path: |
-            device-evidence/
-            app/build/outputs/androidTest-results/connected/
-            app/build/reports/androidTests/connected/
-          if-no-files-found: warn
- device-evidence/adb-devices.txt; then cat device-evidence/emulator.log; exit 1; fi
+          if ! grep -Eq '^emulator-[0-9]+[[:space:]]+device$' device-evidence/adb-devices.txt; then cat device-evidence/emulator.log; exit 1; fi
           for i in $(seq 1 150); do
             if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi
             sleep 2

@@ -1012,3 +1012,83 @@ draw a distinction|провести различие
 set a precedent|создать прецедент
 have an impact|оказывать влияние
 play a role|играть роль
+
+# B1|Решение бытовых проблем
+obstruction|препятствие / засор
+spill|пролитая жидкость
+overflow|переполнение
+jammed|заклинивший
+dent|вмятина
+loose|ослабленный
+tighten|затягивать
+restore|восстанавливать
+
+# B1|Техника и приложения
+dashboard|панель управления
+browser|браузер
+extension|расширение
+cache|кэш
+sync|синхронизировать
+encrypt|шифровать
+scan|сканировать
+access|доступ
+
+# B1|Новости и интернет
+broadcast|трансляция
+footage|видеоматериал
+bulletin|информационный бюллетень
+editor|редактор
+allegation|утверждение / обвинение
+rumour|слух
+press release|пресс-релиз
+reporter|репортёр
+
+# B1|Долгосрочные цели
+aspiration|стремление
+target|целевой показатель
+roadmap|дорожная карта
+persistence|настойчивость
+tenacity|упорство
+obstacle|препятствие
+reward|награда
+attainable|достижимый
+
+# B2|Тонкие оттенки мнения
+arguably|можно утверждать, что
+apparently|по-видимому
+presumably|предположительно
+ostensibly|якобы
+allegedly|по утверждению / якобы
+conceivably|возможно / теоретически
+unequivocal|однозначный
+tentative|предварительный / неокончательный
+
+# B2|Письменная аргументация
+assertion|утверждение
+contention|спорное утверждение
+counterpoint|противоположный аргумент
+refutation|опровержение
+justification|обоснование
+warrant|логическое основание
+coherence|связность
+credibility|достоверность
+
+# B2|Развёрнутые ответы
+expound|подробно объяснять
+articulate|ясно формулировать
+contextualize|помещать в контекст
+exemplify|иллюстрировать примером
+reinforce|подкреплять
+outline|излагать основные положения
+demonstrate|демонстрировать
+synthesize|синтезировать
+
+# B2|Перефразирование и ясность
+succinct|краткий и ёмкий
+verbose|многословный
+restate|повторно формулировать
+condense|сокращать
+reword|переформулировать
+simplify|упрощать
+streamline|упрощать / оптимизировать
+omit|опускать

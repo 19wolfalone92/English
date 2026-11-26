@@ -41,6 +41,7 @@ jobs:
           mkdir -p device-evidence
           sdkmanager --list > device-evidence/sdk-packages.txt
           image="system-images;android-$API;google_apis;x86_64"
+          if [ "$API" = "37" ]; then image="system-images;android-37.0;google_apis;x86_64"; fi
           grep -F "$image" device-evidence/sdk-packages.txt >/dev/null || { echo "::error::Requested API image unavailable: $image"; exit 1; }
           sdkmanager --install "$image" "emulator" "platform-tools"
           echo no | avdmanager create avd -n wolfie -k "$image" --force

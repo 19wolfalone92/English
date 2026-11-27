@@ -66,13 +66,13 @@ The WebView disables file/content access and file-to-file universal access. The 
 
 ## Release blockers
 
-- The APKs are signed with generated Android Debug certificates, not a persistent owner-controlled release key. Two builds of the same commit produced different certificate fingerprints. An update from an APK signed with a different certificate will be rejected by Android.
-- A same-key upgrade and progress-preserving update have not been qualified.
+- The APKs are signed with generated Android Debug certificates, not a persistent owner-controlled release key. Three builds of the same application code produced different certificate fingerprints. An update from an APK signed with a different certificate will be rejected by Android.
+- An owner-secret-backed release signing path is prepared, but no owner key has been configured; a same-key upgrade and progress-preserving update have not been qualified.
 - Physical-device, performance, Doze, rotation, TalkBack and real OEM speech-service tests remain outstanding.
 - Independent linguistic review and calibrated A2/B1/B2 examinations remain outstanding.
 - Full 300-day lesson depth, requested content volumes, 30 interactive formats, AI teaching, phonetic scoring and semantic writing assessment remain incomplete.
 
-See [PROJECT_STATE](docs/PROJECT_STATE.md), [REQUIREMENTS](docs/REQUIREMENTS.md), [QUALIFICATION_MATRIX](docs/QUALIFICATION_MATRIX.md), [KNOWN_BLOCKERS](docs/KNOWN_BLOCKERS.md) and [CONTINUATION_STATE](docs/CONTINUATION_STATE.md).
+See [SIGNING_SETUP](docs/SIGNING_SETUP.md), [PROJECT_STATE](docs/PROJECT_STATE.md), [REQUIREMENTS](docs/REQUIREMENTS.md), [QUALIFICATION_MATRIX](docs/QUALIFICATION_MATRIX.md), [KNOWN_BLOCKERS](docs/KNOWN_BLOCKERS.md) and [CONTINUATION_STATE](docs/CONTINUATION_STATE.md).
 
 ## Verification
 

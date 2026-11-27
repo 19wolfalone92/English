@@ -102,3 +102,16 @@ ProgressVault supports bounded data, previous-generation recovery, legacy migrat
 ## Execution Guard status
 
 Execution Guard Pro authentication and checkpoint revision 37 were read. A bounded health probe was submitted; its initial state was QUEUED and had not yet returned terminal evidence at the time of this document. The next checkpoint must be written with an expected-revision guard after the documentation commit and then read back.
+
+
+## Post-recovery CI and checkpoint update
+
+- Current branch head after the state/audit commit: fd775b174ff3e449f322897a6f415f786032f6cf.
+- Application asset/code baseline remains 08ca8c81beba96774d2b5e9aca133e8c7a288087; the fd775 commit changes documentation, the structural depth audit and its CI step.
+- New build run 46051623928 completed SUCCESS against fd775. The depth-audit CI step ran and reported PARTIAL with 90 contextual packages, 210 uncovered days, 1,824 vocabulary IDs, 1,598 phrases, 140 readings, 130 grammar units, 410 grammar checks, 270 transfer checks, 912 unique pair IDs, 40 scenarios, 15 unique question prompts, 9 writing prompts and 8 challenge strings.
+- New artifacts: debug 15224149468, preview 15224144446, browser screenshots 15224239233.
+- New debug APK SHA-256: 2b6d34edc2be1a576fd6a8e509ebe76a1a8ba21c227462226a0482de817f8322.
+- New preview APK SHA-256: 536ab88a5f43ec4f3821c0be3dbd87687d718269aa9d49c1d0c7dacfb9d7733c.
+- New build signer fingerprint: 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b. This is a third distinct debug certificate for the same application code.
+- Execution Guard Pro health probe task 2a832817-3420-4a39-b040-db8e5c44351b succeeded; database online and persistence probe verified.
+- Checkpoint revision 38 was saved with expected revision 37 and read back successfully.

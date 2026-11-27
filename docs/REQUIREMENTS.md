@@ -31,7 +31,7 @@ The quantities below are source/APK inventory counts. They do not substitute for
 | Android compatibility | API 13–17 plus physical device | 20/20 emulator instrumentation PASS on API 33–37; physical device not tested | PARTIAL |
 | Performance | Physical S23 Ultra metrics | No physical-device timing, memory or energy evidence | NOT CONFIRMED |
 | Progress preservation | Migration, recovery, export/import | ProgressVault regression and emulator migration tests pass; encryption and physical upgrade remain open | PARTIAL |
-| Permanent APK signature | Same-key upgrade | Generated debug certificates differ between builds; owner-controlled signing not configured | HOLD |
+| Permanent APK signature | Same-key upgrade | Three generated debug certificates differ across builds; ownerRelease signing workflow is prepared but owner key is not configured | HOLD |
 
 ## Functional boundaries
 

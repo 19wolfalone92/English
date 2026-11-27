@@ -14,3 +14,10 @@ local.properties
 /app/src/main/assets/neural_audio/
 /research-models/
 /research-evidence/
+
+# Never commit owner-controlled Android signing material
+*.jks
+*.keystore
+*.p12
+*.pfx
+/release-signing/

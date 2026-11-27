@@ -4,7 +4,7 @@ Last audited application code HEAD: 08ca8c81beba96774d2b5e9aca133e8c7a288087
 Branch: feature/daily-60min-course  
 PR: #5, open, not merged  
 Version: 0.9.2 / VersionCode 22  
-Execution Guard Pro checkpoint retrieved: revision 37, code commit a37fe3773679eac0abec119504bc0806ce288f0a
+Execution Guard Pro checkpoint revision 38 saved/read back; original recovery checkpoint was revision 37 (code commit a37fe3773679eac0abec119504bc0806ce288f0a).
 
 ## What is already verified
 
@@ -29,7 +29,7 @@ Execution Guard Pro checkpoint retrieved: revision 37, code commit a37fe3773679e
 
 ## Next execution order
 
-1. **Permanent signing:** establish an owner-controlled keystore, configure secret-backed release signing without exposing key material, build a release candidate, verify its certificate and prove a same-key upgrade with progress preservation. Existing debug fingerprints differ; no current APK is a stable update channel.
+1. **Permanent signing:** the Gradle ownerRelease config, fail-closed verification task, manual release workflow and owner setup instructions are now prepared. The owner must configure an existing reusable keystore (preferred) or deliberately create a new permanent key in the four documented GitHub Actions secrets. Then build a release candidate, verify its certificate and prove a same-key upgrade with progress preservation. Existing debug fingerprints differ; no current debug APK is a stable update channel.
 2. **300-day content depth:** author the 210 missing contextual packages and replace repeated scenario/question/writing/challenge banks with genuinely distinct, level-appropriate tasks. Keep the depth audit strict; do not satisfy it by changing IDs or headings.
 3. **Content volume and quality:** expand vocabulary, phrases, readings, grammar exercises, dialogues and audio toward the requirements; run duplicate, answer-key, level and linguistic checks.
 4. **Interactive engine:** add genuinely different exercise mechanics toward 30 formats; verify each format's answer handling, feedback, persistence and negative cases.
@@ -45,3 +45,14 @@ Execution Guard Pro checkpoint retrieved: revision 37, code commit a37fe3773679e
 The last verified 0.9.2 APKs are from build run 46005261029 and correspond to application code HEAD 08ca8c81beba96774d2b5e9aca133e8c7a288087. Subsequent documentation/audit-only commits do not change app assets. Do not substitute a later debug build as an update until signing is stabilized.
 
 After every substantial verified stage, update this document, the qualification matrix and the Execution Guard checkpoint. Read the checkpoint back and record the exact revision.
+
+
+## Latest verified state after recovery commit
+
+- Branch/PR head at the audit step: fd775b174ff3e449f322897a6f415f786032f6cf; PR #5 remains open and unmerged.
+- CI run 46051623928 completed SUCCESS. The new course-depth audit step reported PARTIAL (it does not mask the incomplete content).
+- APK artifact IDs from that run: debug 15224149468 and preview 15224144446. Their manifest package/version fields were independently parsed; checksums matched the embedded checksum files.
+- Debug SHA-256: 2b6d34edc2be1a576fd6a8e509ebe76a1a8ba21c227462226a0482de817f8322.
+- Preview SHA-256: 536ab88a5f43ec4f3821c0be3dbd87687d718269aa9d49c1d0c7dacfb9d7733c.
+- Debug certificate fingerprint for this run: 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b.
+- Execution Guard health probe succeeded; checkpoint revision 38 was saved and read back.

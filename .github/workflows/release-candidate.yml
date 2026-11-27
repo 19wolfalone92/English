@@ -1,0 +1,54 @@
+name: Owner-signed release candidate
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      WOLFIE_RELEASE_KEYSTORE_BASE64: ${{ secrets.WOLFIE_RELEASE_KEYSTORE_BASE64 }}
+      WOLFIE_RELEASE_STORE_PASSWORD: ${{ secrets.WOLFIE_RELEASE_STORE_PASSWORD }}
+      WOLFIE_RELEASE_KEY_ALIAS: ${{ secrets.WOLFIE_RELEASE_KEY_ALIAS }}
+      WOLFIE_RELEASE_KEY_PASSWORD: ${{ secrets.WOLFIE_RELEASE_KEY_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require owner-provided signing material
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in WOLFIE_RELEASE_KEYSTORE_BASE64 WOLFIE_RELEASE_STORE_PASSWORD WOLFIE_RELEASE_KEY_ALIAS WOLFIE_RELEASE_KEY_PASSWORD; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Missing required repository secret: $name"
+              exit 1
+            fi
+          done
+          printf '%s' "$WOLFIE_RELEASE_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/wolfie-release.jks"
+          chmod 600 "$RUNNER_TEMP/wolfie-release.jks"
+          echo "WOLFIE_RELEASE_STORE_FILE=$RUNNER_TEMP/wolfie-release.jks" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build owner-signed release APK
+        run: gradle --no-daemon :app:verifyReleaseSigningConfiguration :app:assembleRelease
+      - name: Verify signature and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd app/build/outputs/apk/release
+          "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs app-release.apk | tee app-release.certificate.txt
+          sha256sum app-release.apk > app-release.apk.sha256
+          sha256sum -c app-release.apk.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-English-owner-signed-release
+          path: |
+            app/build/outputs/apk/release/app-release.apk
+            app/build/outputs/apk/release/app-release.apk.sha256
+            app/build/outputs/apk/release/app-release.certificate.txt
+          if-no-files-found: error

@@ -83,6 +83,23 @@ jobs:
         run: test -d "$ANDROID_HOME"
       - name: Run Android lint, unit tests and build
         run: gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug :app:assemblePreview
+      - name: Verify release signing fails closed without owner inputs
+        shell: bash
+        run: |
+          set +e
+          output="$(gradle --no-daemon :app:verifyReleaseSigningConfiguration 2>&1)"
+          code=$?
+          set -e
+          if [[ "$code" -eq 0 ]]; then
+            echo "::error::Release signing unexpectedly accepted missing owner inputs"
+            exit 1
+          fi
+          if ! grep -Fq "WOLFIE_RELEASE_SIGNING_NOT_CONFIGURED" <<< "$output"; then
+            printf '%s\n' "$output"
+            echo "::error::Release signing failed for an unexpected reason"
+            exit 1
+          fi
+          echo "PASS: release build refuses to sign without owner-controlled key material"
       - name: Verify packaged lessons and audio in both APKs
         run: python3 scripts/verify_context_apk.py app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/preview/app-preview.apk
       - name: Generate and verify APK checksum

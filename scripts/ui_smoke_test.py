@@ -18,7 +18,10 @@ async def main():
     await context.add_init_script("""Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{getVoices:()=>[],cancel(){},speak(){}}});""")
     page=await context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
-    assert await page.get_by_role('heading',name='Продолжаем учиться?').is_visible()
+    first=await page.evaluate("window.WOLFIE_CONTEXT.packs.find(p=>p.day===1).ru")
+    assert await page.get_by_role('heading',name=first,exact=True).is_visible()
+    assert await page.locator('#open-teacher').is_visible()
+    assert '30/30 тематических' in await page.locator('.course-month').first.inner_text()
     assert await page.locator('.course-month').count()==10
     await page.screenshot(path=str(SCREENSHOTS/f'home-{width}-light.png'))
     await page.locator('#open-diagnostic').click()

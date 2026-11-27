@@ -78,4 +78,4 @@ Do not re-run the completed research unless the model, prompt set, evaluation ru
 - Current 0.9.2 APK content inventory matches the prior verified APK byte-for-byte at ZIP-entry level; only the outer APK/signing bytes differ.
 - The current debug certificate remains generated and unstable. Do not install as an update over a package signed with another certificate.
 - The automatic duplicate Qwen/audio PR-sync runs completed, but no new research was adopted. Research workflows are now manual-only; Android build and device checks are push/manual rather than duplicate PR-sync runs.
-- Execution Guard checkpoint revision 38 is the last saved revision before this final state-document commit; write and read back revision 39 after the commit.
+- Execution Guard checkpoint revision 39 was saved with expected revision 38 after commit dc27d90a7442df925297debfba29659ad8a3030b and was read back successfully. If this state is changed again, save a new revision with an expected-revision guard.

@@ -18,3 +18,5 @@ Verified application code HEAD: 1e178187090a3c0da8e90512038494aae9f10b47; qualif
 Audio 299 MP3s/272 distinct scripts (111 eSpeak dialogue 2771.891s, 161 readings 8642.793s, 6 Kokoro reading alternatives 320.162s, 21 neural dialogue alternatives 1015.655s). Base slot reuse 8400/912 and base scenario/question/writing/challenge counts 40/15/9/8 unchanged. Strict APK depth recount fails. 7 existing stage handlers; new mentor reuses existing choices, not a new independent format. No independent linguistic review or CEFR calibration.
 
 See qualification matrix, requirements, blockers and continuation state. No physical device, owner key, release-grade AI, phonetic scoring, full visual redesign or 1.0 claim.
+
+Visual inspection of the focused API35 post-launch PNG found an empty startup surface: capture occurred immediately after am start. It is not a valid rendered-app screenshot. Activity launch returned Status: ok and the seed/upgrade/restart instrumented WebView assertions passed independently. Use the 31 verified browser screenshots as visual evidence; a rendered native screenshot remains outstanding.

@@ -13,3 +13,5 @@
 No 1.0.0 claim, no merge. Use verified APK only with the signature caveat; prefer Preview for side-by-side trial.
 
 Focused API35 same-disposable-key upgrade run 46073670043: SUCCESS, artifact 15233508478. Old v22 → new v23 in-place installation, seed/verify/restart 3/3 PASS, launch Status: ok. No owner key or physical device qualification.
+
+Visual inspection of the focused API35 post-launch PNG found an empty startup surface: capture occurred immediately after am start. It is not a valid rendered-app screenshot. Activity launch returned Status: ok and the seed/upgrade/restart instrumented WebView assertions passed independently. Use the 31 verified browser screenshots as visual evidence; a rendered native screenshot remains outstanding.

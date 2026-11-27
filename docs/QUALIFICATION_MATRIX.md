@@ -17,3 +17,5 @@ Application HEAD 1e178187090a3c0da8e90512038494aae9f10b47. Overall PARTIAL / HOL
 | M Android | PARTIAL | API33–37 30/30 native XML PASS. Full workflow 46072972441 FAILURE due missing test keystore in additional step; post-test screenshots invalid due AGP uninstall. Focused API35 rerun 46073670043 SUCCESS incl same-key upgrade and real activity launch. Screenshot harness fix for future runs not re-executed on other four APIs. Physical device untested. |
 | N Exams | HOLD | Existing objective screening forms; independent CEFR A2/B1/B2 calibration and 200-case AI exam unfulfilled. |
 | O Release | HOLD | Debug/preview SHA, manifest, apksigner PASS; temporary test-key update PASS; owner stable signature not confirmed; no release or merge. |
+
+Visual inspection of the focused API35 post-launch PNG found an empty startup surface: capture occurred immediately after am start. It is not a valid rendered-app screenshot. Activity launch returned Status: ok and the seed/upgrade/restart instrumented WebView assertions passed independently. Use the 31 verified browser screenshots as visual evidence; a rendered native screenshot remains outstanding.

@@ -1,0 +1,52 @@
+name: Resume missing month 01 neural dialogues
+on:
+  push:
+    branches: [feature/daily-60min-course]
+    paths: ['scripts/build_neural_month01.py']
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned TTS implementation
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak-ng ffmpeg
+          python -m pip install 'kokoro-onnx==0.6.1' soundfile
+          mkdir -p research-models research-evidence/month01/${{ matrix.shard }}
+          python -m pip freeze > research-evidence/month01/${{ matrix.shard }}/python-dependencies.txt
+      - name: Download and verify official model and voice assets
+        run: |
+          cd research-models
+          curl --fail --location --retry 2 --max-time 240 -o kokoro-v1.0.int8.onnx https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/kokoro-v1.0.int8.onnx
+          curl --fail --location --retry 2 --max-time 240 -o voices-v1.0.bin https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.1/voices-v1.0.bin
+          echo 'ae315a79b623f244700e4afb9246c46a26066782e049ba174bf3ba433970ee9c  kokoro-v1.0.int8.onnx' | sha256sum -c
+          echo 'bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d  voices-v1.0.bin' | sha256sum -c
+      - name: Recover already produced and hashed shard recordings
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-2
+          path: research-evidence/month01/2
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Produce and validate original dialogue recordings
+        env:
+          OMP_NUM_THREADS: '4'
+        run: python scripts/build_neural_month01.py --shard ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Wolfie-neural-month01-resumed-${{ matrix.shard }}
+          path: research-evidence/month01/${{ matrix.shard }}/
+          if-no-files-found: error

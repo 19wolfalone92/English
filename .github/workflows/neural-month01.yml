@@ -1,9 +1,6 @@
 name: New month 01 neural dialogue production
 on:
   workflow_dispatch:
-  push:
-    branches: [feature/daily-60min-course]
-    paths: ['scripts/build_neural_month01.py']
 permissions:
   contents: read
 jobs:

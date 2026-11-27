@@ -14,12 +14,23 @@ out=Path('research-evidence/month01')/str(args.shard);out.mkdir(parents=True,exi
 model=Kokoro('research-models/kokoro-v1.0.int8.onnx','research-models/voices-v1.0.bin')
 packs=sorted([p for p in load() if p['day']==1 or 11<=p['day']<=30],key=lambda p:p['day'])
 assert len(packs)==21
-rows=[]
-for p in packs[args.shard*7:(args.shard+1)*7]:
+selected=packs[args.shard*7:(args.shard+1)*7]
+rows=json.loads((out/'manifest.json').read_text()) if (out/'manifest.json').exists() else []
+assert len({r['id'] for r in rows})==len(rows)
+for r in rows:
+    p=next(p for p in selected if p['id']==r['id'])
+    assert r['text_sha256']==hashlib.sha256('\n'.join(x[1] for x in p['dialogue']).encode()).hexdigest()
+    f=out/r['file']
+    assert f.stat().st_size==r['bytes'] and hashlib.sha256(f.read_bytes()).hexdigest()==r['sha256']
+    assert 30<=r['seconds']<=90
+    subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-i',str(f),'-f','null','-'],check=True)
+    print('Reused verified recording',r['id'],flush=True)
+for p in selected:
+    if any(r['id']==p['id'] for r in rows):continue
     start=time.monotonic();parts=[];cues=[];offset=0
     roles=list(dict.fromkeys(r[0] for r in p['dialogue']))
-    assert len(roles)==2,(p['id'],roles)
-    role_voice=dict(zip(roles,[('af_heart','en-us'),('bm_george','en-gb')]))
+    assert 2<=len(roles)<=3,(p['id'],roles)
+    role_voice=dict(zip(roles,[('af_heart','en-us'),('bm_george','en-gb'),('am_michael','en-us')]))
     for role,txt,_ in p['dialogue']:
         voice,locale=role_voice[role]
         samples,sr=model.create(txt,voice=voice,speed=.98,lang=locale)

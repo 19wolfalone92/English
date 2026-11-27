@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends espeak espeak-ng ffmpeg
-          python -m pip install 'kokoro-onnx==0.4.9' soundfile
+          python -m pip install 'kokoro-onnx==0.6.1' soundfile
           mkdir -p research-models research-evidence/audio
           python -m pip freeze > research-evidence/audio/python-dependencies.txt
       - name: Download and verify official release assets
@@ -40,9 +40,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Wolfie-neural-audio-comparison
+          name: Wolfie-neural-audio-comparison-v2
           path: research-evidence/audio/
   teacher:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 18
     strategy:

@@ -137,7 +137,17 @@ jobs:
             done
           fi
       - name: Instrumented WebView and storage tests offline
-        run: gradle --no-daemon :app:connectedDebugAndroidTest
+        run: |
+          set -o pipefail
+          # Retry only a positively identified dependency HTTP 429, never a failing test.
+          for attempt in 1 2 3; do
+            log="device-evidence/gradle-attempt-$attempt.log"
+            if gradle --no-daemon :app:connectedDebugAndroidTest 2>&1 | tee "$log"; then exit 0; fi
+            if ! grep -Eq 'Received status code 429 from server|HTTP[^ ]* 429|Too Many Requests' "$log" || [ "$attempt" = 3 ]; then exit 1; fi
+            if grep -Eq 'Starting [0-9]+ tests on|tests completed,.*failed|There were failing tests' "$log"; then exit 1; fi
+            sleep "$((attempt * 20))"
+          done
+          exit 1
       - name: Real Android screenshot after process restart
         run: |
           adb shell am force-stop com.wolfie.english

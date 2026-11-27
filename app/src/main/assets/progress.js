@@ -30,6 +30,14 @@ function validate(raw){
   if(own(x,'reviewItems')&&(!Array.isArray(x.reviewItems)||x.reviewItems.length>8||x.reviewItems.some(r=>!map(r)||typeof r.id!=='string'||typeof r.en!=='string'||typeof r.ru!=='string')))throw Error('Некорректное повторение миссии.');
   if(own(x,'writingIndex')&&(!integer(x.writingIndex)||x.writingIndex>2))throw Error('Некорректный вариант письма.');
  }
+ if(own(v,'studio')){
+  const s=v.studio;
+  if(!map(s)||!map(s.saved)||!map(s.corrections)||!map(s.charts)||typeof s.draft!=='string'||s.draft.length>4000||!Array.isArray(s.versions)||s.versions.length>20)throw Error('Некорректная учебная студия.');
+  for(const [id,value] of Object.entries(s.saved))if(typeof id!=='string'||id.length>128||value!==true)throw Error('Некорректная сохранённая карточка.');
+  for(const v of s.versions)if(!map(v)||!integer(v.at)||typeof v.text!=='string'||v.text.length>4000)throw Error('Некорректная версия текста.');
+  for(const [id,v] of Object.entries(s.corrections))if(!/^mission-v2-\d{3}:(?:g\d+|v\d+|r\d+|f\d+|rev\d+|audio)$/.test(id)||!map(v)||typeof v.ok!=='boolean'||!integer(v.at))throw Error('Некорректное исправление.');
+  for(const [id,v] of Object.entries(s.charts))if(!['present','past','future','passive','condition'].includes(id)||!map(v)||!integer(v.answer)||v.answer>2||typeof v.ok!=='boolean')throw Error('Некорректная грамматическая проверка.');
+ }
  if(own(v,'diagnostic')){
   const d=v.diagnostic;if(!map(d)||!Array.isArray(d.history)||!(d.active===null||map(d.active)))throw Error('Некорректная диагностика.');
   const forms=window.WOLFIE_DIAGNOSTIC_FORMS||[];

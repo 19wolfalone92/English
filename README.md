@@ -67,7 +67,7 @@ The WebView disables file/content access and file-to-file universal access. The 
 ## Release blockers
 
 - The APKs are signed with generated Android Debug certificates, not a persistent owner-controlled release key. Three builds of the same application code produced different certificate fingerprints. An update from an APK signed with a different certificate will be rejected by Android.
-- An owner-secret-backed release signing path is prepared, but no owner key has been configured; a same-key upgrade and progress-preserving update have not been qualified.
+- An owner-secret-backed release signing path is prepared, but owner-key secret availability has not been confirmed and no owner-signed release has been qualified; a same-key upgrade and progress-preserving update have not been qualified.
 - Physical-device, performance, Doze, rotation, TalkBack and real OEM speech-service tests remain outstanding.
 - Independent linguistic review and calibrated A2/B1/B2 examinations remain outstanding.
 - Full 300-day lesson depth, requested content volumes, 30 interactive formats, AI teaching, phonetic scoring and semantic writing assessment remain incomplete.
@@ -78,9 +78,12 @@ See [SIGNING_SETUP](docs/SIGNING_SETUP.md), [PROJECT_STATE](docs/PROJECT_STATE.m
 
 The 0.9.2 build workflow completed content validation, assessment/progress/context checks, browser tests, Android lint, JVM unit tests, APK packaging, asset/hash checks and APK signature verification. Native emulator evidence is recorded in the Android qualification workflow.
 
-- Build: https://github.com/19wolfalone92/English/actions/runs/46005261029
-- Native Android qualification: https://github.com/19wolfalone92/English/actions/runs/46005261072
+- Build: https://github.com/19wolfalone92/English/actions/runs/46053115967
+- Native Android qualification: https://github.com/19wolfalone92/English/actions/runs/46052789603
 - Neural audio comparison: https://github.com/19wolfalone92/English/actions/runs/46005261025
-- Qwen3-4B CPU screening: https://github.com/19wolfalone92/English/actions/runs/46005261086
+- Qwen3-4B CPU screening: https://github.com/19wolfalone92/English/actions/runs/46005261086 (the later PR-sync rerun was automatic and is not new qualification evidence)
 
 Do not merge PR #5 or treat 0.9.2 as a production release without the remaining gates and explicit owner approval.
+
+
+Research workflows are manual-only to avoid repeating the completed audio and Qwen experiments on every PR synchronization. Android validation runs on relevant pushes or by manual dispatch. The owner-signed release workflow is manual and requires the owner-controlled secrets described in docs/SIGNING_SETUP.md.

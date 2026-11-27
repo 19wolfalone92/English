@@ -49,7 +49,7 @@ The separate Qwen workflow is the evidence for the 4B CPU screening. The teacher
 
 ## APK evidence
 
-The latest build artifact from run 46005261029 contains:
+The initial 0.9.2 build artifact from run 46005261029 contained (superseded by the final branch build below):
 
 | Artifact | Size | SHA-256 |
 |---|---:|---|
@@ -115,3 +115,22 @@ Execution Guard Pro authentication and checkpoint revision 37 were read. A bound
 - New build signer fingerprint: 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b. This is a third distinct debug certificate for the same application code.
 - Execution Guard Pro health probe task 2a832817-3420-4a39-b040-db8e5c44351b succeeded; database online and persistence probe verified.
 - Checkpoint revision 38 was saved with expected revision 37 and read back successfully.
+
+
+## Signing integration, final branch build and Android qualification
+
+- Current branch head before this final state-documentation commit: 7662f97e44f3b4c19c6ed44a65e08780f8f6a692.
+- PR #5 head matched that commit; PR remains open and unmerged.
+- Commit 47017168e07e3a2be0979327ef8cb14be5589257 added an optional ownerRelease Gradle signing config, a fail-closed verification task, a manual release-candidate workflow, keystore .gitignore patterns and owner setup instructions.
+- Commit 7662f97e44f3b4c19c6ed44a65e08780f8f6a692 made Android validation push/manual-only, made native qualification push/manual-only, and made neural/Qwen research manual-only. This prevents cumulative PR-diff filters from rerunning expensive completed research on every PR synchronization.
+- The final branch build run 46053115967 completed SUCCESS against 7662f97e44f3b4c19c6ed44a65e08780f8f6a692. The audit, browser tests, lint, unit tests, APK packaging, packaged audio/content checks, signature verification and fail-closed signing check all passed.
+- Final APK artifacts: debug 15225174528; preview 15224924743; screenshots 15225986393.
+- Final debug APK SHA-256: 7401f86e791539981f933debcb94cd0bf3a33fa8ffd31005f58dc70976adc3bf (57,211,731 bytes).
+- Final preview APK SHA-256: a2115ef56dd7d8d7df1866cd01d121d7e627fec9a2a9fadee9fa9f0bb9bfc4a3 (57,211,743 bytes).
+- Final build certificate fingerprint: e033bb14b6698e3c7b0741eb6b8c87278aa36383bf0465a3c2b8ad1799541e8c. It differs from prior build fingerprints 7fa222bfbf2dc2ffc05b28066a1991624be72d421c3dd3d630b02cb0ee0a6236, 0e5358bd34229049e7f79b9fc7e4ce43a263e5b3236ddf2b58e799300035ce2e and 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b.
+- Both final APK SHA files matched independent local hashes; APK ZIP integrity passed; binary AndroidManifest parsing confirmed main package com.wolfie.english, preview package com.wolfie.english.preview, VersionCode 22, VersionName 0.9.2/0.9.2-preview, minSdk 24 and targetSdk 35.
+- APK entry inventories are byte-identical to the earlier 0.9.2 APKs; the later APK file hashes differ because signing/build metadata differs. The application version remains 0.9.2.
+- The fail-closed signing check passed: without owner signing inputs in the normal build job, the release signing task returned WOLFIE_RELEASE_SIGNING_NOT_CONFIGURED as expected.
+- Native Android run 46052789603 completed SUCCESS: API 33, 34, 35, 36 and 37 each reported four tests, zero failures, zero errors and zero skipped (20/20 PASS). The four tests cover ProgressVault migration/recovery, offline contextual lesson/audio and draft persistence, WebView/diagnostic restoration, and Kokoro narration loading.
+- The duplicate Qwen3 run 46052789607 and audio run 46052789669 were automatically triggered by the PR's cumulative diff before the trigger optimization. They completed successfully but were not used as new model/audio qualification evidence. The neural workflow's legacy teacher job was skipped. Future research workflows are manual-only.
+- Owner secret availability is NOT CONFIRMED: the GitHub connector cannot read Actions secret values and the manual release-candidate workflow has not been run. No owner-signed release or same-key update has been produced.

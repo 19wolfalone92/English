@@ -2,6 +2,21 @@ name: Android APK and curriculum validation
 on:
   push:
     branches: [main, 'feature/**']
+    paths:
+      - 'app/**'
+      - 'data/**'
+      - 'gradle/**'
+      - 'gradle.properties'
+      - 'settings.gradle'
+      - 'build.gradle'
+      - 'scripts/build_expanded_content.py'
+      - 'scripts/validate_content.py'
+      - 'scripts/verify_*.mjs'
+      - 'scripts/verify_*.py'
+      - 'scripts/ui_*.py'
+      - 'scripts/build_context_audio.py'
+      - 'scripts/import_neural_pilot.py'
+      - 'scripts/audit_course_depth.mjs'
   workflow_dispatch:
 jobs:
   build:

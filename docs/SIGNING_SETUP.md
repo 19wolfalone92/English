@@ -1,12 +1,12 @@
 # Owner-controlled Android release signing
 
-Status: signing integration prepared; owner key not configured; no signed release has been produced.
+Status: signing integration prepared; owner-secret availability NOT CONFIRMED; no owner-signed release has been produced.
 
 ## Existing-installation constraint
 
 The 0.9.2 debug builds were signed with different generated Android Debug certificates. Android will not install an APK as an update if its signing certificate differs from the installed package's certificate. Do not uninstall the current app or attempt an update with a different signer. Preserve the existing installation and export a ProgressVault backup before any owner-approved migration.
 
-The original 0.9.0/0.9.2 signing identity has not been recovered from the current repository tree. The supported GitHub connector cannot read repository Actions secret values, so the presence or contents of an owner keystore secret cannot be confirmed here. If an original owner keystore exists, reuse it; do not generate a replacement key until that has been checked.
+The original 0.9.0/0.9.2 signing identity has not been recovered from the current repository tree. The supported GitHub connector cannot read repository Actions secret values, so the presence or contents of an owner keystore secret cannot be confirmed here. The four-secret release workflow has not been dispatched. If an original owner keystore exists, reuse it; do not generate a replacement key until that has been checked.
 
 ## Owner setup
 

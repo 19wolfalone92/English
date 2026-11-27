@@ -75,3 +75,25 @@ The 0.9.2 native workflow produced four passing instrumentation tests on each em
 ## Release decision
 
 The course may be used as a development build with the above limitations. Do not claim independent A2/B1/B2 proficiency, production AI teaching, phonetic scoring, semantic writing assessment or 300 complete lessons until the corresponding gates have independent evidence.
+
+
+## Version delta: documented 0.8.9 baseline vs verified 0.9.2
+
+The 0.8.9 figures below are the previously documented project baseline. The 0.9.2 figures were recounted from the packaged APK/source assets in this recovery.
+
+| Measure | 0.8.9 documented baseline | 0.9.2 verified | Change |
+|---|---:|---:|---:|
+| Contextual packages | 80 | 90 | +10 |
+| Extended contextual packages | 10 | 20 | +10 |
+| Vocabulary IDs | 1,727 | 1,824 | +97 |
+| Phrase IDs | 1,498 | 1,598 | +100 |
+| Reading texts | 130 | 140 | +10 |
+| Reading questions | 440 | 480 | +40 |
+| Grammar units | 120 | 130 | +10 |
+| Grammar practice checks | 350 | 410 | +60 |
+| Contextual speaking prompts | 415 | 450 | +35 |
+| Contextual writing prompts | 249 | 270 | +21 |
+| Contextual dialogue scripts | 80 | 90 | +10 |
+| Local audio files in prior inventory | 80 | 230 distinct audio scripts plus 6 Kokoro alternate files | Expanded |
+
+This growth is real, but it does not close the overall content targets. No new application version beyond 0.9.2 was created during this recovery; the latest commits add audit/signing/CI infrastructure rather than a new user-facing curriculum version.

@@ -29,7 +29,7 @@ Execution Guard Pro checkpoint revision 38 saved/read back; original recovery ch
 
 ## Next execution order
 
-1. **Permanent signing:** the Gradle ownerRelease config, fail-closed verification task, manual release workflow and owner setup instructions are now prepared. The owner must configure an existing reusable keystore (preferred) or deliberately create a new permanent key in the four documented GitHub Actions secrets. Then build a release candidate, verify its certificate and prove a same-key upgrade with progress preservation. Existing debug fingerprints differ; no current debug APK is a stable update channel.
+1. **Permanent signing:** the Gradle ownerRelease config, fail-closed verification task, manual release workflow and owner setup instructions are now prepared. The owner must first verify whether an existing reusable keystore is already stored in the repository Actions secrets (secret values are not readable through the connector). If not, the owner can deliberately create a new permanent key and store it in the four documented GitHub Actions secrets. Then build a release candidate, verify its certificate and prove a same-key upgrade with progress preservation. Existing debug fingerprints differ; no current debug APK is a stable update channel.
 2. **300-day content depth:** author the 210 missing contextual packages and replace repeated scenario/question/writing/challenge banks with genuinely distinct, level-appropriate tasks. Keep the depth audit strict; do not satisfy it by changing IDs or headings.
 3. **Content volume and quality:** expand vocabulary, phrases, readings, grammar exercises, dialogues and audio toward the requirements; run duplicate, answer-key, level and linguistic checks.
 4. **Interactive engine:** add genuinely different exercise mechanics toward 30 formats; verify each format's answer handling, feedback, persistence and negative cases.
@@ -67,3 +67,15 @@ Research workflows are manual-only. The earlier PR synchronization automatically
 - Qwen3-4B screening runs only by explicit workflow_dispatch.
 
 Do not re-run the completed research unless the model, prompt set, evaluation rubric, audio engine or source data changes.
+
+
+## Final verified branch and release-path state
+
+- Branch head before this final documentation commit: 7662f97e44f3b4c19c6ed44a65e08780f8f6a692; PR #5 remains open/unmerged.
+- Final Android build run 46053115967: SUCCESS. Final debug/preview artifact IDs 15225174528 / 15224924743. SHA-256 values are recorded in docs/PROJECT_STATE.md.
+- The normal CI fail-closed release-signing check passed. The manual owner-signed workflow has not been run; secret presence is NOT CONFIRMED.
+- Native run 46052789603: API 33–37, four tests per API, 20/20 PASS with XML reports showing zero failures, errors or skips.
+- Current 0.9.2 APK content inventory matches the prior verified APK byte-for-byte at ZIP-entry level; only the outer APK/signing bytes differ.
+- The current debug certificate remains generated and unstable. Do not install as an update over a package signed with another certificate.
+- The automatic duplicate Qwen/audio PR-sync runs completed, but no new research was adopted. Research workflows are now manual-only; Android build and device checks are push/manual rather than duplicate PR-sync runs.
+- Execution Guard checkpoint revision 38 is the last saved revision before this final state-document commit; write and read back revision 39 after the commit.

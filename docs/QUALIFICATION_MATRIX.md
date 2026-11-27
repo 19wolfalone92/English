@@ -20,7 +20,7 @@ No PR merge or production release is authorized by this matrix.
 | L | Physical-device performance | NOT CONFIRMED | No Samsung Galaxy S23 Ultra cold-start, memory, CPU, audio latency, energy or process-recovery measurements. |
 | M | Android compatibility | PARTIAL | 20/20 native emulator tests pass on API 33–37. Physical-device and OEM-specific behaviour are not confirmed. |
 | N | Independent A2/B1/B2 examinations | HOLD | Internal diagnostic material exists; no independent calibrated CEFR examination or examiner validation. |
-| O | APK signature and release readiness | HOLD | Debug APKs verify, but three builds use different signer fingerprints. Owner-secret-backed release signing and a fail-closed Gradle check are prepared; no owner key is configured and no same-key upgrade has been qualified. |
+| O | APK signature and release readiness | HOLD | Debug APKs verify, but three builds use different signer fingerprints. Owner-secret-backed release signing and a fail-closed Gradle check are prepared; the fail-closed check passed, but owner-secret availability, an owner-signed release and a same-key upgrade are NOT CONFIRMED. |
 
 ## CI evidence
 
@@ -33,3 +33,9 @@ All five latest requested workflows completed against code HEAD 08ca8c81beba9677
 - Qwen3-4B CPU screening: 46005261086 — SUCCESS.
 
 A workflow SUCCESS confirms that its steps completed. It does not override the PARTIAL/HOLD domain decisions above.
+
+
+Additional verified release-path evidence:
+- Final push build 46053115967 passed the fail-closed release-signing check.
+- Native run 46052789603 passed 20/20 instrumentation tests across API 33–37.
+- Owner-signed release workflow was not dispatched because secret presence is not observable through the connected GitHub API and no owner key was supplied to this session.

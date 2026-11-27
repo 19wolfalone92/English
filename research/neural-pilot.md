@@ -1,0 +1,9 @@
+# Offline neural pilot — qualification boundary
+
+The 0.9.2 APK contains six pre-rendered Kokoro INT8 tracks for three already authored reading texts (days 9, 129 and 219). Each has US and GB voice variants. The original eSpeak narration remains available. No neural inference, model weights, paid API, microphone permission or network connection is required by these playback features. These six files are alternatives, not six new educational texts or independent listening tests.
+
+Source: successful research workflow run 46003216202, artifact 15198914031, archive SHA-256 37942c0888b90919265f208d8d65186594699486bf2352197d29719a370247a8. The importer pins each MP3 SHA-256, binds its transcript hash to the current authored text, checks sizes and fully decodes it before packaging. The original model and voice weights were pinned and checked by the research workflow. Subjective speech naturalness and pronunciation still require a human listening review.
+
+Build-time dependency: GitHub Actions artifact retention is finite. Archive the qualified comparison ZIP and its manifest in owner-controlled storage. For local builds extract that ZIP to research-models/neural-pilot and run python3 scripts/import_neural_pilot.py research-models/neural-pilot after generating the baseline audio. For CI, if the artifact expires, restore the original evidence or run the documented neural research workflow and qualify the regenerated files, then update the artifact reference and six hash pins explicitly. Do not silently substitute audio or claim byte reproducibility across runtime/hardware versions. The qualified APK itself contains all six recordings and does not depend on artifact availability.
+
+Upstream: https://github.com/thewh1teagle/kokoro-onnx and https://huggingface.co/hexgrad/Kokoro-82M . Check upstream model/voice and redistribution terms before public distribution. This pilot is not a completed release/license audit.

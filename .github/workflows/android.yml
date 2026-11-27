@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -40,6 +41,16 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends espeak ffmpeg
           python3 scripts/build_context_audio.py
+      # The pilot is a qualified immutable research artifact, not a network dependency in the APK.
+      - name: Fetch qualified neural pilot
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-audio-comparison-v2
+          path: research-models/neural-pilot
+          run-id: 46003216202
+          github-token: ${{ github.token }}
+      - name: Verify and package actual neural recordings
+        run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
       - name: Install Playwright Chromium
         run: |
           python -m pip install --upgrade playwright
@@ -53,7 +64,7 @@ jobs:
       - name: Upload browser screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.1-browser-evidence
+          name: Wolfie-English-v0.9.2-browser-evidence
           path: ui-evidence/*.png
           if-no-files-found: error
       - name: Check JavaScript syntax
@@ -81,7 +92,7 @@ jobs:
       - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.1-debug
+          name: Wolfie-English-v0.9.2-debug
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/debug/app-debug.apk.sha256
@@ -96,7 +107,7 @@ jobs:
       - name: Upload side-by-side preview APK
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.1-preview
+          name: Wolfie-English-v0.9.2-preview
           path: |
             app/build/outputs/apk/preview/app-preview.apk
             app/build/outputs/apk/preview/app-preview.apk.sha256

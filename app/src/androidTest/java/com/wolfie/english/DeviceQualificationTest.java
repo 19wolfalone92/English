@@ -76,6 +76,15 @@ public class DeviceQualificationTest {
    assertEquals("\"0/300\"",js(scenario,"document.querySelector('#ctx-exit').click();document.querySelector('#study-exit').click();document.querySelector('#home-course-progress').textContent"));
   }
  }
+ @Test public void actualOfflineNeuralNarrationLoadsInNativeWebView()throws Exception{
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#open-studio') && window.WOLFIE_NEURAL_AUDIO.length===6");
+   js(scenario,"document.querySelector('#open-studio').click();const s=document.querySelector('#studio-search');s.value='A picnic with a backup plan';s.dispatchEvent(new Event('input',{bubbles:true}));true");
+   waitTrue(scenario,"document.querySelector('[data-reading=\\\"mission-v2-009\\\"]')");
+   js(scenario,"document.querySelector('[data-reading=\\\"mission-v2-009\\\"]').click();const v=document.querySelector('#studio-reading-voice');v.value='neural_audio/mission-v2-009-en-gb.mp3';v.dispatchEvent(new Event('change',{bubbles:true}));true");
+   waitTrue(scenario,"(()=>{const a=document.querySelector('#studio-reading-audio');return a && a.readyState>=1 && Number.isFinite(a.duration) && a.duration>30 && a.currentSrc.endsWith('mission-v2-009-en-gb.mp3');})()");
+  }
+ }
  @Test public void actualWebViewLoadsOfflineAndRestoresDiagnosticDraft()throws Exception{
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
    waitTrue(scenario,"document.querySelector('#open-diagnostic') && window.WOLFIE_ROADMAP.build().length===300");

@@ -10,3 +10,7 @@ local.properties
 /ui-evidence/
 
 /app/src/main/assets/reading_audio/
+
+/app/src/main/assets/neural_audio/
+/research-models/
+/research-evidence/

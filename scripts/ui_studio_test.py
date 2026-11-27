@@ -58,6 +58,21 @@ async def main():
     await page.locator('#open-studio').click();await page.locator('[data-studio-tab="writing"]').click()
     assert await page.locator('#studio-draft').input_value()=='I agree. We can wait.'
     assert await page.locator('[data-restore-version]').count()==2
+    # Actual alternate neural audio files: three distinct texts, two voices each.
+    await page.locator('[data-studio-tab="library"]').click()
+    for ident,title in [('mission-v2-009','A picnic with a backup plan'),('mission-v2-129','Requesting leave with a handover'),('mission-v2-219','The contract with an unclear scope')]:
+     await page.locator('#studio-search').fill(title)
+     await page.locator(f'[data-reading="{ident}"]').click()
+     assert await page.locator('#studio-reading-voice option').count()==3
+     for locale in ('en-us','en-gb'):
+      await page.locator('#studio-reading-voice').select_option(f'neural_audio/{ident}-{locale}.mp3')
+      await page.wait_for_function("(path)=>{const a=document.querySelector('#studio-reading-audio');return a.readyState>=1 && a.currentSrc.endsWith(path) && a.duration>30}",arg=f'{ident}-{locale}.mp3')
+     if width==360 and ident=='mission-v2-009':
+      await page.locator('#studio-reading-audio').evaluate('(a)=>a.play()')
+      await page.wait_for_function("document.querySelector('#studio-reading-audio').currentTime>.25")
+      await page.locator('#studio-reading-audio').evaluate('(a)=>a.pause()')
+      await page.screenshot(path=str(EVIDENCE/'studio-neural-360.png'))
+     await page.locator('#studio-library-back').click()
     await page.locator('#studio-back').click()
     await page.locator('[data-course="1"]').click()
     await page.locator('#begin-course').click()

@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 18
     permissions:
       contents: read
+      actions: read
     strategy:
       fail-fast: false
       max-parallel: 5
@@ -36,6 +37,16 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends espeak ffmpeg
           python3 scripts/build_context_audio.py
+      # The pilot is a qualified immutable research artifact, not a network dependency in the APK.
+      - name: Fetch qualified neural pilot
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-audio-comparison-v2
+          path: research-models/neural-pilot
+          run-id: 46003216202
+          github-token: ${{ github.token }}
+      - name: Verify and package actual neural recordings
+        run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
       - name: Check KVM and SDK image availability
         env:
           API: ${{ matrix.api }}

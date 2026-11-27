@@ -18,9 +18,10 @@ const files = [
   'context_packs_a.js', 'context_packs_b.js', 'context_packs_c.js',
   'context_packs_d.js', 'context_packs_e.js', 'context_packs_f.js',
   'context_packs_g.js', 'context_packs_h.js', 'context_packs_i.js',
+  'context_packs_j.js', 'context_packs_k.js', 'context_packs_l.js', 'context_packs_m.js',
   'context_checks.js', 'context_checks_d.js', 'context_checks_e.js',
   'context_checks_f.js', 'context_checks_g.js', 'context_checks_h.js',
-  'context_checks_i.js', 'context.js',
+  'context_checks_i.js', 'context_checks_j.js', 'context_checks_k.js', 'context_checks_l.js', 'context_checks_m.js', 'context.js',
 ];
 for (const file of files) {
   vm.runInContext(fs.readFileSync(new URL(file, root), 'utf8'), context, { filename: file });
@@ -78,6 +79,7 @@ const audit = {
     contextual_packages: packs.length,
     contextual_days_without_package: units.length - packs.length,
     extended_contextual_packages: packs.filter(pack => pack.profile === 'extended-v1').length,
+    monthly_coverage: Array.from({length:10},(_,i)=>({month:i+1,contextual: packs.filter(p=>p.day>i*30&&p.day<=(i+1)*30).length,extended:packs.filter(p=>p.day>i*30&&p.day<=(i+1)*30&&p.profile==='extended-v1').length})),
     daily_stage_count: w.WOLFIE_STUDY.stages.length,
     daily_minutes: w.WOLFIE_STUDY.stages.reduce((sum, stage) => sum + stage.minutes, 0),
   },

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "a2-01",
+    "level": "A2",
+    "sentence": "He don't drive to the station.",
+    "expected": {
+      "rule_id": "third-negative",
+      "correction": "He doesn't drive to the station."
+    }
+  },
+  {
+    "id": "a2-02",
+    "level": "A2",
+    "sentence": "She don't understand the instructions.",
+    "expected": {
+      "rule_id": "third-negative",
+      "correction": "She doesn't understand the instructions."
+    }
+  },
+  {
+    "id": "a2-03",
+    "level": "A2",
+    "sentence": "I doesn't cook on Sundays.",
+    "expected": {
+      "rule_id": "plural-negative",
+      "correction": "I don't cook on Sundays."
+    }
+  },
+  {
+    "id": "a2-04",
+    "level": "A2",
+    "sentence": "We doesn't speak French.",
+    "expected": {
+      "rule_id": "plural-negative",
+      "correction": "We don't speak French."
+    }
+  },
+  {
+    "id": "a2-05",
+    "level": "A2",
+    "sentence": "Did they bought a ticket?",
+    "expected": {
+      "rule_id": "did-base",
+      "correction": "Did they buy a ticket?"
+    }
+  },
+  {
+    "id": "a2-06",
+    "level": "A2",
+    "sentence": "She didn't wrote the message.",
+    "expected": {
+      "rule_id": "did-base",
+      "correction": "She didn't write the message."
+    }
+  },
+  {
+    "id": "a2-07",
+    "level": "A2",
+    "sentence": "We should to bring our notebooks.",
+    "expected": {
+      "rule_id": "modal-to",
+      "correction": "We should bring our notebooks."
+    }
+  },
+  {
+    "id": "a2-08",
+    "level": "A2",
+    "sentence": "He might to call the receptionist.",
+    "expected": {
+      "rule_id": "modal-to",
+      "correction": "He might call the receptionist."
+    }
+  },
+  {
+    "id": "a2-09",
+    "level": "A2",
+    "sentence": "The second chair is more cheaper than the first.",
+    "expected": {
+      "rule_id": "double-comparison",
+      "correction": "The second chair is cheaper than the first."
+    }
+  },
+  {
+    "id": "a2-10",
+    "level": "A2",
+    "sentence": "These boots are more smaller than those boots.",
+    "expected": {
+      "rule_id": "double-comparison",
+      "correction": "These boots are smaller than those boots."
+    }
+  },
+  {
+    "id": "a2-11",
+    "level": "A2",
+    "sentence": "She needs a umbrella.",
+    "expected": {
+      "rule_id": "article-sound",
+      "correction": "She needs an umbrella."
+    }
+  },
+  {
+    "id": "a2-12",
+    "level": "A2",
+    "sentence": "It is an uniform.",
+    "expected": {
+      "rule_id": "article-sound",
+      "correction": "It is a uniform."
+    }
+  },
+  {
+    "id": "b1-01",
+    "level": "B1",
+    "sentence": "She has returned the book last week.",
+    "expected": {
+      "rule_id": "finished-past",
+      "correction": "She returned the book last week."
+    }
+  },
+  {
+    "id": "b1-02",
+    "level": "B1",
+    "sentence": "We have seen the film last night.",
+    "expected": {
+      "rule_id": "finished-past",
+      "correction": "We saw the film last night."
+    }
+  },
+  {
+    "id": "b1-03",
+    "level": "B1",
+    "sentence": "Despite of the noise, we finished the exercise.",
+    "expected": {
+      "rule_id": "despite-of",
+      "correction": "Despite the noise, we finished the exercise."
+    }
+  },
+  {
+    "id": "b1-04",
+    "level": "B1",
+    "sentence": "Despite of the delay, they arrived on time.",
+    "expected": {
+      "rule_id": "despite-of",
+      "correction": "Despite the delay, they arrived on time."
+    }
+  },
+  {
+    "id": "b1-05",
+    "level": "B1",
+    "sentence": "Do you know where is the museum?",
+    "expected": {
+      "rule_id": "indirect-question",
+      "correction": "Do you know where the museum is?"
+    }
+  },
+  {
+    "id": "b1-06",
+    "level": "B1",
+    "sentence": "Could you tell me where is the meeting room?",
+    "expected": {
+      "rule_id": "indirect-question",
+      "correction": "Could you tell me where the meeting room is?"
+    }
+  },
+  {
+    "id": "negative-01",
+    "level": "A2",
+    "sentence": "They don't drink tea.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  },
+  {
+    "id": "negative-02",
+    "level": "A2",
+    "sentence": "I have lived here since yesterday.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  },
+  {
+    "id": "negative-03",
+    "level": "B1",
+    "sentence": "Although the train was late, we arrived on time.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  },
+  {
+    "id": "negative-04",
+    "level": "B2",
+    "sentence": "If you will listen carefully, we can discuss the problem.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  },
+  {
+    "id": "negative-05",
+    "level": "B2",
+    "sentence": "The relay may have operated before the event was recorded.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  },
+  {
+    "id": "negative-06",
+    "level": "B2",
+    "sentence": "I prefer the report that was revised yesterday.",
+    "expected": {
+      "rule_id": "unsupported",
+      "correction": null
+    }
+  }
+]

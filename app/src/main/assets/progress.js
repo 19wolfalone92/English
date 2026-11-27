@@ -34,6 +34,7 @@ function validate(raw){
   const s=v.studio;
   if(!map(s)||!map(s.saved)||!map(s.corrections)||!map(s.charts)||typeof s.draft!=='string'||s.draft.length>4000||!Array.isArray(s.versions)||s.versions.length>20)throw Error('Некорректная учебная студия.');
   for(const [id,value] of Object.entries(s.saved))if(typeof id!=='string'||id.length>128||value!==true)throw Error('Некорректная сохранённая карточка.');
+  if(own(s,'teacher')){const t=s.teacher;if(!map(t)||typeof t.draft!=='string'||t.draft.length>500||!map(t.rules)||Object.keys(t.rules).length>32)throw Error('Некорректный профиль наставника.');for(const [id,r] of Object.entries(t.rules))if(!/^[a-z][a-z-]{1,39}$/.test(id)||!map(r)||!['pending','correct','incorrect'].includes(r.practice))throw Error('Некорректный результат наставника.');}
   for(const v of s.versions)if(!map(v)||!integer(v.at)||typeof v.text!=='string'||v.text.length>4000)throw Error('Некорректная версия текста.');
   for(const [id,v] of Object.entries(s.corrections))if(!/^mission-v2-\d{3}:(?:g\d+|v\d+|r\d+|f\d+|rev\d+|audio)$/.test(id)||!map(v)||typeof v.ok!=='boolean'||!integer(v.at))throw Error('Некорректное исправление.');
   for(const [id,v] of Object.entries(s.charts))if(!['present','past','future','passive','condition'].includes(id)||!map(v)||!integer(v.answer)||v.answer>2||typeof v.ok!=='boolean')throw Error('Некорректная грамматическая проверка.');

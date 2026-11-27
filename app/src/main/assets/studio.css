@@ -14,3 +14,6 @@
 .studio-fix{border-top:1px solid var(--line);padding:12px 0}.studio-metric{font-size:1.6rem;font-weight:800;margin:8px 0}
 .studio fieldset label{display:block;padding:10px}.studio details summary{cursor:pointer;min-height:44px}
 @media(max-width:390px){.studio-contrast{grid-template-columns:1fr}.studio-card{padding:12px}}
+
+/* Course dashboard and teacher: functional content coverage, distinct from mastery. */
+.coverage-panel{display:grid;gap:6px;margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--text)}.coverage-panel small,.month-coverage{color:var(--muted);font-size:.84rem}.month-coverage{display:block;margin-top:3px}.teacher-intro{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--card);margin:14px 0}.teacher-intro .eyebrow{color:var(--accent)}.teacher-intro h2{margin:8px 0}.teacher-answer{border-left:4px solid var(--accent)}.teacher-answer small{display:block;overflow-wrap:anywhere;margin-bottom:12px;color:var(--muted)}.teacher-correction{font-size:1.16rem;font-weight:700;color:var(--text)}.teacher-options{display:grid;gap:10px;margin:12px 0}.teacher-options button{min-height:48px;text-align:left;white-space:normal;overflow-wrap:anywhere}.teacher-options button:disabled{opacity:.75}.teacher-answer button{margin-top:8px}

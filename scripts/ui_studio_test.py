@@ -58,6 +58,23 @@ async def main():
     await page.locator('#open-studio').click();await page.locator('[data-studio-tab="writing"]').click()
     assert await page.locator('#studio-draft').input_value()=='I agree. We can wait.'
     assert await page.locator('[data-restore-version]').count()==2
+    await page.locator('[data-studio-tab="teacher"]').click()
+    await page.locator('#teacher-input').fill("She don't work here.")
+    await page.locator('#teacher-check').click()
+    assert await page.locator('.teacher-correction').inner_text()=="She doesn't work here."
+    correct=await page.evaluate("window.WOLFIE_TEACHER.analyze(\"She don't work here.\").practice.correct")
+    await page.locator(f'[data-teacher-choice="{correct}"]').click()
+    assert 'верно' in await page.locator('#teacher-practice-result').inner_text()
+    await page.screenshot(path=str(EVIDENCE/f'studio-teacher-{width}.png'))
+    await page.reload(wait_until='networkidle')
+    await page.locator('#open-studio').click()
+    await page.locator('[data-studio-tab="teacher"]').click()
+    assert await page.locator('#teacher-input').input_value()=="She don't work here."
+    assert 'верно' in await page.locator('#teacher-history').inner_text()
+    await page.locator('#teacher-input').fill('I have worked here since 2020.')
+    await page.locator('#teacher-check').click()
+    assert await page.locator('.teacher-correction').count()==0
+    assert 'Нужна дополнительная проверка' in await page.locator('#teacher-answer').inner_text()
     # Actual alternate neural audio files: three distinct texts, two voices each.
     await page.locator('[data-studio-tab="library"]').click()
     for ident,title in [('mission-v2-009','A picnic with a backup plan'),('mission-v2-129','Requesting leave with a handover'),('mission-v2-219','The contract with an unclear scope')]:

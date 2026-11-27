@@ -58,7 +58,7 @@ public class DeviceQualificationTest {
  }
  @Test public void actualContextLessonLoadsOfflineAudioAndPersistsDraft()throws Exception{
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
-   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_CONTEXT.packs.length===90");
+   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_CONTEXT.packs.length===111");
    assertEquals("\"0/300\"",js(scenario,"document.querySelector('#home-course-progress').textContent"));
    js(scenario,"document.querySelector('[data-course=\"1\"]').click();document.querySelector('#begin-course').click();true");
    waitTrue(scenario,"document.querySelector('#study-context')");
@@ -74,6 +74,20 @@ public class DeviceQualificationTest {
    js(scenario,"document.querySelector('#study-context').click();true");
    waitTrue(scenario,"document.querySelector('#ctx-writing') && document.querySelector('#ctx-writing').value==='Native offline draft — проверка'");
    assertEquals("\"0/300\"",js(scenario,"document.querySelector('#ctx-exit').click();document.querySelector('#study-exit').click();document.querySelector('#home-course-progress').textContent"));
+  }
+ }
+ @Test public void actualMonthOneAndOfflineTeacher()throws Exception{
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#open-teacher') && window.WOLFIE_CONTEXT.packs.filter(p=>p.day<=30).length===30");
+   js(scenario,"document.querySelector('#open-teacher').click();const t=document.querySelector('#teacher-input');t.value='She don'+String.fromCharCode(39)+'t drive to work.';t.dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('#teacher-check').click();true");
+   waitTrue(scenario,"document.querySelector('.teacher-correction')?.textContent==='She doesn'+String.fromCharCode(39)+'t drive to work.'");
+   js(scenario,"document.querySelectorAll('[data-teacher-choice]')[1].click();true");
+   waitTrue(scenario,"JSON.parse(WolfieAndroid.loadProgress()).studio.teacher.rules['third-negative'].practice==='correct'");
+  }
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#open-teacher')");
+   js(scenario,"document.querySelector('#open-teacher').click();true");
+   waitTrue(scenario,"document.querySelector('#teacher-history').textContent.includes('Контрольный пример: верно')");
   }
  }
  @Test public void actualOfflineNeuralNarrationLoadsInNativeWebView()throws Exception{

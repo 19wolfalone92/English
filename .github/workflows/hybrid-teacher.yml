@@ -1,0 +1,40 @@
+name: Hybrid teacher paired qualification
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/daily-60min-course]
+    paths: ['research/hybrid_holdout.json']
+permissions:
+  contents: read
+jobs:
+  teacher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch and verify pinned runtime and model
+        run: |
+          mkdir -p research-models research-evidence/hybrid
+          cd research-models
+          curl --fail --location --retry 2 --max-time 240 -o llama.zip https://github.com/ggml-org/llama.cpp/releases/download/b6500/llama-b6500-bin-ubuntu-x64.zip
+          echo '716803084e565fe779bc2d01ea576c418be141f8fabac97509bc6d7c3cd786b2  llama.zip' | sha256sum -c
+          unzip -q llama.zip -d runtime
+          curl --fail --location --retry 2 --max-time 420 -o Qwen3-4B-Q4_K_M.gguf https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf
+          echo '7485fe6f11af29433bc51cab58009521f205840f5b4ae3a32fa7f92e8534fdf5  Qwen3-4B-Q4_K_M.gguf' | sha256sum -c
+      - name: Actual bilingual teaching candidate screening
+        run: |
+          server="$(find "$PWD/research-models/runtime" -type f -name llama-server | head -1)"
+          test -x "$server"
+          export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
+          python scripts/research_hybrid_teacher.py --server "$server" --model research-models/Qwen3-4B-Q4_K_M.gguf --out research-evidence/hybrid
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Wolfie-hybrid-teacher
+          path: research-evidence/hybrid/

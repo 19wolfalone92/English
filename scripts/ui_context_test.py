@@ -19,8 +19,8 @@ async def main():
     ctx=await browser.new_context(viewport={'width':width,'height':820})
     page=await ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
-    packs=await page.evaluate('window.WOLFIE_CONTEXT.packs.map(p=>({day:p.day,ru:p.ru,id:p.id}))')
-    assert len(packs)==70
+    packs=await page.evaluate('window.WOLFIE_CONTEXT.packs.map(p=>({day:p.day,ru:p.ru,id:p.id,cardCount:p.cards.length,grammarCount:p.grammar.exercises.length}))')
+    assert len(packs)==80
     # Open every authored mission through the actual course UI, then inspect each block.
     for i,pack in enumerate(packs):
      day=pack['day'];m=(day-1)//30
@@ -33,8 +33,8 @@ async def main():
      for tab in ('review','vocab','grammar','reading','audio','speaking','writing','final','result'):
       await page.locator(f'[data-ctx-tab="{tab}"]').click()
       if tab=='final':assert await page.locator('#ctx-final-submit').is_visible()
-      if tab=='vocab':assert await page.locator('[data-ctx-vcheck]').count()==11
-      if tab=='grammar':assert await page.locator('[id^="ctx-gcheck-"]').count()==3
+      if tab=='vocab':assert await page.locator('[data-ctx-vcheck]').count()==pack['cardCount']
+      if tab=='grammar':assert await page.locator('[id^="ctx-gcheck-"]').count()==pack['grammarCount']
       if tab=='reading':assert await page.locator('.study-reading').is_visible()
       if tab=='speaking':assert await page.locator('[id^="ctx-s-"]').count()==5
       if tab=='writing':assert await page.locator('#ctx-writing-choice option').count()==3
@@ -129,5 +129,5 @@ async def main():
    print('PASS: actual continuous HTML audio playback qualifies an unassisted answer; seeking does not; this does not prove audibility')
    await browser.close()
  finally:server.shutdown();server.server_close()
- print('PASS: all 70 contextual packages reachable at 360/700 px, all 70 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
+ print('PASS: all 80 contextual packages reachable at 360/700 px, all 80 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
 if __name__=='__main__':asyncio.run(main())

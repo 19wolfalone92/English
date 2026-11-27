@@ -56,6 +56,26 @@ public class DeviceQualificationTest {
   for(int i=0;i<40;i++){if("true".equals(js(scenario,"Boolean("+expression+")")))return;Thread.sleep(250);}
   fail("Condition did not become true: "+expression);
  }
+ @Test public void actualContextLessonLoadsOfflineAudioAndPersistsDraft()throws Exception{
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_CONTEXT.packs.length===80");
+   assertEquals("\"0/300\"",js(scenario,"document.querySelector('#home-course-progress').textContent"));
+   js(scenario,"document.querySelector('[data-course=\"1\"]').click();document.querySelector('#begin-course').click();true");
+   waitTrue(scenario,"document.querySelector('#study-context')");
+   js(scenario,"document.querySelector('#study-context').click();document.querySelector('[data-ctx-tab=\"audio\"]').click();true");
+   waitTrue(scenario,"(()=>{const a=document.querySelector('#ctx-audio');return !!a && a.readyState>=1 && Number.isFinite(a.duration) && a.duration>5 && a.currentSrc.startsWith('file:///android_asset/context_audio/');})()");
+   js(scenario,"document.querySelector('[data-ctx-tab=\"writing\"]').click();const t=document.querySelector('#ctx-writing');t.value='Native offline draft — проверка';t.dispatchEvent(new Event('input',{bubbles:true}));true");
+   waitTrue(scenario,"JSON.parse(WolfieAndroid.loadProgress()).contextLessons['mission-v2-002'].drafts.w0==='Native offline draft — проверка'");
+  }
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#home-course-progress')");
+   js(scenario,"document.querySelector('[data-course=\"1\"]').click();document.querySelector('#begin-course').click();true");
+   waitTrue(scenario,"document.querySelector('#study-context')");
+   js(scenario,"document.querySelector('#study-context').click();true");
+   waitTrue(scenario,"document.querySelector('#ctx-writing') && document.querySelector('#ctx-writing').value==='Native offline draft — проверка'");
+   assertEquals("\"0/300\"",js(scenario,"document.querySelector('#ctx-exit').click();document.querySelector('#study-exit').click();document.querySelector('#home-course-progress').textContent"));
+  }
+ }
  @Test public void actualWebViewLoadsOfflineAndRestoresDiagnosticDraft()throws Exception{
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
    waitTrue(scenario,"document.querySelector('#open-diagnostic') && window.WOLFIE_ROADMAP.build().length===300");

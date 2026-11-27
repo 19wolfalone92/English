@@ -23,11 +23,14 @@ def build():
             voices=['en-us+m3','en-gb+f2'] if p['level']=='A2' else ['en-gb+m2','en-us+f3']
             speed={'A2':140,'B1':155,'B2':170}[p['level']]
             roles=list(dict.fromkeys(r[0] for r in p['dialogue']))
+            voices=(voices+['en-us+m4','en-gb+f4'])[:len(roles)]
+            assert len(roles)==len(voices) and len(set(voices))==len(roles),p['id']
+            role_voices=dict(zip(roles,voices))
             with wave.open(str(wav),'wb') as output:
                 output.setnchannels(1);output.setsampwidth(2);output.setframerate(22050)
                 for i,(role,text,_) in enumerate(p['dialogue']):
                     line=td/f'{i}.wav'
-                    run('espeak','-v',voices[roles.index(role)%2],'-s',str(speed),'-w',str(line),text)
+                    run('espeak','-v',role_voices[role],'-s',str(speed),'-w',str(line),text)
                     with wave.open(str(line),'rb') as src:
                         assert (src.getnchannels(),src.getsampwidth(),src.getframerate())==(1,2,22050)
                         output.writeframes(src.readframes(src.getnframes()))
@@ -37,7 +40,7 @@ def build():
             run('ffmpeg','-hide_banner','-loglevel','error','-i',str(path),'-f','null','-')
             duration=float(run('ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)).stdout)
             assert 5<duration<120,(p['id'],duration)
-            records.append(dict(id=p['id'],file=path.name,source='synthetic-espeak',voices=voices,speed_wpm=speed,seconds=round(duration,3),bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),text_sha256=hashlib.sha256('\n'.join(r[1] for r in p['dialogue']).encode()).hexdigest()))
+            records.append(dict(id=p['id'],file=path.name,source='synthetic-espeak',voices=voices,role_voices=role_voices,speed_wpm=speed,seconds=round(duration,3),bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),text_sha256=hashlib.sha256('\n'.join(r[1] for r in p['dialogue']).encode()).hexdigest()))
     (OUT/'manifest.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     assert set(f.name for f in OUT.glob('*.mp3'))=={r['file'] for r in records}
     print(f'PASS: {len(records)} locally generated synthetic dialogue MP3s, {sum(r["seconds"] for r in records):.1f} seconds, decoded and hashed')

@@ -188,8 +188,11 @@ jobs:
           exit 1
       - name: Real Android screenshot after process restart
         run: |
+          # AGP connected tests may uninstall the target afterwards.
+          adb install -r app/build/outputs/apk/debug/app-debug.apk
           adb shell am force-stop com.wolfie.english
           adb shell am start -W -n com.wolfie.english/.MainActivity | tee device-evidence/activity-start.txt
+          grep -F "Status: ok" device-evidence/activity-start.txt
           sleep 4
           adb exec-out screencap -p > device-evidence/wolfie-native.png
           adb logcat -d -t 300 > device-evidence/logcat.txt
@@ -212,23 +215,31 @@ jobs:
           new=app/build/outputs/apk/debug/app-debug.apk
           testapk=app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
           signer="$ANDROID_HOME/build-tools/35.0.0/apksigner"
-          "$signer" sign --ks "$HOME/.android/debug.keystore" --ks-pass pass:android --key-pass pass:android --ks-key-alias androiddebugkey --out "$RUNNER_TEMP/old-test.apk" "$old"
-          "$signer" verify --print-certs "$RUNNER_TEMP/old-test.apk" | tee device-evidence/upgrade/old-cert.txt
-          "$signer" verify --print-certs "$new" | tee device-evidence/upgrade/new-cert.txt
-          diff <(grep 'certificate SHA-256 digest' device-evidence/upgrade/old-cert.txt) <(grep 'certificate SHA-256 digest' device-evidence/upgrade/new-cert.txt)
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/old-test.apk" | head -1 > device-evidence/upgrade/old-package.txt
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$new" | head -1 > device-evidence/upgrade/new-package.txt
+          key="$RUNNER_TEMP/wolfie-isolated-upgrade.p12"
+          # Generate an explicit throwaway CI key; no assumption about Gradle debug key location.
+          keytool -genkeypair -storetype PKCS12 -keystore "$key" -storepass test-only-123 -keypass test-only-123 -alias wolfie-ci -dname CN=Wolfie-Isolated-CI -keyalg RSA -keysize 2048 -validity 30 >/dev/null 2>&1
+          for kind in old new test; do
+            case "$kind" in old) input="$old";; new) input="$new";; test) input="$testapk";; esac
+            "$signer" sign --ks "$key" --ks-pass pass:test-only-123 --key-pass pass:test-only-123 --ks-key-alias wolfie-ci --v4-signing-enabled false --out "$RUNNER_TEMP/$kind-test.apk" "$input"
+            "$signer" verify --print-certs "$RUNNER_TEMP/$kind-test.apk" | tee "device-evidence/upgrade/$kind-cert.txt"
+          done
+          for kind in new test; do
+            diff <(grep 'certificate SHA-256 digest' device-evidence/upgrade/old-cert.txt) <(grep 'certificate SHA-256 digest' "device-evidence/upgrade/$kind-cert.txt")
+          done
+          rm -f "$key"
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/old-test.apk" > device-evidence/upgrade/old-package.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/new-test.apk" > device-evidence/upgrade/new-package.txt
           grep -F "name='com.wolfie.english' versionCode='22'" device-evidence/upgrade/old-package.txt
           grep -F "name='com.wolfie.english' versionCode='23'" device-evidence/upgrade/new-package.txt
           # Isolated disposable emulator only. Never uninstall between old and new.
           adb uninstall com.wolfie.english.test || true
           adb uninstall com.wolfie.english || true
           adb install "$RUNNER_TEMP/old-test.apk" | tee device-evidence/upgrade/install-old.txt
-          adb install -r -t "$testapk"
+          adb install -r -t "$RUNNER_TEMP/test-test.apk"
           adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#seedOld' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/seed.txt
           grep -F 'OK (1 test)' device-evidence/upgrade/seed.txt
           adb shell am force-stop com.wolfie.english
-          adb install -r "$new" | tee device-evidence/upgrade/install-new.txt
+          adb install -r "$RUNNER_TEMP/new-test.apk" | tee device-evidence/upgrade/install-new.txt
           adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#verifyNew' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/verify.txt
           grep -F 'OK (1 test)' device-evidence/upgrade/verify.txt
           adb shell am force-stop com.wolfie.english

@@ -25,6 +25,7 @@ function validate(raw){
   for(const [k,a] of Object.entries(x.answers))if(!/^(v\d+|g\d+|r\d+|rev\d+|f\d+|audio)$/.test(k)||!(typeof a==='string'||integer(a)||Array.isArray(a)&&a.every(integer)))throw Error('Некорректный ответ миссии.');
   for(const a of Object.values(x.drafts))if(typeof a!=='string')throw Error('Некорректный черновик миссии.');
   for(const a of Object.values(x.checks))if(!map(a)||typeof a.ok!=='boolean')throw Error('Некорректная проверка миссии.');
+  if(own(x,'dialogueVoice')&&!['kokoro','espeak'].includes(x.dialogueVoice))throw Error('Некорректный источник озвучивания.');
   if(own(x,'mode')&&!['quick','short','standard','intensive','free'].includes(x.mode))throw Error('Некорректный режим миссии.');
   if(own(x,'finalSubmitted')&&typeof x.finalSubmitted!=='boolean')throw Error('Некорректный итог миссии.');
   if(own(x,'reviewItems')&&(!Array.isArray(x.reviewItems)||x.reviewItems.length>8||x.reviewItems.some(r=>!map(r)||typeof r.id!=='string'||typeof r.en!=='string'||typeof r.ru!=='string')))throw Error('Некорректное повторение миссии.');

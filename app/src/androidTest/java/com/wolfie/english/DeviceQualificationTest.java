@@ -90,6 +90,16 @@ public class DeviceQualificationTest {
    waitTrue(scenario,"document.querySelector('#teacher-history').textContent.includes('Контрольный пример: верно')");
   }
  }
+ @Test public void actualNeuralDialogueAndFallback()throws Exception{
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_NEURAL_DIALOGUES.length===21");
+   js(scenario,"document.querySelector('[data-course=\\\"0\\\"]').click();document.querySelector('#begin-course').click();document.querySelector('#study-context').click();document.querySelector('[data-ctx-tab=\\\"audio\\\"]').click();true");
+   waitTrue(scenario,"(()=>{const a=document.querySelector('#ctx-audio');return a && a.readyState>=1 && a.duration>=30 && a.currentSrc.includes('/neural_dialogue/');})()");
+   js(scenario,"const v=document.querySelector('#ctx-voice');v.value='espeak';v.dispatchEvent(new Event('change',{bubbles:true}));true");
+   waitTrue(scenario,"(()=>{const a=document.querySelector('#ctx-audio');return a && a.readyState>=1 && a.duration>=30 && a.currentSrc.includes('/context_audio/');})()");
+   waitTrue(scenario,"JSON.parse(WolfieAndroid.loadProgress()).contextLessons['mission-v2-001'].dialogueVoice==='espeak'");
+  }
+ }
  @Test public void actualOfflineNeuralNarrationLoadsInNativeWebView()throws Exception{
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
    waitTrue(scenario,"document.querySelector('#open-studio') && window.WOLFIE_NEURAL_AUDIO.length===6");

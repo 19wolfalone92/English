@@ -21,3 +21,5 @@ local.properties
 *.p12
 *.pfx
 /release-signing/
+
+/app/src/main/assets/neural_dialogue/

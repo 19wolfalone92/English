@@ -31,7 +31,14 @@ for name in sys.argv[1:]:
             b=z.read('assets/neural_audio/'+r['file'])
             assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
         assert z.read('assets/neural_audio/index.js')==(assets/'neural_audio/index.js').read_bytes()
+        dialogue=json.loads(z.read('assets/neural_dialogue/manifest.json'))
+        pins=json.loads((assets.parents[3]/'research/month01_neural_pins.json').read_text())
+        assert len(dialogue)==21 and {r['id'] for r in dialogue}==set(pins)
+        for r in dialogue:
+            b=z.read('assets/neural_dialogue/'+r['file'])
+            assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']==pins[r['id']]
+        assert z.read('assets/neural_dialogue/index.js')==(assets/'neural_dialogue/index.js').read_bytes()
         for f in ('context.js','context_packs_a.js','context_packs_b.js','context_packs_c.js','context_packs_d.js','context_packs_e.js','context_packs_f.js','context_packs_g.js','context_packs_h.js','context_packs_i.js','context_packs_j.js','context_packs_k.js','context_packs_l.js','context_packs_m.js','context_checks.js','context_checks_d.js','context_checks_e.js','context_checks_f.js','context_checks_g.js','context_checks_h.js','context_checks_i.js','context_checks_j.js','context_checks_k.js','context_checks_l.js','context_checks_m.js','teacher_rules.js','teacher.js','index.html','study.js','app.js','studio.js','studio.css'):
             assert z.read('assets/'+f)==(assets/f).read_bytes(),f
         assert b'context_packs_a.js' in z.read('assets/index.html')
-    print(f'PASS: {name}: 111 dialogue + 161 reading + 6 neural alternate MP3s and context source assets byte-identical to checked build inputs')
+    print(f'PASS: {name}: 111 dialogue + 161 reading + 6 neural reading alternate + 21 neural dialogue MP3s and context source assets byte-identical to checked build inputs')

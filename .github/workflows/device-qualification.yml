@@ -6,6 +6,8 @@ on:
       - 'app/**'
       - 'scripts/build_context_audio.py'
       - 'scripts/import_neural_pilot.py'
+      - 'scripts/import_neural_month01.py'
+      - 'research/month01_neural_pins.json'
   workflow_dispatch:
 jobs:
   device:
@@ -49,6 +51,29 @@ jobs:
           github-token: ${{ github.token }}
       - name: Verify and package actual neural recordings
         run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
+      - name: Fetch pinned month 01 neural shard 0
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-0
+          path: research-models/neural-month01/0
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 1
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-1
+          path: research-models/neural-month01/1
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 2
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-resumed-2
+          path: research-models/neural-month01/2
+          run-id: 46072326239
+          github-token: ${{ github.token }}
+      - name: Verify and package 21 new neural dialogues
+        run: python3 scripts/import_neural_month01.py research-models/neural-month01/0 research-models/neural-month01/1 research-models/neural-month01/2
       - name: Check KVM and SDK image availability
         env:
           API: ${{ matrix.api }}
@@ -155,7 +180,7 @@ jobs:
           # Retry only a positively identified dependency HTTP 429, never a failing test.
           for attempt in 1 2 3; do
             log="device-evidence/gradle-attempt-$attempt.log"
-            if gradle --no-daemon :app:connectedDebugAndroidTest 2>&1 | tee "$log"; then exit 0; fi
+            if gradle --no-daemon :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.wolfie.english.DeviceQualificationTest 2>&1 | tee "$log"; then exit 0; fi
             if ! grep -Eq 'Received status code 429 from server|HTTP[^ ]* 429|Too Many Requests' "$log" || [ "$attempt" = 3 ]; then exit 1; fi
             if grep -Eq 'Starting [0-9]+ tests on|tests completed,.*failed|There were failing tests' "$log"; then exit 1; fi
             sleep "$((attempt * 20))"
@@ -168,6 +193,48 @@ jobs:
           sleep 4
           adb exec-out screencap -p > device-evidence/wolfie-native.png
           adb logcat -d -t 300 > device-evidence/logcat.txt
+      - name: Fetch real 0.9.2 for isolated upgrade
+        if: matrix.api == 35
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-English-v0.9.2-debug
+          path: research-models/upgrade-old
+          run-id: 46053115967
+          github-token: ${{ github.token }}
+      - name: Same-test-key update from 0.9.2 without uninstall
+        if: matrix.api == 35
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p device-evidence/upgrade
+          old=research-models/upgrade-old/app-debug.apk
+          echo '7401f86e791539981f933debcb94cd0bf3a33fa8ffd31005f58dc70976adc3bf  research-models/upgrade-old/app-debug.apk' | sha256sum -c
+          new=app/build/outputs/apk/debug/app-debug.apk
+          testapk=app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          signer="$ANDROID_HOME/build-tools/35.0.0/apksigner"
+          "$signer" sign --ks "$HOME/.android/debug.keystore" --ks-pass pass:android --key-pass pass:android --ks-key-alias androiddebugkey --out "$RUNNER_TEMP/old-test.apk" "$old"
+          "$signer" verify --print-certs "$RUNNER_TEMP/old-test.apk" | tee device-evidence/upgrade/old-cert.txt
+          "$signer" verify --print-certs "$new" | tee device-evidence/upgrade/new-cert.txt
+          diff <(grep 'certificate SHA-256 digest' device-evidence/upgrade/old-cert.txt) <(grep 'certificate SHA-256 digest' device-evidence/upgrade/new-cert.txt)
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/old-test.apk" | head -1 > device-evidence/upgrade/old-package.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$new" | head -1 > device-evidence/upgrade/new-package.txt
+          grep -F "name='com.wolfie.english' versionCode='22'" device-evidence/upgrade/old-package.txt
+          grep -F "name='com.wolfie.english' versionCode='23'" device-evidence/upgrade/new-package.txt
+          # Isolated disposable emulator only. Never uninstall between old and new.
+          adb uninstall com.wolfie.english.test || true
+          adb uninstall com.wolfie.english || true
+          adb install "$RUNNER_TEMP/old-test.apk" | tee device-evidence/upgrade/install-old.txt
+          adb install -r -t "$testapk"
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#seedOld' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/seed.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/seed.txt
+          adb shell am force-stop com.wolfie.english
+          adb install -r "$new" | tee device-evidence/upgrade/install-new.txt
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#verifyNew' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/verify.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/verify.txt
+          adb shell am force-stop com.wolfie.english
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#verifyNew' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/restart.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/restart.txt
+          echo 'PASS: same disposable test key update, not owner signing'
       - name: Capture failure diagnostics even when instrumentation fails
         if: always()
         run: |

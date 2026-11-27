@@ -1,9 +1,11 @@
 name: Android emulator qualification
 on:
-  pull_request:
+  push:
+    branches: [main, 'feature/**']
     paths:
       - 'app/**'
-      - '.github/workflows/device-qualification.yml'
+      - 'scripts/build_context_audio.py'
+      - 'scripts/import_neural_pilot.py'
   workflow_dispatch:
 jobs:
   device:

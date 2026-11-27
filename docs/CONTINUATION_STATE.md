@@ -56,3 +56,14 @@ After every substantial verified stage, update this document, the qualification 
 - Preview SHA-256: 536ab88a5f43ec4f3821c0be3dbd87687d718269aa9d49c1d0c7dacfb9d7733c.
 - Debug certificate fingerprint for this run: 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b.
 - Execution Guard health probe succeeded; checkpoint revision 38 was saved and read back.
+
+
+## CI resource policy
+
+Research workflows are manual-only. The earlier PR synchronization automatically re-ran the audio and Qwen3 CPU research jobs because the PR's cumulative diff still contained their input paths. Those runs were already in progress and the connected GitHub actions do not expose a cancel operation. The workflow triggers have now been changed so:
+- Android build validation runs once per push (and manually), not again for the same PR synchronization event.
+- Native device qualification runs on pushes that change app/audio packaging inputs, or manually.
+- Kokoro/eSpeak and legacy teacher research run only when explicitly selected in workflow_dispatch.
+- Qwen3-4B screening runs only by explicit workflow_dispatch.
+
+Do not re-run the completed research unless the model, prompt set, evaluation rubric, audio engine or source data changes.

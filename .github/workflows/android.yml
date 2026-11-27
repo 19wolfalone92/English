@@ -2,7 +2,6 @@ name: Android APK and curriculum validation
 on:
   push:
     branches: [main, 'feature/**']
-  pull_request:
   workflow_dispatch:
 jobs:
   build:

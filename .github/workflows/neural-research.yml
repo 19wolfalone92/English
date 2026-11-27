@@ -1,16 +1,22 @@
 name: Offline neural audio and teacher research
 on:
-  pull_request:
-    paths:
-      - 'research/teacher_exam.json'
-      - 'scripts/research_teacher.py'
-      - 'scripts/research_audio.py'
-      - '.github/workflows/neural-research.yml'
   workflow_dispatch:
+    inputs:
+      run_audio:
+        description: Run the Kokoro/eSpeak comparison (costs runner time)
+        type: boolean
+        required: false
+        default: true
+      run_legacy_teacher:
+        description: Run the older Qwen2.5 0.5B/1.5B screening matrix
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 jobs:
   audio:
+    if: inputs.run_audio == true
     runs-on: ubuntu-latest
     timeout-minutes: 18
     steps:
@@ -43,7 +49,7 @@ jobs:
           name: Wolfie-neural-audio-comparison-v2
           path: research-evidence/audio/
   teacher:
-    if: github.event_name == 'workflow_dispatch'
+    if: inputs.run_legacy_teacher == true
     runs-on: ubuntu-latest
     timeout-minutes: 18
     strategy:

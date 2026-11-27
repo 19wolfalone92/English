@@ -1,9 +1,5 @@
 name: Qwen3 4B independent CPU screening
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/teacher-4b.yml'
-      - 'scripts/research_teacher.py'
   workflow_dispatch:
 permissions:
   contents: read

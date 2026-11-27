@@ -1,0 +1,110 @@
+[
+  {
+    "id": "a2-01",
+    "level": "A2",
+    "task": "Choose the correct completion: My neighbours ___ their dog every evening. A walks; B walk; C walking. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "a2-02",
+    "level": "A2",
+    "task": "Which request is most appropriate when asking a stranger to move a bag? A Move it now! B Could you move your bag, please? C You must to move it. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "a2-03",
+    "level": "A2",
+    "task": "Choose the accurate translation of «Мне не нужно приходить завтра». A I mustn't come tomorrow. B I don't need to come tomorrow. C I didn't come tomorrow. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "a2-04",
+    "level": "A2",
+    "task": "Correct only the error: Does your cousin lives nearby? Return the complete corrected sentence.",
+    "key": "Does your cousin live nearby?"
+  },
+  {
+    "id": "b1-01",
+    "level": "B1",
+    "task": "Choose the sentence with a correct embedded question: A Could you explain why the shop closed? B Could you explain why did the shop close? C Could you explain why the shop did closed? Reply with only the letter.",
+    "key": "A"
+  },
+  {
+    "id": "b1-02",
+    "level": "B1",
+    "task": "The workshop was postponed because the equipment had not arrived. Which is supported? A The workshop took place. B The equipment was damaged. C The equipment was not available at the required time. Reply with only the letter.",
+    "key": "C"
+  },
+  {
+    "id": "b1-03",
+    "level": "B1",
+    "task": "Complete using the supplied verb: By the time the guests arrived, I ___ (finish) preparing the food. Return only the missing words.",
+    "key": "had finished"
+  },
+  {
+    "id": "b1-04",
+    "level": "B1",
+    "task": "Which message distinguishes confirmation from a proposal? A Our proposed dates are pending approval. B The dates are approved because we sent them. C We have confirmed nothing, so all bookings are certain. Reply with only the letter.",
+    "key": "A"
+  },
+  {
+    "id": "b2-01",
+    "level": "B2",
+    "task": "Choose the correct concessive construction: A Despite the sample was small, we continued. B Although the sample was small, we continued. C Despite of the sample, we continued. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "b2-02",
+    "level": "B2",
+    "task": "A non-randomised survey finds an association between reading and reported well-being. Which claim is warranted? A Reading caused every improvement. B The association merits further study; causation is not established. C Every possible alternative has been ruled out. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "b2-03",
+    "level": "B2",
+    "task": "Complete the formal conditional: Should further evidence ___ (emerge), we will review the conclusion. Return only the missing word.",
+    "key": "emerge"
+  },
+  {
+    "id": "b2-04",
+    "level": "B2",
+    "task": "A draft relay protection report contains an unverified equipment identifier. Which English status is accurate? A The applicable configuration is approved. B The discrepancy remains unresolved pending authorised review. C The settings must be changed immediately. Reply with only the letter.",
+    "key": "B"
+  },
+  {
+    "id": "open-01",
+    "level": "A2",
+    "task": "A Russian-speaking learner writes 'She don't like tea'. Correct the sentence, explain the reason in simple Russian, and give a different example.",
+    "rubric": "Correct: She doesn't like tea. Explain third person singular and bare verb after does; new grammatical example."
+  },
+  {
+    "id": "open-02",
+    "level": "B1",
+    "task": "A learner asks why 'I have seen him yesterday' sounds wrong in standard English. Explain in Russian, give a corrected version and contrast it with a natural present perfect example.",
+    "rubric": "I saw him yesterday; finished past time; appropriate present perfect without finished past time."
+  },
+  {
+    "id": "open-03",
+    "level": "B2",
+    "task": "A learner claims 'despite' and 'although' can always be substituted without changing the following structure. Correct the misconception in Russian and provide two natural paired examples.",
+    "rubric": "Despite + noun/gerund/the fact that; although + finite clause; natural paired examples."
+  },
+  {
+    "id": "open-04",
+    "level": "B1",
+    "task": "Improve this message without inventing facts: 'Hello. I want answer now about my meeting.' Explain two improvements in Russian. Do not promise that the meeting is confirmed.",
+    "rubric": "Polite request for update, retain uncertainty, explain formality and grammar in Russian."
+  },
+  {
+    "id": "open-05",
+    "level": "B2",
+    "task": "The learner writes: 'The survey shows people who exercise report better sleep. Therefore exercise causes better sleep for everyone.' Give brief feedback in Russian on language and reasoning, and rewrite the claim accurately in English.",
+    "rubric": "Association vs causality, avoid universal claim, preserve observed report, natural English."
+  },
+  {
+    "id": "open-06",
+    "level": "B1",
+    "task": "Act as a colleague in a fictional conversation. I say: 'I can cover the first hour, but not the second.' Respond in English, acknowledge my limit, and ask one relevant follow-up question. Do not imply I agreed to both hours.",
+    "rubric": "Acknowledges one hour only; natural relevant question; no pressure or fabricated agreement."
+  }
+]

@@ -55,6 +55,13 @@ jobs:
           printf 'no\n' | avdmanager create avd -n wolfie -k "$image" --path "$ANDROID_AVD_HOME/wolfie.avd" --force
           avdmanager list avd | tee device-evidence/avds.txt
           test -f "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          if [ "$API" = "37" ]; then
+            # API 37 install-create previously rejected the APK for insufficient internal space.
+            df -h "$RUNNER_TEMP" | tee device-evidence/host-disk.txt
+            test "$(df -Pk "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 8388608
+            sed -i '/^disk.dataPartition.size=/d' "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+            printf '\ndisk.dataPartition.size=8G\n' >> "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          fi
           if [ ! -f "$ANDROID_AVD_HOME/wolfie.ini" ]; then
             printf 'avd.ini.encoding=UTF-8\npath=%s/wolfie.avd\ntarget=android-%s\n' "$ANDROID_AVD_HOME" "$API" > "$ANDROID_AVD_HOME/wolfie.ini"
           fi
@@ -66,7 +73,9 @@ jobs:
           API: ${{ matrix.api }}
         run: |
           set -euo pipefail
-          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
+          partition_args=()
+          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); fi
+          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
           pid=$!
           adb start-server
           for i in $(seq 1 120); do
@@ -89,6 +98,11 @@ jobs:
           adb shell svc wifi disable
           adb shell svc data disable
           adb shell getprop > device-evidence/device-properties.txt
+          adb shell df -k /data | tee device-evidence/data-space.txt
+          adb shell pm list packages > device-evidence/package-service.txt
+          if [ "$API" = "37" ]; then
+            test "$(adb shell df -k /data | tr -d '\r' | awk 'NR==2 {print $4}')" -ge 1048576
+          fi
       - name: Instrumented WebView and storage tests offline
         run: gradle --no-daemon :app:connectedDebugAndroidTest
       - name: Real Android screenshot after process restart

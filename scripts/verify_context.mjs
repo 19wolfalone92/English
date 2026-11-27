@@ -1,11 +1,11 @@
 import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
 const root=new URL('../app/src/main/assets/',import.meta.url),w={};
 const ctx=vm.createContext({window:w,Date,Math});
-const names=['curriculum','vocab','expanded','roadmap','readings_a','readings_b','readings_c','readings_d','readings_e','readings_f','readings_g','readings_h','context_packs_a','context_packs_b','context_packs_c','context_packs_d','context_packs_e','context_checks','context_checks_d','context_checks_e','context'];
+const names=['curriculum','vocab','expanded','roadmap','readings_a','readings_b','readings_c','readings_d','readings_e','readings_f','readings_g','readings_h','context_packs_a','context_packs_b','context_packs_c','context_packs_d','context_packs_e','context_packs_f','context_checks','context_checks_d','context_checks_e','context_checks_f','context'];
 for(const name of names)vm.runInContext(fs.readFileSync(new URL(name+'.js',root),'utf8'),ctx);
 const c=w.WOLFIE_CONTEXT,unique=(arr,label)=>assert.equal(new Set(arr.map(c.norm)).size,arr.length,label);
-assert.equal(c.packs.length,50);unique(c.packs.map(p=>p.id),'IDs');assert.equal(new Set(c.packs.map(p=>p.day)).size,50);
-assert.equal(c.newCards.filter(p=>p.kind==='w').length,292);assert.equal(c.newCards.filter(p=>p.kind==='p').length,250);
+assert.equal(c.packs.length,60);unique(c.packs.map(p=>p.id),'IDs');assert.equal(new Set(c.packs.map(p=>p.day)).size,60);
+assert.equal(c.newCards.filter(p=>p.kind==='w').length,349);assert.equal(c.newCards.filter(p=>p.kind==='p').length,300);
 unique(c.newCards.map(p=>p.id),'card IDs');
 unique(c.packs.flatMap(p=>p.speaking),'speaking');unique(c.packs.flatMap(p=>p.writing),'writing');
 unique([...w.WOLFIE_READINGS.map(p=>p.paragraphs.join(' ')),...c.packs.map(p=>p.reading.paragraphs.join(' '))],'reading');
@@ -23,10 +23,10 @@ for(const p of c.packs){
   assert.ok(!c.answerOk(ex,ex[0]==='choice'?(val+1)%ex[2].length:ex[0]==='type'?'wrong answer':Array(ex[2].length).fill(0)));
  }
 }
-assert.equal(w.WOLFIE_ROADMAP.build().filter(u=>c.get(u)).length,50);
-assert.equal(Object.keys(w.WOLFIE_CONTEXT_CHECKS).length,50);
-const transfer=Object.values(w.WOLFIE_CONTEXT_CHECKS).flat();assert.equal(transfer.length,150);unique(transfer.map(ex=>ex[1]),'transfer questions');
+assert.equal(w.WOLFIE_ROADMAP.build().filter(u=>c.get(u)).length,60);
+assert.equal(Object.keys(w.WOLFIE_CONTEXT_CHECKS).length,60);
+const transfer=Object.values(w.WOLFIE_CONTEXT_CHECKS).flat();assert.equal(transfer.length,180);unique(transfer.map(ex=>ex[1]),'transfer questions');
 for(const p of c.packs){const rows=w.WOLFIE_CONTEXT_CHECKS[p.id];assert.equal(rows.length,3);for(const ex of rows){const a=ex[0]==='choice'?ex[3]:ex[2][0];assert.ok(c.answerOk(ex,a));assert.ok(!c.answerOk(ex,ex[0]==='choice'?(a+1)%ex[2].length:'incorrect'));}}
 const training=new Set(c.packs.flatMap(p=>p.grammar.exercises.map(x=>c.norm(x[1]))));assert.ok(transfer.every(ex=>!training.has(c.norm(ex[1]))));
-console.log('PASS: 150 separately authored transfer checks, correct and incorrect answers, no exact overlap with grammar practice');
-console.log('PASS: 50 linked context packages, 292 new lexical units, 250 new phrases, 50 original readings/dialogues, 250 speaking and 150 writing prompts, 150 grammar checks; exact duplicate and correct/incorrect scoring checks');
+console.log('PASS: 180 separately authored transfer checks, correct and incorrect answers, no exact overlap with grammar practice');
+console.log('PASS: 60 linked context packages, 349 new lexical units, 300 new phrases, 60 original readings/dialogues, 300 speaking and 180 writing prompts, 180 grammar checks; exact duplicate and correct/incorrect scoring checks');

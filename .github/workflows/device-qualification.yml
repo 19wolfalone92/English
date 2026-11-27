@@ -74,8 +74,9 @@ jobs:
         run: |
           set -euo pipefail
           partition_args=()
-          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); fi
-          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory 2048 -cores 2 > device-evidence/emulator.log 2>&1 &
+          memory=2048
+          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); memory=4096; fi
+          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory "$memory" -cores 2 > device-evidence/emulator.log 2>&1 &
           pid=$!
           adb start-server
           for i in $(seq 1 120); do
@@ -112,6 +113,16 @@ jobs:
           sleep 4
           adb exec-out screencap -p > device-evidence/wolfie-native.png
           adb logcat -d -t 300 > device-evidence/logcat.txt
+      - name: Capture failure diagnostics even when instrumentation fails
+        if: always()
+        run: |
+          mkdir -p device-evidence
+          adb devices -l > device-evidence/adb-final.txt 2>&1 || true
+          timeout 25 adb logcat -d -b all > device-evidence/logcat-all.txt 2>&1 || true
+          timeout 15 adb shell dumpsys meminfo > device-evidence/meminfo.txt 2>&1 || true
+          timeout 15 adb shell df -k /data > device-evidence/data-space-final.txt 2>&1 || true
+          timeout 15 adb shell service check package > device-evidence/package-service-final.txt 2>&1 || true
+          free -m > device-evidence/host-memory.txt
       - name: Upload qualification evidence
         if: always()
         uses: actions/upload-artifact@v4

@@ -5,11 +5,18 @@ assets=Path(__file__).resolve().parents[1]/'app/src/main/assets'
 for name in sys.argv[1:]:
     with zipfile.ZipFile(name) as z:
         records=json.loads(z.read('assets/context_audio/manifest.json'))
-        assert len(records)==80
+        assert len(records)==90
         for r in records:
             b=z.read('assets/context_audio/'+r['file'])
             assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
-        for f in ('context.js','context_packs_a.js','context_packs_b.js','context_packs_c.js','context_packs_d.js','context_packs_e.js','context_packs_f.js','context_packs_g.js','context_packs_h.js','context_checks.js','context_checks_d.js','context_checks_e.js','context_checks_f.js','context_checks_g.js','context_checks_h.js','index.html','study.js','app.js','studio.js','studio.css'):
+        reading=json.loads(z.read('assets/reading_audio/manifest.json'))
+        assert len(reading)==140 and len({r['id'] for r in reading})==140
+        assert {r['id'] for r in reading if r['level']!='legacy'}=={r['id'] for r in records}
+        assert {r['id'] for r in reading if r['level']=='legacy'}=={f'legacy-{i}' for i in range(50)}
+        for r in reading:
+            b=z.read('assets/reading_audio/'+r['file'])
+            assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
+        for f in ('context.js','context_packs_a.js','context_packs_b.js','context_packs_c.js','context_packs_d.js','context_packs_e.js','context_packs_f.js','context_packs_g.js','context_packs_h.js','context_packs_i.js','context_checks.js','context_checks_d.js','context_checks_e.js','context_checks_f.js','context_checks_g.js','context_checks_h.js','context_checks_i.js','index.html','study.js','app.js','studio.js','studio.css'):
             assert z.read('assets/'+f)==(assets/f).read_bytes(),f
         assert b'context_packs_a.js' in z.read('assets/index.html')
-    print(f'PASS: {name}: 80 MP3s and context source assets byte-identical to checked build inputs')
+    print(f'PASS: {name}: 90 dialogue + 140 reading MP3s and context source assets byte-identical to checked build inputs')

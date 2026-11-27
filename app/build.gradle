@@ -6,9 +6,9 @@ android {
         applicationId 'com.wolfie.english'
         minSdk 24
         targetSdk 35
-        versionCode 20
+        versionCode 21
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-        versionName '0.9.0'
+        versionName '0.9.1'
         manifestPlaceholders = [appLabel: 'Wolfie English']
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }

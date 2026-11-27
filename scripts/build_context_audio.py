@@ -44,4 +44,37 @@ def build():
     (OUT/'manifest.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     assert set(f.name for f in OUT.glob('*.mp3'))=={r['file'] for r in records}
     print(f'PASS: {len(records)} locally generated synthetic dialogue MP3s, {sum(r["seconds"] for r in records):.1f} seconds, decoded and hashed')
-if __name__=='__main__':build()
+def build_reading():
+    """Narration of existing authored reading texts, not new independent listening tasks."""
+    out=ASSETS/'reading_audio'
+    out.mkdir(exist_ok=True)
+    records=[]
+    legacy=[]
+    for f in sorted(ASSETS.glob('readings_*.js')):
+        source=f.read_text(encoding='utf-8')
+        legacy.extend(json.loads(source.split('.concat(',1)[1].removesuffix(');\n')))
+    rows=[dict(id=p['id'],level=p['level'],title=p['reading']['title'],paragraphs=p['reading']['paragraphs']) for p in load()]
+    rows += [dict(id=f'legacy-{i}',level='legacy',title=p['title'],paragraphs=p['paragraphs']) for i,p in enumerate(legacy)]
+    assert len({r['id'] for r in rows})==len(rows)
+    for row in rows:
+        voice='en-us+f2' if row['level'] in ('A2','legacy') else 'en-gb+m2'
+        speed={'A2':140,'B1':155,'B2':170,'legacy':145}[row['level']]
+        transcript='\n\n'.join(row['paragraphs'])
+        with tempfile.TemporaryDirectory() as td:
+            td=Path(td)
+            txt=td/'text.txt';txt.write_text(transcript,encoding='utf-8')
+            wav=td/'narration.wav'
+            run('espeak','-v',voice,'-s',str(speed),'-w',str(wav),'-f',str(txt))
+            path=out/(row['id']+'.mp3')
+            run('ffmpeg','-hide_banner','-loglevel','error','-y','-i',str(wav),'-codec:a','libmp3lame','-b:a','48k','-map_metadata','-1',str(path))
+            run('ffmpeg','-hide_banner','-loglevel','error','-i',str(path),'-f','null','-')
+        duration=float(run('ffprobe','-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',str(path)).stdout)
+        assert 10<duration<600,(row['id'],duration)
+        records.append(dict(id=row['id'],level=row['level'],title=row['title'],file=path.name,source='synthetic-espeak',voice=voice,speed_wpm=speed,seconds=round(duration,3),bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),text_sha256=hashlib.sha256(transcript.encode()).hexdigest(),linked_task='reading',assessment=False))
+    (out/'manifest.json').write_text(json.dumps(records,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    assert set(f.name for f in out.glob('*.mp3'))=={r['file'] for r in records}
+    print(f'PASS: {len(records)} separate synthetic reading narrations, {sum(r["seconds"] for r in records):.1f} seconds, decoded and hashed')
+if __name__=='__main__':
+    build()
+    build_reading()
+

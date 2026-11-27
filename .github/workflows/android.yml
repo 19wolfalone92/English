@@ -53,7 +53,7 @@ jobs:
       - name: Upload browser screenshots
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.0-browser-evidence
+          name: Wolfie-English-v0.9.1-browser-evidence
           path: ui-evidence/*.png
           if-no-files-found: error
       - name: Check JavaScript syntax
@@ -81,7 +81,7 @@ jobs:
       - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.0-debug
+          name: Wolfie-English-v0.9.1-debug
           path: |
             app/build/outputs/apk/debug/app-debug.apk
             app/build/outputs/apk/debug/app-debug.apk.sha256
@@ -96,7 +96,7 @@ jobs:
       - name: Upload side-by-side preview APK
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.9.0-preview
+          name: Wolfie-English-v0.9.1-preview
           path: |
             app/build/outputs/apk/preview/app-preview.apk
             app/build/outputs/apk/preview/app-preview.apk.sha256

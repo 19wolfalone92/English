@@ -1,3 +1,14 @@
+# Current update — 0.9.3 (2026-11-28)
+
+21 authored new first-month contexts (days 1, 11–30) each contain ten lexical entries and ten phrases, a substantial reading with four comprehension questions, six grammar checks, an eight-turn original dialogue, five speaking prompts, three writing prompts and three separate transfer checks. Net exact-ID counts: +187 lexical, +210 phrases, +21 readings, +84 reading questions, +126 grammar checks, +21 dialogues/+168 turns, +105 speaking, +63 writing, +63 transfer. Reused lexical items are not counted as new IDs. All 111 contexts passed browser navigation and answer/assistance/draft checks. Month 1 30/30 contextual, 23 extended; 7 older basic contexts still need enrichment. Independent language reviewer and actual 77-minute timing not confirmed.
+
+Mentor handles nine bounded rule groups, canonical explanations and supported corrections, uses an explicit unsupported state, persists one-sentence draft and first-result review history. Tests: 11 explicit positive cases, 12 unsupported/negative controls and strict proposal validation. New CPU paired experiment: 24 heldout prompts × two modes, baseline 14/24, retrieved reference 24/24, validator 24/24, no truncation. Full reference is supplied in hybrid mode; result measures faithful retrieval/correction, not autonomous pedagogy. Explanations not independently scored; errors remain. No runtime model in APK.
+
+Strict independent APK recount returns exit 1. Base 8,400 scheduled slots / 912 unique pair IDs unchanged. No official CEFR result or independent 200-case exam is claimed.
+
+---
+
+## Prior 0.9.2 assessment (historical)
 # Wolfie English — Learning Assessment and Evidence Boundaries
 
 Version: 0.9.2 · VersionCode 22 · Route: 300 scheduled days (120 A2, 90 B1, 90 B2)  

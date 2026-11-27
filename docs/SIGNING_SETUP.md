@@ -36,3 +36,8 @@ The original 0.9.0/0.9.2 signing identity has not been recovered from the curren
 - Keystore extensions are ignored by Git; no key material belongs in source control, APK assets, artifacts or logs.
 
 This integration is not a completed signing qualification until an owner-controlled key is configured, a release APK is built, its certificate is checked, and a same-key upgrade with progress preservation passes.
+
+
+## 0.9.3 isolated migration evidence (2026-11-28)
+Initial run 46072972441: all 30 native instrumentation tests passed but extra API35 migration step failed because ~/.android/debug.keystore was absent. Fixed harness: explicit disposable PKCS12 test key, re-sign actual downloaded old and new APKs and test APK, verify all certificates and package/version, install old, seed representative progress, install -r new without removal, verify progress and restart. Focused 46073670043 SUCCESS; artifact 15233508478; all three invocations OK (1 test); matching fingerprint 713d2db840a5bd52a0e40fbff030b348eff74a8d26900d428cd71addcd2401fb; launch Status: ok. This is neither the user's key nor a persistent production identity. The key was temporary and deleted. The distributed debug APK certificate is different: 1db20666187d5adf9d621cde0628358d47d156a4d86db80680812a8b2f5f8655.
+Owner release workflow has been corrected to generate/verify the same pinned audio assets, limit signing secrets to signing steps, remove temporary key and verify release package; actual owner workflow has not been run, and stable owner key remains NOT CONFIRMED. Use existing owner key if available; otherwise establish owner-controlled key and a safe export/import migration. Never send secrets into chat or delete user app.

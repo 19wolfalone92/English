@@ -35,3 +35,10 @@ GitHub Actions artifact retention is finite. Archive the qualified comparison ZI
 - Device-side playback and accessibility review on physical Android hardware.
 
 Upstream references: https://github.com/thewh1teagle/kokoro-onnx and https://huggingface.co/hexgrad/Kokoro-82M . This pilot is not a completed release/license audit.
+
+
+## 0.9.3 month 01 production (2026-11-28)
+
+21 original dialogues for days 1 and 11–30, 2–3 speakers, Kokoro INT8 voice identifiers af_heart, bm_george, am_michael (US/UK). 1,015.655 seconds, 8,140,188 bytes MP3; range 40.682–57.559 seconds. Original artifacts: run 46071941627 shards 0/1 (15234195012, 15233705997); shard 2 failed on a 3-speaker dialogue after three clips. Fixed voice assignment and resumed only missing clips in run 46072326239 artifact 15233059874; preserved hashes of existing clips. All 21 locally decoded, checked for integrity, duration and transcript hash; source pins research/month01_neural_pins.json. Integrated APK run 46072972432 verifies byte-identical files; browser checks actual playback, cues, segment repeat, eSpeak fallback and transcript assistance; no claim of actual audible human assessment.
+
+Upstream model card https://huggingface.co/hexgrad/Kokoro-82M lists Apache-2.0 weights; https://github.com/thewh1teagle/kokoro-onnx lists MIT implementation. This is a preliminary source/license check, not a full voice/data/output redistribution or legal review. Synthetic origin explicitly labeled. Original eSpeak and previous pilot files retained. No paid TTS API used. Actual audio quality requires listening review. The APK contains 299 MP3s but only 272 distinct scripts; neural variants must not inflate content count.

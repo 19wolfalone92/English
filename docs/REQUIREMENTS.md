@@ -1,53 +1,35 @@
-# Wolfie English — Requirements and Verified Coverage
+# Wolfie English — requirements and actual coverage (0.9.3)
 
-Audit baseline: 0.9.2 / VersionCode 22  
-The quantities below are source/APK inventory counts. They do not substitute for independent linguistic quality review.
+The 300-day route, 77-minute standard structure and optional 15-minute immersion remain project design goals, not measured learning time or guaranteed CEFR attainment. Source counts match the verified APK; exact ID checks do not establish independent semantic or pedagogical quality.
 
-| Requirement | Project target | Verified current state | Status |
+| Requirement | Target | 0.9.3 evidence | Status |
 |---|---:|---|---|
-| A2–B2 route | 300 days | 300-day scaffold; 120 A2, 90 B1, 90 B2 | PARTIAL |
-| Deep daily lessons | 300 | 90 contextual packages; 210 scheduled days without one; full 77-minute depth not established | PARTIAL |
-| Unique lesson situations | 300 | 40 underlying scenarios; 30 focus angles | PARTIAL |
-| Unique daily questions and writing | Daily unique prompts | 15 unique question prompts; 9 unique writing prompts; 8 challenge strings | PARTIAL |
-| Vocabulary | 5,000+ | 1,824 unique IDs | PARTIAL |
-| Phrases | 5,000+ | 1,598 unique IDs | PARTIAL |
-| Reading texts | 300+ | 140 texts, 480 questions | PARTIAL |
-| Grammar units | 120+ | 130 units (40 core + 90 contextual) | Quantity met; quality PARTIAL |
-| Grammar exercises | 3,000+ | 410 grammar practice checks plus 270 transfer checks | PARTIAL |
-| Interactive exercises | 15,000+ | 8,400 scheduled pair slots but only 912 distinct pair IDs; seven stage handlers and three contextual grammar mechanics | PARTIAL |
-| Interactive formats | 30+ | Seven major stage handlers; three contextual grammar exercise mechanics | PARTIAL |
-| Speaking prompts | 1,500+ | 450 contextual prompts; mission bank has 40 underlying scenario statements | PARTIAL |
-| Writing prompts | 900+ | 270 contextual prompts; mission bank has 9 unique writing prompts | PARTIAL |
-| Dialogues | 600+ | 90 contextual scripts, 440 dialogue turns | PARTIAL |
-| Professional dialogues | 100+ | Earlier inventory records 8; current APK-level recount still required | PARTIAL |
-| Distinct audio scripts | 300+ | 90 dialogue + 140 reading scripts = 230; six Kokoro files are alternate voices for three existing texts | PARTIAL |
-| AI teacher | Real connected and qualified model | No model integrated; Qwen3-4B is a Linux CPU research candidate only | HOLD |
-| Pronunciation scoring | Phoneme, stress, intonation, rhythm | Android recognition returns transcript; no validated phonetic scoring | HOLD |
-| Writing assessment | Semantic and linguistic feedback | Structural checks and limited rule-based corrections; no semantic AI assessment | HOLD |
-| Adaptive learning | Individual competency profile and qualified scheduling | Local SRS/progress evidence exists; FSRS not qualified | PARTIAL |
-| Independent CEFR exams | A2, B1 and B2 | Diagnostic forms exist; no calibrated independent CEFR qualification | HOLD |
-| Visual redesign | 17 screens | 27 real screenshots across 14 screen categories | PARTIAL |
-| Offline-first | Core course and audio offline | Core course and bundled MP3s are local; no integrated AI runtime | PARTIAL |
-| Android compatibility | API 13–17 plus physical device | 20/20 emulator instrumentation PASS on API 33–37; physical device not tested | PARTIAL |
-| Performance | Physical S23 Ultra metrics | No physical-device timing, memory or energy evidence | NOT CONFIRMED |
-| Progress preservation | Migration, recovery, export/import | ProgressVault regression and emulator migration tests pass; encryption and physical upgrade remain open | PARTIAL |
-| Permanent APK signature | Same-key upgrade | Multiple generated debug certificates differ across builds; ownerRelease signing workflow is prepared, but owner-secret availability and same-key upgrade are NOT CONFIRMED | HOLD |
+| A2–B2 schedule | 300 | 300 scheduled days, 120 A2/90 B1/90 B2 | PARTIAL |
+| Authored contextual days | 300 | 111, 189 missing | PARTIAL |
+| Extended contexts | 300 | 41; first month 23/30 | PARTIAL |
+| Vocabulary | 5,000+ | 2,011 unique IDs | PARTIAL |
+| Phrases | 5,000+ | 1,808 unique IDs | PARTIAL |
+| Readings | 300+ | 161 / 564 questions | PARTIAL |
+| Grammar units | 120+ | 151, independent quality review outstanding | PARTIAL |
+| Grammar exercises | 3,000+ | 536 | PARTIAL |
+| Speaking | 1,500+ | 555 prompts, not phonetic assessments | PARTIAL |
+| Writing | 900+ | 333 prompts, not independently scored essays | PARTIAL |
+| Dialogues | 600+ | 111 scripts, 608 turns | PARTIAL |
+| Transfer checks | Expand | 333 separately authored | PARTIAL |
+| Unique interactive exercises | 15,000+ | 8,400 base pair slots / 912 unique pair IDs; distinct contextual checks counted separately | PARTIAL |
+| Formats | 30+ | 7 existing stage handlers; choice/order/type contextual mechanics; mentor reuses choice, no new independent format claimed | HOLD |
+| Professional RZA | 100+ dialogues and domain terminology | Not expanded in 0.9.3; earlier material retained | HOLD |
+| Main listening scripts | 300+ | 272 distinct dialogue/reading scripts; 21 new neural dialogues 40.682–57.559s; alternates not counted as scripts | PARTIAL |
+| Tutor | Hybrid real LLM with canonical rules and student memory | Nine rule groups offline; paired 24-case CPU experiment only; no LLM inside APK | HOLD |
+| Independent tutor exam | 200+ meaningful items | 24 paired cases, 48 model responses, unscored explanation quality | HOLD |
+| UI redesign | 17 complete surfaces | Home/course information, new mentor, dialogue-player changes; 31 real browser screenshots, not a 17-screen global redesign | PARTIAL |
+| Pronunciation | validated phonetic evaluation | No new phonetic scoring or recording engine | HOLD |
+| Writing assessment | semantic, register and task fulfillment | Existing editor and bounded rule mentor, no full semantic assessment | PARTIAL |
+| Adaptation/exams | individual skills, separate A2/B1/B2 forms | Existing SRS and screening retained; new rule-review history; not calibrated | PARTIAL |
+| ProgressVault and privacy | safe migration, recoverable and protected | Legacy source IDs preserved; native storage tests PASS; owner key and full security review open | PARTIAL |
+| Android | API33–37 + physical device | 30/30 instrumented tests; separate upgrade and launch evidence see matrix; physical not tested | PARTIAL |
+| Permanent signing | same owner key and safe upgrade | ownerRelease/fail-closed retained; isolated key is not owner key | HOLD |
 
-## Functional boundaries
+The seven old basic first-month contexts still need enrichment. Preserve stable IDs; 20 legacy content files were verified byte-identical between 0.9.2 and 0.9.3. Separate purposeful review from exact duplicates; the base scenario/question/writing/challenge bank remains 40/15/9/8. Do not weaken strict audit or invent completed days.
 
-- A unique opening string is not a unique lesson. The audit found 300 unique openings but only 40 underlying situations, 15 unique mission questions, 9 unique writing prompts and 8 challenge strings.
-- A scheduled pair slot is not a unique exercise. The 300-day route schedules 8,400 pair slots but uses 912 distinct pair IDs.
-- A synthetic MP3 is not a human recording or proof of natural listening quality.
-- A transcript is not a pronunciation score.
-- A rule-based correction is not a semantic writing assessment.
-- A successful workflow is not an AI teacher qualification.
-- An emulator pass is not physical-device qualification.
-- An internal score is not an official CEFR or Cambridge result.
-
-## Current evidence
-
-- APK build and curriculum validation: run 46005261029.
-- Native Android qualification: run 46005261072.
-- Neural audio comparison: run 46005261025.
-- Qwen3-4B CPU screening: run 46005261086.
-- Source-level depth audit: scripts/audit_course_depth.mjs.
+All other requirements of the user's 0.9.3+ specification remain in force: original content, independent linguistic review, no fake AI or phonetic scores, modular resources, consent/privacy, no paid API or automatic merge.

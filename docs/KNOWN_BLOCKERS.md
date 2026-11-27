@@ -1,57 +1,15 @@
-# Wolfie English — Known Blockers
+# Known blockers — 0.9.3
 
-Audit baseline: 0.9.2 / code HEAD 08ca8c81beba96774d2b5e9aca133e8c7a288087
+1. **Course depth:** 189 contextual days missing; 259 days not extended. Month 1 has complete contextual coverage but seven basic contexts and no independent 77-minute pedagogical validation. Source audit stays PARTIAL; strict independent APK recount exits 1. Base slot reuse 8,400/912 and base scenarios/questions/writing/challenges 40/15/9/8 remain.
+2. **Content:** vocabulary, phrases, texts, grammar practice, dialogues, speaking, writing and distinct audio scripts below target. No independent linguistic review or calibrated CEFR exam. The 30-format engine and professional RZA targets remain unfulfilled.
+3. **Teacher:** 9-rule offline mentor is a real deterministic feature, not an integrated LLM. Qwen3 4B paired study improves structured outputs 14/24→24/24 with complete retrieved references. Explanation quality not independently scored and material errors remain; 200-case exam, Android inference, model resource limits and broad semantic assessment unresolved.
+4. **Audio:** 21 new neural dialogues generated and checked, with timed cues/fallback; human listening quality and full licensing/redistribution review not confirmed. 272 unique scripts, not 299. B1/B2 long-form audio, recording, ASR and validated phonetics still missing. Existing fallback preserved.
+5. **UI:** real home/course/mentor/player improvements; global 17-screen design and physical usability remain incomplete.
+6. **Progress and security:** 20 legacy content files unchanged, representative tests pass; no full 0.7.2→all intermediate physical migrations, complete privacy audit, encrypted backup, physical recovery or performance validation.
+7. **Signing and release:** owner-controlled stable key availability not confirmed. Debug certificates change between CI builds; do not uninstall user data or update incompatible package. An isolated same-test-key migration is not actual owner key recovery. See SIGNING_SETUP and current qualification matrix.
+8. **Qualification:** initial integrated native workflow reported 30/30 instrumentation PASS but its extra upgrade step used nonexistent default debug-keystore path. AGP had also removed the target before the post-test screenshot step; those screenshots are invalid as app evidence. Workflow fix uses an explicit isolated temporary key and explicit reinstall before normal post-test capture; a focused API35 rerun is recorded in the matrix. No weakening of emulator setup or test gates.
+9. **Physical Samsung S23 Ultra:** NOT CONFIRMED. No physical device connection, local LLM runtime, measurements or safe real-user update attempted.
 
-## P0 — Release and user-data blockers
+No 1.0.0 claim, no merge. Use verified APK only with the signature caveat; prefer Preview for side-by-side trial.
 
-### 1. Unstable APK signing identity
-
-The 0.9.2 build run 46005261029 used certificate SHA-256 7fa222bfbf2dc2ffc05b28066a1991624be72d421c3dd3d630b02cb0ee0a6236. A second build of the same source HEAD, run 46005248380, used 0e5358bd34229049e7f79b9fc7e4ce43a263e5b3236ddf2b58e799300035ce2e.
-
-The default Android Debug signing identity is generated per runner/build. An APK signed by one certificate cannot update an installation signed by another. A persistent owner-controlled keystore and secret configuration are required. A Gradle ownerRelease signing config, fail-closed verification task and manual release workflow are now prepared; the fail-closed check passed. Owner-secret availability has not been confirmed; the connector cannot read Actions secret values. No private key may be committed or printed in logs. Same-key update and progress-preserving migration remain unqualified. Additional builds used fingerprints 09ab9e1e57add20a01dc6d589b37c94369cd6e0975133548f970a0d16448aa1b and e033bb14b6698e3c7b0741eb6b8c87278aa36383bf0465a3c2b8ad1799541e8c, confirming the instability across multiple builds.
-
-### 2. The 300-day route is not 300 complete unique lessons
-
-Only 90 days have contextual learning packages; 210 scheduled days do not. The 300 route openings are unique strings, but the underlying bank contains 40 scenario descriptions, 30 focus angles, 15 unique question prompts, 9 unique writing prompts and 8 challenge strings. The route schedules 8,400 bilingual-pair slots but only 912 distinct pair IDs. Do not treat the scaffold as 300 full 77-minute lessons.
-
-### 3. Educational inventory remains below target
-
-Current unique counts: 1,824 vocabulary IDs, 1,598 phrase IDs, 140 reading texts, 410 grammar practice checks plus 270 transfer checks, 90 contextual dialogues, 450 contextual speaking prompts and 270 contextual writing prompts. Requested targets include 5,000 words, 5,000 phrases, 300 texts, 3,000 grammar exercises, 15,000 interactive exercises, 1,500 speaking prompts, 900 writing prompts and 600 dialogues.
-
-### 4. Real AI teacher is not deployed
-
-Qwen3-4B was tested on a Linux CPU, not on Android. The model file was 2.497 GB and max RSS/HWM was about 4.53 GB. The workflow recorded 12/12 exact answers for closed-form items, but six open responses were not scored. Manual review found an incorrect don't/doesn't explanation, an incorrect although/despite rule, incomplete or weak responses, and an unsupported universal claim. No model is integrated in the APK. Do not advertise Wolfie AI as a working autonomous teacher.
-
-### 5. Speaking and pronunciation are not objectively assessed
-
-The Android path invokes RecognizerIntent and receives text. It does not provide a saved learner voice recording or validated phoneme, stress, intonation, rhythm, fluency or intelligibility score. EXTRA_PREFER_OFFLINE is not a guarantee that the system recognizer remains offline.
-
-### 6. Writing assessment is limited
-
-The editor has a small rule-based correction set and structural checks. It does not provide independent semantic review, reliable grammar/spelling assessment, coherence, register or task-fulfilment grading.
-
-## P1 — Educational and platform qualification
-
-### 7. Audio quality and provenance
-
-The APK includes 90 synthetic dialogue files, 140 synthetic reading narrations and six Kokoro alternatives for three readings. Subjective quality is NOT_CONFIRMED. The APK imports the older pinned pilot from run 46003216202; the newer comparison from run 46005261025 was not imported. Human listening review and redistribution-license review remain outstanding.
-
-### 8. Independent CEFR examinations
-
-The app has internal diagnostic and course checks, but no independently calibrated A2/B1/B2 exam, external examiner evidence or official certificate. Internal completion must not be labelled B2.
-
-### 9. Physical Samsung qualification and performance
-
-Android API 33–37 emulator instrumentation passed 20/20. No physical Samsung Galaxy S23 Ultra qualification or measurements for cold start, memory, CPU, audio latency, energy, Doze, process death, TalkBack or OEM speech behaviour are available.
-
-### 10. Progress encryption and backup privacy
-
-ProgressVault uses compressed SharedPreferences data and an unkeyed SHA-256 integrity check. This is not encryption or keyed authenticity. Android backup is enabled. Optional encrypted backup, restore threat modelling and physical migration remain outstanding.
-
-### 11. Visual scope
-
-The browser artifact contains 27 screenshots across 14 screen categories. The requested full redesign of all 17 screens is not yet confirmed.
-
-### 12. CI and external artifact retention
-
-The 0.9.2 build imports a previously pinned GitHub Actions artifact. GitHub Actions artifact retention is finite. Archive the qualified source pilot and manifests in owner-controlled storage before expiry; do not silently substitute new audio files.
+Focused API35 same-disposable-key upgrade run 46073670043: SUCCESS, artifact 15233508478. Old v22 → new v23 in-place installation, seed/verify/restart 3/3 PASS, launch Status: ok. No owner key or physical device qualification.

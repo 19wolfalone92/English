@@ -1,48 +1,77 @@
 # Wolfie English — Learning Assessment and Evidence Boundaries
 
-Version: 0.7.2 · Route: 300 days (120 A2, 90 B1, 90 B2)
+Version: 0.9.2 · VersionCode 22 · Route: 300 scheduled days (120 A2, 90 B1, 90 B2)  
+Qualification: PARTIAL / HOLD
 
-## Daily evidence
+## Daily structure
 
-| Skill | Evidence | Gate | Limitation |
-|---|---|---:|---|
-| Vocabulary | Five active-recall items from the daily bank | 4/5 | Constrained meaning recall, not full productive vocabulary |
-| Grammar / Use of English | Two objective items plus two learner-written examples | 2/2 objective | Original examples are saved but not automatically graded |
-| Reading | Three- or five-question passage set | ≥2/3 | Not a calibrated CEFR reading scale |
-| Listening | Six dictation items through device TTS | 4/6 | Synthetic utterances, not natural multi-speaker audio |
-| Speaking | Five prompts; manual or Android-recognized responses | ≥3 substantive answers | Transcript is not a pronunciation, prosody or fluency score |
-| Writing | One extended response; length, sentence, linker and lexical-diversity checks | Minimum word target and ≥3/4 checks | No independent grammar, spelling, punctuation, coherence or register assessment |
+| Stage | Planned time | Current evidence | Boundary |
+|---|---:|---|---|
+| Spaced review | 8 min | Existing local SRS queue and persisted review state | FSRS has not been independently evaluated |
+| Vocabulary | 10 min | Active-recall cards and objective checks | A correct translation is not full productive mastery |
+| Grammar / Use of English | 10 min | Objective quiz and contextual grammar exercises | Limited item formats; open production is not fully graded |
+| Listening | 12 min | Six-item dictation using synthetic device TTS | Playback request is not proof of audible output or natural listening |
+| Reading | 10 min | Texts with comprehension questions | Internal questions are not a calibrated CEFR scale |
+| Speaking | 10 min | Prompted response and Android-recognized transcript | Transcript is not a pronunciation, prosody or fluency score |
+| Writing | 12 min | Saved draft, structural checks and limited rule-based corrections | No independent semantic, coherence, register or task-fulfilment grade |
+| Final test | 5 min | Ten-item test; 70% threshold after the seven learning blocks | Internal progression evidence, not an external certificate |
 
-## Daily time budget
-Review 8 min; vocabulary 10; grammar 10; listening 12; reading 10; speaking 10; writing 12; final test 5. Total: **77 minutes**. Fifteen minutes of free immersion is recommended separately.
+Total planned learning time: **77 minutes**. Fifteen minutes of free immersion is additional. The timetable is a design target; it is not proof that the learner spent the stated time or mastered every skill.
 
-## Month 9 technical English module
-The month 9 B2 bank contains 124 newly added specialist vocabulary items and 40 newly added technical phrases. The combined topic bank contains at least 149 vocabulary entries and 56 phrases. Four mission scenarios cover a substation feeder trip, transformer differential protection, busbar fault analysis and safety communication around a switching programme.
+## Current content counts
 
-The terminology includes switchgear, circuit breakers, busbars, feeders, transformer bays, relay protection, differential/overcurrent/earth-fault protection, CT/VT, inrush current, trip circuits, breaker-failure protection, SCADA, RTU, IEC 61850, GOOSE, disturbance records, testing, switching documentation, permits to work and electrical safety language. These are English-learning materials for explaining and reporting engineering situations, not instructions for carrying out switching operations.
+- 300 scheduled days, 90 contextual packages and 20 extended packages.
+- 1,824 unique vocabulary IDs; 1,598 unique phrase IDs.
+- 140 reading texts and 480 comprehension questions.
+- 130 grammar units: 40 core grammar topics and 90 contextual micro-lessons.
+- 410 grammar practice checks and 270 separate transfer checks.
+- 90 contextual dialogue scripts with 440 dialogue turns.
+- 450 contextual speaking prompts and 270 contextual writing prompts.
+- Seven major daily-stage handlers; contextual grammar exercises currently use three mechanics: choice, type and order.
 
-## Progression
-A course day completes only when all seven learning blocks are complete and at least 70% of the ten-item final test is correct. Completion does not establish CEFR level.
+## Mission and lesson-depth audit
 
-## Content baseline
-1,226 bilingual vocabulary items; 1,048 phrases/sentences; 40 grammar topics and 80 objective checks; 40 reading passages (20 new); 300 distinct daily mission openings. Every day has 10 test and 18 practice items. Topic fallback is disabled and insufficient coverage fails validation.
+The 300-day schedule has 300 unique opening strings, but the strings are not equivalent to 300 unique lesson situations. Source-level analysis reports:
 
-The reading library remains below the 80–120 target. The authentic-audio target is unmet; the current listening stage uses device TTS.
+| Measure | Current count |
+|---|---:|
+| Authored contextual packages | 90 / 300 |
+| Underlying scenario descriptions | 40 |
+| Focus angles | 30 |
+| Unique mission question prompts | 15 |
+| Unique mission writing prompts | 9 |
+| Unique daily challenge strings | 8 |
+| Scheduled test/practice pair slots | 8,400 |
+| Distinct pair IDs across those slots | 912 |
 
-## Missing qualification evidence
-- Authentic recordings, natural accents, connected speech and real-world listening.
-- Phoneme-level pronunciation, prosody, fluency and spontaneous conversation assessment.
-- Automated writing assessment for grammar, spelling, punctuation, coherence, register and task fulfilment.
-- Calibrated CEFR placement and independent A2/B1/B2 mock examinations.
-- External examiner evidence or formal certification.
+The route therefore remains a scaffold plus a 90-package contextual layer. It is not accepted as 300 fully authored, non-repetitive 77-minute lessons. The depth audit is reproducible with `scripts/audit_course_depth.mjs`; `--strict` returns a failure while the target is unmet.
 
-The app must not label a learner B2 because 300 days or internal quizzes are complete.
+## Audio evidence
 
-## Platform acceptance still required
-The 0.7.2 implementation adds locale-aware TTS/recognition, strict voice availability, edge-to-edge Android system/IME insets, theme synchronization, adjustable text size, local drafts and CI browser/Android checks. Actual Android 13–16 testing is still required for install/upgrade migration, offline cold start, IME resize, rotation, system bars, TalkBack, US/UK voice packs, recognition availability, process death and restore. Playwright does not substitute for device testing.
+The APK contains 90 contextual-dialogue recordings (1,547.999 seconds), 140 reading narrations (7,438.95 seconds) and six Kokoro INT8 alternatives (320.162 seconds) for three existing texts. The six neural tracks provide US/GB voice alternatives; they are not six additional reading texts.
 
-## Release acceptance
-Do not merge or call this a qualified B2 course until content generation, 300-day topic checks, browser gates, Android lint/unit tests, APK+SHA-256 and Android 13–16 device qualification all pass. Keep authentic audio, assessed speaking/writing and independent CEFR qualification explicitly outstanding until delivered.
+All recordings are synthetic. The 0.9.2 APK imports the previously pinned pilot from run 46003216202. A newer 12-clip comparison was produced in run 46005261025, but those newer files were not imported into this APK. The newer comparison artifact labels subjective quality NOT_CONFIRMED. Human listening review, pronunciation validation and redistribution-license review remain outstanding.
 
-## Evidence integrity update
-The listening checkpoint stores item index, draft, check state and score. Playback request is mandatory; actual audible output and authentic listening remain unverified. Correct answers repeated before their SRS due time do not advance the interval. Edited speech transcripts are marked manual. These are practice evidence, not independent language proficiency.
+## Wolfie AI screening
+
+Qwen3-4B-Q4_K_M was loaded and run through llama.cpp on a Linux CPU. The model file was 2,497,280,256 bytes; maximum resident memory was approximately 4,530,988 kB; aggregate inference time across 18 prompts was 86.303 seconds. Twelve closed-form questions received 12/12 exact-match answers. Six open-ended responses were explicitly left OPEN_REVIEW_REQUIRED and were not scored by the workflow.
+
+Manual inspection found material errors in the open responses, including an incorrect explanation of don't/doesn't and an incorrect restriction on where although/despite can appear. Some answers were incomplete or did not satisfy the requested rubric. The test was not performed on Android. The model is not packaged, connected or approved as an autonomous teacher.
+
+## Assessment integrity
+
+- 300 route openings do not establish 300 unique lessons.
+- A scheduled pair slot does not establish a unique exercise.
+- A TTS playback request does not prove that the learner heard the audio.
+- A recognized transcript does not prove correct pronunciation.
+- A structural writing check does not prove semantic correctness.
+- Completing 300 days or internal quizzes does not establish CEFR B2.
+- No result in this app is an official Cambridge or CEFR certificate.
+
+## Android evidence
+
+The 0.9.2 native workflow produced four passing instrumentation tests on each emulator API 33–37 (20/20 PASS): ProgressVault migration/recovery, contextual offline lesson/audio and draft persistence, WebView/offline diagnostic restoration, and native WebView loading of Kokoro audio. No physical-device qualification has been completed.
+
+## Release decision
+
+The course may be used as a development build with the above limitations. Do not claim independent A2/B1/B2 proficiency, production AI teaching, phonetic scoring, semantic writing assessment or 300 complete lessons until the corresponding gates have independent evidence.

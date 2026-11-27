@@ -26,6 +26,8 @@ jobs:
         run: python3 scripts/validate_content.py
       - name: Validate complete course and learning gates
         run: node scripts/verify_course.mjs
+      - name: Audit lesson depth and prompt reuse (informational; release gate remains PARTIAL)
+        run: node scripts/audit_course_depth.mjs
       - name: Regression tests for assessment evidence
         run: node scripts/verify_assessment.mjs
       - name: Verify isolated diagnostic forms

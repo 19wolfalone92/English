@@ -1,56 +1,86 @@
-# Wolfie English 0.7.2
+# Wolfie English 0.9.2 — PARTIAL / HOLD
 
-Offline-first Android English-learning app for a Russian-speaking learner following a 300-day A2 → B1 → B2 route.
+Offline-first Android language-learning application for a Russian-speaking adult learner following an A2 → B1 → B2 route.
 
-## Curriculum baseline
-- 300 sequenced days: 120 A2, 90 B1, 90 B2.
-- **1,226 bilingual vocabulary items** and **1,048 bilingual phrases/sentences**.
-- 40 grammar topics with 80 objective Use of English checks.
-- 40 reading passages: 20 existing and 20 new; each new passage has five comprehension questions.
-- 300 distinct daily mission openings.
-- Strict topic mapping. Missing monthly topic coverage fails validation; generic fallback is removed.
-- Eight daily stages totalling 77 minutes: review 8, vocabulary 10, grammar 10, listening 12, reading 10, speaking 10, writing 12 and final test 5. Fifteen minutes of free immersion is recommended separately.
+**Verified application build:** VersionName 0.9.2, VersionCode 22  
+**Main package:** com.wolfie.english  
+**Preview package:** com.wolfie.english.preview  
+**Android range:** min API 24, target API 35  
+**Working branch:** feature/daily-60min-course  
+**Pull request:** #5 — open, not merged
 
-## Month 9 — specialist engineering English
-The B2 technical module now includes **124 newly added specialist terms**, **40 new technical phrases**, four substation/relay-protection scenarios and the existing engineering vocabulary. The combined topic bank contains at least 149 vocabulary items and 56 phrases across engineering/reliability categories.
+This is a verified development build, not a production or Play Store release. The 1.0.0 acceptance gates remain open.
 
-Coverage includes substations, switchgear, circuit breakers, busbars, feeders, transformer bays, relay protection, differential/overcurrent/earth-fault protection, CT/VT, inrush and fault currents, trip circuits, breaker-failure protection, SCADA, RTU, IEC 61850/GOOSE, disturbance records, testing terminology, switching programmes, permits to work, interlocking and electrical safety communication. Scenarios train technical explanation and reporting; they are not operational switching instructions.
+## Verified educational inventory
 
-## Daily assessment gates
-- Vocabulary: 15 study cards; five-item active-recall quiz, 4/5 required.
-- Grammar: two objective questions, both correct; two original examples are saved but not automatically graded.
-- Reading: at least two thirds of questions correct.
-- Listening: 4/6 dictation items and a supported English TTS voice. Text fallback cannot complete the stage.
-- Speaking: five prompts; at least three substantive responses. Transcripts are not pronunciation/fluency scores.
-- Writing: one extended response with structural checks for length, sentences, linking expressions and lexical diversity. Grammar/spelling are not certified.
-- Final test: 10 items, 70% required after all seven learning blocks.
+- 300-day route scaffold: 120 A2, 90 B1 and 90 B2 days.
+- 90 contextual learning packages, including 20 extended packages.
+- 1,824 unique vocabulary IDs and 1,598 unique phrase IDs.
+- 140 reading texts with 480 comprehension questions.
+- 130 grammar units: 40 core topics plus 90 contextual micro-lessons.
+- 410 grammar practice checks and 270 separately authored transfer checks.
+- 90 contextual dialogue scripts containing 440 dialogue turns.
+- 450 contextual speaking prompts and 270 contextual writing prompts.
+- The earlier project inventory records 8 professional dialogue scripts; this count still needs a fresh source-level audit.
 
-The course does not award B2 solely for completing 300 days. Internal results are learning evidence, not official CEFR scores.
+These are structural counts, not a claim that every item has received independent linguistic review.
 
-## Known limitations
-- No authentic multi-speaker audio library yet; listening currently uses installed device/browser TTS.
-- No phoneme-level pronunciation, intonation, fluency or spontaneous-interaction assessment.
-- Writing feedback is structural only; grammar, spelling, punctuation, coherence and register are not independently evaluated.
-- 40 reading passages remain below the 80–120 target; 40 grammar topics remain below the proposed 80–100 micro-lesson target.
-- Independent A2/B1/B2 qualification and calibrated mock exams are still required.
-- Android 13–16 physical-device/emulator qualification remains pending. Browser tests do not prove OEM TTS, speech recognition, Doze, keyboard/insets or TalkBack behaviour.
+## Important: a 300-day route is not yet 300 complete lessons
 
-## Verification and build
-GitHub Actions checks reproducible content generation, bilingual IDs, the 300-day course, topic integrity, JavaScript syntax, Playwright UI smoke tests at 360px/700px, Android lint, unit tests, Debug APK assembly and SHA-256 verification.
+The 300-day schedule and its eight-stage, 77-minute timetable are present. However, only 90 of the 300 scheduled days currently have an authored contextual package; 210 days do not.
 
-Expected artifact: **Wolfie-English-v0.7.2-debug**. It is a test build, not a Play Store release.
+The independent depth audit also finds substantial reuse in the base route:
 
-```bash
-python3 scripts/build_expanded_content.py
-python3 scripts/validate_content.py
-node scripts/verify_course.mjs
-python3 -m pip install playwright
-python3 -m playwright install chromium
-python3 scripts/ui_smoke_test.py
-gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug
-```
+- 300 unique mission-opening strings, but only 40 underlying scenario descriptions.
+- 30 unique focus angles, 15 unique mission question prompts and 9 unique mission writing prompts.
+- Only 8 distinct daily challenge strings.
+- 8,400 scheduled bilingual-pair slots across the route, but 912 distinct pair IDs.
 
-Progress keys and the original 25 mini-lessons are retained. Do not reset user progress or merge the working branch until CI and upgrade migration are reviewed.
+Consequently, the route scaffold must not be described as 300 fully authored, unique 77-minute lessons. The current qualification is PARTIAL / HOLD. Run `node scripts/audit_course_depth.mjs` to reproduce the audit. The `--strict` option exits non-zero while these gaps remain.
 
-## Assessment integrity update
-Listening resumes from the saved item and draft, uses six actual phrase-bank items and requires a playback request before each answer. A playback request is not proof of audible output. Duplicate submissions cannot advance the same item. Vocabulary quizzes use the displayed 15 cards; early repeated correct answers do not advance the SRS interval. Manual edits invalidate speech-transcript provenance. Native device testing remains required.
+## Audio inventory
+
+The 0.9.2 APK contains:
+
+- 90 synthetic contextual-dialogue MP3 files: 1,547.999 seconds total.
+- 140 synthetic reading-narration MP3 files: 7,438.95 seconds total.
+- 6 pre-rendered Kokoro INT8 alternatives for 3 existing reading texts, with US and GB voice variants: 320.162 seconds total.
+
+The six Kokoro files are alternate narrations, not six new lessons. All audio is bundled for offline playback. Naturalness and pronunciation quality have not received a documented human listening review. The APK does not perform neural TTS inference at runtime.
+
+## AI, speaking and writing boundaries
+
+Qwen3-4B was tested with real CPU inference on Linux, not on Android. It answered 12/12 closed-form exact-match screening questions; six open-ended teaching responses were left unscored. Manual review found substantive teaching errors and incomplete responses. Qwen3-4B is not integrated into the APK and is not qualified as an autonomous teacher.
+
+Speaking uses Android speech recognition to return a transcript. It does not provide phoneme-level pronunciation, prosody or fluency scoring, and the app does not currently retain a learner voice recording as a speaking portfolio. The offline preference passed to Android recognition is a preference, not a guarantee that the recognizer never uses a network service.
+
+Writing feedback is a small rule-based correction set plus structural checks. It is not semantic AI assessment and does not independently grade grammar, coherence, register or task fulfilment.
+
+## Android, persistence and privacy
+
+The 0.9.2 native emulator workflow passed 4 instrumentation tests on each of Android API 33, 34, 35, 36 and 37: 20/20 PASS. This does not establish compatibility or performance on a physical Samsung Galaxy S23 Ultra.
+
+ProgressVault supports bounded storage, previous-generation recovery, legacy migration and JSON export/import. Its local SharedPreferences payload is compressed and protected by an unkeyed SHA-256 integrity check; it is not encrypted and the checksum is not an authenticity mechanism. Android backup is enabled in the current manifest.
+
+The WebView disables file/content access and file-to-file universal access. The core course and bundled audio work offline. No integrated cloud AI service is present.
+
+## Release blockers
+
+- The APKs are signed with generated Android Debug certificates, not a persistent owner-controlled release key. Two builds of the same commit produced different certificate fingerprints. An update from an APK signed with a different certificate will be rejected by Android.
+- A same-key upgrade and progress-preserving update have not been qualified.
+- Physical-device, performance, Doze, rotation, TalkBack and real OEM speech-service tests remain outstanding.
+- Independent linguistic review and calibrated A2/B1/B2 examinations remain outstanding.
+- Full 300-day lesson depth, requested content volumes, 30 interactive formats, AI teaching, phonetic scoring and semantic writing assessment remain incomplete.
+
+See [PROJECT_STATE](docs/PROJECT_STATE.md), [REQUIREMENTS](docs/REQUIREMENTS.md), [QUALIFICATION_MATRIX](docs/QUALIFICATION_MATRIX.md), [KNOWN_BLOCKERS](docs/KNOWN_BLOCKERS.md) and [CONTINUATION_STATE](docs/CONTINUATION_STATE.md).
+
+## Verification
+
+The 0.9.2 build workflow completed content validation, assessment/progress/context checks, browser tests, Android lint, JVM unit tests, APK packaging, asset/hash checks and APK signature verification. Native emulator evidence is recorded in the Android qualification workflow.
+
+- Build: https://github.com/19wolfalone92/English/actions/runs/46005261029
+- Native Android qualification: https://github.com/19wolfalone92/English/actions/runs/46005261072
+- Neural audio comparison: https://github.com/19wolfalone92/English/actions/runs/46005261025
+- Qwen3-4B CPU screening: https://github.com/19wolfalone92/English/actions/runs/46005261086
+
+Do not merge PR #5 or treat 0.9.2 as a production release without the remaining gates and explicit owner approval.

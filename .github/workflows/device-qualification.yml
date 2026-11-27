@@ -49,11 +49,23 @@ jobs:
           if [ "$API" = "37" ]; then image="system-images;android-37.0;google_apis;x86_64"; fi
           grep -F "$image" device-evidence/sdk-packages.txt >/dev/null || { echo "::error::Requested API image unavailable: $image"; exit 1; }
           sdkmanager --install "$image" "emulator" "platform-tools"
+          avd_tool="$(command -v avdmanager)"
+          if [ "$API" = "37" ]; then
+            # The previous actual AVD was target=android-0 with repeated SurfaceFlinger SIGABRT.
+            # See actions/runner-images#14484: API 37 needs major/minor target-aware tools.
+            sdkmanager --install "cmdline-tools;22.0"
+            sdk_root="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+            avd_tool="$sdk_root/cmdline-tools/22.0/bin/avdmanager"
+            test -x "$avd_tool"
+            cat "$sdk_root/cmdline-tools/22.0/source.properties" | tee device-evidence/cmdline-tools.txt
+            "$sdk_root/cmdline-tools/22.0/bin/sdkmanager" --version | tee -a device-evidence/cmdline-tools.txt
+          fi
+          printf '%s\n' "$avd_tool" > device-evidence/avd-tool-path.txt
           export ANDROID_AVD_HOME="$RUNNER_TEMP/wolfie-avds"
           mkdir -p "$ANDROID_AVD_HOME"
           echo "ANDROID_AVD_HOME=$ANDROID_AVD_HOME" >> "$GITHUB_ENV"
-          printf 'no\n' | avdmanager create avd -n wolfie -k "$image" --path "$ANDROID_AVD_HOME/wolfie.avd" --force
-          avdmanager list avd | tee device-evidence/avds.txt
+          printf 'no\n' | "$avd_tool" create avd -n wolfie -k "$image" --path "$ANDROID_AVD_HOME/wolfie.avd" --force
+          "$avd_tool" list avd | tee device-evidence/avds.txt
           test -f "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
           if [ "$API" = "37" ]; then
             # API 37 install-create previously rejected the APK for insufficient internal space.
@@ -61,6 +73,12 @@ jobs:
             test "$(df -Pk "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 8388608
             sed -i '/^disk.dataPartition.size=/d' "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
             printf '\ndisk.dataPartition.size=8G\n' >> "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          fi
+          if [ "$API" = "37" ]; then
+            # Do not silently rewrite invalid API 37 metadata: require the actual creator output.
+            test -f "$ANDROID_AVD_HOME/wolfie.ini"
+            cat "$ANDROID_AVD_HOME/wolfie.ini" | tee device-evidence/wolfie-ini.txt
+            grep -Fx "target=android-37.0" "$ANDROID_AVD_HOME/wolfie.ini" || { echo "::error::API 37 AVD target metadata invalid"; exit 1; }
           fi
           if [ ! -f "$ANDROID_AVD_HOME/wolfie.ini" ]; then
             printf 'avd.ini.encoding=UTF-8\npath=%s/wolfie.avd\ntarget=android-%s\n' "$ANDROID_AVD_HOME" "$API" > "$ANDROID_AVD_HOME/wolfie.ini"
@@ -75,8 +93,9 @@ jobs:
           set -euo pipefail
           partition_args=()
           memory=2048
-          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); memory=4096; fi
-          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu swiftshader_indirect -no-boot-anim -memory "$memory" -cores 2 > device-evidence/emulator.log 2>&1 &
+          gpu=swiftshader_indirect
+          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); memory=4096; gpu=software; fi
+          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu "$gpu" -no-boot-anim -memory "$memory" -cores 2 > device-evidence/emulator.log 2>&1 &
           pid=$!
           adb start-server
           for i in $(seq 1 120); do
@@ -103,6 +122,19 @@ jobs:
           adb shell pm list packages > device-evidence/package-service.txt
           if [ "$API" = "37" ]; then
             test "$(adb shell df -k /data | tr -d '\r' | awk 'NR==2 {print $4}')" -ge 1048576
+            sf="$(adb shell pidof surfaceflinger | tr -d '\r')"
+            ss="$(adb shell pidof system_server | tr -d '\r')"
+            test -n "$sf"; test -n "$ss"
+            # Boot completed alone is insufficient; prove the OS services remain stable before APK install.
+            for i in $(seq 1 7); do
+              current_sf="$(adb shell pidof surfaceflinger | tr -d '\r')"
+              current_ss="$(adb shell pidof system_server | tr -d '\r')"
+              package_state="$(adb shell service check package | tr -d '\r')"
+              printf '%s surfaceflinger=%s system_server=%s %s\n' "$i" "$current_sf" "$current_ss" "$package_state" | tee -a device-evidence/service-stability.txt
+              test "$current_sf" = "$sf"; test "$current_ss" = "$ss"
+              test "$package_state" = "Service package: found"
+              if [ "$i" -lt 7 ]; then sleep 5; fi
+            done
           fi
       - name: Instrumented WebView and storage tests offline
         run: gradle --no-daemon :app:connectedDebugAndroidTest

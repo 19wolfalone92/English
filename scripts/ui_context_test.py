@@ -20,7 +20,7 @@ async def main():
     page=await ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
     packs=await page.evaluate('window.WOLFIE_CONTEXT.packs.map(p=>({day:p.day,ru:p.ru,id:p.id}))')
-    assert len(packs)==60
+    assert len(packs)==70
     # Open every authored mission through the actual course UI, then inspect each block.
     for i,pack in enumerate(packs):
      day=pack['day'];m=(day-1)//30
@@ -99,7 +99,35 @@ async def main():
      await page.locator('#ctx-exit').click();await page.locator('#study-exit').click()
     assert not errors,errors
     await ctx.close()
+   # Independent actual media playback: a seek must not qualify, but uninterrupted playback may.
+   for trial in ('seek','full'):
+    ctx=await browser.new_context(viewport={'width':360,'height':820})
+    page=await ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+    await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
+    assert await page.locator('#home-course-progress').inner_text()=='0/300'
+    month=page.locator('.course-month').first
+    if not await month.evaluate('(e)=>e.open'):await month.locator('summary').click()
+    await page.locator('[data-course="1"]').click()
+    await page.locator('#begin-course').click()
+    await page.locator('#study-context').click()
+    await page.locator('[data-ctx-tab="audio"]').click()
+    await page.wait_for_function("document.querySelector('#ctx-audio').readyState>=1")
+    await page.locator('#ctx-rate').select_option('1.2')
+    await page.locator('#ctx-audio').evaluate('(a)=>a.play()')
+    await page.wait_for_function("document.querySelector('#ctx-audio').currentTime>.25")
+    if trial=='seek':await page.locator('#ctx-audio').evaluate('(a)=>a.currentTime=a.duration-.3')
+    await page.wait_for_function("document.querySelector('#ctx-audio').ended && document.querySelector('#ctx-audio-status').textContent.length>0",timeout=60000)
+    await page.locator('[name="ctx-mc-audio"][value="0"]').check()
+    await page.locator('#ctx-mc-audio').click()
+    state=await page.evaluate("JSON.parse(localStorage.getItem('wolfie-progress')).contextLessons['mission-v2-002']")
+    if trial=='seek':
+     assert not state.get('playbackEnded') and not state['checks'].get('audio'),state
+    else:
+     assert state['playbackEnded'] and state['checks']['audio']['ok'] and not state['checks']['audio']['assisted'],state
+    assert not errors,errors
+    await ctx.close()
+   print('PASS: actual continuous HTML audio playback qualifies an unassisted answer; seeking does not; this does not prove audibility')
    await browser.close()
  finally:server.shutdown();server.server_close()
- print('PASS: all 60 contextual packages reachable at 360/700 px, all 60 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
+ print('PASS: all 70 contextual packages reachable at 360/700 px, all 70 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
 if __name__=='__main__':asyncio.run(main())

@@ -1,21 +1,19 @@
-# Gate A–O — 0.9.3
-Application HEAD 1e178187090a3c0da8e90512038494aae9f10b47. Overall PARTIAL / HOLD.
+# Gate A–O — 0.9.4
+Application/test source HEAD 5a66c567d73eae06b8af5e4f79f2328018e4824f. PARTIAL / HOLD. Current build 46141540463 and native 46141540503 in progress at last inspection.
 | Gate | Status | Evidence / remaining qualification |
 |---|---|---|
-| A Source | PASS | Integrated build 46072972432 SUCCESS; lint/unit/JS/asset/manifest/hash checks; 20 legacy content files unchanged. |
-| B 300 lessons | PARTIAL | 111 contextual/41 extended; 189 missing; first month 30 contextual/23 extended; strict depth fails. |
-| C Content quality | PARTIAL | 21 substantial new original A2 contexts; exact duplicate and browser checks; independent semantic/linguistic review outstanding. |
-| D Assessment | PARTIAL | 536 grammar and 333 transfer checks; 11 bounded correction positives + 12 negative controls; 30-format engine and calibrated scoring incomplete. |
-| E Adaptation | PARTIAL | SRS retained; persistent mentor rule history; full independent skill model unfinished. |
-| F Listening/speaking | PARTIAL | 21 new Kokoro recordings, byte/decode/cue/fallback/browser/native checks PASS; human quality, ASR and phonetics open. |
-| G Writing | PARTIAL | Existing editor + nine-rule bounded mentor; broad semantic/genre assessment not validated. |
-| H AI | HOLD | Actual paired 24-case CPU experiment 14/24→24/24 structured output with supplied full reference; explanations still erroneous/unscored; no LLM in APK. |
-| I UI | PARTIAL | Home/course, mentor and dialogue player functional changes; 31 real browser screenshots; global 17-screen redesign unfinished. |
-| J ProgressVault | PARTIAL | 30 native tests include storage; focused API35 real 0.9.2→0.9.3 same throwaway-key upgrade PASS (seed/upgrade/restart); full historical/physical migration and encrypted backup unconfirmed. |
-| K Security | PARTIAL | Local bounded tutor, existing fail-closed key handling; owner release workflow updated to package pinned assets and remove temporary key, not dispatched; full security/privacy audit open. |
-| L Performance | NOT CONFIRMED | No physical S23 Ultra measurements or device LLM inference. |
-| M Android | PARTIAL | API33–37 30/30 native XML PASS. Full workflow 46072972441 FAILURE due missing test keystore in additional step; post-test screenshots invalid due AGP uninstall. Focused API35 rerun 46073670043 SUCCESS incl same-key upgrade and real activity launch. Screenshot harness fix for future runs not re-executed on other four APIs. Physical device untested. |
-| N Exams | HOLD | Existing objective screening forms; independent CEFR A2/B1/B2 calibration and 200-case AI exam unfulfilled. |
-| O Release | HOLD | Debug/preview SHA, manifest, apksigner PASS; temporary test-key update PASS; owner stable signature not confirmed; no release or merge. |
-
-Visual inspection of the focused API35 post-launch PNG found an empty startup surface: capture occurred immediately after am start. It is not a valid rendered-app screenshot. Activity launch returned Status: ok and the seed/upgrade/restart instrumented WebView assertions passed independently. Use the 31 verified browser screenshots as visual evidence; a rendered native screenshot remains outstanding.
+| A Source | PARTIAL | Current contextual source validation PASS; previous 0.9.4 integrated build 46126566031 SUCCESS. Current final APK pending. |
+| B 300 lessons | PARTIAL | 114 contextual/51 extended; 186 missing; first month 30/30 extended, second month 12/5. Strict depth fails. |
+| C Content quality | PARTIAL | Three new original topics, 472 reading words, 28 new lexical IDs, 30 new phrase IDs, independent review outstanding. |
+| D Assessment | PARTIAL | 495 contextual grammar and 342 transfer checks; 30-format engine and calibrated scoring incomplete. |
+| E Adaptation | PARTIAL | Existing SRS and bounded mentor history; no full skill model qualification. |
+| F Listening/speaking | PARTIAL | Pinned neural recordings retained, new fallback generation in current build; human quality, ASR, phonetics open. |
+| G Writing | PARTIAL | 342 contextual prompts; broad semantic/genre assessment not validated. |
+| H AI | HOLD | Actual LLM absent in Android; prior CPU experiment is not production or independent exam. |
+| I UI | PARTIAL | Previous browser evidence valid; global 17-screen redesign unfinished; native screenshot test harness correction pending execution. |
+| J ProgressVault | PARTIAL | Previous isolated upgrade PASS with temporary key; current 0.9.4 upgrade and historical/physical migration not qualified. |
+| K Security | PARTIAL | Previous fail-closed signing PASS; full privacy/security review open. |
+| L Performance | NOT CONFIRMED | No physical device or LLM runtime performance measurements. |
+| M Android | HOLD | Native 46126566023 failed due instrumentation self-termination; corrected workflow running. No current 5/5 PASS or physical device claim. |
+| N Exams | HOLD | Independent CEFR and 200-case AI exam unfinished. |
+| O Release | HOLD | Prior 0.9.4 build checksum/signature PASS but incompatible debug cert; current APK and owner stable signing pending. No merge. |

@@ -188,6 +188,16 @@ jobs:
             sleep "$((attempt * 20))"
           done
           exit 1
+      - name: Cold process screenshot in separate instrumentation
+        run: |
+          set -euo pipefail
+          adb install -r app/build/outputs/apk/debug/app-debug.apk
+          adb install -r -t app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          adb shell rm -f /sdcard/wolfie-native.png /sdcard/wolfie-dom-ready.txt
+          adb shell am force-stop com.wolfie.english
+          test -z "$(adb shell pidof com.wolfie.english | tr -d '\r')"
+          adb shell am instrument -w -e class 'com.wolfie.english.HomeScreenshotQualificationTest' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/cold-process-screenshot.txt
+          grep -F 'OK (1 test)' device-evidence/cold-process-screenshot.txt
       - name: Pull native screenshot after verified WebView DOM readiness
         run: |
           set -euo pipefail

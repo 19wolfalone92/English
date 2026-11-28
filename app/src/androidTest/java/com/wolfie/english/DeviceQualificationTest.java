@@ -1,8 +1,6 @@
 package com.wolfie.english;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.os.ParcelFileDescriptor;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -13,9 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -51,13 +46,13 @@ public class DeviceQualificationTest {
   if(view instanceof ViewGroup){ViewGroup group=(ViewGroup)view;for(int i=0;i<group.getChildCount();i++){WebView found=web(group.getChildAt(i));if(found!=null)return found;}}
   return null;
  }
- private static String js(ActivityScenario<MainActivity> scenario,String script)throws Exception{
+ static String js(ActivityScenario<MainActivity> scenario,String script)throws Exception{
   AtomicReference<String> result=new AtomicReference<>();
   CountDownLatch latch=new CountDownLatch(1);
   scenario.onActivity(a->{WebView w=web(a.findViewById(android.R.id.content));assertNotNull(w);w.evaluateJavascript(script,v->{result.set(v);latch.countDown();});});
   assertTrue("WebView JS callback",latch.await(10,TimeUnit.SECONDS));return result.get();
  }
- private static void waitTrue(ActivityScenario<MainActivity> scenario,String expression)throws Exception{
+ static void waitTrue(ActivityScenario<MainActivity> scenario,String expression)throws Exception{
   for(int i=0;i<40;i++){if("true".equals(js(scenario,"Boolean("+expression+")")))return;Thread.sleep(250);}
   fail("Condition did not become true: "+expression);
  }
@@ -131,28 +126,6 @@ public class DeviceQualificationTest {
    waitTrue(scenario,"document.querySelector('.diagnostic-shell').textContent.includes('2/8')");
    js(scenario,"document.querySelector('#diag-back').click();document.querySelector('[data-course=\"0\"]').click();document.querySelector('#begin-course').click();true");
    waitTrue(scenario,"document.querySelectorAll('[data-study]').length===8 && document.querySelector('[data-study=\"exam\"]').disabled");
-  }
- }
- @Test public void actualHomeScreenshotWaitsForDomAfterProcessRestart()throws Exception{
-  try(ParcelFileDescriptor pfd=InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand("am force-stop com.wolfie.english")){pfd.close();}
-  Thread.sleep(500);
-  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
-   waitTrue(scenario,"document.readyState==='complete' && document.querySelector('#home-course-progress') && document.querySelector('#home-course-progress').textContent.trim()==='0/300' && document.querySelectorAll('[data-course]').length>0 && document.querySelectorAll('[data-course]')[0].textContent.includes('Первый вечер в разговорном клубе') && !document.body.innerText.includes('Подбираем твою следующую тренировку')");
-   String dom=js(scenario,"document.body.innerText");
-   Context testContext=InstrumentationRegistry.getInstrumentation().getContext();
-   File dir=testContext.getExternalFilesDir(null);
-   assertNotNull(dir);assertTrue(dir.exists()||dir.mkdirs());
-   try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-dom-ready.txt"))){out.write(dom.getBytes(StandardCharsets.UTF_8));out.flush();}
-   InstrumentationRegistry.getInstrumentation().waitForIdleSync();
-   Thread.sleep(1000);
-   Bitmap image=InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
-   assertNotNull("Native screenshot must exist",image);
-   try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-native.png"))){assertTrue(image.compress(Bitmap.CompressFormat.PNG,100,out));out.flush();}
-   image.recycle();
-   String nativeDir=dir.getAbsolutePath();
-   String copyCommand="cp "+nativeDir+"/wolfie-native.png /sdcard/wolfie-native.png && cp "+nativeDir+"/wolfie-dom-ready.txt /sdcard/wolfie-dom-ready.txt";
-   try(ParcelFileDescriptor pfd=InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand(copyCommand)){pfd.close();}
-   Thread.sleep(500);
   }
  }
 

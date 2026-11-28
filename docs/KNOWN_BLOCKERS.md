@@ -1,10 +1,9 @@
-# Known blockers — 0.9.4
-1. Course depth: 186 contextual days missing; 249 days not extended. Month 1 is 30/30 extended but not independently time-validated. Month 2 is 12/30 contextual and 5/30 extended. Strict course audit remains FAIL; repeated base slots not unique exercises.
-2. Vocabulary/phrases/texts/grammar/dialogue/speaking/writing/audio totals remain below target; 30-format engine and professional RZA not complete. New authored material lacks independent linguistic review and CEFR calibration.
-3. Teacher: 9-rule deterministic offline mentor, not an on-device LLM. 200-case exam and independent explanation scoring incomplete. Previous 24-case paired research is not production qualification.
-4. Audio: existing 21 neural dialogues and six neural reading alternates retained; human listening quality and full licensing/redistribution review incomplete; no new neural recordings in this stage. B1/B2 long-form audio, ASR and phonetics open.
-5. UI: global 17-screen redesign and physical usability incomplete.
-6. Progress/security: full historical/physical migration and encrypted backup/privacy qualification incomplete.
-7. Signing: owner-controlled key unavailable/unconfirmed. Debug certificate changes between builds; do not uninstall or update existing main app with an incompatible signature. Isolated temporary-key upgrade is not owner signing.
-8. Native qualification: 46126566023 failed due target force-stop in instrumentation. Correction committed; latest build/native runs 46141540463 / 46141540503 not terminal as of this update. Do not count unverified native screenshots, same-key upgrade or physical S23 Ultra test as PASS.
-9. No 1.0 claim, no merge. Source validation is not equivalent to final APK qualification.
+# Known blockers — 0.9.6
+1. 157 contextual lessons missing; 213 days not extended. Months 1–2 complete at source level, month3 20/30 contextual and 13/30 extended. Actual learning-time study, independent language review and CEFR calibration absent.
+2. Strict educational depth, 30-format engine, full A0/A1 learning paths, independent A1–B2 exams and professional RZA course incomplete.
+3. Teacher: 9-rule deterministic offline mentor; 200-case exam and actual on-device LLM not completed. CPU Qwen research not production qualification.
+4. 21 neural dialogues and six neural reading alternates verified in 0.9.5. New 30-track module initial production failed 30s duration; natural slower TTS correction committed. No qualified Android module importer, subjective review or comprehensive licensing/redistribution qualification.
+5. Full visual redesign, accessibility, physical performance, ASR and phonetics incomplete.
+6. 0.9.5 native core tests 30/30; screenshot gates fail on all five jobs due dimensions/export, API35 actually captured placeholder. 0.9.6 real display configuration correction pending qualification. Current isolated upgrade and physical S23 Ultra untested.
+7. Owner release key unavailable. Debug certs change; no safe update of existing main app. No user-data deletion or uninstall.
+8. No 1.0 claim, no merge. Source validation not final release qualification.

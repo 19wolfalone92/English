@@ -1,19 +1,19 @@
-# Gate A–O — 0.9.4
-Application/test source HEAD 5a66c567d73eae06b8af5e4f79f2328018e4824f. PARTIAL / HOLD. Current build 46141540463 and native 46141540503 in progress at last inspection.
+# Gate A–O — 0.9.6
+Application commit 07baf25e9a04d74b91aad1d04dd18dd4fc438244. Overall PARTIAL / HOLD. Status snapshot before terminal 0.9.6 CI; latest Execution Guard checkpoint supersedes this snapshot.
 | Gate | Status | Evidence / remaining qualification |
 |---|---|---|
-| A Source | PARTIAL | Current contextual source validation PASS; previous 0.9.4 integrated build 46126566031 SUCCESS. Current final APK pending. |
-| B 300 lessons | PARTIAL | 114 contextual/51 extended; 186 missing; first month 30/30 extended, second month 12/5. Strict depth fails. |
-| C Content quality | PARTIAL | Three new original topics, 472 reading words, 28 new lexical IDs, 30 new phrase IDs, independent review outstanding. |
-| D Assessment | PARTIAL | 495 contextual grammar and 342 transfer checks; 30-format engine and calibrated scoring incomplete. |
-| E Adaptation | PARTIAL | Existing SRS and bounded mentor history; no full skill model qualification. |
-| F Listening/speaking | PARTIAL | Pinned neural recordings retained, new fallback generation in current build; human quality, ASR, phonetics open. |
-| G Writing | PARTIAL | 342 contextual prompts; broad semantic/genre assessment not validated. |
-| H AI | HOLD | Actual LLM absent in Android; prior CPU experiment is not production or independent exam. |
-| I UI | PARTIAL | Previous browser evidence valid; global 17-screen redesign unfinished; native screenshot test harness correction pending execution. |
-| J ProgressVault | PARTIAL | Previous isolated upgrade PASS with temporary key; current 0.9.4 upgrade and historical/physical migration not qualified. |
-| K Security | PARTIAL | Previous fail-closed signing PASS; full privacy/security review open. |
-| L Performance | NOT CONFIRMED | No physical device or LLM runtime performance measurements. |
-| M Android | HOLD | Native 46126566023 failed due instrumentation self-termination; corrected workflow running. No current 5/5 PASS or physical device claim. |
-| N Exams | HOLD | Independent CEFR and 200-case AI exam unfinished. |
-| O Release | HOLD | Prior 0.9.4 build checksum/signature PASS but incompatible debug cert; current APK and owner stable signing pending. No merge. |
+| A 300 thematic lessons | PARTIAL | 143/300, 157 missing. |
+| B 300 extended lessons | PARTIAL | 87/300, 213 missing; first two months 30/30 each. |
+| C Full A0–B2 | PARTIAL | Existing A2–B2 route; full A0/A1 absent. |
+| D Independent linguistic review | NOT TESTED | Structural and duplicate checks PASS; independent linguistic/CEFR assessment absent. |
+| E Actual local hybrid LLM | PARTIAL | Bounded deterministic tutor works; on-device LLM not integrated. |
+| F Neural audio | PARTIAL | 21 dialogues + 6 reading variants validated in APK; month02 separate module rerender pending, no Android module import. |
+| G Professional RZA | NOT TESTED | Separate 30-lesson course not delivered. |
+| H 30 distinct mechanics | PARTIAL | Existing working mechanics only; 30-format target unmet. |
+| I Full redesign | PARTIAL | Existing browser and native evidence; complete redesign and accessibility qualification unfinished. |
+| J Android 13–17 | PARTIAL | 0.9.5 core tests 30/30; screenshot failures; 0.9.6 matrix running. |
+| K Safe update | BLOCKED | No stable owner key; actual same-key 0.9.2→0.9.3 isolated fixture previously passed, not current user update. |
+| L Independent exams | NOT TESTED | Screening forms not calibrated independent CEFR exams. |
+| M No critical defects | PARTIAL | Known native visual evidence failure; comprehensive physical qualification absent. |
+| N Signed verified APK | BLOCKED | 0.9.5 debug/preview artifact verified; owner key missing, current 0.9.6 final build pending. |
+| O Evidence | PARTIAL | Actual source, CI and APK evidence; final current release evidence incomplete. |

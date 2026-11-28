@@ -20,7 +20,7 @@ async def main():
     page=await ctx.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     await page.goto(f'http://127.0.0.1:{server.server_port}/index.html',wait_until='networkidle')
     packs=await page.evaluate('window.WOLFIE_CONTEXT.packs.map(p=>({day:p.day,ru:p.ru,id:p.id,cardCount:p.cards.length,grammarCount:p.grammar.exercises.length}))')
-    assert len(packs)==111
+    assert len(packs)==114
     # Open every authored mission through the actual course UI, then inspect each block.
     for i,pack in enumerate(packs):
      day=pack['day'];m=(day-1)//30
@@ -129,5 +129,5 @@ async def main():
    print('PASS: actual continuous HTML audio playback qualifies an unassisted answer; seeking does not; this does not prove audibility')
    await browser.close()
  finally:server.shutdown();server.server_close()
- print('PASS: all 111 contextual packages reachable at 360/700 px, all 111 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
+ print('PASS: all 114 contextual packages reachable at 360/700 px, all 114 audio files load, three grammar interactions, recall, transcript-assisted distinction, draft resume, no false day completion')
 if __name__=='__main__':asyncio.run(main())

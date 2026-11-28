@@ -152,6 +152,12 @@ jobs:
           test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1
           test "$(adb shell getprop ro.build.version.sdk | tr -d '\r')" = "$API"
           adb shell input keyevent 82
+          # Use a real portrait phone display; never upscale captured evidence.
+          adb shell wm size 1080x1920
+          adb shell wm density 420
+          adb shell wm size | tee device-evidence/display-size.txt
+          adb shell wm density | tee device-evidence/display-density.txt
+          grep -F '1080x1920' device-evidence/display-size.txt
           adb shell settings put global window_animation_scale 0
           adb shell settings put global transition_animation_scale 0
           adb shell settings put global animator_duration_scale 0

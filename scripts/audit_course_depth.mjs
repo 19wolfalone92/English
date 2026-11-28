@@ -18,10 +18,10 @@ const files = [
   'context_packs_a.js', 'context_packs_b.js', 'context_packs_c.js',
   'context_packs_d.js', 'context_packs_e.js', 'context_packs_f.js',
   'context_packs_g.js', 'context_packs_h.js', 'context_packs_i.js',
-  'context_packs_j.js', 'context_packs_k.js', 'context_packs_l.js', 'context_packs_m.js', 'context_packs_n.js', 'context_packs_o.js', 'context_packs_p.js',
+  'context_packs_j.js', 'context_packs_k.js', 'context_packs_l.js', 'context_packs_m.js', 'context_packs_n.js', 'context_packs_o.js', 'context_packs_p.js','context_packs_q.js','context_packs_r.js',
   'context_checks.js', 'context_checks_d.js', 'context_checks_e.js',
   'context_checks_f.js', 'context_checks_g.js', 'context_checks_h.js',
-  'context_checks_i.js', 'context_checks_j.js', 'context_checks_k.js', 'context_checks_l.js', 'context_checks_m.js', 'context_checks_n.js', 'context_checks_o.js', 'context_checks_p.js', 'context.js',
+  'context_checks_i.js', 'context_checks_j.js', 'context_checks_k.js', 'context_checks_l.js', 'context_checks_m.js', 'context_checks_n.js', 'context_checks_o.js', 'context_checks_p.js','context_checks_q.js','context_checks_r.js', 'context.js',
 ];
 for (const file of files) {
   vm.runInContext(fs.readFileSync(new URL(file, root), 'utf8'), context, { filename: file });

@@ -1,6 +1,8 @@
 package com.wolfie.english;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.ParcelFileDescriptor;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -11,6 +13,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
@@ -128,4 +133,27 @@ public class DeviceQualificationTest {
    waitTrue(scenario,"document.querySelectorAll('[data-study]').length===8 && document.querySelector('[data-study=\"exam\"]').disabled");
   }
  }
+ @Test public void actualHomeScreenshotWaitsForDomAfterProcessRestart()throws Exception{
+  try(ParcelFileDescriptor pfd=InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand("am force-stop com.wolfie.english")){pfd.close();}
+  Thread.sleep(500);
+  try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
+   waitTrue(scenario,"document.readyState==='complete' && document.querySelector('#home-course-progress') && document.querySelector('#home-course-progress').textContent.trim()==='0/300' && document.querySelectorAll('[data-course]').length>0 && document.querySelectorAll('[data-course]')[0].textContent.includes('Первый вечер в разговорном клубе') && !document.body.innerText.includes('Подбираем твою следующую тренировку')");
+   String dom=js(scenario,"document.body.innerText");
+   Context testContext=InstrumentationRegistry.getInstrumentation().getContext();
+   File dir=testContext.getExternalFilesDir(null);
+   assertNotNull(dir);assertTrue(dir.exists()||dir.mkdirs());
+   try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-dom-ready.txt"))){out.write(dom.getBytes(StandardCharsets.UTF_8));out.flush();}
+   InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+   Thread.sleep(1000);
+   Bitmap image=InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
+   assertNotNull("Native screenshot must exist",image);
+   try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-native.png"))){assertTrue(image.compress(Bitmap.CompressFormat.PNG,100,out));out.flush();}
+   image.recycle();
+   String nativeDir=dir.getAbsolutePath();
+   String copyCommand="cp "+nativeDir+"/wolfie-native.png /sdcard/wolfie-native.png && cp "+nativeDir+"/wolfie-dom-ready.txt /sdcard/wolfie-dom-ready.txt";
+   try(ParcelFileDescriptor pfd=InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand(copyCommand)){pfd.close();}
+   Thread.sleep(500);
+  }
+ }
+
 }

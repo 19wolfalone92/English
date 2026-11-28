@@ -4,6 +4,8 @@ on:
     branches: [main, 'feature/**']
     paths:
       - 'app/**'
+      - '.github/workflows/device-qualification.yml'
+      - 'scripts/verify_native_screenshot.py'
       - 'scripts/build_context_audio.py'
       - 'scripts/import_neural_pilot.py'
       - 'scripts/import_neural_month01.py'
@@ -186,15 +188,12 @@ jobs:
             sleep "$((attempt * 20))"
           done
           exit 1
-      - name: Real Android screenshot after process restart
+      - name: Pull native screenshot after verified WebView DOM readiness
         run: |
-          # AGP connected tests may uninstall the target afterwards.
-          adb install -r app/build/outputs/apk/debug/app-debug.apk
-          adb shell am force-stop com.wolfie.english
-          adb shell am start -W -n com.wolfie.english/.MainActivity | tee device-evidence/activity-start.txt
-          grep -F "Status: ok" device-evidence/activity-start.txt
-          sleep 4
-          adb exec-out screencap -p > device-evidence/wolfie-native.png
+          set -euo pipefail
+          adb pull /sdcard/wolfie-native.png device-evidence/wolfie-native.png
+          adb pull /sdcard/wolfie-dom-ready.txt device-evidence/wolfie-dom-ready.txt
+          python3 scripts/verify_native_screenshot.py device-evidence/wolfie-native.png device-evidence/wolfie-dom-ready.txt
           adb logcat -d -t 300 > device-evidence/logcat.txt
       - name: Fetch real 0.9.2 for isolated upgrade
         if: matrix.api == 35
@@ -230,7 +229,12 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/old-test.apk" > device-evidence/upgrade/old-package.txt
           "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/new-test.apk" > device-evidence/upgrade/new-package.txt
           grep -F "name='com.wolfie.english' versionCode='22'" device-evidence/upgrade/old-package.txt
-          grep -F "name='com.wolfie.english' versionCode='23'" device-evidence/upgrade/new-package.txt
+          expected_new_code="$(awk '$1 == "versionCode" {print $2; exit}' app/build.gradle)"
+          expected_new_name="$(awk -F"'" '/versionName/ {print $2; exit}' app/build.gradle)"
+          test -n "$expected_new_code"
+          test -n "$expected_new_name"
+          grep -F "name='com.wolfie.english' versionCode='$expected_new_code'" device-evidence/upgrade/new-package.txt
+          grep -F "versionName='$expected_new_name'" device-evidence/upgrade/new-package.txt
           # Isolated disposable emulator only. Never uninstall between old and new.
           adb uninstall com.wolfie.english.test || true
           adb uninstall com.wolfie.english || true

@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "contexts": 132,
+  "extended": 76,
+  "newWords": 1044,
+  "newPhrases": 1040,
+  "contextGrammar": 624,
+  "contextReadingQuestions": 472,
+  "transfer": 396,
+  "completeExtendedThroughDay": 60,
+  "reviewedIndependently": false,
+  "batches": [
+    {
+      "file": "month02-1.json",
+      "shard": "n",
+      "days": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "file": "month02-2.json",
+      "shard": "o",
+      "days": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "file": "month02-3.json",
+      "shard": "p",
+      "days": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    }
+  ]
+}

@@ -58,7 +58,7 @@ public class DeviceQualificationTest {
  }
  @Test public void actualContextLessonLoadsOfflineAudioAndPersistsDraft()throws Exception{
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
-   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_CONTEXT.packs.length===114");
+   waitTrue(scenario,"document.querySelector('#home-course-progress') && window.WOLFIE_CONTEXT.packs.length===132");
    assertEquals("\"0/300\"",js(scenario,"document.querySelector('#home-course-progress').textContent"));
    js(scenario,"document.querySelector('[data-course=\"1\"]').click();document.querySelector('#begin-course').click();true");
    waitTrue(scenario,"document.querySelector('#study-context')");

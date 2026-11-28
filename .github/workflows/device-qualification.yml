@@ -193,7 +193,7 @@ jobs:
           set -euo pipefail
           adb install -r app/build/outputs/apk/debug/app-debug.apk
           adb install -r -t app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-          adb shell rm -f /sdcard/wolfie-native.png /sdcard/wolfie-dom-ready.txt
+          adb shell run-as com.wolfie.english rm -f files/wolfie-native.png files/wolfie-dom-ready.txt
           adb shell am force-stop com.wolfie.english
           test -z "$(adb shell pidof com.wolfie.english | tr -d '\r')"
           adb shell am instrument -w -e class 'com.wolfie.english.HomeScreenshotQualificationTest' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/cold-process-screenshot.txt
@@ -201,8 +201,8 @@ jobs:
       - name: Pull native screenshot after verified WebView DOM readiness
         run: |
           set -euo pipefail
-          adb pull /sdcard/wolfie-native.png device-evidence/wolfie-native.png
-          adb pull /sdcard/wolfie-dom-ready.txt device-evidence/wolfie-dom-ready.txt
+          adb exec-out run-as com.wolfie.english cat files/wolfie-native.png > device-evidence/wolfie-native.png
+          adb exec-out run-as com.wolfie.english cat files/wolfie-dom-ready.txt > device-evidence/wolfie-dom-ready.txt
           python3 scripts/verify_native_screenshot.py device-evidence/wolfie-native.png device-evidence/wolfie-dom-ready.txt
           adb logcat -d -t 300 > device-evidence/logcat.txt
       - name: Fetch real 0.9.2 for isolated upgrade

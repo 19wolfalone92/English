@@ -3,10 +3,11 @@ import hashlib,json,sys,zipfile
 from build_context_audio import load
 from pathlib import Path
 assets=Path(__file__).resolve().parents[1]/'app/src/main/assets'
+expected=json.loads((assets.parents[3]/'data/curriculum/inventory.json').read_text())
 for name in sys.argv[1:]:
     with zipfile.ZipFile(name) as z:
         records=json.loads(z.read('assets/context_audio/manifest.json'))
-        assert len(records)==114
+        assert len(records)==expected['contexts']
         packs={p['id']:p for p in load()}
         assert set(packs)=={r['id'] for r in records}
         new_days={1,*range(11,31)}
@@ -18,7 +19,7 @@ for name in sys.argv[1:]:
             b=z.read('assets/context_audio/'+r['file'])
             assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']
         reading=json.loads(z.read('assets/reading_audio/manifest.json'))
-        assert len(reading)==164 and len({r['id'] for r in reading})==164
+        assert len(reading)==expected['contexts']+50 and len({r['id'] for r in reading})==expected['contexts']+50
         assert {r['id'] for r in reading if r['level']!='legacy'}=={r['id'] for r in records}
         assert {r['id'] for r in reading if r['level']=='legacy'}=={f'legacy-{i}' for i in range(50)}
         for r in reading:
@@ -38,7 +39,7 @@ for name in sys.argv[1:]:
             b=z.read('assets/neural_dialogue/'+r['file'])
             assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256']==pins[r['id']]
         assert z.read('assets/neural_dialogue/index.js')==(assets/'neural_dialogue/index.js').read_bytes()
-        for f in ('context.js','context_packs_a.js','context_packs_b.js','context_packs_c.js','context_packs_d.js','context_packs_e.js','context_packs_f.js','context_packs_g.js','context_packs_h.js','context_packs_i.js','context_packs_j.js','context_packs_k.js','context_packs_l.js','context_packs_m.js','context_checks.js','context_checks_d.js','context_checks_e.js','context_checks_f.js','context_checks_g.js','context_checks_h.js','context_checks_i.js','context_checks_j.js','context_checks_k.js','context_checks_l.js','context_checks_m.js','teacher_rules.js','teacher.js','index.html','study.js','app.js','studio.js','studio.css'):
+        for f in ('context.js','context_packs_a.js','context_packs_b.js','context_packs_c.js','context_packs_d.js','context_packs_e.js','context_packs_f.js','context_packs_g.js','context_packs_h.js','context_packs_i.js','context_packs_j.js','context_packs_k.js','context_packs_l.js','context_packs_m.js','context_packs_n.js','context_packs_o.js','context_packs_p.js','context_checks.js','context_checks_d.js','context_checks_e.js','context_checks_f.js','context_checks_g.js','context_checks_h.js','context_checks_i.js','context_checks_j.js','context_checks_k.js','context_checks_l.js','context_checks_m.js','context_checks_n.js','context_checks_o.js','context_checks_p.js','teacher_rules.js','teacher.js','index.html','study.js','app.js','studio.js','studio.css'):
             assert z.read('assets/'+f)==(assets/f).read_bytes(),f
         assert b'context_packs_a.js' in z.read('assets/index.html')
-    print(f'PASS: {name}: 114 dialogue + 164 reading + 6 neural reading alternate + 21 neural dialogue MP3s and context source assets byte-identical to checked build inputs')
+    print(f'PASS: {name}: {len(records)} dialogue + {len(reading)} reading + 6 neural reading alternate + 21 neural dialogue MP3s and context source assets byte-identical to checked build inputs')

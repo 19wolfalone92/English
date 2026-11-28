@@ -1,0 +1,1949 @@
+[
+  {
+    "pack": {
+      "id": "mission-v2-049",
+      "day": 49,
+      "level": "A2",
+      "title": "Comparing two mobile plans",
+      "ru": "Сравнение двух мобильных тарифов",
+      "goal": "Сравнить условия тарифов и выбрать подходящий объём данных.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Comparatives",
+        "rule": "Короткие прилагательные обычно образуют сравнительную степень с -er, длинные — с more. Для сравнения используй than.",
+        "pattern": "cheaper than / more expensive than",
+        "example": "This plan is cheaper than the monthly one.",
+        "pitfall": "Не говори more cheaper.",
+        "exercises": [
+          [
+            "choice",
+            "The weekly plan is ___ than the monthly plan.",
+            [
+              "cheap",
+              "cheaper",
+              "more cheaper"
+            ],
+            1,
+            "Cheap → cheaper."
+          ],
+          [
+            "type",
+            "Complete: This option is ___ (expensive, comparative).",
+            [
+              "more expensive"
+            ],
+            "More + long adjective."
+          ],
+          [
+            "order",
+            "Скажи: этот тариф лучше другого.",
+            [
+              "one",
+              "other",
+              "the",
+              "than",
+              "better",
+              "is",
+              "plan",
+              "This"
+            ],
+            "This plan is better than the other one",
+            "Good → better."
+          ],
+          [
+            "choice",
+            "The second plan offers ___ data than the first.",
+            [
+              "more",
+              "most",
+              "muchest"
+            ],
+            0,
+            "More data."
+          ],
+          [
+            "type",
+            "Complete: The first contract is ___ (short, comparative).",
+            [
+              "shorter"
+            ],
+            "Short → shorter."
+          ],
+          [
+            "order",
+            "Скажи: этот тариф дороже моего старого тарифа.",
+            [
+              "plan",
+              "old",
+              "my",
+              "than",
+              "expensive",
+              "more",
+              "is",
+              "plan",
+              "This"
+            ],
+            "This plan is more expensive than my old plan",
+            "More expensive than."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a monthly data allowance",
+          "месячный объём мобильного интернета"
+        ],
+        [
+          "a prepaid mobile plan",
+          "предоплаченный мобильный тариф"
+        ],
+        [
+          "a contract length",
+          "срок договора"
+        ],
+        [
+          "a top-up voucher",
+          "ваучер пополнения"
+        ],
+        [
+          "an automatic renewal option",
+          "опция автоматического продления"
+        ],
+        [
+          "a mobile data limit",
+          "лимит мобильного интернета"
+        ],
+        [
+          "a coverage map",
+          "карта покрытия"
+        ],
+        [
+          "a roaming data charge",
+          "плата за интернет в роуминге"
+        ],
+        [
+          "an activation fee",
+          "плата за активацию"
+        ],
+        [
+          "a plan comparison chart",
+          "таблица сравнения тарифов"
+        ]
+      ],
+      "phrases": [
+        [
+          "This plan includes more data than my old one.",
+          "Этот тариф включает больше интернета, чем мой прежний."
+        ],
+        [
+          "Is there a separate activation fee?",
+          "Есть отдельная плата за активацию?"
+        ],
+        [
+          "The shorter contract is more expensive each month.",
+          "Более короткий договор дороже в месяц."
+        ],
+        [
+          "Can I switch off automatic renewal?",
+          "Могу отключить автоматическое продление?"
+        ],
+        [
+          "I rarely use mobile data when I am at home.",
+          "Дома я редко пользуюсь мобильным интернетом."
+        ],
+        [
+          "Does the price include calls within the country?",
+          "Цена включает звонки внутри страны?"
+        ],
+        [
+          "I'd like to check the coverage map first.",
+          "Сначала я хотел бы посмотреть карту покрытия."
+        ],
+        [
+          "Which option has the lower monthly price?",
+          "У какого варианта ниже месячная цена?"
+        ],
+        [
+          "The prepaid plan is better for my short visit.",
+          "Предоплаченный тариф лучше подходит для моей короткой поездки."
+        ],
+        [
+          "Please show me the conditions before I choose.",
+          "Покажите условия, прежде чем я выберу."
+        ]
+      ],
+      "reading": {
+        "title": "Comparing two mobile plans",
+        "paragraphs": [
+          "Irina is staying in another city for six weeks. She wants a local mobile plan because her usual plan has expensive data charges there. At a phone shop, she compares two options. The first one is cheaper each month but requires a long contract. The second one costs more for four weeks, but she can stop using it without a long commitment. Both options include enough data for maps and messages.",
+          "Irina asks the assistant whether the prepaid option renews automatically and whether there is an activation fee. The assistant shows her the written price details and coverage map. Irina checks the district where she is staying and chooses the prepaid plan. She decides to pay for another period only if she needs it. Before leaving, she keeps a copy of the conditions and learns how to check her remaining data."
+        ],
+        "questions": [
+          [
+            "How long is Irina staying?",
+            [
+              "Six weeks",
+              "Six months",
+              "Two days"
+            ],
+            0
+          ],
+          [
+            "What does the cheaper monthly plan require?",
+            [
+              "A new phone",
+              "A long contract",
+              "A larger SIM card"
+            ],
+            1
+          ],
+          [
+            "What map does she check?",
+            [
+              "A tourist map",
+              "A metro map",
+              "A coverage map"
+            ],
+            2
+          ],
+          [
+            "Which plan does she choose?",
+            [
+              "The prepaid plan",
+              "The longest contract",
+              "No plan"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Irina",
+          "I'm here for six weeks. Which plan is better for a short stay?",
+          "Я здесь на шесть недель. Какой тариф лучше для короткой поездки?"
+        ],
+        [
+          "Assistant",
+          "The prepaid one has a shorter commitment, but the monthly price is a little higher.",
+          "У предоплаченного варианта короче срок обязательств, но месячная цена немного выше."
+        ],
+        [
+          "Irina",
+          "Does it include enough data for maps and messages?",
+          "В нём достаточно интернета для карт и сообщений?"
+        ],
+        [
+          "Assistant",
+          "Yes. It offers ten gigabytes for four weeks.",
+          "Да. Он предлагает десять гигабайт на четыре недели."
+        ],
+        [
+          "Irina",
+          "Is there an activation fee or automatic renewal?",
+          "Есть плата за активацию или автоматическое продление?"
+        ],
+        [
+          "Assistant",
+          "The activation fee is shown here. You can turn off automatic renewal.",
+          "Плата за активацию указана здесь. Автопродление можно отключить."
+        ],
+        [
+          "Irina",
+          "I'd prefer the shorter option. Can I check the coverage map first?",
+          "Предпочитаю более короткий вариант. Могу сначала посмотреть карту покрытия?"
+        ],
+        [
+          "Assistant",
+          "Of course. Let's check the area where you are staying.",
+          "Конечно. Давайте проверим район, где вы остановились."
+        ]
+      ],
+      "listening": [
+        "How much data does the prepaid option offer for four weeks?",
+        [
+          "Five gigabytes",
+          "Ten gigabytes",
+          "Unlimited data"
+        ],
+        1
+      ],
+      "speaking": [
+        "Compare two fictional phone plans using three comparative adjectives.",
+        "Explain why the cheapest monthly price is not always best for a short visit.",
+        "Ask about renewal and activation costs.",
+        "Describe your own typical mobile data use.",
+        "Role-play checking written plan conditions."
+      ],
+      "writing": [
+        "Write a comparison of two phone plans with duration and cost.",
+        "Write five comparative sentences about phone services.",
+        "Write a message asking whether a plan renews automatically."
+      ],
+      "model": "The prepaid plan is more expensive per month, but it is better for my short stay. Please show me the activation fee and renewal conditions.",
+      "competency": {
+        "prerequisites": "Basic adjectives and quantities",
+        "canDo": "Сравнить условия тарифов и выбрать подходящий объём данных.",
+        "successCriteria": "Use comparatives accurately and justify a choice with cost, duration and data.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "This bag is ___ than that suitcase.",
+        [
+          "light",
+          "lighter",
+          "more lighter"
+        ],
+        1,
+        "Light → lighter."
+      ],
+      [
+        "type",
+        "Complete: The second route is ___ (good, comparative) for a short trip.",
+        [
+          "better"
+        ],
+        "Good → better."
+      ],
+      [
+        "choice",
+        "One plan has a lower monthly price but a longer contract. What should you compare?",
+        [
+          "Total cost and commitment",
+          "Only the colour of the SIM card",
+          "Only the first payment"
+        ],
+        0,
+        "Compare price and duration together."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-050",
+      "day": 50,
+      "level": "A2",
+      "title": "A café order with an ingredient question",
+      "ru": "Заказ в кафе и вопрос о составе",
+      "goal": "Уточнить состав блюда, количество и возможные замены.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Some / any / no",
+        "rule": "Some обычно употребляется в утверждениях и предложениях; any — в вопросах и отрицаниях; no + noun означает отсутствие. В вежливой просьбе possible some.",
+        "pattern": "some milk / any nuts / no sugar",
+        "example": "Does this sauce contain any nuts?",
+        "pitfall": "Не говори it doesn't contain no nuts в стандартном английском.",
+        "exercises": [
+          [
+            "choice",
+            "Does this sandwich contain ___ cheese?",
+            [
+              "some of",
+              "any",
+              "many of"
+            ],
+            1,
+            "Any in a neutral question."
+          ],
+          [
+            "type",
+            "Complete: There is ___ sugar in this drink. Use no.",
+            [
+              "no"
+            ],
+            "No + noun."
+          ],
+          [
+            "order",
+            "Спроси: есть ли в салате орехи?",
+            [
+              "salad",
+              "the",
+              "in",
+              "nuts",
+              "any",
+              "there",
+              "Are"
+            ],
+            "Are there any nuts in the salad",
+            "Any in a question."
+          ],
+          [
+            "choice",
+            "Could I have ___ water please?",
+            [
+              "some",
+              "no any",
+              "many"
+            ],
+            0,
+            "Some in a polite request."
+          ],
+          [
+            "type",
+            "Complete: We don't have ___ oat milk today.",
+            [
+              "any"
+            ],
+            "Any after a negative verb."
+          ],
+          [
+            "order",
+            "Скажи: у нас есть немного риса.",
+            [
+              "rice",
+              "some",
+              "have",
+              "We"
+            ],
+            "We have some rice",
+            "Some in an affirmative sentence."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "an ingredient list",
+          "список ингредиентов"
+        ],
+        [
+          "a dairy-free alternative",
+          "безмолочная альтернатива"
+        ],
+        [
+          "a sauce on the side",
+          "соус отдельно"
+        ],
+        [
+          "a shared preparation area",
+          "общая зона приготовления"
+        ],
+        [
+          "a sandwich filling",
+          "начинка сэндвича"
+        ],
+        [
+          "an oat milk option",
+          "вариант с овсяным молоком"
+        ],
+        [
+          "a menu ingredient note",
+          "примечание о составе в меню"
+        ],
+        [
+          "a kitchen confirmation",
+          "подтверждение от кухни"
+        ],
+        [
+          "a plain rice portion",
+          "порция риса без добавок"
+        ],
+        [
+          "a separate dressing",
+          "заправка отдельно"
+        ]
+      ],
+      "phrases": [
+        [
+          "Could I see the ingredient list for this sauce?",
+          "Можно посмотреть список ингредиентов этого соуса?"
+        ],
+        [
+          "Does the sandwich contain any milk products?",
+          "Сэндвич содержит молочные продукты?"
+        ],
+        [
+          "Can I have the dressing on the side?",
+          "Можно подать заправку отдельно?"
+        ],
+        [
+          "Please check with the kitchen before confirming.",
+          "Пожалуйста, уточните на кухне, прежде чем подтверждать."
+        ],
+        [
+          "There are some vegetables in the rice.",
+          "В рисе есть немного овощей."
+        ],
+        [
+          "Do you have any dairy-free alternatives?",
+          "У вас есть безмолочные варианты?"
+        ],
+        [
+          "I would prefer plain rice without the sauce.",
+          "Я предпочёл бы рис без соуса."
+        ],
+        [
+          "The kitchen uses a shared preparation area.",
+          "На кухне используется общая зона приготовления."
+        ],
+        [
+          "Thank you for explaining what you can confirm.",
+          "Спасибо, что объяснили, что можете подтвердить."
+        ],
+        [
+          "I'll choose a different dish if the ingredients are uncertain.",
+          "Я выберу другое блюдо, если состав неизвестен."
+        ]
+      ],
+      "reading": {
+        "title": "A café order with an ingredient question",
+        "paragraphs": [
+          "Sam visits a small café with his colleague. He wants a sandwich and a hot drink, but he prefers to avoid dairy products. The menu lists a vegetable sandwich with a house sauce. It does not explain what the sauce contains. Sam asks the server about the ingredients instead of assuming that a vegetable dish is dairy free. He also asks whether oat milk is available for his drink.",
+          "The server checks the kitchen's ingredient list and explains that the sauce contains yoghurt. A plain vegetable sandwich can be made without it, but the kitchen prepares different foods in the same area. Sam thanks the server for explaining the limitation. He chooses a dish he is comfortable ordering and asks for the dressing separately. His colleague orders the original sandwich. Both confirm their orders before the server leaves the table."
+        ],
+        "questions": [
+          [
+            "Why does Sam ask about the sauce?",
+            [
+              "Its ingredients are not listed",
+              "It is too hot",
+              "The menu says it is free"
+            ],
+            0
+          ],
+          [
+            "What does the sauce contain?",
+            [
+              "Only water",
+              "Yoghurt",
+              "No ingredients"
+            ],
+            1
+          ],
+          [
+            "What limitation does the server explain?",
+            [
+              "The café is closing",
+              "There are no drinks",
+              "Foods share a preparation area"
+            ],
+            2
+          ],
+          [
+            "What does Sam ask for separately?",
+            [
+              "The dressing",
+              "The table",
+              "The bill from last week"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Sam",
+          "Does the vegetable sandwich contain any dairy products?",
+          "Овощной сэндвич содержит молочные продукты?"
+        ],
+        [
+          "Server",
+          "I'm not sure about the house sauce. I'll check with the kitchen.",
+          "Я не уверен насчёт фирменного соуса. Уточню на кухне."
+        ],
+        [
+          "Sam",
+          "Thanks. Could I also have some oat milk in my coffee?",
+          "Спасибо. Можно также немного овсяного молока в кофе?"
+        ],
+        [
+          "Server",
+          "Yes. The kitchen says the sauce contains yoghurt.",
+          "Да. На кухне сказали, что соус содержит йогурт."
+        ],
+        [
+          "Sam",
+          "Can I order a sandwich with no sauce?",
+          "Могу заказать сэндвич без соуса?"
+        ],
+        [
+          "Server",
+          "Yes, but we prepare other foods in the same area.",
+          "Да, но мы готовим другие продукты в той же зоне."
+        ],
+        [
+          "Sam",
+          "Thank you for explaining. I'll choose the plain dish and have the dressing separately.",
+          "Спасибо за объяснение. Выберу блюдо без добавок и попрошу заправку отдельно."
+        ],
+        [
+          "Server",
+          "Certainly. I'll confirm the order with the kitchen.",
+          "Конечно. Подтвержу заказ на кухне."
+        ]
+      ],
+      "listening": [
+        "What milk alternative does Sam request?",
+        [
+          "Rice milk",
+          "Oat milk",
+          "No drink"
+        ],
+        1
+      ],
+      "speaking": [
+        "Ask three neutral questions about ingredients in a menu item.",
+        "Make two polite requests with some.",
+        "Explain why a dish name alone does not confirm its ingredients.",
+        "Practice choosing another dish if the answer is uncertain.",
+        "Role-play checking an order with a server."
+      ],
+      "writing": [
+        "Write a short restaurant message asking about sauce ingredients.",
+        "Write six sentences contrasting some, any and no.",
+        "Write a clear order with a preferred ingredient change."
+      ],
+      "model": "Does this dish contain any dairy products? Could you check the ingredients with the kitchen? I'd like some oat milk and the dressing separately.",
+      "competency": {
+        "prerequisites": "Countable and uncountable nouns, polite requests",
+        "canDo": "Уточнить состав блюда, количество и возможные замены.",
+        "successCriteria": "Use some/any/no and communicate ingredient uncertainty without claiming safety.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "We haven't got ___ bread left.",
+        [
+          "any",
+          "some of",
+          "many"
+        ],
+        0,
+        "Any in a negative sentence."
+      ],
+      [
+        "type",
+        "Complete: Could I have ___ tea, please? Use some.",
+        [
+          "some"
+        ],
+        "Some in a request."
+      ],
+      [
+        "choice",
+        "The server is unsure about an ingredient. What is the best question?",
+        [
+          "Could you check with the kitchen?",
+          "Can you guess?",
+          "Please say it is safe without checking."
+        ],
+        0,
+        "Ask for confirmation, not speculation."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-051",
+      "day": 51,
+      "level": "A2",
+      "title": "An umbrella from the street market",
+      "ru": "Покупка зонта на уличном рынке",
+      "goal": "Выбрать предмет по характеристикам и уточнить условия обмена.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "This / that / these / those",
+        "rule": "This/that — единственное число, these/those — множественное. This/these обычно обозначают близкие предметы, that/those — более далёкие.",
+        "pattern": "this umbrella / those handles",
+        "example": "Are those umbrellas stronger than this one?",
+        "pitfall": "Не говори these umbrella.",
+        "exercises": [
+          [
+            "choice",
+            "___ umbrella here has a wooden handle.",
+            [
+              "This",
+              "These",
+              "Those"
+            ],
+            0,
+            "Singular and near."
+          ],
+          [
+            "type",
+            "Complete: ___ umbrellas over there are larger. Use those.",
+            [
+              "those"
+            ],
+            "Plural and distant."
+          ],
+          [
+            "order",
+            "Спроси: сколько стоит этот зонт?",
+            [
+              "umbrella",
+              "this",
+              "is",
+              "much",
+              "How"
+            ],
+            "How much is this umbrella",
+            "This + singular noun."
+          ],
+          [
+            "choice",
+            "I prefer ___ small umbrellas beside me.",
+            [
+              "this",
+              "these",
+              "that"
+            ],
+            1,
+            "These + plural noun."
+          ],
+          [
+            "type",
+            "Complete: Is ___ umbrella on the far shelf waterproof? Use that.",
+            [
+              "that"
+            ],
+            "That for distant singular."
+          ],
+          [
+            "order",
+            "Скажи: те ручки прочнее.",
+            [
+              "stronger",
+              "are",
+              "handles",
+              "Those"
+            ],
+            "Those handles are stronger",
+            "Those + plural."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a folding umbrella",
+          "складной зонт"
+        ],
+        [
+          "a wind-resistant frame",
+          "ветроустойчивый каркас"
+        ],
+        [
+          "a curved wooden handle",
+          "изогнутая деревянная ручка"
+        ],
+        [
+          "a waterproof fabric sample",
+          "образец водонепроницаемой ткани"
+        ],
+        [
+          "an umbrella sleeve",
+          "чехол для зонта"
+        ],
+        [
+          "a push-button opening",
+          "кнопочный механизм раскрытия"
+        ],
+        [
+          "a compact folded length",
+          "длина в сложенном виде"
+        ],
+        [
+          "a market exchange condition",
+          "условие обмена на рынке"
+        ],
+        [
+          "a checked opening mechanism",
+          "проверенный механизм раскрытия"
+        ],
+        [
+          "a fabric seam",
+          "шов ткани"
+        ]
+      ],
+      "phrases": [
+        [
+          "This umbrella folds into a small sleeve.",
+          "Этот зонт складывается в небольшой чехол."
+        ],
+        [
+          "Those umbrellas have curved wooden handles.",
+          "У тех зонтов изогнутые деревянные ручки."
+        ],
+        [
+          "Can I try the opening mechanism before buying it?",
+          "Могу проверить механизм раскрытия перед покупкой?"
+        ],
+        [
+          "Is this fabric waterproof in heavy rain?",
+          "Эта ткань водонепроницаема при сильном дожде?"
+        ],
+        [
+          "That model is too long for my bag.",
+          "Та модель слишком длинная для моей сумки."
+        ],
+        [
+          "These smaller models are easier to carry.",
+          "Эти маленькие модели легче носить."
+        ],
+        [
+          "Could you show me the price of that blue one?",
+          "Покажите цену того синего зонта."
+        ],
+        [
+          "Do you offer an exchange if the mechanism is faulty?",
+          "Вы предлагаете обмен, если механизм неисправен?"
+        ],
+        [
+          "I'll keep the receipt in the umbrella sleeve.",
+          "Я сохраню чек в чехле для зонта."
+        ],
+        [
+          "I prefer this folding model to the larger one.",
+          "Я предпочитаю эту складную модель более крупной."
+        ]
+      ],
+      "reading": {
+        "title": "An umbrella from the street market",
+        "paragraphs": [
+          "It begins to rain while Daria is walking through an outdoor market. She stops at a stall that sells umbrellas. A large umbrella with a wooden handle looks attractive, but she needs something small enough to fit in her work bag. The seller shows her two folding models. One has a manual opening mechanism, while the other opens with a button. Daria compares the length of both when they are folded.",
+          "She asks to test the mechanism in an open space beside the stall. The seller shows how the sleeve fits over the smaller umbrella. Daria also asks what happens if she discovers a fault later. The seller explains the conditions for returning a faulty item and gives her a receipt after she chooses the compact blue model. Daria puts it in her bag and continues walking."
+        ],
+        "questions": [
+          [
+            "Why does Daria want a smaller umbrella?",
+            [
+              "To fit her work bag",
+              "To lend it to the seller",
+              "To use it indoors only"
+            ],
+            0
+          ],
+          [
+            "What do the two folding models differ in?",
+            [
+              "Their country of sale",
+              "Their opening mechanisms",
+              "Their payment methods"
+            ],
+            1
+          ],
+          [
+            "Where does she test the mechanism?",
+            [
+              "In a car",
+              "Under a table",
+              "Beside the stall in open space"
+            ],
+            2
+          ],
+          [
+            "Which model does she buy?",
+            [
+              "The compact blue model",
+              "The largest wooden model",
+              "Two black umbrellas"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Daria",
+          "How much is this folding umbrella?",
+          "Сколько стоит этот складной зонт?"
+        ],
+        [
+          "Seller",
+          "This one costs twelve. Those larger ones cost fifteen.",
+          "Этот стоит двенадцать. Те большие стоят пятнадцать."
+        ],
+        [
+          "Daria",
+          "Can I see how long it is when folded?",
+          "Можно посмотреть, какой он длины в сложенном виде?"
+        ],
+        [
+          "Seller",
+          "Of course. This sleeve fits it, and it opens with a button.",
+          "Конечно. Этот чехол ему подходит, и он раскрывается кнопкой."
+        ],
+        [
+          "Daria",
+          "May I try the button over there, away from other customers?",
+          "Можно проверить кнопку там, подальше от других покупателей?"
+        ],
+        [
+          "Seller",
+          "Yes. Please open it in that clear space beside the stall.",
+          "Да. Раскройте его на том свободном месте у прилавка."
+        ],
+        [
+          "Daria",
+          "It fits my bag. What are your exchange conditions if it is faulty?",
+          "Он помещается в мою сумку. Какие условия обмена, если он неисправен?"
+        ],
+        [
+          "Seller",
+          "Keep the receipt. It lists the conditions and our contact details.",
+          "Сохраните чек. В нём указаны условия и наши контакты."
+        ]
+      ],
+      "listening": [
+        "Where does the seller ask Daria to open the umbrella?",
+        [
+          "Inside a crowded queue",
+          "In the clear space beside the stall",
+          "Inside her bag"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe four nearby and distant items using demonstratives.",
+        "Compare two umbrellas by length and opening mechanism.",
+        "Ask a seller to let you inspect an item before purchase.",
+        "Explain your choice of a compact product.",
+        "Role-play asking for exchange conditions and a receipt."
+      ],
+      "writing": [
+        "Write a short description of two products you compared.",
+        "Write four demonstrative sentences using this, that, these and those.",
+        "Write a message to a seller about a faulty opening button."
+      ],
+      "model": "This umbrella fits my bag. Those larger ones are too long. Can I test the opening mechanism and see the exchange conditions?",
+      "competency": {
+        "prerequisites": "Singular/plural nouns, basic adjectives",
+        "canDo": "Выбрать предмет по характеристикам и уточнить условия обмена.",
+        "successCriteria": "Use four demonstratives correctly and ask for product information.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "___ chairs over there belong to the café.",
+        [
+          "This",
+          "Those",
+          "That"
+        ],
+        1,
+        "Those + plural and distant."
+      ],
+      [
+        "type",
+        "Complete: ___ bag here is mine. Use this.",
+        [
+          "this"
+        ],
+        "This + singular and near."
+      ],
+      [
+        "choice",
+        "You want to check a large object in a crowded market. What can you ask?",
+        [
+          "May I test it in a clear space?",
+          "Can I open it against another customer?",
+          "Can I leave without paying?"
+        ],
+        0,
+        "Request a suitable inspection area."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-052",
+      "day": 52,
+      "level": "A2",
+      "title": "A train seat reserved by another passenger",
+      "ru": "Чужое забронированное место в поезде",
+      "goal": "Уточнить бронь места и вежливо устранить недоразумение.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Possessive adjectives and pronouns",
+        "rule": "My/your/her/our/their стоят перед существительным. Mine/yours/hers/ours/theirs заменяют именную группу.",
+        "pattern": "my ticket / mine / your seat / yours",
+        "example": "Is this ticket yours or mine?",
+        "pitfall": "Не говори this is my без существительного: this is mine.",
+        "exercises": [
+          [
+            "choice",
+            "This ticket is ___, not yours.",
+            [
+              "my",
+              "mine",
+              "me"
+            ],
+            1,
+            "Mine replaces my ticket."
+          ],
+          [
+            "type",
+            "Complete: These seats are ___ (belong to us).",
+            [
+              "ours"
+            ],
+            "Ours replaces our seats."
+          ],
+          [
+            "order",
+            "Скажи: это не мой билет.",
+            [
+              "ticket",
+              "my",
+              "not",
+              "is",
+              "This"
+            ],
+            "This is not my ticket",
+            "My + noun."
+          ],
+          [
+            "choice",
+            "Is that ___ seat number?",
+            [
+              "yours",
+              "your",
+              "you"
+            ],
+            1,
+            "Your + noun."
+          ],
+          [
+            "type",
+            "Complete: The bag belongs to her. It is ___.",
+            [
+              "hers"
+            ],
+            "Hers stands alone."
+          ],
+          [
+            "order",
+            "Спроси: это место ваше?",
+            [
+              "yours",
+              "seat",
+              "this",
+              "Is"
+            ],
+            "Is this seat yours",
+            "Yours stands alone."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a reserved seat label",
+          "указатель забронированного места"
+        ],
+        [
+          "a carriage number",
+          "номер вагона"
+        ],
+        [
+          "a window seat reservation",
+          "бронь места у окна"
+        ],
+        [
+          "an aisle seat assignment",
+          "назначенное место у прохода"
+        ],
+        [
+          "a seat reservation slip",
+          "квитанция бронирования места"
+        ],
+        [
+          "an unreserved seat",
+          "место без брони"
+        ],
+        [
+          "a train conductor",
+          "проводник поезда"
+        ],
+        [
+          "a carriage layout",
+          "схема вагона"
+        ],
+        [
+          "a seat number mismatch",
+          "несовпадение номера места"
+        ],
+        [
+          "a valid reservation",
+          "действительная бронь"
+        ]
+      ],
+      "phrases": [
+        [
+          "I think this seat reservation is mine.",
+          "Думаю, эта бронь места моя."
+        ],
+        [
+          "Could we compare our carriage numbers?",
+          "Можем сверить номера вагонов?"
+        ],
+        [
+          "Your ticket shows the same seat in a different carriage.",
+          "В вашем билете указано то же место в другом вагоне."
+        ],
+        [
+          "Is this seat reserved for the next part of the journey?",
+          "Это место забронировано на следующий участок поездки?"
+        ],
+        [
+          "My reservation is for a window seat.",
+          "Моя бронь на место у окна."
+        ],
+        [
+          "I can check the carriage layout on the ticket.",
+          "Я могу проверить схему вагона по билету."
+        ],
+        [
+          "Could you ask the conductor to confirm the reservation?",
+          "Можете попросить проводника подтвердить бронь?"
+        ],
+        [
+          "This bag is theirs, not ours.",
+          "Эта сумка их, а не наша."
+        ],
+        [
+          "I'll move to the correct carriage.",
+          "Я перейду в нужный вагон."
+        ],
+        [
+          "Sorry for the confusion with the seat number.",
+          "Извините за путаницу с номером места."
+        ]
+      ],
+      "reading": {
+        "title": "A train seat reserved by another passenger",
+        "paragraphs": [
+          "Pavel boards a train with a reservation for seat eighteen. He puts his small bag above the seat and opens a book. A passenger arrives and politely says that her ticket also shows seat eighteen. Pavel checks the number printed beside the window. It matches both tickets, so the passengers compare the carriage numbers instead of arguing about the seat.",
+          "Pavel discovers that his ticket is for carriage five, but he is sitting in carriage four. The other passenger is in the correct carriage. He apologises and asks whether the next carriage can be reached through the train. A conductor confirms that he can walk through the connecting doors. Pavel takes his bag, finds carriage five and checks both the carriage and seat numbers before sitting down. He learns to check the entire reservation, not just one number."
+        ],
+        "questions": [
+          [
+            "Which seat number appears on both tickets?",
+            [
+              "Eighteen",
+              "Five",
+              "Four"
+            ],
+            0
+          ],
+          [
+            "What is different on the tickets?",
+            [
+              "The destination",
+              "The carriage number",
+              "The passenger's age"
+            ],
+            1
+          ],
+          [
+            "Where is Pavel's correct carriage?",
+            [
+              "Carriage two",
+              "Carriage four",
+              "Carriage five"
+            ],
+            2
+          ],
+          [
+            "Who confirms that he can walk through the train?",
+            [
+              "A conductor",
+              "A café worker",
+              "A bus driver"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Passenger",
+          "Excuse me. I think this window seat is mine. My ticket says eighteen.",
+          "Извините. Думаю, это место у окна моё. В моём билете восемнадцать."
+        ],
+        [
+          "Pavel",
+          "Mine says eighteen too. Could we compare the carriage numbers?",
+          "В моём тоже восемнадцать. Можем сверить номера вагонов?"
+        ],
+        [
+          "Passenger",
+          "My reservation is for carriage four.",
+          "Моя бронь на четвёртый вагон."
+        ],
+        [
+          "Pavel",
+          "Oh, yours is for four, but mine is for five. I'm in the wrong carriage.",
+          "О, ваша на четвёртый, а моя на пятый. Я не в том вагоне."
+        ],
+        [
+          "Passenger",
+          "That explains it. I think carriage five is next to this one.",
+          "Теперь понятно. Думаю, пятый вагон рядом с этим."
+        ],
+        [
+          "Pavel",
+          "I'll ask the conductor whether I can walk through the train.",
+          "Спрошу проводника, могу ли пройти внутри поезда."
+        ],
+        [
+          "Passenger",
+          "No problem. Your bag is still on the shelf above you.",
+          "Без проблем. Ваша сумка ещё на полке над вами."
+        ],
+        [
+          "Pavel",
+          "Thank you. Sorry for the confusion.",
+          "Спасибо. Извините за путаницу."
+        ]
+      ],
+      "listening": [
+        "Which carriage does the passenger's reservation show?",
+        [
+          "Four",
+          "Five",
+          "Six"
+        ],
+        0
+      ],
+      "speaking": [
+        "Use my, mine, your and yours to compare two reservations.",
+        "Explain how a seat number can appear on two valid tickets.",
+        "Ask whether a seat is reserved for another part of a journey.",
+        "Describe a polite way to resolve a reservation disagreement.",
+        "Role-play apologising and moving to the correct carriage."
+      ],
+      "writing": [
+        "Write a message explaining why you were in the wrong train carriage.",
+        "Write six sentences contrasting possessive adjectives and pronouns.",
+        "Write a short polite dialogue comparing two reservations."
+      ],
+      "model": "My ticket says seat eighteen in carriage five. Yours says carriage four. I'm sorry; this seat is yours. I'll move to the correct carriage.",
+      "competency": {
+        "prerequisites": "Possessives, numbers and travel requests",
+        "canDo": "Уточнить бронь места и вежливо устранить недоразумение.",
+        "successCriteria": "Distinguish possessive adjectives/pronouns and resolve an evidence-based seat mismatch.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "This coat belongs to them. It is ___.",
+        [
+          "their",
+          "theirs",
+          "them"
+        ],
+        1,
+        "Theirs replaces their coat."
+      ],
+      [
+        "type",
+        "Complete: Is this ___ (belonging to you) ticket?",
+        [
+          "your"
+        ],
+        "Your before a noun."
+      ],
+      [
+        "choice",
+        "Two tickets show the same seat number. What else can you compare?",
+        [
+          "Carriage, journey and reservation details",
+          "Only the colour of the tickets",
+          "Who speaks more loudly"
+        ],
+        0,
+        "Check the full reservation."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-053",
+      "day": 53,
+      "level": "A2",
+      "title": "A small furniture delivery with a narrow doorway",
+      "ru": "Доставка мебели через узкий дверной проём",
+      "goal": "Сравнить габариты, уточнить ограничения и согласовать доставку.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "There is / there are and quantities",
+        "rule": "There is + singular or uncountable noun; there are + plural noun. В вопросе is/are перед there.",
+        "pattern": "There is a narrow door. / There are two steps.",
+        "example": "Is there enough space in the hallway?",
+        "pitfall": "Не говори there is two doors.",
+        "exercises": [
+          [
+            "choice",
+            "There ___ two steps at the entrance.",
+            [
+              "is",
+              "are",
+              "be"
+            ],
+            1,
+            "Two steps: plural."
+          ],
+          [
+            "type",
+            "Complete: There ___ (be, present) a lift in the building.",
+            [
+              "is"
+            ],
+            "A lift: singular."
+          ],
+          [
+            "order",
+            "Спроси: есть ли свободное место в коридоре?",
+            [
+              "hallway",
+              "the",
+              "in",
+              "space",
+              "enough",
+              "there",
+              "Is"
+            ],
+            "Is there enough space in the hallway",
+            "Is there + uncountable space."
+          ],
+          [
+            "choice",
+            "___ there any narrow corners on the route?",
+            [
+              "Is",
+              "Are",
+              "Do"
+            ],
+            1,
+            "Corners: plural."
+          ],
+          [
+            "type",
+            "Complete: There ___ no extra space beside the door.",
+            [
+              "is"
+            ],
+            "Space: uncountable."
+          ],
+          [
+            "order",
+            "Скажи: на входе две двери.",
+            [
+              "entrance",
+              "the",
+              "at",
+              "doors",
+              "two",
+              "are",
+              "There"
+            ],
+            "There are two doors at the entrance",
+            "There are + plural."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a doorway measurement",
+          "размер дверного проёма"
+        ],
+        [
+          "a delivery access route",
+          "путь доступа для доставки"
+        ],
+        [
+          "a flat-packed cabinet",
+          "шкаф в разобранном виде"
+        ],
+        [
+          "a removable cabinet leg",
+          "съёмная ножка шкафа"
+        ],
+        [
+          "a narrow hallway corner",
+          "узкий угол коридора"
+        ],
+        [
+          "a delivery access note",
+          "примечание о доступе при доставке"
+        ],
+        [
+          "a package dimension",
+          "габарит упаковки"
+        ],
+        [
+          "a delivery time slot",
+          "интервал доставки"
+        ],
+        [
+          "an entrance clearance",
+          "свободная ширина прохода"
+        ],
+        [
+          "a furniture assembly option",
+          "вариант сборки мебели"
+        ]
+      ],
+      "phrases": [
+        [
+          "There is a narrow doorway at the entrance.",
+          "На входе узкий дверной проём."
+        ],
+        [
+          "There are two corners between the lift and my flat.",
+          "Между лифтом и моей квартирой два поворота."
+        ],
+        [
+          "Could you tell me the dimensions of the package?",
+          "Сообщите габариты упаковки."
+        ],
+        [
+          "Is there enough clearance for the boxed cabinet?",
+          "Достаточно ли свободного прохода для шкафа в упаковке?"
+        ],
+        [
+          "The cabinet is delivered in separate flat-packed boxes.",
+          "Шкаф доставляется в отдельных коробках в разобранном виде."
+        ],
+        [
+          "Please add a note about the narrow hallway.",
+          "Добавьте примечание об узком коридоре."
+        ],
+        [
+          "Do you offer a furniture assembly option?",
+          "Вы предлагаете услугу сборки мебели?"
+        ],
+        [
+          "There isn't a large lift in this building.",
+          "В этом здании нет большого лифта."
+        ],
+        [
+          "I'll measure the doorway before confirming delivery.",
+          "Измерю дверной проём до подтверждения доставки."
+        ],
+        [
+          "Could we agree on a delivery time slot?",
+          "Можем согласовать интервал доставки?"
+        ]
+      ],
+      "reading": {
+        "title": "A small furniture delivery with a narrow doorway",
+        "paragraphs": [
+          "Nikolai wants a small cabinet for his flat. At the furniture shop, he finds a model that fits the room, but he remembers that the hallway outside his front door is narrow. The display cabinet is fully assembled, so he asks whether the delivered item arrives in the same form. The assistant explains that it comes in two flat-packed boxes and shows the dimensions of each package.",
+          "Nikolai takes the measurements home and compares them with the doorway and lift. There is enough room for both boxes, but there are two tight corners on the way to his flat. He calls the shop and adds an access note to the order. The assistant explains the delivery time slot and asks whether assembly is required. Nikolai chooses delivery only, keeps the written package dimensions and confirms the date after checking the route."
+        ],
+        "questions": [
+          [
+            "Why does Nikolai check the package size?",
+            [
+              "The hallway is narrow",
+              "He wants a larger room",
+              "The shop has no display"
+            ],
+            0
+          ],
+          [
+            "How is the cabinet delivered?",
+            [
+              "As a single assembled cabinet",
+              "In two flat-packed boxes",
+              "In ten bags"
+            ],
+            1
+          ],
+          [
+            "What is difficult on the access route?",
+            [
+              "A closed shop",
+              "A broken receipt",
+              "Two tight corners"
+            ],
+            2
+          ],
+          [
+            "Which service does Nikolai choose?",
+            [
+              "Delivery only",
+              "Assembly only",
+              "No delivery"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Nikolai",
+          "This cabinet fits my room, but there is a narrow doorway at home. How is it delivered?",
+          "Этот шкаф подходит моей комнате, но дома узкий проём. Как его доставляют?"
+        ],
+        [
+          "Assistant",
+          "It comes in two flat-packed boxes. Here are the package dimensions.",
+          "Он поставляется в двух коробках в разобранном виде. Вот габариты упаковок."
+        ],
+        [
+          "Nikolai",
+          "There are also two corners in my hallway. I'll measure the access route first.",
+          "В коридоре ещё два поворота. Сначала измерю путь доставки."
+        ],
+        [
+          "Assistant",
+          "That's useful. We can add an access note to your delivery order.",
+          "Это полезно. Можем добавить примечание о доступе к заказу."
+        ],
+        [
+          "Nikolai",
+          "Is there an assembly service if I need it?",
+          "Есть услуга сборки, если понадобится?"
+        ],
+        [
+          "Assistant",
+          "Yes, it is a separate option. The price is listed here.",
+          "Да, это отдельная опция. Цена указана здесь."
+        ],
+        [
+          "Nikolai",
+          "I'll choose delivery only once I've checked the dimensions.",
+          "Выберу только доставку, когда проверю размеры."
+        ],
+        [
+          "Assistant",
+          "Certainly. Then we can agree on a delivery time slot.",
+          "Конечно. Тогда согласуем интервал доставки."
+        ]
+      ],
+      "listening": [
+        "How many flat-packed boxes does the cabinet come in?",
+        [
+          "One",
+          "Two",
+          "Four"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe an imaginary flat entrance with there is and there are.",
+        "Ask about package dimensions before arranging delivery.",
+        "Explain why room size is different from access route size.",
+        "Practice adding a delivery note about narrow corners.",
+        "Compare delivery-only and assembly service."
+      ],
+      "writing": [
+        "Write an access note for a fictional furniture delivery.",
+        "Write six sentences about an entrance using there is and there are.",
+        "Write a message confirming dimensions and a delivery time slot."
+      ],
+      "model": "There is a narrow doorway and there are two corners in my hallway. Could you send the package dimensions? I'll check the route before confirming.",
+      "competency": {
+        "prerequisites": "Numbers, measurements, place vocabulary",
+        "canDo": "Сравнить габариты, уточнить ограничения и согласовать доставку.",
+        "successCriteria": "Describe access with correct agreement and request dimensions and delivery details.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "There ___ three boxes beside the lift.",
+        [
+          "is",
+          "are",
+          "has"
+        ],
+        1,
+        "Three boxes: plural."
+      ],
+      [
+        "type",
+        "Complete: ___ there a door at the back? Use is.",
+        [
+          "is"
+        ],
+        "Is there + singular."
+      ],
+      [
+        "choice",
+        "The cabinet fits the room. What should you check before delivery?",
+        [
+          "Package dimensions and access route",
+          "Only its colour",
+          "Only the shop opening time"
+        ],
+        0,
+        "Check access as well as final placement."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-054",
+      "day": 54,
+      "level": "A2",
+      "title": "A visitor pass at a sports centre",
+      "ru": "Гостевой пропуск в спортивном центре",
+      "goal": "Уточнить правила разового посещения и необходимые вещи.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Must / mustn't / don't have to",
+        "rule": "Must — необходимость, mustn't — запрет, don't have to — отсутствие необходимости. После must употребляется начальная форма без to.",
+        "pattern": "must bring / mustn't enter / don't have to pay",
+        "example": "You must show your pass, but you don't have to bring a lock.",
+        "pitfall": "Не путай mustn't и don't have to.",
+        "exercises": [
+          [
+            "choice",
+            "You ___ show your visitor pass at reception. It is required.",
+            [
+              "must",
+              "must to",
+              "mustn't"
+            ],
+            0,
+            "Must + base form."
+          ],
+          [
+            "type",
+            "Complete: You ___ (must, negative) enter the staff-only room.",
+            [
+              "mustn't",
+              "must not"
+            ],
+            "Mustn't expresses prohibition."
+          ],
+          [
+            "order",
+            "Скажи: тебе не нужно покупать замок.",
+            [
+              "lock",
+              "a",
+              "buy",
+              "to",
+              "have",
+              "not",
+              "do",
+              "You"
+            ],
+            "You do not have to buy a lock",
+            "No necessity."
+          ],
+          [
+            "choice",
+            "You ___ bring a towel if the centre provides one.",
+            [
+              "mustn't",
+              "don't have to",
+              "has to"
+            ],
+            1,
+            "No requirement."
+          ],
+          [
+            "type",
+            "Complete: Visitors ___ (must) follow the posted rules.",
+            [
+              "must"
+            ],
+            "Must does not change by person."
+          ],
+          [
+            "order",
+            "Скажи: посетители должны предъявить пропуск.",
+            [
+              "pass",
+              "their",
+              "show",
+              "must",
+              "Visitors"
+            ],
+            "Visitors must show their pass",
+            "Must + base form."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a day visitor pass",
+          "гостевой пропуск на день"
+        ],
+        [
+          "a changing-room locker",
+          "шкафчик в раздевалке"
+        ],
+        [
+          "a locker wristband",
+          "браслет от шкафчика"
+        ],
+        [
+          "a visitor registration form",
+          "анкета посетителя"
+        ],
+        [
+          "a sports centre induction",
+          "вводное ознакомление в спортцентре"
+        ],
+        [
+          "a designated training area",
+          "выделенная зона тренировок"
+        ],
+        [
+          "a staff-only entrance",
+          "вход только для персонала"
+        ],
+        [
+          "a towel hire charge",
+          "плата за аренду полотенца"
+        ],
+        [
+          "a clean indoor shoe",
+          "чистая обувь для помещения"
+        ],
+        [
+          "a visitor facility rule",
+          "правило пользования для посетителей"
+        ]
+      ],
+      "phrases": [
+        [
+          "Do I have to register before using the sports centre?",
+          "Мне нужно зарегистрироваться до посещения спортцентра?"
+        ],
+        [
+          "You must show the visitor pass at reception.",
+          "Нужно предъявить гостевой пропуск на стойке."
+        ],
+        [
+          "You don't have to bring your own locker lock.",
+          "Не обязательно приносить свой замок для шкафчика."
+        ],
+        [
+          "Visitors mustn't use the staff-only entrance.",
+          "Посетителям нельзя пользоваться входом для персонала."
+        ],
+        [
+          "Is towel hire included in the day pass?",
+          "Аренда полотенца входит в дневной пропуск?"
+        ],
+        [
+          "Where can I collect the locker wristband?",
+          "Где получить браслет от шкафчика?"
+        ],
+        [
+          "Could you explain the rules for the training area?",
+          "Объясните правила тренировочной зоны."
+        ],
+        [
+          "I brought clean shoes for indoor use.",
+          "Я принёс чистую обувь для помещения."
+        ],
+        [
+          "The induction is required for first-time visitors.",
+          "Вводное ознакомление обязательно для новых посетителей."
+        ],
+        [
+          "I'll return the wristband before leaving.",
+          "Я верну браслет перед уходом."
+        ]
+      ],
+      "reading": {
+        "title": "A visitor pass at a sports centre",
+        "paragraphs": [
+          "Artem visits a sports centre while staying with a friend. He has never used the centre before, so he asks about a day visitor pass. The receptionist explains that first-time visitors complete a registration form and receive a short introduction to the facilities. Artem wants to use the general training area. He asks whether he needs a locker lock or a towel from home.",
+          "The receptionist shows him a wristband that opens a changing-room locker. He does not have to buy a separate lock. Towels are available for a small hire charge, but Artem has brought his own. He also learns that visitors must follow the signs and must not enter the staff-only area. After the introduction, he uses the facilities according to the centre's rules. Before leaving, he returns the wristband and checks the opening hours for another visit."
+        ],
+        "questions": [
+          [
+            "What kind of pass does Artem request?",
+            [
+              "A staff pass",
+              "A day visitor pass",
+              "An annual parking permit"
+            ],
+            1
+          ],
+          [
+            "What does the wristband open?",
+            [
+              "The main street gate",
+              "The café fridge",
+              "A changing-room locker"
+            ],
+            2
+          ],
+          [
+            "Why does Artem not hire a towel?",
+            [
+              "He brought his own",
+              "Towels are banned",
+              "He cannot find reception"
+            ],
+            0
+          ],
+          [
+            "What does he return before leaving?",
+            [
+              "His shoes",
+              "The wristband",
+              "His telephone"
+            ],
+            1
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Artem",
+          "Hello. Can I buy a visitor pass for today?",
+          "Здравствуйте. Могу купить гостевой пропуск на сегодня?"
+        ],
+        [
+          "Receptionist",
+          "Yes. First-time visitors must fill in this form and have a short introduction.",
+          "Да. Новые посетители должны заполнить анкету и пройти короткое ознакомление."
+        ],
+        [
+          "Artem",
+          "Do I have to bring a lock for the changing room?",
+          "Нужно приносить замок для раздевалки?"
+        ],
+        [
+          "Receptionist",
+          "No. You don't have to buy one. This wristband opens a locker.",
+          "Нет. Покупать не обязательно. Этот браслет открывает шкафчик."
+        ],
+        [
+          "Artem",
+          "Is there a charge for hiring a towel?",
+          "Есть плата за аренду полотенца?"
+        ],
+        [
+          "Receptionist",
+          "Yes, but you can use your own towel. Please follow the posted facility rules.",
+          "Да, но можете пользоваться своим полотенцем. Соблюдайте размещённые правила."
+        ],
+        [
+          "Artem",
+          "Are there areas that visitors mustn't enter?",
+          "Есть зоны, куда посетителям нельзя входить?"
+        ],
+        [
+          "Receptionist",
+          "Yes, staff-only rooms are marked. Return the wristband when you leave.",
+          "Да, помещения персонала обозначены. Верните браслет при уходе."
+        ]
+      ],
+      "listening": [
+        "What is required for a first-time visitor?",
+        [
+          "A registration form and introduction",
+          "A personal padlock purchase",
+          "A monthly contract"
+        ],
+        0
+      ],
+      "speaking": [
+        "Ask about a visitor pass and three facility rules.",
+        "Distinguish a requirement from a prohibition.",
+        "Explain two things you do not have to bring.",
+        "Describe a fictional centre's visitor instructions in plain language.",
+        "Role-play returning a locker wristband and checking hours."
+      ],
+      "writing": [
+        "Write a short message asking about day-pass requirements.",
+        "Write two must, two mustn't and two don't have to sentences.",
+        "Write a checklist for your first fictional sports centre visit."
+      ],
+      "model": "Do I have to bring a lock? I have my own towel. I understand that visitors must follow the rules and mustn't enter staff-only areas.",
+      "competency": {
+        "prerequisites": "Can requests, simple facility words",
+        "canDo": "Уточнить правила разового посещения и необходимые вещи.",
+        "successCriteria": "Express necessity, prohibition and optional actions distinctly; ask visitor rules.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "You ___ park here. The sign prohibits it.",
+        [
+          "mustn't",
+          "don't have to",
+          "must to"
+        ],
+        0,
+        "Mustn't = prohibition."
+      ],
+      [
+        "type",
+        "Complete: We ___ (negative, have to) buy tickets if entry is free.",
+        [
+          "don't have to",
+          "do not have to"
+        ],
+        "No necessity."
+      ],
+      [
+        "choice",
+        "A centre offers optional towel hire. What does optional mean?",
+        [
+          "You do not have to hire a towel.",
+          "You must hire a towel.",
+          "Towels are forbidden."
+        ],
+        0,
+        "Optional is not required."
+      ]
+    ]
+  }
+]

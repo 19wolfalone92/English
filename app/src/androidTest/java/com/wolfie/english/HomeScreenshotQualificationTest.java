@@ -1,7 +1,6 @@
 package com.wolfie.english;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.ParcelFileDescriptor;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -23,8 +22,8 @@ public class HomeScreenshotQualificationTest {
   try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)){
    DeviceQualificationTest.waitTrue(scenario,"document.readyState==='complete' && document.querySelector('#home-course-progress') && document.querySelector('#home-course-progress').textContent.trim()==='0/300' && document.querySelectorAll('[data-course]').length>0 && document.querySelector('.hero h1').textContent.includes('Первый вечер в разговорном клубе') && !document.body.innerText.includes('Подбираем твою следующую тренировку')");
    String dom=DeviceQualificationTest.js(scenario,"document.body.innerText");
-   Context testContext=InstrumentationRegistry.getInstrumentation().getContext();
-   File dir=testContext.getExternalFilesDir(null);
+   Context targetContext=InstrumentationRegistry.getInstrumentation().getTargetContext();
+   File dir=targetContext.getFilesDir();
    assertNotNull(dir);assertTrue(dir.exists()||dir.mkdirs());
    try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-dom-ready.txt"))){out.write(dom.getBytes(StandardCharsets.UTF_8));out.flush();}
    InstrumentationRegistry.getInstrumentation().waitForIdleSync();
@@ -33,13 +32,8 @@ public class HomeScreenshotQualificationTest {
    assertNotNull("Native screenshot must exist",image);
    try(FileOutputStream out=new FileOutputStream(new File(dir,"wolfie-native.png"))){assertTrue(image.compress(Bitmap.CompressFormat.PNG,100,out));out.flush();}
    image.recycle();
-   String nativeDir=dir.getAbsolutePath();
-   String copyCommand="cp "+nativeDir+"/wolfie-native.png /sdcard/wolfie-native.png && cp "+nativeDir+"/wolfie-dom-ready.txt /sdcard/wolfie-dom-ready.txt";
-   try(ParcelFileDescriptor pfd=InstrumentationRegistry.getInstrumentation().getUiAutomation().executeShellCommand(copyCommand+" && echo WOLFIE_COPY_OK"); java.io.InputStream in=new ParcelFileDescriptor.AutoCloseInputStream(pfd)){
-    java.io.ByteArrayOutputStream result=new java.io.ByteArrayOutputStream();
-    byte[] buffer=new byte[4096]; int n; while((n=in.read(buffer))!=-1)result.write(buffer,0,n);
-    assertTrue("Screenshot export failed",result.toString("UTF-8").contains("WOLFIE_COPY_OK"));
-   }
+   assertTrue("Native PNG missing",new File(dir,"wolfie-native.png").length()>30000);
+   assertTrue("DOM evidence missing",new File(dir,"wolfie-dom-ready.txt").length()>0);
   }
  }
 }

@@ -1,0 +1,1945 @@
+[
+  {
+    "pack": {
+      "id": "mission-v2-043",
+      "day": 43,
+      "level": "A2",
+      "title": "The library card with an old address",
+      "ru": "Абонемент в библиотеке со старым адресом",
+      "goal": "Оформить читательский билет и сообщить об изменении адреса.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Past Simple and present states",
+        "rule": "Past Simple описывает законченные действия. Present Simple описывает текущее состояние или регулярное действие. Сравни moved и live.",
+        "pattern": "I moved last month / I live here now",
+        "example": "I moved in May, but I live near the library now.",
+        "pitfall": "Не говори I live here last year, если речь о закончившемся периоде.",
+        "exercises": [
+          [
+            "choice",
+            "I ___ to this district last month.",
+            [
+              "move",
+              "moved",
+              "am move"
+            ],
+            1,
+            "Last month: Past Simple."
+          ],
+          [
+            "type",
+            "Complete: My card ___ (be, present) still valid.",
+            [
+              "is"
+            ],
+            "Current singular state: is."
+          ],
+          [
+            "order",
+            "Скажи: я сменил адрес в мае.",
+            [
+              "May",
+              "in",
+              "address",
+              "my",
+              "changed",
+              "I"
+            ],
+            "I changed my address in May",
+            "Past action: changed."
+          ],
+          [
+            "choice",
+            "She ___ near this library now.",
+            [
+              "lives",
+              "lived",
+              "live"
+            ],
+            0,
+            "Now: current state; she lives."
+          ],
+          [
+            "type",
+            "Complete: I ___ (bring, past) my old card yesterday.",
+            [
+              "brought"
+            ],
+            "Bring → brought."
+          ],
+          [
+            "order",
+            "Скажи: мои данные сейчас верны.",
+            [
+              "now",
+              "correct",
+              "are",
+              "details",
+              "My"
+            ],
+            "My details are correct now",
+            "Present state: are."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a library membership form",
+          "анкета читателя"
+        ],
+        [
+          "a proof of address",
+          "подтверждение адреса"
+        ],
+        [
+          "a lending desk",
+          "стойка выдачи книг"
+        ],
+        [
+          "a library account number",
+          "номер читательского счёта"
+        ],
+        [
+          "an overdue reminder",
+          "напоминание о просрочке"
+        ],
+        [
+          "a borrowing limit",
+          "лимит выдачи книг"
+        ],
+        [
+          "a library membership card",
+          "читательский билет"
+        ],
+        [
+          "a self-service return machine",
+          "автомат возврата книг"
+        ],
+        [
+          "a current contact address",
+          "актуальный контактный адрес"
+        ],
+        [
+          "a loan renewal",
+          "продление срока выдачи"
+        ]
+      ],
+      "phrases": [
+        [
+          "I moved to this district last month.",
+          "Я переехал в этот район в прошлом месяце."
+        ],
+        [
+          "My old address is still on the account.",
+          "В моём аккаунте всё ещё старый адрес."
+        ],
+        [
+          "What documents do I need to update my membership?",
+          "Какие документы нужны для обновления данных читателя?"
+        ],
+        [
+          "Does this letter count as proof of address?",
+          "Подходит ли это письмо как подтверждение адреса?"
+        ],
+        [
+          "How many books can I borrow at once?",
+          "Сколько книг можно взять одновременно?"
+        ],
+        [
+          "When do these books have to be returned?",
+          "Когда нужно вернуть эти книги?"
+        ],
+        [
+          "Can I renew a loan through the website?",
+          "Могу я продлить срок выдачи через сайт?"
+        ],
+        [
+          "Please send reminders to my new email address.",
+          "Отправляйте напоминания на мой новый электронный адрес."
+        ],
+        [
+          "I brought my old library card with me.",
+          "Я принёс старый читательский билет."
+        ],
+        [
+          "The return machine is beside the lending desk.",
+          "Автомат возврата рядом со стойкой выдачи."
+        ]
+      ],
+      "reading": {
+        "title": "The library card with an old address",
+        "paragraphs": [
+          "Anna moved across town in April. Her old library card still works, but the account shows her previous address. On Wednesday she visits the library near her new flat. She wants to borrow two novels and use the quiet reading room on Saturday. She brings her card and a recent letter showing where she lives. At the lending desk, she explains that her phone number has not changed.",
+          "The librarian checks the account, explains which documents the library accepts and updates the address. Anna asks how many books she can borrow and when she must return them. The librarian shows her the due dates on a printed slip. Anna also learns that she can renew a book online if nobody else is waiting for it. Before leaving, she checks the email address on the account so that overdue reminders will go to the right place."
+        ],
+        "questions": [
+          [
+            "When did Anna move?",
+            [
+              "In April",
+              "In August",
+              "Yesterday"
+            ],
+            0
+          ],
+          [
+            "What information has not changed?",
+            [
+              "Her address",
+              "Her phone number",
+              "Her library branch"
+            ],
+            1
+          ],
+          [
+            "What shows the due dates?",
+            [
+              "A printed slip",
+              "A poster",
+              "A bank statement"
+            ],
+            0
+          ],
+          [
+            "When can she renew a book online?",
+            [
+              "Only at midnight",
+              "If nobody else is waiting",
+              "Only after returning it"
+            ],
+            1
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Anna",
+          "Hello. I moved in April, but my old address is still on my library account.",
+          "Здравствуйте. Я переехала в апреле, но в читательском аккаунте всё ещё старый адрес."
+        ],
+        [
+          "Librarian",
+          "Do you have your membership card and something showing your current address?",
+          "У вас есть читательский билет и документ с актуальным адресом?"
+        ],
+        [
+          "Anna",
+          "Yes, I brought a recent letter. Does this count as proof of address?",
+          "Да, я принесла недавнее письмо. Оно подходит как подтверждение адреса?"
+        ],
+        [
+          "Librarian",
+          "Let me check. Your membership number is unchanged, so you can keep this card.",
+          "Позвольте проверить. Номер читателя не изменился, поэтому можете сохранить этот билет."
+        ],
+        [
+          "Anna",
+          "Great. How many books can I borrow at once?",
+          "Отлично. Сколько книг можно брать одновременно?"
+        ],
+        [
+          "Librarian",
+          "Your current limit is six. The due dates are printed on your slip.",
+          "Ваш текущий лимит — шесть. Сроки возврата напечатаны на квитанции."
+        ],
+        [
+          "Anna",
+          "Can I renew a loan online if I need more time?",
+          "Могу я продлить срок онлайн, если нужно больше времени?"
+        ],
+        [
+          "Librarian",
+          "Yes, unless another reader has reserved the book. Check your account first.",
+          "Да, если книгу не забронировал другой читатель. Сначала проверьте аккаунт."
+        ]
+      ],
+      "listening": [
+        "How many books may Anna borrow at once?",
+        [
+          "Two",
+          "Six",
+          "Ten"
+        ],
+        1
+      ],
+      "speaking": [
+        "Explain why an old membership address needs updating.",
+        "Ask which documents a library accepts as proof of address.",
+        "Describe the difference between moved last month and live here now.",
+        "Ask about borrowing and renewing two books.",
+        "Role-play checking the due date before leaving the library."
+      ],
+      "writing": [
+        "Write a message asking a library to update your address.",
+        "Write a short account of a visit to a lending desk using Past Simple.",
+        "Write three current account details and three completed changes."
+      ],
+      "model": "I moved in April. My library card is still valid, but the address is wrong. Can you update my account? I brought a letter showing my new address.",
+      "competency": {
+        "prerequisites": "Present Simple, Past Simple, personal details",
+        "canDo": "Оформить читательский билет и сообщить об изменении адреса.",
+        "successCriteria": "Distinguish current state from dated past action; ask two membership questions; report the change accurately.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "I ___ my phone number in June, but my email is the same.",
+        [
+          "changed",
+          "change",
+          "am change"
+        ],
+        0,
+        "June is a finished past time."
+      ],
+      [
+        "type",
+        "Complete: She ___ (live, present) near the new branch now.",
+        [
+          "lives"
+        ],
+        "Current state: lives."
+      ],
+      [
+        "choice",
+        "You have a library slip with a due date. What should you check before requesting a renewal?",
+        [
+          "Whether another reader reserved the book",
+          "Whether the desk is painted blue",
+          "Whether your card is made of plastic"
+        ],
+        0,
+        "Renewal can depend on reservations."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-044",
+      "day": 44,
+      "level": "A2",
+      "title": "A receipt with a duplicate item",
+      "ru": "Лишняя позиция в кассовом чеке",
+      "goal": "Вежливо проверить чек, объяснить ошибку и уточнить возврат денег.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Past Simple questions with did",
+        "rule": "В вопросах о прошлом используй did + подлежащее + начальную форму. В утверждении неправильные глаголы меняют форму.",
+        "pattern": "Did you scan it twice? / I bought one.",
+        "example": "Did the cashier scan this item twice?",
+        "pitfall": "После did не ставь scanned.",
+        "exercises": [
+          [
+            "choice",
+            "Did the cashier ___ the milk twice?",
+            [
+              "scanned",
+              "scan",
+              "scans"
+            ],
+            1,
+            "After did: base form."
+          ],
+          [
+            "type",
+            "Complete: I ___ (buy) one bottle yesterday.",
+            [
+              "bought"
+            ],
+            "Buy → bought."
+          ],
+          [
+            "order",
+            "Спроси: ты проверил итоговую сумму?",
+            [
+              "total",
+              "the",
+              "check",
+              "you",
+              "Did"
+            ],
+            "Did you check the total",
+            "Did + subject + base form."
+          ],
+          [
+            "choice",
+            "I didn't ___ two packs of cereal.",
+            [
+              "bought",
+              "buy",
+              "buying"
+            ],
+            1,
+            "After didn't: buy."
+          ],
+          [
+            "type",
+            "Complete: Where did you ___ (pay) for the groceries?",
+            [
+              "pay"
+            ],
+            "After did: pay."
+          ],
+          [
+            "order",
+            "Скажи: я заплатил за одну бутылку.",
+            [
+              "bottle",
+              "one",
+              "for",
+              "paid",
+              "I"
+            ],
+            "I paid for one bottle",
+            "Pay → paid."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a duplicate receipt entry",
+          "повторная позиция в чеке"
+        ],
+        [
+          "a scanned barcode",
+          "отсканированный штрихкод"
+        ],
+        [
+          "a checkout receipt",
+          "кассовый чек"
+        ],
+        [
+          "a grocery item",
+          "товар из продуктового магазина"
+        ],
+        [
+          "a refund confirmation slip",
+          "квитанция о подтверждении возврата"
+        ],
+        [
+          "an original payment card",
+          "карта первоначальной оплаты"
+        ],
+        [
+          "a till transaction",
+          "кассовая операция"
+        ],
+        [
+          "a printed total",
+          "напечатанная итоговая сумма"
+        ],
+        [
+          "a self-checkout attendant",
+          "сотрудник зоны самообслуживания"
+        ],
+        [
+          "a receipt correction",
+          "исправление чека"
+        ]
+      ],
+      "phrases": [
+        [
+          "I think this item appears twice on my receipt.",
+          "Кажется, эта позиция дважды указана в чеке."
+        ],
+        [
+          "I only bought one bottle of juice.",
+          "Я купил только одну бутылку сока."
+        ],
+        [
+          "Did the barcode scan twice at the checkout?",
+          "Штрихкод отсканировался дважды на кассе?"
+        ],
+        [
+          "Could you check the transaction against my receipt?",
+          "Не могли бы вы сверить операцию с чеком?"
+        ],
+        [
+          "I paid with the same card yesterday.",
+          "Я заплатил той же картой вчера."
+        ],
+        [
+          "Will the refund go back to my original payment card?",
+          "Возврат поступит на карту первоначальной оплаты?"
+        ],
+        [
+          "Here is the printed total from the self-checkout.",
+          "Вот напечатанный итог с кассы самообслуживания."
+        ],
+        [
+          "I didn't notice the extra charge until I got home.",
+          "Я не заметил лишнее списание до возвращения домой."
+        ],
+        [
+          "Could I have a slip confirming the correction?",
+          "Могу я получить квитанцию, подтверждающую исправление?"
+        ],
+        [
+          "Thank you for checking the duplicate entry.",
+          "Спасибо, что проверили повторную позицию."
+        ]
+      ],
+      "reading": {
+        "title": "A receipt with a duplicate item",
+        "paragraphs": [
+          "Omar went to a supermarket after work and used a self-checkout. He bought bread, milk, one bottle of juice and a few vegetables. At home, he checked the receipt because the total seemed higher than usual. The juice appeared on two separate lines, although he had only put one bottle in his bag. He kept the receipt instead of throwing it away and returned to the shop the next morning.",
+          "At the customer service desk, Omar explained what he had noticed. The assistant looked at the receipt and checked the transaction on the till system. She confirmed that the same item had been scanned twice. She processed a refund for the second charge and gave Omar a confirmation slip. Omar asked how the money would be returned and was told to check the original payment card. He did not claim that the refund had already arrived in his account."
+        ],
+        "questions": [
+          [
+            "Which item appeared twice?",
+            [
+              "Bread",
+              "Juice",
+              "Vegetables"
+            ],
+            1
+          ],
+          [
+            "When did Omar return to the shop?",
+            [
+              "The next morning",
+              "After a week",
+              "Before paying"
+            ],
+            0
+          ],
+          [
+            "What did the assistant check?",
+            [
+              "His shopping list",
+              "His bank password",
+              "The till transaction"
+            ],
+            2
+          ],
+          [
+            "What did Omar receive?",
+            [
+              "A new loyalty card",
+              "A refund confirmation slip",
+              "A free bottle"
+            ],
+            1
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Omar",
+          "Hello. Could you look at this receipt? I think the juice appears twice.",
+          "Здравствуйте. Не могли бы вы посмотреть этот чек? Кажется, сок указан дважды."
+        ],
+        [
+          "Assistant",
+          "Of course. Did you buy two bottles or just one?",
+          "Конечно. Вы купили две бутылки или только одну?"
+        ],
+        [
+          "Omar",
+          "Just one. I used the self-checkout yesterday and noticed the extra charge at home.",
+          "Только одну. Вчера я воспользовался кассой самообслуживания и заметил лишнее списание дома."
+        ],
+        [
+          "Assistant",
+          "I'll check the transaction. Yes, the same barcode was scanned twice.",
+          "Проверю операцию. Да, один штрихкод отсканирован дважды."
+        ],
+        [
+          "Omar",
+          "Can you correct the receipt and refund the second charge?",
+          "Можете исправить чек и вернуть вторую списанную сумму?"
+        ],
+        [
+          "Assistant",
+          "Yes. The refund will go back to the card you used for the purchase.",
+          "Да. Возврат поступит на карту, которой вы оплатили покупку."
+        ],
+        [
+          "Omar",
+          "Could I have a confirmation slip so I can check the refund later?",
+          "Могу получить квитанцию, чтобы позже проверить возврат?"
+        ],
+        [
+          "Assistant",
+          "Certainly. Keep this with your original receipt.",
+          "Конечно. Сохраните её вместе с первоначальным чеком."
+        ]
+      ],
+      "listening": [
+        "Where will the refund be sent?",
+        [
+          "To a different card",
+          "To the original payment card",
+          "To a gift account"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe an incorrect checkout total without accusing the cashier.",
+        "Ask three past-tense questions about the transaction.",
+        "Explain the difference between buying one item and paying for two.",
+        "Ask what evidence confirms a correction.",
+        "Role-play speaking to customer service about a receipt."
+      ],
+      "writing": [
+        "Write a polite message about a duplicate grocery charge.",
+        "Write five sentences reporting what happened at a checkout yesterday.",
+        "Write three did questions and answer each using a complete past-tense sentence."
+      ],
+      "model": "I bought one bottle of juice, but the receipt lists two. Could you check the transaction? I paid by card, so please confirm where the refund will go.",
+      "competency": {
+        "prerequisites": "Past Simple regular and irregular verbs; asking prices",
+        "canDo": "Вежливо проверить чек, объяснить ошибку и уточнить возврат денег.",
+        "successCriteria": "Use did/didn't with base verbs; explain receipt discrepancy; separate refund confirmation from bank arrival.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "Did he ___ the correct price on the screen?",
+        [
+          "saw",
+          "see",
+          "sees"
+        ],
+        1,
+        "After did: see."
+      ],
+      [
+        "type",
+        "Complete: We didn't ___ (take) two packets.",
+        [
+          "take"
+        ],
+        "After didn't: take."
+      ],
+      [
+        "choice",
+        "A shop processed a refund but your bank balance has not changed yet. Which statement is accurate?",
+        [
+          "The refund has been processed; arrival is not confirmed.",
+          "The bank has definitely received it.",
+          "The second item was free."
+        ],
+        0,
+        "Separate completed refund processing from bank confirmation."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-045",
+      "day": 45,
+      "level": "A2",
+      "title": "An appointment at a shoe repair shop",
+      "ru": "Ремонт обуви в мастерской",
+      "goal": "Описать повреждение, согласовать цену и срок ремонта.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Can / could and would like",
+        "rule": "Could используется для вежливой просьбы; can — для возможности. Would like + noun/to + verb выражает желание.",
+        "pattern": "Could you repair it? / I'd like to have it repaired.",
+        "example": "Could you replace this heel by Friday?",
+        "pitfall": "Не говори I'd like repair it: I'd like to repair it.",
+        "exercises": [
+          [
+            "choice",
+            "Could you ___ this loose heel?",
+            [
+              "fix",
+              "to fix",
+              "fixed"
+            ],
+            0,
+            "Could + base verb."
+          ],
+          [
+            "type",
+            "Complete: I'd like ___ (collect) the shoes on Friday.",
+            [
+              "to collect"
+            ],
+            "Would like + to + verb."
+          ],
+          [
+            "order",
+            "Спроси: можете заменить подошву?",
+            [
+              "sole",
+              "the",
+              "replace",
+              "you",
+              "Can"
+            ],
+            "Can you replace the sole",
+            "Can + subject + base form."
+          ],
+          [
+            "choice",
+            "I'd like ___ estimate before the repair.",
+            [
+              "an",
+              "to",
+              "a few"
+            ],
+            0,
+            "Would like + noun: an estimate."
+          ],
+          [
+            "type",
+            "Complete politely: ___ you tell me the price first? Use could.",
+            [
+              "could"
+            ],
+            "Could you + verb."
+          ],
+          [
+            "order",
+            "Скажи: я хотел бы узнать дату готовности.",
+            [
+              "date",
+              "collection",
+              "the",
+              "know",
+              "to",
+              "like",
+              "would",
+              "I"
+            ],
+            "I would like to know the collection date",
+            "Would like to know."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a loose heel",
+          "расшатанный каблук"
+        ],
+        [
+          "a worn rubber sole",
+          "изношенная резиновая подошва"
+        ],
+        [
+          "a shoe repair counter",
+          "стойка ремонта обуви"
+        ],
+        [
+          "a leather upper",
+          "кожаный верх обуви"
+        ],
+        [
+          "a repair estimate",
+          "предварительная стоимость ремонта"
+        ],
+        [
+          "a replacement heel",
+          "каблук на замену"
+        ],
+        [
+          "a collection date",
+          "дата получения заказа"
+        ],
+        [
+          "a repair ticket number",
+          "номер квитанции ремонта"
+        ],
+        [
+          "a stitched seam",
+          "прошитый шов"
+        ],
+        [
+          "a repair workshop",
+          "ремонтная мастерская"
+        ]
+      ],
+      "phrases": [
+        [
+          "The heel is loose on the left shoe.",
+          "На левом ботинке расшатался каблук."
+        ],
+        [
+          "Could you check whether the sole needs replacing?",
+          "Можете проверить, нужно ли заменять подошву?"
+        ],
+        [
+          "I'd like an estimate before you start the work.",
+          "Я хотел бы узнать предварительную цену до начала работы."
+        ],
+        [
+          "Is the leather upper still in good condition?",
+          "Кожаный верх ещё в хорошем состоянии?"
+        ],
+        [
+          "Can you finish the repair by Friday afternoon?",
+          "Можете закончить ремонт к пятнице после обеда?"
+        ],
+        [
+          "Please call me if the cost changes.",
+          "Позвоните мне, если стоимость изменится."
+        ],
+        [
+          "Do I pay now or when I collect the shoes?",
+          "Платить сейчас или при получении обуви?"
+        ],
+        [
+          "The repair ticket shows my collection date.",
+          "В квитанции ремонта указана дата получения."
+        ],
+        [
+          "I can bring the other shoe if you need to compare them.",
+          "Могу принести второй ботинок, если нужно сравнить."
+        ],
+        [
+          "I'd rather repair this pair than buy another one.",
+          "Я предпочёл бы отремонтировать эту пару, а не покупать новую."
+        ]
+      ],
+      "reading": {
+        "title": "An appointment at a shoe repair shop",
+        "paragraphs": [
+          "Marta notices that the heel of her left work shoe moves slightly when she walks. The rest of the shoe looks fine, and the leather is comfortable, so she decides to ask a repair shop rather than buy a new pair. She brings both shoes on Monday morning. The repairer examines the heel and checks the rubber soles. He explains that the heel needs replacing, but the soles can still be used.",
+          "Marta asks for an estimate and a clear collection date. The repairer writes the expected price on a ticket and says the shoes should be ready on Thursday. He promises to contact her before doing any extra work. Marta leaves her phone number and keeps the repair ticket in her bag. On Thursday afternoon she collects both shoes, checks that the heels feel stable and pays the agreed price."
+        ],
+        "questions": [
+          [
+            "What is loose?",
+            [
+              "The heel of the left shoe",
+              "A button on a coat",
+              "The right shoe lace"
+            ],
+            0
+          ],
+          [
+            "What does not need replacing?",
+            [
+              "Both heels",
+              "The rubber soles",
+              "The whole pair"
+            ],
+            1
+          ],
+          [
+            "When should the shoes be ready?",
+            [
+              "Monday",
+              "Friday",
+              "Thursday"
+            ],
+            2
+          ],
+          [
+            "When does Marta pay?",
+            [
+              "On collection",
+              "Before visiting",
+              "After a month"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Marta",
+          "Hello. The heel on this shoe is loose. Could you check whether it can be repaired?",
+          "Здравствуйте. На этом ботинке расшатался каблук. Можете проверить, можно ли его починить?"
+        ],
+        [
+          "Repairer",
+          "Yes. The heel needs replacing, but the rest of the shoe looks fine.",
+          "Да. Каблук нужно заменить, но остальная часть обуви в порядке."
+        ],
+        [
+          "Marta",
+          "I'd like an estimate before you start. Do the soles need replacing too?",
+          "Я хотела бы узнать предварительную цену до начала. Подошвы тоже нужно заменить?"
+        ],
+        [
+          "Repairer",
+          "No, the soles are still usable. The new heel will cost the amount shown here.",
+          "Нет, подошвы ещё пригодны. Новый каблук будет стоить указанную здесь сумму."
+        ],
+        [
+          "Marta",
+          "Could I collect the shoes on Thursday afternoon?",
+          "Могу забрать обувь в четверг после обеда?"
+        ],
+        [
+          "Repairer",
+          "That should be possible. I'll write Thursday on the repair ticket.",
+          "Должно быть возможно. Укажу четверг в квитанции."
+        ],
+        [
+          "Marta",
+          "Please call me before doing any extra work if you find another problem.",
+          "Позвоните мне до дополнительных работ, если обнаружите другую проблему."
+        ],
+        [
+          "Repairer",
+          "Of course. Keep this ticket and pay when you collect the pair.",
+          "Конечно. Сохраните квитанцию и оплатите при получении пары."
+        ]
+      ],
+      "listening": [
+        "When should Marta pay?",
+        [
+          "Before the estimate",
+          "On collection",
+          "Next month"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe the condition of a pair of shoes in simple English.",
+        "Ask whether two different parts need replacing.",
+        "Request an estimate and agree on a collection date.",
+        "Explain whether replacing a loose heel is preferable to buying new work shoes, using the quoted cost and collection date.",
+        "Role-play asking for approval before extra work."
+      ],
+      "writing": [
+        "Write a message asking for a shoe repair estimate.",
+        "Write a four-line repair ticket summary with item, problem, price and date.",
+        "Write three requests with could and two intentions with would like."
+      ],
+      "model": "The left heel is loose. Could you replace it? I'd like an estimate first. Please call me before doing any additional work.",
+      "competency": {
+        "prerequisites": "Requests with can/could, simple nouns, dates",
+        "canDo": "Описать повреждение, согласовать цену и срок ремонта.",
+        "successCriteria": "Make polite requests, describe condition, agree on repair scope and collection.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "I'd like ___ the bag repaired before Tuesday.",
+        [
+          "have",
+          "to have",
+          "having"
+        ],
+        1,
+        "Would like + to have."
+      ],
+      [
+        "type",
+        "Complete: Could you ___ (check) the zipper?",
+        [
+          "check"
+        ],
+        "Could + base verb."
+      ],
+      [
+        "choice",
+        "A repair shop discovers extra work after quoting a price. What can you ask?",
+        [
+          "Please confirm the new price before starting the extra work.",
+          "Pretend it was already agreed.",
+          "Throw away the repair ticket."
+        ],
+        0,
+        "Confirm scope and price."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-046",
+      "day": 46,
+      "level": "A2",
+      "title": "A tour that changes its meeting point",
+      "ru": "Экскурсия со сменой места встречи",
+      "goal": "Уточнить место встречи, время и отличить план от установленного расписания.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Present Continuous for arrangements",
+        "rule": "Present Continuous может описывать уже согласованный будущий план. Present Simple используется для расписания.",
+        "pattern": "We're meeting at ten / The tour starts at ten",
+        "example": "We're meeting outside the gallery at ten.",
+        "pitfall": "Не говори We meeting: нужен am/is/are.",
+        "exercises": [
+          [
+            "choice",
+            "We ___ our guide outside the gallery tomorrow.",
+            [
+              "are meeting",
+              "meets",
+              "meeting"
+            ],
+            0,
+            "Arrangement: are meeting."
+          ],
+          [
+            "type",
+            "Complete: The tour ___ (start, present simple) at ten.",
+            [
+              "starts"
+            ],
+            "Timetable: starts."
+          ],
+          [
+            "order",
+            "Скажи: мы встречаемся у фонтана завтра.",
+            [
+              "tomorrow",
+              "fountain",
+              "the",
+              "by",
+              "meeting",
+              "are",
+              "We"
+            ],
+            "We are meeting by the fountain tomorrow",
+            "Arrangement: are meeting."
+          ],
+          [
+            "choice",
+            "She ___ joining us at the new meeting point.",
+            [
+              "are",
+              "is",
+              "am"
+            ],
+            1,
+            "She is."
+          ],
+          [
+            "type",
+            "Complete: I ___ (be, present) meeting the group at noon.",
+            [
+              "am"
+            ],
+            "I am meeting."
+          ],
+          [
+            "order",
+            "Скажи: экскурсия заканчивается в два.",
+            [
+              "two",
+              "at",
+              "finishes",
+              "tour",
+              "The"
+            ],
+            "The tour finishes at two",
+            "Fixed schedule: finishes."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a guided walking tour",
+          "пешеходная экскурсия с гидом"
+        ],
+        [
+          "a meeting point update",
+          "обновление места встречи"
+        ],
+        [
+          "a fountain square",
+          "площадь с фонтаном"
+        ],
+        [
+          "a tour booking voucher",
+          "ваучер бронирования экскурсии"
+        ],
+        [
+          "a group departure time",
+          "время отправления группы"
+        ],
+        [
+          "a guided route map",
+          "карта экскурсионного маршрута"
+        ],
+        [
+          "a tour organiser",
+          "организатор экскурсии"
+        ],
+        [
+          "an attendance list",
+          "список участников"
+        ],
+        [
+          "a late arrival message",
+          "сообщение об опоздании"
+        ],
+        [
+          "a revised meeting location",
+          "изменённое место встречи"
+        ]
+      ],
+      "phrases": [
+        [
+          "We're meeting outside the gallery instead of the town hall.",
+          "Мы встречаемся у галереи вместо ратуши."
+        ],
+        [
+          "The tour starts at ten and lasts two hours.",
+          "Экскурсия начинается в десять и длится два часа."
+        ],
+        [
+          "Have you received the meeting point update?",
+          "Ты получил обновление места встречи?"
+        ],
+        [
+          "Which side of the fountain should we wait on?",
+          "С какой стороны фонтана нужно ждать?"
+        ],
+        [
+          "I'm joining the group with my sister tomorrow.",
+          "Завтра я присоединяюсь к группе с сестрой."
+        ],
+        [
+          "Please show the guide your booking voucher.",
+          "Покажите гиду ваучер бронирования."
+        ],
+        [
+          "The organiser has sent a revised route map.",
+          "Организатор прислал обновлённую карту маршрута."
+        ],
+        [
+          "I'll send a message if the tram is late.",
+          "Я отправлю сообщение, если трамвай опоздает."
+        ],
+        [
+          "Does the group leave from the square at ten exactly?",
+          "Группа отправляется с площади ровно в десять?"
+        ],
+        [
+          "Let's arrive a little before the departure time.",
+          "Давай придём немного раньше времени отправления."
+        ]
+      ],
+      "reading": {
+        "title": "A tour that changes its meeting point",
+        "paragraphs": [
+          "Leo and his sister book a walking tour of a historic town for Saturday morning. The booking voucher says to meet outside the town hall at ten. On Friday evening, the organiser sends a message explaining that a public event will close the square near the town hall. The group is now meeting at a fountain beside the art gallery. The starting time and the price remain the same.",
+          "Leo checks the new location on a map and replies to confirm that he received the message. His sister is arriving by tram, so he sends her the revised map rather than the old voucher. They agree to meet fifteen minutes before the tour begins. On Saturday they find the guide near the fountain, show their voucher and join the group. The guide checks the attendance list before starting the walk."
+        ],
+        "questions": [
+          [
+            "Why has the meeting point changed?",
+            [
+              "A public event will close the square",
+              "The guide is sick",
+              "The tour is cancelled"
+            ],
+            0
+          ],
+          [
+            "What stays the same?",
+            [
+              "Only the place",
+              "Starting time and price",
+              "The old route map"
+            ],
+            1
+          ],
+          [
+            "How is Leo's sister arriving?",
+            [
+              "By bicycle",
+              "By ferry",
+              "By tram"
+            ],
+            2
+          ],
+          [
+            "When do they plan to meet?",
+            [
+              "Fifteen minutes before the tour",
+              "At the end of the tour",
+              "An hour after the start"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Leo",
+          "Hello. I received your message about a new meeting point. Are we meeting by the gallery fountain now?",
+          "Здравствуйте. Получил сообщение о новом месте встречи. Теперь встречаемся у фонтана возле галереи?"
+        ],
+        [
+          "Organiser",
+          "Yes, that's right. The town hall square will be closed on Saturday morning.",
+          "Да, верно. Площадь у ратуши будет закрыта в субботу утром."
+        ],
+        [
+          "Leo",
+          "Does the tour still start at ten?",
+          "Экскурсия всё ещё начинается в десять?"
+        ],
+        [
+          "Organiser",
+          "Yes. Please arrive a few minutes early and show your booking voucher.",
+          "Да. Приходите на несколько минут раньше и покажите ваучер бронирования."
+        ],
+        [
+          "Leo",
+          "My sister is coming by tram. Is there a stop near the gallery?",
+          "Сестра едет на трамвае. Возле галереи есть остановка?"
+        ],
+        [
+          "Organiser",
+          "There is one across the road. Follow the signs to the fountain square.",
+          "Есть через дорогу. Следуйте указателям к площади с фонтаном."
+        ],
+        [
+          "Leo",
+          "Thanks. We're meeting at the fountain at nine forty-five, then.",
+          "Спасибо. Тогда мы встречаемся у фонтана в девять сорок пять."
+        ],
+        [
+          "Organiser",
+          "Perfect. I'll add a note that you received the update.",
+          "Отлично. Отмечу, что вы получили обновление."
+        ]
+      ],
+      "listening": [
+        "What does Leo plan to do at nine forty-five?",
+        [
+          "Meet at the fountain",
+          "Finish the tour",
+          "Take a train home"
+        ],
+        0
+      ],
+      "speaking": [
+        "Explain a changed meeting point to a travel companion.",
+        "Contrast a tour timetable with a personal arrangement.",
+        "Ask a guide for the nearest tram stop.",
+        "Confirm a booking without confusing the original and updated location.",
+        "Describe what you will do if you arrive late."
+      ],
+      "writing": [
+        "Write a short message with the revised tour meeting point and time.",
+        "Write three agreed arrangements and three fixed timetable statements.",
+        "Write a reply confirming that you received an organiser's update."
+      ],
+      "model": "We're meeting at the gallery fountain at nine forty-five. The tour starts at ten. I received the update and will bring the booking voucher.",
+      "competency": {
+        "prerequisites": "Present Continuous, times and places",
+        "canDo": "Уточнить место встречи, время и отличить план от установленного расписания.",
+        "successCriteria": "State agreed arrangements and fixed times accurately; confirm updated meeting details.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "We're ___ our neighbours at the park on Sunday.",
+        [
+          "meet",
+          "meeting",
+          "met"
+        ],
+        1,
+        "Arrangement: are meeting."
+      ],
+      [
+        "type",
+        "Complete: The guided visit ___ (begin, present simple) at eleven.",
+        [
+          "begins"
+        ],
+        "Timetable: begins."
+      ],
+      [
+        "choice",
+        "An organiser sends a new meeting point. Which information should you pass to your companion?",
+        [
+          "The updated place and unchanged start time",
+          "Only the old location",
+          "A cancellation that was not announced"
+        ],
+        0,
+        "Use the latest confirmed details."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-047",
+      "day": 47,
+      "level": "A2",
+      "title": "A lost scarf at the community centre",
+      "ru": "Потерянный шарф в общественном центре",
+      "goal": "Описать потерянный предмет, уточнить место и обстоятельства.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Past Continuous and Past Simple",
+        "rule": "Past Continuous: was/were + -ing — процесс в момент прошлого. Past Simple — завершённое действие, в том числе событие на фоне процесса.",
+        "pattern": "I was waiting when I noticed it was missing.",
+        "example": "I was sitting by the door when I lost my scarf.",
+        "pitfall": "Не говори I was sit: was sitting.",
+        "exercises": [
+          [
+            "choice",
+            "I ___ near the entrance when my friend called.",
+            [
+              "was waiting",
+              "waited always",
+              "were wait"
+            ],
+            0,
+            "Background: was waiting."
+          ],
+          [
+            "type",
+            "Complete: She was reading when she ___ (notice) the empty chair.",
+            [
+              "noticed"
+            ],
+            "Short event: noticed."
+          ],
+          [
+            "order",
+            "Скажи: я сидел рядом с дверью.",
+            [
+              "door",
+              "the",
+              "near",
+              "sitting",
+              "was",
+              "I"
+            ],
+            "I was sitting near the door",
+            "Was + -ing."
+          ],
+          [
+            "choice",
+            "They ___ talking when the centre closed.",
+            [
+              "was",
+              "were",
+              "did"
+            ],
+            1,
+            "They were."
+          ],
+          [
+            "type",
+            "Complete: I was leaving when I ___ (see) the scarf.",
+            [
+              "saw"
+            ],
+            "See → saw."
+          ],
+          [
+            "order",
+            "Скажи: мы ждали автобус, когда начался дождь.",
+            [
+              "started",
+              "rain",
+              "the",
+              "when",
+              "waiting",
+              "were",
+              "We"
+            ],
+            "We were waiting when the rain started",
+            "Background + finished event."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a lost property cupboard",
+          "шкаф забытых вещей"
+        ],
+        [
+          "a striped wool scarf",
+          "полосатый шерстяной шарф"
+        ],
+        [
+          "a cloakroom hook",
+          "крючок в гардеробе"
+        ],
+        [
+          "a community centre reception",
+          "стойка общественного центра"
+        ],
+        [
+          "a lost item report",
+          "заявление о пропаже вещи"
+        ],
+        [
+          "a distinctive pattern",
+          "отличительный рисунок"
+        ],
+        [
+          "a folded scarf",
+          "сложенный шарф"
+        ],
+        [
+          "a seating area by the door",
+          "место для сидения у двери"
+        ],
+        [
+          "a contact telephone number",
+          "контактный телефон"
+        ],
+        [
+          "a property collection slip",
+          "квитанция о получении найденной вещи"
+        ]
+      ],
+      "phrases": [
+        [
+          "I was waiting by the entrance when my friend arrived.",
+          "Я ждал у входа, когда пришёл мой друг."
+        ],
+        [
+          "I noticed that my scarf was missing after the class.",
+          "Я заметил пропажу шарфа после занятия."
+        ],
+        [
+          "It has thin green stripes on a grey background.",
+          "На сером фоне тонкие зелёные полоски."
+        ],
+        [
+          "Could you check the lost property cupboard?",
+          "Можете проверить шкаф забытых вещей?"
+        ],
+        [
+          "I may have left it on a cloakroom hook.",
+          "Возможно, я оставил его на крючке в гардеробе."
+        ],
+        [
+          "I was sitting in the seating area near the door.",
+          "Я сидел в зоне ожидания возле двери."
+        ],
+        [
+          "I'll leave my contact number in case someone finds it.",
+          "Оставлю контактный номер на случай, если кто-то найдёт его."
+        ],
+        [
+          "Does this description match the scarf you found?",
+          "Это описание соответствует найденному вами шарфу?"
+        ],
+        [
+          "Can I collect it from reception tomorrow morning?",
+          "Могу забрать его на стойке завтра утром?"
+        ],
+        [
+          "I wasn't wearing it when I left the building.",
+          "На мне его не было, когда я вышел из здания."
+        ]
+      ],
+      "reading": {
+        "title": "A lost scarf at the community centre",
+        "paragraphs": [
+          "Sofia attends a pottery class at a community centre on Tuesday evening. Before the class begins, she waits on a bench near the entrance and takes off her wool scarf. She remembers putting her bag beside her, but she does not remember putting the scarf back on. After the class, she walks home with a friend. When she reaches her flat, she notices that the scarf is missing.",
+          "The next morning Sofia calls the centre and describes the scarf. It is grey with thin green stripes and a small label at one end. The receptionist checks the lost property cupboard and finds a similar scarf. She asks Sofia to describe the label before confirming that it is the right one. Sofia explains the label and agrees to collect the scarf on Thursday. She thanks the receptionist and writes down the opening time."
+        ],
+        "questions": [
+          [
+            "What was Sofia doing before class?",
+            [
+              "Waiting on a bench",
+              "Buying a scarf",
+              "Calling reception"
+            ],
+            0
+          ],
+          [
+            "Where did she notice the missing scarf?",
+            [
+              "At the pottery table",
+              "At her flat",
+              "At the bus stop"
+            ],
+            1
+          ],
+          [
+            "What is the scarf's pattern?",
+            [
+              "Red spots",
+              "Blue checks",
+              "Green stripes on grey"
+            ],
+            2
+          ],
+          [
+            "When does she agree to collect it?",
+            [
+              "Thursday",
+              "Tuesday night",
+              "Next month"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Sofia",
+          "Hello. I attended the pottery class last night, and I think I left my scarf at the centre.",
+          "Здравствуйте. Вчера вечером я была на занятии по керамике и, кажется, оставила шарф в центре."
+        ],
+        [
+          "Receptionist",
+          "Can you describe it? Where were you sitting before the class?",
+          "Можете описать его? Где вы сидели перед занятием?"
+        ],
+        [
+          "Sofia",
+          "I was waiting on the bench by the entrance. The scarf is grey with thin green stripes.",
+          "Я ждала на скамейке у входа. Шарф серый с тонкими зелёными полосками."
+        ],
+        [
+          "Receptionist",
+          "We have a scarf like that in the cupboard. Is there a label at one end?",
+          "У нас есть похожий шарф в шкафу. На одном конце есть ярлык?"
+        ],
+        [
+          "Sofia",
+          "Yes, a small white label with a green leaf on it.",
+          "Да, маленький белый ярлык с зелёным листом."
+        ],
+        [
+          "Receptionist",
+          "That matches the one we found. You can collect it from reception.",
+          "Это соответствует найденному шарфу. Можете забрать его на стойке."
+        ],
+        [
+          "Sofia",
+          "Thank you. Can I come on Thursday morning before work?",
+          "Спасибо. Могу прийти в четверг утром перед работой?"
+        ],
+        [
+          "Receptionist",
+          "Certainly. Reception opens at eight thirty.",
+          "Конечно. Стойка открывается в восемь тридцать."
+        ]
+      ],
+      "listening": [
+        "Which detail helps confirm the scarf?",
+        [
+          "The price tag",
+          "A white label with a green leaf",
+          "A red button"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe a lost item using colour, material and distinctive details.",
+        "Explain what you were doing when you last saw it.",
+        "Ask a receptionist to check a lost property cupboard.",
+        "Give two possible locations without claiming certainty.",
+        "Role-play confirming ownership and arranging collection."
+      ],
+      "writing": [
+        "Write a lost item report with time, location and description.",
+        "Write four sentences using was/were -ing and a short past event.",
+        "Write a message arranging collection of a found scarf."
+      ],
+      "model": "I was waiting near the entrance before class. My grey scarf has green stripes and a white label. Could you check lost property, please?",
+      "competency": {
+        "prerequisites": "Past Simple, be in past, describing objects",
+        "canDo": "Описать потерянный предмет, уточнить место и обстоятельства.",
+        "successCriteria": "Describe background and event; identify item through relevant detail; agree collection.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "They ___ playing cards when the phone rang.",
+        [
+          "were",
+          "was",
+          "did"
+        ],
+        0,
+        "They were playing."
+      ],
+      [
+        "type",
+        "Complete: I was packing my bag when I ___ (hear) the bell.",
+        [
+          "heard"
+        ],
+        "Hear → heard."
+      ],
+      [
+        "choice",
+        "A lost item looks similar to yours. What helps establish ownership?",
+        [
+          "A distinctive detail you can describe",
+          "A claim that every grey scarf is yours",
+          "The colour of the reception desk"
+        ],
+        0,
+        "Use a distinguishing description."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-048",
+      "day": 48,
+      "level": "A2",
+      "title": "A parcel that will not fit in the locker",
+      "ru": "Посылка не помещается в постамат",
+      "goal": "Уточнить размер, подобрать другой способ выдачи и объяснить причину.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Too and enough",
+        "rule": "Too + adjective — чрезмерная степень; adjective + enough — достаточная степень; enough + noun — достаточное количество.",
+        "pattern": "too large / large enough / enough space",
+        "example": "The locker is not large enough for this box.",
+        "pitfall": "Не говори enough large: large enough.",
+        "exercises": [
+          [
+            "choice",
+            "The box is ___ wide for the small locker.",
+            [
+              "too",
+              "enough",
+              "many"
+            ],
+            0,
+            "Too + adjective."
+          ],
+          [
+            "type",
+            "Complete: The compartment is not deep ___ for this parcel.",
+            [
+              "enough"
+            ],
+            "Adjective + enough."
+          ],
+          [
+            "order",
+            "Скажи: у нас достаточно места для коробки.",
+            [
+              "box",
+              "the",
+              "for",
+              "space",
+              "enough",
+              "have",
+              "We"
+            ],
+            "We have enough space for the box",
+            "Enough + noun."
+          ],
+          [
+            "choice",
+            "This locker is large ___. The parcel fits.",
+            [
+              "too",
+              "enough",
+              "much"
+            ],
+            1,
+            "Large enough."
+          ],
+          [
+            "type",
+            "Complete: The package is ___ heavy for this shelf. Use too.",
+            [
+              "too"
+            ],
+            "Too heavy."
+          ],
+          [
+            "order",
+            "Скажи: коробка слишком длинная.",
+            [
+              "long",
+              "too",
+              "is",
+              "box",
+              "The"
+            ],
+            "The box is too long",
+            "Too + adjective."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a locker compartment",
+          "ячейка постамата"
+        ],
+        [
+          "a parcel size limit",
+          "ограничение размера посылки"
+        ],
+        [
+          "a maximum package width",
+          "максимальная ширина упаковки"
+        ],
+        [
+          "a collection code",
+          "код получения"
+        ],
+        [
+          "a staffed collection counter",
+          "пункт выдачи с сотрудником"
+        ],
+        [
+          "a locker reservation",
+          "бронь ячейки"
+        ],
+        [
+          "a collection location change",
+          "изменение места получения"
+        ],
+        [
+          "a parcel measurement",
+          "измерение габаритов посылки"
+        ],
+        [
+          "an oversized package",
+          "негабаритная посылка"
+        ],
+        [
+          "a collection deadline notice",
+          "уведомление о сроке получения"
+        ]
+      ],
+      "phrases": [
+        [
+          "The parcel is too wide for the smallest compartment.",
+          "Посылка слишком широкая для самой маленькой ячейки."
+        ],
+        [
+          "Is there a locker large enough for this package?",
+          "Есть ячейка достаточно большая для этой упаковки?"
+        ],
+        [
+          "The collection code has not been issued yet.",
+          "Код получения ещё не выдан."
+        ],
+        [
+          "Could you send the parcel to a staffed counter instead?",
+          "Можете направить посылку в пункт выдачи с сотрудником?"
+        ],
+        [
+          "How much time do I have to collect it?",
+          "Сколько времени у меня есть, чтобы забрать её?"
+        ],
+        [
+          "We measured the package before choosing a locker.",
+          "Мы измерили упаковку, прежде чем выбрать ячейку."
+        ],
+        [
+          "The maximum width is shown in the booking details.",
+          "Максимальная ширина указана в данных бронирования."
+        ],
+        [
+          "There isn't enough space in that compartment.",
+          "В этой ячейке недостаточно места."
+        ],
+        [
+          "Please confirm the new collection location.",
+          "Пожалуйста, подтвердите новое место получения."
+        ],
+        [
+          "I'll wait for the notification before going to collect it.",
+          "Я дождусь уведомления, прежде чем идти за посылкой."
+        ]
+      ],
+      "reading": {
+        "title": "A parcel that will not fit in the locker",
+        "paragraphs": [
+          "Adam orders a large board game as a birthday present. He chooses a parcel locker near his workplace because he often finishes late. Two days later, the delivery company sends a message saying that the package is too wide for the available compartment. The parcel has not been left in a locker, and no collection code has been issued. Adam reads the message carefully before walking to the locker.",
+          "He contacts customer service and asks whether a larger compartment is available. The agent explains that the closest locker has no suitable free space today, but a staffed collection counter is open until eight. Adam agrees to change the collection location. The agent sends a confirmation message with the new address and says that Adam should wait for a separate ready-for-collection notice. Adam checks the address and plans to visit the counter after receiving that notice."
+        ],
+        "questions": [
+          [
+            "What did Adam order?",
+            [
+              "A pair of shoes",
+              "A board game",
+              "A kitchen table"
+            ],
+            1
+          ],
+          [
+            "Why is the parcel not in the locker?",
+            [
+              "The package is too wide",
+              "The code is wrong",
+              "Adam collected it already"
+            ],
+            0
+          ],
+          [
+            "What is open until eight?",
+            [
+              "The workplace",
+              "A different locker",
+              "A staffed counter"
+            ],
+            2
+          ],
+          [
+            "What will Adam wait for?",
+            [
+              "A ready-for-collection notice",
+              "A second birthday",
+              "A new password"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Adam",
+          "Hello. The message says my parcel is too wide for the available locker. Has it arrived anywhere yet?",
+          "Здравствуйте. В сообщении сказано, что посылка слишком широкая для свободной ячейки. Она уже куда-нибудь прибыла?"
+        ],
+        [
+          "Agent",
+          "It is still with the delivery service. There isn't a large enough free compartment at your chosen locker.",
+          "Она ещё у службы доставки. В выбранном постамате нет достаточно большой свободной ячейки."
+        ],
+        [
+          "Adam",
+          "Can you send it to a staffed collection counter instead?",
+          "Можете направить её в пункт выдачи с сотрудником?"
+        ],
+        [
+          "Agent",
+          "Yes. There is a counter on King Street, open until eight this evening.",
+          "Да. На Кинг-стрит есть пункт, открытый сегодня до восьми вечера."
+        ],
+        [
+          "Adam",
+          "That location works for me. Do I need the old collection code?",
+          "Это место мне подходит. Нужен прежний код получения?"
+        ],
+        [
+          "Agent",
+          "No code was issued. You'll receive new collection details when the parcel is ready.",
+          "Код не выдавался. Вы получите новые данные для получения, когда посылка будет готова."
+        ],
+        [
+          "Adam",
+          "Please send me the address and tell me when I can collect it.",
+          "Пришлите адрес и сообщите, когда можно будет забрать посылку."
+        ],
+        [
+          "Agent",
+          "Certainly. Wait for the ready-for-collection notice before travelling to the counter.",
+          "Конечно. Дождитесь уведомления о готовности к выдаче, прежде чем ехать в пункт."
+        ]
+      ],
+      "listening": [
+        "Why is there no old collection code?",
+        [
+          "Adam deleted it",
+          "No code was issued",
+          "The shop changed it twice"
+        ],
+        1
+      ],
+      "speaking": [
+        "Describe why a package does not fit using too and enough.",
+        "Ask about a larger locker without assuming it is available.",
+        "Compare two collection locations by opening time.",
+        "Explain the difference between a location confirmation and a ready notice.",
+        "Role-play arranging a delivery change."
+      ],
+      "writing": [
+        "Write a message requesting another collection location.",
+        "Write six sentences with too, adjective + enough and enough + noun.",
+        "Write a short plan for collecting a parcel after confirmation."
+      ],
+      "model": "The parcel is too wide for the locker. Is there enough space at another location? Please send the new address. I'll wait for the ready notice.",
+      "competency": {
+        "prerequisites": "Adjectives, there is/are, can requests",
+        "canDo": "Уточнить размер, подобрать другой способ выдачи и объяснить причину.",
+        "successCriteria": "Use all three too/enough patterns; request a feasible collection alternative; distinguish confirmed status.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "This shelf is not strong ___ for the box.",
+        [
+          "too",
+          "enough",
+          "much"
+        ],
+        1,
+        "Adjective + enough."
+      ],
+      [
+        "type",
+        "Complete: We need ___ space for two bags.",
+        [
+          "enough"
+        ],
+        "Enough + noun."
+      ],
+      [
+        "choice",
+        "The pickup address is confirmed, but the package is not ready. What is accurate?",
+        [
+          "The address has changed; collection is not confirmed yet.",
+          "The parcel has already been collected.",
+          "The locker code definitely works."
+        ],
+        0,
+        "Distinguish address from readiness."
+      ]
+    ]
+  }
+]

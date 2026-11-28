@@ -1,51 +1,25 @@
-# Wolfie English 🇬🇧🐺
+# Wolfie English — 0.9.3 (PARTIAL / HOLD)
 
-Offline-first Android English-learning app. Built for a Russian-speaking A2/A2+ learner working toward B1 and B2.
+Offline Android English learning for an adult Russian-speaking learner. The 300-day A2–B2 schedule remains a curriculum framework, not proof of CEFR attainment.
 
-## Features (v0.3.0)
+**Verified build:** 0.9.3 / VersionCode 23; application source HEAD `1e178187090a3c0da8e90512038494aae9f10b47`. Main package `com.wolfie.english`, Preview `com.wolfie.english.preview`; min API 24, target API 35. PR #5 remains open/unmerged.
 
-- 25 sequential mini-lessons covering A2, B1 and B2 **practice topics** (not a certified B2 course)
-- **1,038 unique vocabulary items** (single words and multiword expressions), including 948 expanded items
-- **1,008 unique bilingual sentences** (250 core + 758 extra), including 446 new B2 sentences
-- Tap-to-match English/Russian phrases, multiple-choice translations and English typing
-- **Dedicated listening mode**: hear English (without seeing English text) and choose the Russian translation; immediate feedback and replay
-- **Flip flashcards**: 1,038 curated vocabulary items and all 1,008 bilingual sentences in both EN → RU and RU → EN directions; self-rating and scheduled repetition
-- Choose a CEFR practice level **and topical category** (39 word topics, 56 phrase topics); all listening and flashcard practice works on A2, B1 and B2 content; built-in English TTS is required for audio
-- Session scores, XP, streaks, daily goal, lesson unlocking and review queue
-- Spaced repetition: 1, 3, 7, 14 and 30 days for recalled phrases; mistakes return for practice
-- Progress stored locally in Android `SharedPreferences`, available offline
-- No registration, accounts, tracking, permissions, or required internet connection
-- All Russian UI; no copyrighted Duolingo artwork/content
+## What actually works
+- 111 authored contextual days (41 extended); month 1 has 30/30 contexts, 23 extended. The other nine months have nine contexts each; 189 days remain without them.
+- 2,011 vocabulary IDs, 1,808 phrase IDs, 161 readings, 564 reading questions, 151 grammar units, 536 grammar checks, 333 distinct transfer checks, 111 dialogues/608 turns, 555 speaking and 333 writing prompts.
+- Offline bounded grammar mentor: nine supported rule groups, canonical Russian explanation, correction, transfer practice, persistent draft and review history. Unsupported sentences are not declared correct. No runtime LLM is integrated in the APK.
+- 21 new Kokoro dialogue recordings, timed speaker turns, segment repeat, speed control and eSpeak fallback. 299 packaged audio files: 111 eSpeak dialogues, 161 readings, six neural reading alternatives and 21 neural dialogue alternatives. They represent 272 distinct scripts, not 299 distinct lessons.
+- Actual browser UI tests at 360/700px and six native instrumentation tests per API 33–37 (30/30 XML PASS). See qualification matrix for the separate upgrade and post-test launch evidence.
 
-## Building
+## Verified artifacts
+- [Build 46072972432](https://github.com/19wolfalone92/English/actions/runs/46072972432): debug artifact 15233912161, preview 15234231692, 31 browser screenshots 15233892219.
+- [Native run 46072972441](https://github.com/19wolfalone92/English/actions/runs/46072972441): 30/30 tests, overall workflow failed the separate signing-fixture step. Do not equate XML success with workflow success.
+- [Paired hybrid CPU experiment 46071776309](https://github.com/19wolfalone92/English/actions/runs/46071776309): 14/24 baseline vs 24/24 retrieved-reference structured answers; explanation quality and Android inference remain unqualified.
 
-GitHub Actions > **Android APK and curriculum validation** > latest successful run > `Wolfie-English-v0.3.0-debug` artifact. Unzip and install `app-debug.apk` (Android 7+). Debug APK is signed by the CI debug key and **is not** a Play Store release.
+Do not uninstall an existing installation or attempt an incompatible debug-signature update. Preview is a separate package, not an automatic progress migration.
 
-Locally: JDK 17, Android SDK 35, Gradle 8.9, `gradle :app:assembleDebug`.
+See [PROJECT_STATE](docs/PROJECT_STATE.md), [REQUIREMENTS](docs/REQUIREMENTS.md), [QUALIFICATION_MATRIX](docs/QUALIFICATION_MATRIX.md), [KNOWN_BLOCKERS](docs/KNOWN_BLOCKERS.md), [CONTINUATION_STATE](docs/CONTINUATION_STATE.md), [LEARNING_ASSESSMENT](docs/LEARNING_ASSESSMENT.md), [SIGNING_SETUP](docs/SIGNING_SETUP.md), [neural pilot](research/neural-pilot.md).
 
-## Content and architecture
+**Strict content gate remains failing.** No production release, external CEFR certificate or physical Samsung Galaxy S23 Ultra qualification is claimed. Research workflows remain manually controlled except the bounded one-time new-content research runs.
 
-- `app/src/main/assets/curriculum.js`: stable 25 lesson pairs with level and topic
-- `data/words.txt` and `data/phrases.txt`: reviewable bilingual expansion source with topic and level headings, manually authored to avoid machine-generated nonsense
-- `scripts/build_expanded_content.py`: reproducible ID-stable generator to `app/src/main/assets/expanded.js`
-- `app/src/main/assets/index.html`, `styles.css`, `app.js`, `practice.js`, `vocab.js`: offline learning experience and reviewed vocabulary
-- `MainActivity.java`: secure local WebView wrapper, native English voice and persistent progress
-- `scripts/validate_content.py`: checks curriculum consistency, unique IDs, pair counts and JSON-like structure
-
-## Limitations and roadmap
-
-This version is a **working learning platform with an expanded vocabulary and practice bank**, not yet complete CEFR B2 proficiency training. B2 requires substantial additional grammar, vocabulary, listening and speaking content plus assessment. Native TTS uses voices installed on the phone; it may be unavailable without an installed English voice pack. No audio transcription or speech recognition yet. Future phases: longer real-world listening recordings, free speaking with feedback, complete grammar syllabus, adaptive CEFR placement tests and independent B2 exam tasks. Matching 1,008 translations is **not equivalent to B2 ability**. Word count includes fixed expressions (not just dictionary headwords).
-
-## Listening and flashcard details
-
-Open **Практика** (bottom navigation), choose A2/B1/B2, a thematic category, and then choose **Аудирование** or **Карточки**. Speech is synthesized locally; the app does not silently penalize unavailable audio: it shows a clear retry/voice-installation message. For flashcards select word vs phrase and translation direction, flip to reveal the meaning, and rate **Я вспомнил** or **Повторить**. Scores and reviews share the existing offline progress store.
-
-## Build note
-
-GitHub Actions checks that the generated vocabulary bank matches the editable source files, validates IDs, checks JS syntax, builds and publishes a debug APK. Do not merge or ship if checks fail. Confirm installation and speech synthesis on device.
-
-## Guided 300-day path (v0.5.0)
-
-Ten study-months × 30 sessions = 300 sequenced practice days: 120 A2, 90 B1 and 90 B2 sessions. Each day includes 10 automatically graded exercises chosen from the current reviewed word/phrase collection; 40 grammar points have new guided explanations and examples. Vocabulary, phrases, device-based listening, typing and spaced reviews rotate. Score 70% to unlock the next day. Progress stays offline; the original 25 mini-lessons are still available in a collapsed section.
-
-**Important scope:** 300 sessions do not mean 300 unique original teaching texts: words and phrases recur intentionally. Longer speaking and writing tasks are self-directed and are not automatically evaluated. B2 proficiency cannot be claimed without substantial additional authentic reading/listening, assessed writing and speaking practice. Check course integrity via: node scripts/verify_course.mjs.
+Focused API35 same-disposable-key upgrade run 46073670043: SUCCESS, artifact 15233508478. Old v22 → new v23 in-place installation, seed/verify/restart 3/3 PASS, launch Status: ok. No owner key or physical device qualification.

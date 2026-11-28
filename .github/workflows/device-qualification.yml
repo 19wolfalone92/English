@@ -1,0 +1,288 @@
+name: Android emulator qualification
+on:
+  push:
+    branches: [main, 'feature/**']
+    paths:
+      - 'app/**'
+      - '.github/workflows/device-qualification.yml'
+      - 'scripts/verify_native_screenshot.py'
+      - 'scripts/build_context_audio.py'
+      - 'scripts/import_neural_pilot.py'
+      - 'scripts/import_neural_month01.py'
+      - 'research/month01_neural_pins.json'
+  workflow_dispatch:
+jobs:
+  device:
+    name: Android API ${{ matrix.api }} native qualification
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    permissions:
+      contents: read
+      actions: read
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        api: [33, 34, 35, 36, 37] # API 33 previously booted and passed both native tests.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Set up Android SDK command-line tools
+        uses: android-actions/setup-android@07976c6290703d34c16d382cb36445f98bb43b1f # v3.2.0
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: 'false'
+      - name: Generate the same offline audio assets
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak ffmpeg
+          python3 scripts/build_context_audio.py
+      # The pilot is a qualified immutable research artifact, not a network dependency in the APK.
+      - name: Fetch qualified neural pilot
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-audio-comparison-v2
+          path: research-models/neural-pilot
+          run-id: 46003216202
+          github-token: ${{ github.token }}
+      - name: Verify and package actual neural recordings
+        run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
+      - name: Fetch pinned month 01 neural shard 0
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-0
+          path: research-models/neural-month01/0
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 1
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-1
+          path: research-models/neural-month01/1
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 2
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-resumed-2
+          path: research-models/neural-month01/2
+          run-id: 46072326239
+          github-token: ${{ github.token }}
+      - name: Verify and package 21 new neural dialogues
+        run: python3 scripts/import_neural_month01.py research-models/neural-month01/0 research-models/neural-month01/1 research-models/neural-month01/2
+      - name: Check KVM and SDK image availability
+        env:
+          API: ${{ matrix.api }}
+        run: |
+          set -euo pipefail
+          test -c /dev/kvm || { echo "::error::Hardware acceleration unavailable"; exit 1; }
+          sudo chmod a+rw /dev/kvm
+          mkdir -p device-evidence
+          sdkmanager --list > device-evidence/sdk-packages.txt
+          image="system-images;android-$API;google_apis;x86_64"
+          if [ "$API" = "37" ]; then image="system-images;android-37.0;google_apis;x86_64"; fi
+          grep -F "$image" device-evidence/sdk-packages.txt >/dev/null || { echo "::error::Requested API image unavailable: $image"; exit 1; }
+          sdkmanager --install "$image" "emulator" "platform-tools"
+          avd_tool="$(command -v avdmanager)"
+          if [ "$API" = "37" ]; then
+            # The previous actual AVD was target=android-0 with repeated SurfaceFlinger SIGABRT.
+            # See actions/runner-images#14484: API 37 needs major/minor target-aware tools.
+            sdkmanager --install "cmdline-tools;22.0"
+            sdk_root="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+            avd_tool="$sdk_root/cmdline-tools/22.0/bin/avdmanager"
+            test -x "$avd_tool"
+            cat "$sdk_root/cmdline-tools/22.0/source.properties" | tee device-evidence/cmdline-tools.txt
+            "$sdk_root/cmdline-tools/22.0/bin/sdkmanager" --version | tee -a device-evidence/cmdline-tools.txt
+          fi
+          printf '%s\n' "$avd_tool" > device-evidence/avd-tool-path.txt
+          export ANDROID_AVD_HOME="$RUNNER_TEMP/wolfie-avds"
+          mkdir -p "$ANDROID_AVD_HOME"
+          echo "ANDROID_AVD_HOME=$ANDROID_AVD_HOME" >> "$GITHUB_ENV"
+          printf 'no\n' | "$avd_tool" create avd -n wolfie -k "$image" --path "$ANDROID_AVD_HOME/wolfie.avd" --force
+          "$avd_tool" list avd | tee device-evidence/avds.txt
+          test -f "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          if [ "$API" = "37" ]; then
+            # API 37 install-create previously rejected the APK for insufficient internal space.
+            df -h "$RUNNER_TEMP" | tee device-evidence/host-disk.txt
+            test "$(df -Pk "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 8388608
+            sed -i '/^disk.dataPartition.size=/d' "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+            printf '\ndisk.dataPartition.size=8G\n' >> "$ANDROID_AVD_HOME/wolfie.avd/config.ini"
+          fi
+          if [ "$API" = "37" ]; then
+            # Do not silently rewrite invalid API 37 metadata: require the actual creator output.
+            test -f "$ANDROID_AVD_HOME/wolfie.ini"
+            cat "$ANDROID_AVD_HOME/wolfie.ini" | tee device-evidence/wolfie-ini.txt
+            grep -Fx "target=android-37.0" "$ANDROID_AVD_HOME/wolfie.ini" || { echo "::error::API 37 AVD target metadata invalid"; exit 1; }
+          fi
+          if [ ! -f "$ANDROID_AVD_HOME/wolfie.ini" ]; then
+            printf 'avd.ini.encoding=UTF-8\npath=%s/wolfie.avd\ntarget=android-%s\n' "$ANDROID_AVD_HOME" "$API" > "$ANDROID_AVD_HOME/wolfie.ini"
+          fi
+          cat "$ANDROID_AVD_HOME/wolfie.ini" | tee device-evidence/wolfie-ini.txt
+          "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" -list-avds | tee device-evidence/emulator-avds.txt
+          grep -x wolfie device-evidence/emulator-avds.txt
+      - name: Boot real Android emulator and verify API
+        env:
+          API: ${{ matrix.api }}
+        run: |
+          set -euo pipefail
+          partition_args=()
+          memory=2048
+          gpu=swiftshader_indirect
+          if [ "$API" = "37" ]; then partition_args=(-partition-size 8192); memory=4096; gpu=software; fi
+          nohup "${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator" "${partition_args[@]}" -avd wolfie -no-window -no-audio -no-snapshot -gpu "$gpu" -no-boot-anim -memory "$memory" -cores 2 > device-evidence/emulator.log 2>&1 &
+          pid=$!
+          adb start-server
+          for i in $(seq 1 120); do
+            if ! kill -0 "$pid" 2>/dev/null; then cat device-evidence/emulator.log; exit 1; fi
+            if adb devices | grep -Eq '^emulator-[0-9]+[[:space:]]+device$'; then break; fi
+            sleep 2
+          done
+          adb devices | tee device-evidence/adb-devices.txt
+          if ! grep -Eq '^emulator-[0-9]+[[:space:]]+device$' device-evidence/adb-devices.txt; then cat device-evidence/emulator.log; exit 1; fi
+          for i in $(seq 1 150); do
+            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = "1" ]; then break; fi
+            sleep 2
+          done
+          test "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1
+          test "$(adb shell getprop ro.build.version.sdk | tr -d '\r')" = "$API"
+          adb shell input keyevent 82
+          # Use a real portrait phone display; never upscale captured evidence.
+          adb shell wm size 1080x1920
+          adb shell wm density 420
+          adb shell wm size | tee device-evidence/display-size.txt
+          adb shell wm density | tee device-evidence/display-density.txt
+          grep -F '1080x1920' device-evidence/display-size.txt
+          adb shell settings put global window_animation_scale 0
+          adb shell settings put global transition_animation_scale 0
+          adb shell settings put global animator_duration_scale 0
+          adb shell svc wifi disable
+          adb shell svc data disable
+          adb shell getprop > device-evidence/device-properties.txt
+          adb shell df -k /data | tee device-evidence/data-space.txt
+          adb shell pm list packages > device-evidence/package-service.txt
+          if [ "$API" = "37" ]; then
+            test "$(adb shell df -k /data | tr -d '\r' | awk 'NR==2 {print $4}')" -ge 1048576
+            sf="$(adb shell pidof surfaceflinger | tr -d '\r')"
+            ss="$(adb shell pidof system_server | tr -d '\r')"
+            test -n "$sf"; test -n "$ss"
+            # Boot completed alone is insufficient; prove the OS services remain stable before APK install.
+            for i in $(seq 1 7); do
+              current_sf="$(adb shell pidof surfaceflinger | tr -d '\r')"
+              current_ss="$(adb shell pidof system_server | tr -d '\r')"
+              package_state="$(adb shell service check package | tr -d '\r')"
+              printf '%s surfaceflinger=%s system_server=%s %s\n' "$i" "$current_sf" "$current_ss" "$package_state" | tee -a device-evidence/service-stability.txt
+              test "$current_sf" = "$sf"; test "$current_ss" = "$ss"
+              test "$package_state" = "Service package: found"
+              if [ "$i" -lt 7 ]; then sleep 5; fi
+            done
+          fi
+      - name: Instrumented WebView and storage tests offline
+        run: |
+          set -o pipefail
+          # Retry only a positively identified dependency HTTP 429, never a failing test.
+          for attempt in 1 2 3; do
+            log="device-evidence/gradle-attempt-$attempt.log"
+            if gradle --no-daemon :app:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.wolfie.english.DeviceQualificationTest 2>&1 | tee "$log"; then exit 0; fi
+            if ! grep -Eq 'Received status code 429 from server|HTTP[^ ]* 429|Too Many Requests' "$log" || [ "$attempt" = 3 ]; then exit 1; fi
+            if grep -Eq 'Starting [0-9]+ tests on|tests completed,.*failed|There were failing tests' "$log"; then exit 1; fi
+            sleep "$((attempt * 20))"
+          done
+          exit 1
+      - name: Cold process screenshot in separate instrumentation
+        run: |
+          set -euo pipefail
+          adb install -r app/build/outputs/apk/debug/app-debug.apk
+          adb install -r -t app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          adb shell run-as com.wolfie.english rm -f files/wolfie-native.png files/wolfie-dom-ready.txt
+          adb shell am force-stop com.wolfie.english
+          test -z "$(adb shell pidof com.wolfie.english | tr -d '\r')"
+          adb shell am instrument -w -e class 'com.wolfie.english.HomeScreenshotQualificationTest' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/cold-process-screenshot.txt
+          grep -F 'OK (1 test)' device-evidence/cold-process-screenshot.txt
+      - name: Pull native screenshot after verified WebView DOM readiness
+        run: |
+          set -euo pipefail
+          adb exec-out run-as com.wolfie.english cat files/wolfie-native.png > device-evidence/wolfie-native.png
+          adb exec-out run-as com.wolfie.english cat files/wolfie-dom-ready.txt > device-evidence/wolfie-dom-ready.txt
+          python3 scripts/verify_native_screenshot.py device-evidence/wolfie-native.png device-evidence/wolfie-dom-ready.txt
+          adb logcat -d -t 300 > device-evidence/logcat.txt
+      - name: Fetch real 0.9.2 for isolated upgrade
+        if: matrix.api == 35
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-English-v0.9.2-debug
+          path: research-models/upgrade-old
+          run-id: 46053115967
+          github-token: ${{ github.token }}
+      - name: Same-test-key update from 0.9.2 without uninstall
+        if: matrix.api == 35
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p device-evidence/upgrade
+          old=research-models/upgrade-old/app-debug.apk
+          echo '7401f86e791539981f933debcb94cd0bf3a33fa8ffd31005f58dc70976adc3bf  research-models/upgrade-old/app-debug.apk' | sha256sum -c
+          new=app/build/outputs/apk/debug/app-debug.apk
+          testapk=app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          signer="$ANDROID_HOME/build-tools/35.0.0/apksigner"
+          key="$RUNNER_TEMP/wolfie-isolated-upgrade.p12"
+          # Generate an explicit throwaway CI key; no assumption about Gradle debug key location.
+          keytool -genkeypair -storetype PKCS12 -keystore "$key" -storepass test-only-123 -keypass test-only-123 -alias wolfie-ci -dname CN=Wolfie-Isolated-CI -keyalg RSA -keysize 2048 -validity 30 >/dev/null 2>&1
+          for kind in old new test; do
+            case "$kind" in old) input="$old";; new) input="$new";; test) input="$testapk";; esac
+            "$signer" sign --ks "$key" --ks-pass pass:test-only-123 --key-pass pass:test-only-123 --ks-key-alias wolfie-ci --v4-signing-enabled false --out "$RUNNER_TEMP/$kind-test.apk" "$input"
+            "$signer" verify --print-certs "$RUNNER_TEMP/$kind-test.apk" | tee "device-evidence/upgrade/$kind-cert.txt"
+          done
+          for kind in new test; do
+            diff <(grep 'certificate SHA-256 digest' device-evidence/upgrade/old-cert.txt) <(grep 'certificate SHA-256 digest' "device-evidence/upgrade/$kind-cert.txt")
+          done
+          rm -f "$key"
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/old-test.apk" > device-evidence/upgrade/old-package.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$RUNNER_TEMP/new-test.apk" > device-evidence/upgrade/new-package.txt
+          grep -F "name='com.wolfie.english' versionCode='22'" device-evidence/upgrade/old-package.txt
+          expected_new_code="$(awk '$1 == "versionCode" {print $2; exit}' app/build.gradle)"
+          expected_new_name="$(awk -F"'" '/versionName/ {print $2; exit}' app/build.gradle)"
+          test -n "$expected_new_code"
+          test -n "$expected_new_name"
+          grep -F "name='com.wolfie.english' versionCode='$expected_new_code'" device-evidence/upgrade/new-package.txt
+          grep -F "versionName='$expected_new_name'" device-evidence/upgrade/new-package.txt
+          # Isolated disposable emulator only. Never uninstall between old and new.
+          adb uninstall com.wolfie.english.test || true
+          adb uninstall com.wolfie.english || true
+          adb install "$RUNNER_TEMP/old-test.apk" | tee device-evidence/upgrade/install-old.txt
+          adb install -r -t "$RUNNER_TEMP/test-test.apk"
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#seedOld' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/seed.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/seed.txt
+          adb shell am force-stop com.wolfie.english
+          adb install -r "$RUNNER_TEMP/new-test.apk" | tee device-evidence/upgrade/install-new.txt
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#verifyNew' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/verify.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/verify.txt
+          adb shell am force-stop com.wolfie.english
+          adb shell am instrument -w -e class 'com.wolfie.english.UpgradeQualificationTest#verifyNew' com.wolfie.english.test/androidx.test.runner.AndroidJUnitRunner | tee device-evidence/upgrade/restart.txt
+          grep -F 'OK (1 test)' device-evidence/upgrade/restart.txt
+          echo 'PASS: same disposable test key update, not owner signing'
+      - name: Capture failure diagnostics even when instrumentation fails
+        if: always()
+        run: |
+          mkdir -p device-evidence
+          adb devices -l > device-evidence/adb-final.txt 2>&1 || true
+          timeout 25 adb logcat -d -b all > device-evidence/logcat-all.txt 2>&1 || true
+          timeout 15 adb shell dumpsys meminfo > device-evidence/meminfo.txt 2>&1 || true
+          timeout 15 adb shell df -k /data > device-evidence/data-space-final.txt 2>&1 || true
+          timeout 15 adb shell service check package > device-evidence/package-service-final.txt 2>&1 || true
+          free -m > device-evidence/host-memory.txt
+      - name: Upload qualification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-Android-API-${{ matrix.api }}-evidence
+          path: |
+            device-evidence/
+            app/build/outputs/androidTest-results/connected/
+            app/build/reports/androidTests/connected/
+          if-no-files-found: warn

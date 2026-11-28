@@ -2,15 +2,37 @@ name: Android APK and curriculum validation
 on:
   push:
     branches: [main, 'feature/**']
-  pull_request:
+    paths:
+      - 'app/**'
+      - 'data/**'
+      - 'gradle/**'
+      - 'gradle.properties'
+      - 'settings.gradle'
+      - 'build.gradle'
+      - 'scripts/build_expanded_content.py'
+      - 'scripts/validate_content.py'
+      - 'scripts/verify_*.mjs'
+      - 'scripts/verify_*.py'
+      - 'scripts/ui_*.py'
+      - 'scripts/build_context_audio.py'
+      - 'scripts/import_neural_pilot.py'
+      - 'scripts/import_neural_month01.py'
+      - 'research/month01_neural_pins.json'
+      - 'scripts/audit_course_depth.mjs'
+      - 'scripts/compile_curriculum_batch.py'
+      - '.github/workflows/android.yml'
   workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: read
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -20,8 +42,80 @@ jobs:
           git diff --exit-code -- app/src/main/assets/expanded.js
       - name: Validate bilingual content and stable IDs
         run: python3 scripts/validate_content.py
-      - name: Validate 300-day course
+      - name: Validate complete course and learning gates
         run: node scripts/verify_course.mjs
+      - name: Audit lesson depth and prompt reuse (informational; release gate remains PARTIAL)
+        run: node scripts/audit_course_depth.mjs
+      - name: Regression tests for assessment evidence
+        run: node scripts/verify_assessment.mjs
+      - name: Verify isolated diagnostic forms
+        run: node scripts/verify_diagnostic.mjs
+      - name: Verify progress schema and backup integrity
+        run: node scripts/verify_progress.mjs
+      - name: Verify authored batch compilation and inventory
+        run: python3 scripts/compile_curriculum_batch.py --check
+      - name: Validate authored contextual learning packages
+        run: node scripts/verify_context.mjs
+      - name: Verify Study Studio and objective evidence
+        run: node scripts/verify_studio.mjs
+      - name: Verify bounded grammar tutor and proposal rejection
+        run: node scripts/verify_teacher.mjs
+      - name: Build offline synthetic dialogue audio
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak ffmpeg
+          python3 scripts/build_context_audio.py
+      # The pilot is a qualified immutable research artifact, not a network dependency in the APK.
+      - name: Fetch qualified neural pilot
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-audio-comparison-v2
+          path: research-models/neural-pilot
+          run-id: 46003216202
+          github-token: ${{ github.token }}
+      - name: Verify and package actual neural recordings
+        run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
+      - name: Fetch pinned month 01 neural shard 0
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-0
+          path: research-models/neural-month01/0
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 1
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-1
+          path: research-models/neural-month01/1
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 2
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-resumed-2
+          path: research-models/neural-month01/2
+          run-id: 46072326239
+          github-token: ${{ github.token }}
+      - name: Verify and package 21 new neural dialogues
+        run: python3 scripts/import_neural_month01.py research-models/neural-month01/0 research-models/neural-month01/1 research-models/neural-month01/2
+      - name: Install Playwright Chromium
+        run: |
+          python -m pip install --upgrade playwright
+          python -m playwright install --with-deps chromium
+      - name: Run real browser UI smoke tests
+        run: python3 scripts/ui_smoke_test.py
+      - name: Verify all authored context packages in real browser
+        run: python3 scripts/ui_context_test.py
+      - name: Exercise Study Studio in real browser
+        run: python3 scripts/ui_studio_test.py
+      - name: Verify neural dialogue player in real browser
+        run: python3 scripts/ui_neural_dialogue_test.py
+      - name: Upload browser screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-English-v0.9.6-browser-evidence
+          path: ui-evidence/*.png
+          if-no-files-found: error
       - name: Check JavaScript syntax
         run: |
           for file in app/src/main/assets/*.js; do node --check "$file"; done
@@ -33,14 +127,54 @@ jobs:
         with:
           gradle-version: '8.9'
       - name: Verify Android SDK
+        run: test -d "$ANDROID_HOME"
+      - name: Run Android lint, unit tests and build
+        run: gradle --no-daemon :app:lintDebug :app:testDebugUnitTest :app:assembleDebug :app:assemblePreview
+      - name: Verify release signing fails closed without owner inputs
+        shell: bash
         run: |
-          test -d "$ANDROID_HOME"
-          echo "Android SDK: $ANDROID_HOME"
-      - name: Assemble Android Debug APK
-        run: gradle --no-daemon :app:assembleDebug
-      - name: Upload installable APK
+          set +e
+          output="$(gradle --no-daemon :app:verifyReleaseSigningConfiguration 2>&1)"
+          code=$?
+          set -e
+          if [[ "$code" -eq 0 ]]; then
+            echo "::error::Release signing unexpectedly accepted missing owner inputs"
+            exit 1
+          fi
+          if ! grep -Fq "WOLFIE_RELEASE_SIGNING_NOT_CONFIGURED" <<< "$output"; then
+            printf '%s\n' "$output"
+            echo "::error::Release signing failed for an unexpected reason"
+            exit 1
+          fi
+          echo "PASS: release build refuses to sign without owner-controlled key material"
+      - name: Verify packaged lessons and audio in both APKs
+        run: python3 scripts/verify_context_apk.py app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/preview/app-preview.apk
+      - name: Generate and verify APK checksum
+        run: |
+          cd app/build/outputs/apk/debug
+          "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs app-debug.apk
+          sha256sum app-debug.apk > app-debug.apk.sha256
+          sha256sum -c app-debug.apk.sha256
+      - name: Upload installable APK and checksum
         uses: actions/upload-artifact@v4
         with:
-          name: Wolfie-English-v0.5.0-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: Wolfie-English-v0.9.6-debug
+          path: |
+            app/build/outputs/apk/debug/app-debug.apk
+            app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+
+      - name: Verify preview APK
+        run: |
+          cd app/build/outputs/apk/preview
+          "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs app-preview.apk
+          sha256sum app-preview.apk > app-preview.apk.sha256
+          sha256sum -c app-preview.apk.sha256
+      - name: Upload side-by-side preview APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-English-v0.9.6-preview
+          path: |
+            app/build/outputs/apk/preview/app-preview.apk
+            app/build/outputs/apk/preview/app-preview.apk.sha256
           if-no-files-found: error

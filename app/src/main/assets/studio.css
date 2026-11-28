@@ -1,0 +1,21 @@
+
+/* Study Studio: one coherent adult workspace, accessible native controls. */
+.studio{padding:0 0 16px;color:var(--text);max-width:760px;margin:auto}
+.studio-heading{padding:24px 20px;margin:12px 0;background:linear-gradient(145deg,#173b56,#235f69);color:#fff;border-radius:22px}
+.studio-heading h1{color:#fff;margin:8px 0 0;font-size:1.75rem}.studio-heading .eyebrow{color:#b4e8d8;letter-spacing:.13em}
+.studio-nav,.studio-skill-grid,.studio-contrast,.studio-chip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.studio-nav button{min-height:48px;overflow-wrap:anywhere}.studio-nav [aria-current=page]{border:2px solid var(--accent);font-weight:800}
+.studio-card,.studio-row,.studio-article,.studio-contrast>div{border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--text);padding:16px;margin:10px 0;overflow-wrap:anywhere}
+.studio-row{display:block;width:100%;text-align:left;min-height:70px}.studio-row strong,.studio-row small{display:block}.studio-row small{color:var(--muted);margin:5px 0}
+.studio-article{font-size:1.06rem;line-height:1.8}.studio-word{font:inherit;color:var(--accent);background:none;border:0;text-decoration:underline;text-decoration-style:dotted;padding:0;cursor:pointer;min-height:0;display:inline}
+.studio-pager,.studio-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0}.studio-actions>*{flex:1}
+.studio .study-input{width:100%;max-width:100%;margin:8px 0;background:var(--card);color:var(--text)}.studio .input{margin:8px 0}
+.studio .studio-version{white-space:pre-wrap;overflow-wrap:anywhere}.studio mark{background:#ffdf8a;color:#23190b;padding:1px 2px}
+.studio-fix{border-top:1px solid var(--line);padding:12px 0}.studio-metric{font-size:1.6rem;font-weight:800;margin:8px 0}
+.studio fieldset label{display:block;padding:10px}.studio details summary{cursor:pointer;min-height:44px}
+@media(max-width:390px){.studio-contrast{grid-template-columns:1fr}.studio-card{padding:12px}}
+
+/* Course dashboard and teacher: functional content coverage, distinct from mastery. */
+.coverage-panel{display:grid;gap:6px;margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--text)}.coverage-panel small,.month-coverage{color:var(--muted);font-size:.84rem}.month-coverage{display:block;margin-top:3px}.teacher-intro{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--card);margin:14px 0}.teacher-intro .eyebrow{color:var(--accent)}.teacher-intro h2{margin:8px 0}.teacher-answer{border-left:4px solid var(--accent)}.teacher-answer small{display:block;overflow-wrap:anywhere;margin-bottom:12px;color:var(--muted)}.teacher-correction{font-size:1.16rem;font-weight:700;color:var(--text)}.teacher-options{display:grid;gap:10px;margin:12px 0}.teacher-options button{min-height:48px;text-align:left;white-space:normal;overflow-wrap:anywhere}.teacher-options button:disabled{opacity:.75}.teacher-answer button{margin-top:8px}
+
+.dialogue-line{padding:10px;border:1px solid var(--line);border-radius:12px}.dialogue-line.dialogue-active{border-color:var(--accent);box-shadow:inset 4px 0 var(--accent);background:var(--card)}.line-repeat{margin-top:8px;min-height:44px;width:100%}#ctx-voice,#ctx-rate{margin-bottom:10px}

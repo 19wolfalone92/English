@@ -1,0 +1,18 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';import {webcrypto} from 'node:crypto';import {TextEncoder} from 'node:util';
+const w={},ctx=vm.createContext({window:w,TextEncoder,crypto:webcrypto});
+for(const f of ['diagnostic_bank','diagnostic','progress'])vm.runInContext(fs.readFileSync(new URL('../app/src/main/assets/'+f+'.js',import.meta.url),'utf8'),ctx);
+const p=w.WOLFIE_PROGRESS;
+const legacy={items:{'word-a':{stage:3,due:1795780800000,last:1795000000000}},finished:{'course-001':{best:8,done:true}},xp:80,days:{'2026-11-25':8},correct:8,attempts:10,speed:false,study:{'course-001':{done:{review:true,vocab:true},answers:{essay:'My draft. Русский 🐺',speech:{0:'I have a question.'},listeningSession:{ids:'en-US|p1|p2',index:1,correct:1,draft:'A draft',checked:false,matched:false}},time:{writing:77},assessment:{writing:{structuralChecks:3,totalChecks:4}}}},settings:{theme:'dark',fontScale:1.2,voiceLocale:'en-GB'}};
+const migrated=p.validate(JSON.stringify(legacy));assert.equal(migrated.schemaVersion,2);
+assert.deepEqual(JSON.parse(JSON.stringify(migrated)),{...legacy,schemaVersion:2});
+const backup=await p.makeBackup(migrated);
+assert.deepEqual(JSON.parse(JSON.stringify(await p.readBackup(backup))),{...legacy,schemaVersion:2});
+const broken=JSON.parse(backup);broken.payload=broken.payload.replace('My draft','Different draft');await assert.rejects(p.readBackup(JSON.stringify(broken)),/Контрольная сумма/);
+await assert.rejects(p.readBackup('{"format":"unknown"}'),/формат/);
+for(const raw of ['null','[]','{"schemaVersion":999}','{"items":[]}','{"correct":20,"attempts":10}','{"items":{"x":{"stage":6,"due":0}}}','{"finished":{"x":{"done":"yes","best":1}}}','{"__proto__":{"bad":true}}','{"study":{"x":{"done":[]}}}'])assert.throws(()=>p.validate(raw),undefined,raw);
+assert.throws(()=>p.validate(JSON.stringify({essay:'я'.repeat(2500001)})),/5 МБ/);
+const active={...migrated,diagnostic:{history:[],active:{formId:'diagnostic-B1-a',index:2,answers:{v1:0,v2:0},writing:'',speaking:'',seen:false}}};
+assert.equal(p.validate(JSON.stringify(active)).diagnostic.active.index,2);
+active.diagnostic.active.index=100;assert.throws(()=>p.validate(JSON.stringify(active)),/диагностики/);
+assert.equal(p.validate('{}').schemaVersion,2);
+console.log('PASS: representative v0.7.2 migration, multilingual backup round trip, SHA-256 tamper rejection, invalid schema/keys/shape/size, diagnostic draft validation');

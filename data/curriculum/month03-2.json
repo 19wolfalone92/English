@@ -1,0 +1,1621 @@
+[
+  {
+    "pack": {
+      "id": "mission-v2-076",
+      "day": 76,
+      "level": "A2",
+      "title": "Choosing a beginner pottery workshop",
+      "ru": "Выбор мастер-класса по керамике для начинающих",
+      "goal": "Уточнить уровень, продолжительность и материалы занятия.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "How long / how often / how much",
+        "rule": "How long — продолжительность; how often — частота; how much — цена или количество неисчисляемого.",
+        "pattern": "How long does it last? / How often do you meet?",
+        "example": "How long does the beginner workshop last?",
+        "pitfall": "Не путай how long (длительность) и how often (частота).",
+        "exercises": [
+          [
+            "choice",
+            "___ does each workshop last? Two hours.",
+            [
+              "How long",
+              "How often",
+              "How many"
+            ],
+            0,
+            "Duration: how long."
+          ],
+          [
+            "type",
+            "Complete: ___ often do you run beginner classes?",
+            [
+              "how"
+            ],
+            "How often asks frequency."
+          ],
+          [
+            "order",
+            "Спроси: сколько стоит занятие?",
+            [
+              "cost",
+              "class",
+              "the",
+              "does",
+              "much",
+              "How"
+            ],
+            "How much does the class cost",
+            "How much asks price."
+          ],
+          [
+            "choice",
+            "___ do you meet? Every Saturday.",
+            [
+              "How long",
+              "How often",
+              "How much"
+            ],
+            1,
+            "Every Saturday is frequency."
+          ],
+          [
+            "type",
+            "Complete: How ___ materials are included? Use many.",
+            [
+              "many"
+            ],
+            "Materials here means different items."
+          ],
+          [
+            "order",
+            "Спроси: сколько длится мастер-класс?",
+            [
+              "last",
+              "workshop",
+              "the",
+              "does",
+              "long",
+              "How"
+            ],
+            "How long does the workshop last",
+            "Does + base verb."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a beginner pottery session",
+          "занятие по керамике для начинающих"
+        ],
+        [
+          "a lump of modelling clay",
+          "кусок глины для лепки"
+        ],
+        [
+          "a pottery studio booking",
+          "бронирование занятия в гончарной студии"
+        ],
+        [
+          "a shared workbench",
+          "общий рабочий стол"
+        ],
+        [
+          "a glazing session",
+          "занятие по глазурованию"
+        ],
+        [
+          "a finished ceramic bowl",
+          "готовая керамическая миска"
+        ],
+        [
+          "a workshop materials fee",
+          "плата за материалы мастер-класса"
+        ],
+        [
+          "a pottery apron",
+          "фартук для керамики"
+        ],
+        [
+          "a collection reminder",
+          "напоминание о получении изделия"
+        ],
+        [
+          "a trial workshop place",
+          "место на пробном мастер-классе"
+        ]
+      ],
+      "phrases": [
+        [
+          "How long does the beginner pottery session last?",
+          "Сколько длится занятие по керамике для начинающих?"
+        ],
+        [
+          "Do I need any previous experience with clay?",
+          "Мне нужен предыдущий опыт работы с глиной?"
+        ],
+        [
+          "Are the materials included in the workshop fee?",
+          "Материалы входят в стоимость мастер-класса?"
+        ],
+        [
+          "How often do you offer a beginner session?",
+          "Как часто вы проводите занятие для начинающих?"
+        ],
+        [
+          "Can I borrow an apron at the studio?",
+          "Могу взять фартук в студии?"
+        ],
+        [
+          "When can I collect the finished ceramic bowl?",
+          "Когда могу забрать готовую керамическую миску?"
+        ],
+        [
+          "Is there a separate glazing session later?",
+          "Будет позже отдельное занятие по глазурованию?"
+        ],
+        [
+          "I'd like to book one trial place first.",
+          "Сначала хотел бы забронировать одно пробное место."
+        ],
+        [
+          "Could you explain what we will make during the class?",
+          "Объясните, что мы будем делать на занятии."
+        ],
+        [
+          "Please send me a reminder when my bowl is ready.",
+          "Пришлите напоминание, когда моя миска будет готова."
+        ]
+      ],
+      "reading": {
+        "title": "Choosing a beginner pottery workshop",
+        "paragraphs": [
+          "Elena sees an advertisement for pottery workshops at a local studio. She has never worked with clay, so she looks for a beginner session rather than a course for experienced people. The studio offers a two-hour trial workshop on Saturday mornings. The fee includes the clay and the use of basic studio equipment. Elena asks whether she needs to bring her own apron.",
+          "The studio assistant explains that aprons are available for visitors. During the first session, beginners make a small bowl with the teacher's help. The bowl will not be ready to take home immediately because it needs more work at the studio. The assistant explains the later glazing session and collection process. Elena books one trial place and writes down the arrival time. She decides to try the class before committing to a longer course."
+        ],
+        "questions": [
+          [
+            "Why does Elena choose a beginner session?",
+            [
+              "She has no clay experience",
+              "She teaches pottery",
+              "She owns a studio"
+            ],
+            0
+          ],
+          [
+            "How long is the trial workshop?",
+            [
+              "One hour",
+              "Two hours",
+              "All weekend"
+            ],
+            1
+          ],
+          [
+            "What do beginners make?",
+            [
+              "A large table",
+              "A glass window",
+              "A small bowl"
+            ],
+            2
+          ],
+          [
+            "Why does Elena book one trial place?",
+            [
+              "To try the class before a longer commitment",
+              "To collect a finished bowl immediately",
+              "To avoid attending"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Elena",
+          "Hello. How long does your beginner pottery workshop last?",
+          "Здравствуйте. Сколько длится мастер-класс по керамике для начинающих?"
+        ],
+        [
+          "Assistant",
+          "Two hours. We run a trial session every Saturday morning.",
+          "Два часа. Проводим пробное занятие каждую субботу утром."
+        ],
+        [
+          "Elena",
+          "Do I need previous experience, or can I come as a complete beginner?",
+          "Нужен предыдущий опыт или можно прийти совсем новичком?"
+        ],
+        [
+          "Assistant",
+          "No experience is needed. The teacher will help you make a small bowl.",
+          "Опыт не требуется. Преподаватель поможет сделать небольшую миску."
+        ],
+        [
+          "Elena",
+          "How much is the workshop, and are the materials included?",
+          "Сколько стоит мастер-класс и входят ли материалы?"
+        ],
+        [
+          "Assistant",
+          "The materials and apron are included in the price shown here.",
+          "Материалы и фартук включены в указанную цену."
+        ],
+        [
+          "Elena",
+          "Can I take the bowl home on the same day?",
+          "Могу забрать миску домой в тот же день?"
+        ],
+        [
+          "Assistant",
+          "Not yet. We'll explain the glazing and collection dates at the studio.",
+          "Пока нет. Объясним даты глазурования и получения в студии."
+        ]
+      ],
+      "listening": [
+        "How often does the studio run the trial session?",
+        [
+          "Every Saturday morning",
+          "Every Tuesday night",
+          "Only once a year"
+        ],
+        0
+      ],
+      "speaking": [
+        "Ask about the duration and frequency of a fictional creative workshop.",
+        "Explain why a trial class can be useful before a longer course.",
+        "Ask which materials the workshop fee includes.",
+        "Describe a hobby you would like to try as a beginner.",
+        "Role-play arranging collection of a finished craft item."
+      ],
+      "writing": [
+        "Write a message asking four specific questions about a pottery class.",
+        "Write two questions each with how long, how often and how much.",
+        "Write a short booking confirmation with arrival time and materials."
+      ],
+      "model": "How long does the workshop last? How much does it cost? I'm a beginner. Could you tell me what materials are included?",
+      "competency": {
+        "prerequisites": "Present Simple questions and time/price expressions",
+        "canDo": "Уточнить уровень, продолжительность и материалы занятия.",
+        "successCriteria": "Ask and distinguish duration, frequency, price and included materials.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "___ does the club meet? Twice a month.",
+        [
+          "How often",
+          "How long",
+          "How much"
+        ],
+        0,
+        "Twice a month is frequency."
+      ],
+      [
+        "type",
+        "Complete: How ___ does the film last?",
+        [
+          "long"
+        ],
+        "How long asks duration."
+      ],
+      [
+        "choice",
+        "A workshop includes materials but not immediate collection. What is accurate?",
+        [
+          "The materials are included; collection will take place later.",
+          "The object is ready before the class.",
+          "The workshop is free."
+        ],
+        0,
+        "Separate included services from collection timing."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-077",
+      "day": 77,
+      "level": "A2",
+      "title": "An early breakfast before the excursion",
+      "ru": "Ранний завтрак перед экскурсией",
+      "goal": "Согласовать время завтрака и выразить просьбу о доступной альтернативе.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Before / after / when",
+        "rule": "Before — раньше, after — позже, when — в момент события. В придаточном времени о будущем обычно Present Simple.",
+        "pattern": "before the bus leaves / after we return",
+        "example": "We'll have breakfast before the tour starts.",
+        "pitfall": "Не говори before the tour will start в обычном временном придаточном.",
+        "exercises": [
+          [
+            "choice",
+            "We'll eat before the bus ___.",
+            [
+              "leaves",
+              "will leave",
+              "leave"
+            ],
+            0,
+            "Present Simple in future time clause."
+          ],
+          [
+            "type",
+            "Complete: Call me when you ___ (arrive).",
+            [
+              "arrive"
+            ],
+            "When + present."
+          ],
+          [
+            "order",
+            "Скажи: мы позавтракаем до начала экскурсии.",
+            [
+              "starts",
+              "tour",
+              "the",
+              "before",
+              "eat",
+              "will",
+              "We"
+            ],
+            "We will eat before the tour starts",
+            "Before + present."
+          ],
+          [
+            "choice",
+            "I'll collect the key after I ___ breakfast.",
+            [
+              "finish",
+              "will finish",
+              "finishing"
+            ],
+            0,
+            "After + present simple."
+          ],
+          [
+            "type",
+            "Complete: We will leave when the driver ___ (come).",
+            [
+              "comes"
+            ],
+            "Driver comes."
+          ],
+          [
+            "order",
+            "Скажи: позвони мне после возвращения.",
+            [
+              "return",
+              "you",
+              "after",
+              "me",
+              "Call"
+            ],
+            "Call me after you return",
+            "After + present."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "an early breakfast request",
+          "просьба о раннем завтраке"
+        ],
+        [
+          "a packed breakfast option",
+          "вариант завтрака с собой"
+        ],
+        [
+          "a breakfast serving period",
+          "время подачи завтрака"
+        ],
+        [
+          "a tour pickup time",
+          "время, когда забирают на экскурсию"
+        ],
+        [
+          "a breakfast collection point",
+          "место получения завтрака"
+        ],
+        [
+          "a takeaway food box",
+          "коробка еды с собой"
+        ],
+        [
+          "a guest room reference",
+          "номер гостевого номера"
+        ],
+        [
+          "a morning departure arrangement",
+          "договорённость об утреннем отправлении"
+        ],
+        [
+          "a breakfast order deadline",
+          "крайний срок заказа завтрака"
+        ],
+        [
+          "a breakfast pickup confirmation",
+          "подтверждение получения завтрака"
+        ]
+      ],
+      "phrases": [
+        [
+          "Our tour starts before the usual breakfast time.",
+          "Наша экскурсия начинается до обычного времени завтрака."
+        ],
+        [
+          "Is a packed breakfast available for early departures?",
+          "Доступен завтрак с собой при раннем отправлении?"
+        ],
+        [
+          "Could we collect the breakfast boxes at six thirty?",
+          "Можем забрать коробки с завтраком в шесть тридцать?"
+        ],
+        [
+          "When do we have to place the breakfast order?",
+          "Когда нужно сделать заказ завтрака?"
+        ],
+        [
+          "We'll leave the guesthouse after we collect the food.",
+          "Мы уйдём из гостевого дома после получения еды."
+        ],
+        [
+          "Does the price include the packed option?",
+          "Цена включает вариант с собой?"
+        ],
+        [
+          "Please put the room number on the breakfast order.",
+          "Укажите номер комнаты в заказе завтрака."
+        ],
+        [
+          "I'll confirm the pickup time with the tour organiser.",
+          "Подтвержу время выезда с организатором экскурсии."
+        ],
+        [
+          "We need something simple that we can carry.",
+          "Нужно что-нибудь простое, что можно взять с собой."
+        ],
+        [
+          "I'll check reception before the driver arrives.",
+          "Проверю стойку регистрации до приезда водителя."
+        ]
+      ],
+      "reading": {
+        "title": "An early breakfast before the excursion",
+        "paragraphs": [
+          "Anton and his sister book an early excursion from a guesthouse. The driver is picking them up at seven, but the normal breakfast service starts at half past seven. Anton does not want to leave without arranging food, so he asks the host about an earlier option. The host explains that the kitchen cannot open before seven, but guests with early departures can request a packed breakfast.",
+          "They need to place the order before eight in the evening. Anton asks what is included and whether the box costs extra. The host offers a sandwich, fruit and a drink as part of their existing breakfast booking. The boxes will be available at reception from six thirty. Anton confirms the room number and pickup time in writing. The next morning they collect the boxes before the driver arrives and leave on time."
+        ],
+        "questions": [
+          [
+            "When does the driver collect them?",
+            [
+              "Seven",
+              "Half past seven",
+              "Nine"
+            ],
+            0
+          ],
+          [
+            "Why do they request another option?",
+            [
+              "The restaurant is full at dinner",
+              "The usual breakfast starts too late",
+              "They want to cancel the tour"
+            ],
+            1
+          ],
+          [
+            "When must they order?",
+            [
+              "After the driver arrives",
+              "At midnight",
+              "Before eight in the evening"
+            ],
+            2
+          ],
+          [
+            "Where are the boxes available?",
+            [
+              "At reception",
+              "At the museum",
+              "On the bus"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Anton",
+          "Our tour driver is arriving at seven. Does breakfast start before then?",
+          "Водитель экскурсии приезжает в семь. Завтрак начинается раньше?"
+        ],
+        [
+          "Host",
+          "The normal breakfast starts at seven thirty, but we can prepare a packed option.",
+          "Обычный завтрак начинается в семь тридцать, но можем приготовить вариант с собой."
+        ],
+        [
+          "Anton",
+          "That would help. When do we have to place the order?",
+          "Это поможет. Когда нужно сделать заказ?"
+        ],
+        [
+          "Host",
+          "Before eight this evening. You can collect the boxes at reception at six thirty.",
+          "До восьми сегодня вечером. Забрать коробки можно на стойке в шесть тридцать."
+        ],
+        [
+          "Anton",
+          "Is the packed breakfast included in our booking?",
+          "Завтрак с собой включён в наше бронирование?"
+        ],
+        [
+          "Host",
+          "Yes. It includes a sandwich, fruit and a drink.",
+          "Да. Включает сэндвич, фрукты и напиток."
+        ],
+        [
+          "Anton",
+          "Great. We'll collect the boxes before the driver arrives.",
+          "Отлично. Заберём коробки до приезда водителя."
+        ],
+        [
+          "Host",
+          "Please confirm your room number and we'll prepare them for you.",
+          "Подтвердите номер комнаты, и мы их подготовим."
+        ]
+      ],
+      "listening": [
+        "What time can they collect the boxes?",
+        [
+          "Six thirty",
+          "Seven thirty",
+          "Eight thirty"
+        ],
+        0
+      ],
+      "speaking": [
+        "Explain why an early tour needs a different breakfast arrangement.",
+        "Ask a guesthouse about three available breakfast options.",
+        "Use before, after and when to describe tomorrow's sequence.",
+        "Confirm an order deadline and collection place.",
+        "Role-play requesting a packed breakfast without assuming extra services."
+      ],
+      "writing": [
+        "Write a guesthouse message asking for breakfast before an early tour.",
+        "Write six future time-clause sentences with before, after and when.",
+        "Write a short itinerary from collecting breakfast to meeting the driver."
+      ],
+      "model": "Our driver arrives at seven. Could we collect a packed breakfast at six thirty? We'll place the order before eight tonight.",
+      "competency": {
+        "prerequisites": "Present Simple and will, time expressions",
+        "canDo": "Согласовать время завтрака и выразить просьбу о доступной альтернативе.",
+        "successCriteria": "Use before/after/when clauses and arrange an early meal.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "I'll send the address when I ___ home.",
+        [
+          "get",
+          "will get",
+          "getting"
+        ],
+        0,
+        "When + Present Simple."
+      ],
+      [
+        "type",
+        "Complete: We will call after the tour ___ (finish).",
+        [
+          "finishes"
+        ],
+        "After + present."
+      ],
+      [
+        "choice",
+        "The hotel offers a box instead of opening the kitchen early. What should you confirm?",
+        [
+          "Contents, price and collection time",
+          "That the dining room opens early anyway",
+          "That the driver will prepare food"
+        ],
+        0,
+        "Confirm the actual alternative."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-078",
+      "day": 78,
+      "level": "A2",
+      "title": "An indoor climbing taster booking",
+      "ru": "Запись на пробное занятие в скалодроме",
+      "goal": "Уточнить требования к участию, уровень и включённые услуги без технических инструкций.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Have you ever / never",
+        "rule": "Present Perfect: have/has + V3 для жизненного опыта без точной даты. Ever — когда-либо, never — никогда. При указании finished time используй Past Simple.",
+        "pattern": "Have you ever tried it? / I've never tried it.",
+        "example": "I've never been to this climbing centre.",
+        "pitfall": "Не сочетай never и дополнительное not в этом значении.",
+        "exercises": [
+          [
+            "choice",
+            "Have you ever ___ a climbing centre?",
+            [
+              "visited",
+              "visit",
+              "visiting"
+            ],
+            0,
+            "Have + past participle."
+          ],
+          [
+            "type",
+            "Complete: I have never ___ (be) there.",
+            [
+              "been"
+            ],
+            "Be → been."
+          ],
+          [
+            "order",
+            "Скажи: я никогда не пробовал скалолазание.",
+            [
+              "climbing",
+              "tried",
+              "never",
+              "have",
+              "I"
+            ],
+            "I have never tried climbing",
+            "Have never + V3."
+          ],
+          [
+            "choice",
+            "She ___ a taster session last Saturday.",
+            [
+              "has attended yesterday",
+              "attended",
+              "attends last"
+            ],
+            1,
+            "Last Saturday: Past Simple."
+          ],
+          [
+            "type",
+            "Complete: Has he ever ___ (take) an introductory class?",
+            [
+              "taken"
+            ],
+            "Take → taken."
+          ],
+          [
+            "order",
+            "Спроси: ты когда-нибудь посещал этот центр?",
+            [
+              "centre",
+              "this",
+              "visited",
+              "ever",
+              "you",
+              "Have"
+            ],
+            "Have you ever visited this centre",
+            "Have + subject + ever + V3."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a climbing centre taster session",
+          "пробное занятие в скалодроме"
+        ],
+        [
+          "a first-time participant",
+          "участник впервые"
+        ],
+        [
+          "a qualified session instructor",
+          "квалифицированный инструктор занятия"
+        ],
+        [
+          "a participant booking form",
+          "анкета записи участника"
+        ],
+        [
+          "a session eligibility requirement",
+          "требование допуска к занятию"
+        ],
+        [
+          "a supervised beginner class",
+          "занятие для новичков под наблюдением"
+        ],
+        [
+          "a session information sheet",
+          "информационный лист занятия"
+        ],
+        [
+          "an included equipment hire",
+          "включённая аренда снаряжения"
+        ],
+        [
+          "a centre arrival instruction",
+          "информация о прибытии в центр"
+        ],
+        [
+          "a participant cancellation condition",
+          "условие отмены участия"
+        ]
+      ],
+      "phrases": [
+        [
+          "Have you ever been to this climbing centre?",
+          "Ты когда-нибудь посещал этот скалодром?"
+        ],
+        [
+          "I've never tried climbing before.",
+          "Я никогда прежде не пробовал скалолазание."
+        ],
+        [
+          "Is this session suitable for first-time participants?",
+          "Это занятие подходит тем, кто участвует впервые?"
+        ],
+        [
+          "What are the requirements for taking part?",
+          "Какие требования для участия?"
+        ],
+        [
+          "Does the booking include a supervised beginner class?",
+          "Бронирование включает занятие для новичков под наблюдением?"
+        ],
+        [
+          "Could you send the participant information sheet?",
+          "Можете прислать информационный лист участника?"
+        ],
+        [
+          "Is equipment hire included in the session price?",
+          "Аренда снаряжения входит в стоимость занятия?"
+        ],
+        [
+          "I'd like to ask the instructor about the session first.",
+          "Сначала хотел бы спросить инструктора о занятии."
+        ],
+        [
+          "How early should participants arrive for registration?",
+          "Насколько раньше участникам нужно прибыть на регистрацию?"
+        ],
+        [
+          "I'll follow the centre's instructions rather than guess.",
+          "Буду следовать указаниям центра, а не гадать."
+        ]
+      ],
+      "reading": {
+        "title": "An indoor climbing taster booking",
+        "paragraphs": [
+          "Lina's colleague invites her to try an indoor climbing centre. Lina has never been climbing and does not know whether the advertised taster session is designed for complete beginners. She reads the centre's information page and calls reception. The assistant explains that the taster is a supervised session with an instructor and that participants must meet the centre's published requirements.",
+          "Lina asks about the booking form, equipment hire and arrival time. The assistant sends her the participant information sheet so she can read it before deciding. Lina explains that she has no previous experience and wants to speak to the instructor before the session. The assistant confirms that this is possible. Lina checks the conditions and chooses a suitable date with her colleague. Her aim is to try a new hobby in an organised setting, not to practise independently without instruction."
+        ],
+        "questions": [
+          [
+            "Has Lina climbed before?",
+            [
+              "No",
+              "Yes, for years",
+              "She is an instructor"
+            ],
+            0
+          ],
+          [
+            "What kind of session is advertised?",
+            [
+              "An unsupervised competition",
+              "A supervised taster",
+              "A mountain expedition"
+            ],
+            1
+          ],
+          [
+            "What does reception send?",
+            [
+              "A bank card",
+              "A hotel key",
+              "A participant information sheet"
+            ],
+            2
+          ],
+          [
+            "Who does Lina want to speak to?",
+            [
+              "The instructor",
+              "A bus driver",
+              "A shop customer"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Lina",
+          "Hello. I've never tried climbing. Is your taster session suitable for complete beginners?",
+          "Здравствуйте. Я никогда не пробовала скалолазание. Пробное занятие подходит совсем новичкам?"
+        ],
+        [
+          "Assistant",
+          "Yes, it is supervised by an instructor. Please read the participant requirements first.",
+          "Да, оно проходит под наблюдением инструктора. Сначала ознакомьтесь с требованиями к участникам."
+        ],
+        [
+          "Lina",
+          "Have I got to bring any equipment of my own?",
+          "Мне нужно приносить собственное снаряжение?"
+        ],
+        [
+          "Assistant",
+          "The standard equipment hire is included. The information sheet explains what to bring.",
+          "Стандартная аренда снаряжения включена. В информационном листе объяснено, что взять."
+        ],
+        [
+          "Lina",
+          "Can I speak to the instructor before taking part?",
+          "Могу поговорить с инструктором до участия?"
+        ],
+        [
+          "Assistant",
+          "Of course. Arrive fifteen minutes before the booked session for registration.",
+          "Конечно. Приходите за пятнадцать минут до занятия на регистрацию."
+        ],
+        [
+          "Lina",
+          "Thanks. I'll read the requirements before confirming the booking.",
+          "Спасибо. Ознакомлюсь с требованиями до подтверждения записи."
+        ],
+        [
+          "Assistant",
+          "Certainly. I'll email the information sheet and available dates.",
+          "Конечно. Пришлю информационный лист и доступные даты по почте."
+        ]
+      ],
+      "listening": [
+        "How early should Lina arrive?",
+        [
+          "Fifteen minutes before",
+          "An hour after",
+          "At closing time"
+        ],
+        0
+      ],
+      "speaking": [
+        "Describe three hobbies you have or have never tried.",
+        "Ask whether a trial activity is suitable for a complete beginner.",
+        "Explain the difference between life experience and a dated past event.",
+        "Ask a centre for requirements and instructor availability.",
+        "Role-play requesting information before confirming a new activity."
+      ],
+      "writing": [
+        "Write an enquiry about a supervised beginner activity.",
+        "Write three ever questions and three never statements about hobbies.",
+        "Write a reply confirming that you will read participant requirements."
+      ],
+      "model": "I've never tried climbing before. Is the session suitable for beginners? Could you send the requirements and tell me when to arrive?",
+      "competency": {
+        "prerequisites": "Present Perfect forms, polite enquiries",
+        "canDo": "Уточнить требования к участию, уровень и включённые услуги без технических инструкций.",
+        "successCriteria": "Describe experience using ever/never and request beginner participation information.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "Have you ever ___ a language club?",
+        [
+          "joined",
+          "join",
+          "joining"
+        ],
+        0,
+        "Have + V3."
+      ],
+      [
+        "type",
+        "Complete: I've never ___ (see) that film.",
+        [
+          "seen"
+        ],
+        "See → seen."
+      ],
+      [
+        "choice",
+        "You have no experience in an activity. What is the appropriate question to a centre?",
+        [
+          "Is there a supervised session suitable for beginners?",
+          "Can I ignore the published requirements?",
+          "Can I assume I am qualified?"
+        ],
+        0,
+        "Confirm eligibility and supervision."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-079",
+      "day": 79,
+      "level": "A2",
+      "title": "A language exchange at the park",
+      "ru": "Языковой обмен в парке",
+      "goal": "Договориться о языковой практике и разделить время между участниками.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Let's / shall we / how about",
+        "rule": "Let's + начальная форма — предложение совместного действия; Shall we + начальная форма — вопрос-предложение; How about + -ing или существительное.",
+        "pattern": "Let's practise / Shall we start? / How about meeting?",
+        "example": "How about speaking English for the first twenty minutes?",
+        "pitfall": "Не говори how about to speak.",
+        "exercises": [
+          [
+            "choice",
+            "How about ___ in the park tomorrow?",
+            [
+              "meeting",
+              "to meet",
+              "meet"
+            ],
+            0,
+            "How about + -ing."
+          ],
+          [
+            "type",
+            "Complete: Let's ___ (practise) introductions first.",
+            [
+              "practise",
+              "practice"
+            ],
+            "Let's + base verb; British/American spelling accepted."
+          ],
+          [
+            "order",
+            "Спроси: начнём с английского?",
+            [
+              "English",
+              "with",
+              "start",
+              "we",
+              "Shall"
+            ],
+            "Shall we start with English",
+            "Shall we + base verb."
+          ],
+          [
+            "choice",
+            "Let's ___ the time equally.",
+            [
+              "share",
+              "to share",
+              "sharing"
+            ],
+            0,
+            "Let's + base verb."
+          ],
+          [
+            "type",
+            "Complete: How about ___ (talk) about hobbies?",
+            [
+              "talking"
+            ],
+            "How about + -ing."
+          ],
+          [
+            "order",
+            "Скажи: давай сделаем короткий перерыв.",
+            [
+              "break",
+              "short",
+              "a",
+              "take",
+              "us",
+              "Let"
+            ],
+            "Let us take a short break",
+            "Let us + base verb."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a language exchange partner",
+          "партнёр по языковому обмену"
+        ],
+        [
+          "a shared conversation topic",
+          "общая тема разговора"
+        ],
+        [
+          "an equal speaking time",
+          "равное время разговора"
+        ],
+        [
+          "a conversation starter card",
+          "карточка начала разговора"
+        ],
+        [
+          "a pronunciation question",
+          "вопрос о произношении"
+        ],
+        [
+          "a language switching point",
+          "момент переключения языка"
+        ],
+        [
+          "a friendly correction preference",
+          "предпочтение по дружескому исправлению"
+        ],
+        [
+          "a quiet park bench",
+          "тихая скамейка в парке"
+        ],
+        [
+          "a follow-up practice plan",
+          "план дальнейшей практики"
+        ],
+        [
+          "a conversation time limit",
+          "ограничение времени разговора"
+        ]
+      ],
+      "phrases": [
+        [
+          "Shall we start with twenty minutes of English?",
+          "Начнём с двадцати минут английского?"
+        ],
+        [
+          "How about choosing hobbies as our first topic?",
+          "Как насчёт выбора хобби первой темой?"
+        ],
+        [
+          "Let's share the speaking time equally.",
+          "Разделим время разговора поровну."
+        ],
+        [
+          "Would you prefer corrections during the conversation or afterwards?",
+          "Предпочитаешь исправления во время разговора или после?"
+        ],
+        [
+          "Could you repeat that expression a little more slowly?",
+          "Можешь повторить это выражение немного медленнее?"
+        ],
+        [
+          "I'll write down the words I want to review later.",
+          "Запишу слова, которые хочу повторить позже."
+        ],
+        [
+          "Shall we switch languages after the first part?",
+          "Переключим язык после первой части?"
+        ],
+        [
+          "We can use a conversation card if we run out of ideas.",
+          "Можем воспользоваться карточкой темы, если закончатся идеи."
+        ],
+        [
+          "Let's choose a quieter bench for the next meeting.",
+          "Выберем более тихую скамейку для следующей встречи."
+        ],
+        [
+          "Thanks for giving me time to finish my answer.",
+          "Спасибо, что дал мне время закончить ответ."
+        ]
+      ],
+      "reading": {
+        "title": "A language exchange at the park",
+        "paragraphs": [
+          "Rosa meets a language exchange partner at a park on Sunday. She wants to practise English, and her partner wants to practise Russian. They have one hour together, so they agree to spend twenty-five minutes on each language and leave ten minutes for a short break and review. They choose hobbies as their first conversation topic and prepare a few questions about weekend activities.",
+          "Before starting, Rosa asks how her partner prefers to receive corrections. He would like to finish each answer before discussing mistakes. Rosa agrees and asks for the same approach in English. They write down useful expressions rather than interrupt every sentence. After the first part, they switch languages as planned. At the end, they compare notes and arrange another meeting. Both leave with a small list of expressions to review."
+        ],
+        "questions": [
+          [
+            "How long do they have together?",
+            [
+              "One hour",
+              "Ten minutes",
+              "All day"
+            ],
+            0
+          ],
+          [
+            "How long do they spend on each language?",
+            [
+              "Five minutes",
+              "Twenty-five minutes",
+              "Forty minutes"
+            ],
+            1
+          ],
+          [
+            "What is their first topic?",
+            [
+              "Politics",
+              "Banking",
+              "Hobbies"
+            ],
+            2
+          ],
+          [
+            "When do they discuss corrections?",
+            [
+              "After finishing an answer",
+              "Before anyone speaks",
+              "Never"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Rosa",
+          "Shall we start with English for twenty-five minutes?",
+          "Начнём с английского на двадцать пять минут?"
+        ],
+        [
+          "Partner",
+          "Good idea. How about talking about hobbies first?",
+          "Хорошая идея. Как насчёт разговора о хобби сначала?"
+        ],
+        [
+          "Rosa",
+          "Let's do that. Do you prefer corrections during an answer or afterwards?",
+          "Давай. Предпочитаешь исправления во время ответа или после?"
+        ],
+        [
+          "Partner",
+          "Afterwards, please. I'd like to finish what I'm saying.",
+          "После, пожалуйста. Хотел бы закончить то, что говорю."
+        ],
+        [
+          "Rosa",
+          "Same for me. We can write down difficult words as we go.",
+          "Мне тоже. Можем записывать трудные слова по ходу."
+        ],
+        [
+          "Partner",
+          "Shall we switch to Russian after the first twenty-five minutes?",
+          "Переключимся на русский после первых двадцати пяти минут?"
+        ],
+        [
+          "Rosa",
+          "Yes, and let's leave ten minutes for review and a short break.",
+          "Да, и оставим десять минут на повторение и короткий перерыв."
+        ],
+        [
+          "Partner",
+          "Perfect. Let's start with a question about your favourite hobby.",
+          "Отлично. Начнём с вопроса о твоём любимом хобби."
+        ]
+      ],
+      "listening": [
+        "When will they switch to Russian?",
+        [
+          "After twenty-five minutes",
+          "At the end of the hour",
+          "Immediately"
+        ],
+        0
+      ],
+      "speaking": [
+        "Suggest three topics for a language exchange using different proposal forms.",
+        "Ask a partner how they prefer to receive corrections.",
+        "Agree on an equal division of speaking time.",
+        "Explain a useful phrase you learned during a conversation.",
+        "Role-play changing topics when one person has no ideas."
+      ],
+      "writing": [
+        "Write a friendly message arranging a one-hour language exchange.",
+        "Write three suggestions with let's, shall we and how about.",
+        "Write a brief review list after a fictional conversation."
+      ],
+      "model": "Shall we speak English for twenty-five minutes? How about starting with hobbies? Let's save difficult expressions for review at the end.",
+      "competency": {
+        "prerequisites": "Requests, basic conversation questions",
+        "canDo": "Договориться о языковой практике и разделить время между участниками.",
+        "successCriteria": "Use three proposal forms and negotiate fair conversation practice.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "How about ___ a short article together?",
+        [
+          "reading",
+          "read",
+          "to read"
+        ],
+        0,
+        "How about + -ing."
+      ],
+      [
+        "type",
+        "Complete: Shall we ___ (take) a break?",
+        [
+          "take"
+        ],
+        "Shall we + base form."
+      ],
+      [
+        "choice",
+        "Your partner prefers corrections after finishing an answer. What should you do?",
+        [
+          "Let them finish, then discuss the correction.",
+          "Interrupt every word.",
+          "Assume they want no corrections."
+        ],
+        0,
+        "Respect the agreed correction preference."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-080",
+      "day": 80,
+      "level": "A2",
+      "title": "A small museum with an audio guide",
+      "ru": "Небольшой музей с аудиогидом",
+      "goal": "Уточнить доступные языки, порядок использования и возврата аудиогида.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Which / what / whose",
+        "rule": "Which — выбор из ограниченного набора; what — общий вопрос; whose — принадлежность. Вопросительное слово стоит перед существительным или глагольной группой.",
+        "pattern": "Which language? / What is included? / Whose guide is this?",
+        "example": "Which language would you like for the guide?",
+        "pitfall": "Не путай whose (чей) и who's (who is).",
+        "exercises": [
+          [
+            "choice",
+            "___ language would you prefer, English or French?",
+            [
+              "Which",
+              "Whose",
+              "When"
+            ],
+            0,
+            "A specified choice: which."
+          ],
+          [
+            "type",
+            "Complete: ___ audio guide is this? Ask about ownership.",
+            [
+              "whose"
+            ],
+            "Whose asks ownership."
+          ],
+          [
+            "order",
+            "Спроси: что входит в стоимость билета?",
+            [
+              "price",
+              "ticket",
+              "the",
+              "in",
+              "included",
+              "is",
+              "What"
+            ],
+            "What is included in the ticket price",
+            "What asks information."
+          ],
+          [
+            "choice",
+            "___ of these two routes is shorter?",
+            [
+              "Which",
+              "Whose",
+              "Where of"
+            ],
+            0,
+            "Which of the two."
+          ],
+          [
+            "type",
+            "Complete: ___ language options are available? Use what.",
+            [
+              "what"
+            ],
+            "What asks an open category."
+          ],
+          [
+            "order",
+            "Спроси: чей это аудиогид?",
+            [
+              "this",
+              "is",
+              "guide",
+              "audio",
+              "Whose"
+            ],
+            "Whose audio guide is this",
+            "Whose + noun."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a museum audio guide device",
+          "устройство музейного аудиогида"
+        ],
+        [
+          "a language selection screen",
+          "экран выбора языка"
+        ],
+        [
+          "a numbered exhibit label",
+          "пронумерованная подпись экспоната"
+        ],
+        [
+          "a short exhibition route",
+          "короткий выставочный маршрут"
+        ],
+        [
+          "a full exhibition commentary",
+          "полный комментарий к выставке"
+        ],
+        [
+          "a guide return counter",
+          "стойка возврата аудиогида"
+        ],
+        [
+          "a museum guide hire fee",
+          "плата за аренду музейного гида"
+        ],
+        [
+          "a headphone volume control",
+          "регулятор громкости наушников"
+        ],
+        [
+          "an audio guide receipt",
+          "квитанция аудиогида"
+        ],
+        [
+          "an exhibit commentary number",
+          "номер комментария к экспонату"
+        ]
+      ],
+      "phrases": [
+        [
+          "Which languages are available on the audio guide?",
+          "Какие языки доступны в аудиогиде?"
+        ],
+        [
+          "What does the short exhibition route include?",
+          "Что включает короткий выставочный маршрут?"
+        ],
+        [
+          "Could you show me the language selection screen?",
+          "Покажите экран выбора языка."
+        ],
+        [
+          "Do I enter the number printed beside the exhibit?",
+          "Мне вводить номер, напечатанный возле экспоната?"
+        ],
+        [
+          "Is the audio guide included in the admission price?",
+          "Аудиогид включён в стоимость входа?"
+        ],
+        [
+          "Where do I return the guide after the visit?",
+          "Куда вернуть аудиогид после посещения?"
+        ],
+        [
+          "Whose audio guide receipt is this?",
+          "Чья это квитанция аудиогида?"
+        ],
+        [
+          "I'd prefer the English commentary for language practice.",
+          "Предпочёл бы английский комментарий для языковой практики."
+        ],
+        [
+          "Can I pause the recording and listen again?",
+          "Могу поставить запись на паузу и прослушать снова?"
+        ],
+        [
+          "Please show me where the volume control is.",
+          "Покажите, где регулятор громкости."
+        ]
+      ],
+      "reading": {
+        "title": "A small museum with an audio guide",
+        "paragraphs": [
+          "Nina visits a small museum during a weekend trip. At the entrance, she sees that audio guides are available in several languages. She wants to practise listening in English, so she chooses the English commentary instead of her first language. The attendant explains that visitors can select a short route or a longer commentary covering the whole exhibition.",
+          "Nina has only an hour before meeting a friend, so she chooses the short route. The attendant shows her how to select the language and enter the number printed beside an exhibit. Nina asks whether the guide is included in admission and where to return it. The hire fee is separate, and the return counter is near the exit. She keeps the receipt, listens to several exhibits and repeats difficult passages. Before leaving, she returns the guide and meets her friend on time."
+        ],
+        "questions": [
+          [
+            "Which commentary does Nina select?",
+            [
+              "English",
+              "Russian",
+              "French"
+            ],
+            0
+          ],
+          [
+            "Why does she choose the short route?",
+            [
+              "The museum is closing forever",
+              "She has only an hour",
+              "The full route is unavailable"
+            ],
+            1
+          ],
+          [
+            "How does she choose an exhibit commentary?",
+            [
+              "By calling a friend",
+              "By scanning her bank card",
+              "By entering the exhibit number"
+            ],
+            2
+          ],
+          [
+            "Where does she return the guide?",
+            [
+              "Near the exit",
+              "In a café outside",
+              "At the railway station"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Nina",
+          "Which languages are available on your audio guides?",
+          "Какие языки доступны в ваших аудиогидах?"
+        ],
+        [
+          "Attendant",
+          "English, French and German. Which would you prefer?",
+          "Английский, французский и немецкий. Какой предпочитаете?"
+        ],
+        [
+          "Nina",
+          "English, please. What does the short route include?",
+          "Английский, пожалуйста. Что включает короткий маршрут?"
+        ],
+        [
+          "Attendant",
+          "It covers the main exhibits and takes about forty minutes.",
+          "Он охватывает основные экспонаты и занимает около сорока минут."
+        ],
+        [
+          "Nina",
+          "Is the guide included in the admission price?",
+          "Аудиогид включён в стоимость входа?"
+        ],
+        [
+          "Attendant",
+          "No, the hire fee is separate. Here is the guide and receipt.",
+          "Нет, плата за аренду отдельная. Вот аудиогид и квитанция."
+        ],
+        [
+          "Nina",
+          "Where do I return it after the visit?",
+          "Куда его вернуть после посещения?"
+        ],
+        [
+          "Attendant",
+          "At the counter by the exit. Please keep the receipt until then.",
+          "На стойку у выхода. Сохраните квитанцию до этого момента."
+        ]
+      ],
+      "listening": [
+        "How long does the short route take?",
+        [
+          "About forty minutes",
+          "Three hours",
+          "Five minutes"
+        ],
+        0
+      ],
+      "speaking": [
+        "Ask a museum attendant about available languages and routes.",
+        "Use which to choose between two defined options.",
+        "Use what to ask about included services.",
+        "Ask whose receipt or device you have found.",
+        "Role-play returning a borrowed audio guide after a visit."
+      ],
+      "writing": [
+        "Write a museum enquiry asking about an English audio guide.",
+        "Write two questions each with which, what and whose.",
+        "Write a brief account of using an audio guide for listening practice."
+      ],
+      "model": "Which languages are available? What does the short route include? I'd like the English guide. Where do I return it?",
+      "competency": {
+        "prerequisites": "Basic wh-questions, possession and time",
+        "canDo": "Уточнить доступные языки, порядок использования и возврата аудиогида.",
+        "successCriteria": "Select the correct question word and arrange audio-guide use.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "___ of these two tickets includes the exhibition?",
+        [
+          "Which",
+          "Whose",
+          "When"
+        ],
+        0,
+        "Which selects between options."
+      ],
+      [
+        "type",
+        "Complete: ___ bag is beside the guide counter? Ask about ownership.",
+        [
+          "whose"
+        ],
+        "Whose asks possession."
+      ],
+      [
+        "choice",
+        "The short route takes forty minutes and you have one hour. What should you confirm?",
+        [
+          "Whether the guide return and exit fit your schedule.",
+          "That the longer route is automatically shorter.",
+          "That the guide is free without checking."
+        ],
+        0,
+        "Check the whole visit timing."
+      ]
+    ]
+  }
+]

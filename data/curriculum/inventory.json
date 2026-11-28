@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "contexts": 143,
+  "extended": 87,
+  "newWords": 1153,
+  "newPhrases": 1150,
+  "contextGrammar": 690,
+  "contextReadingQuestions": 516,
+  "transfer": 429,
+  "completeExtendedThroughDay": 61,
+  "reviewedIndependently": false,
+  "batches": [
+    {
+      "file": "month02-1.json",
+      "shard": "n",
+      "days": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "file": "month02-2.json",
+      "shard": "o",
+      "days": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "file": "month02-3.json",
+      "shard": "p",
+      "days": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "file": "month03-1.json",
+      "shard": "q",
+      "days": [
+        61,
+        71,
+        72,
+        73,
+        74,
+        75
+      ]
+    },
+    {
+      "file": "month03-2.json",
+      "shard": "r",
+      "days": [
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    }
+  ]
+}

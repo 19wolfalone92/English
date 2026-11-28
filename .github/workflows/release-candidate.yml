@@ -1,0 +1,106 @@
+name: Owner-signed release candidate
+on:
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build offline synthetic dialogue audio
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends espeak ffmpeg
+          python3 scripts/build_context_audio.py
+      # The pilot is a qualified immutable research artifact, not a network dependency in the APK.
+      - name: Fetch qualified neural pilot
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-audio-comparison-v2
+          path: research-models/neural-pilot
+          run-id: 46003216202
+          github-token: ${{ github.token }}
+      - name: Verify and package actual neural recordings
+        run: python3 scripts/import_neural_pilot.py research-models/neural-pilot
+      - name: Fetch pinned month 01 neural shard 0
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-0
+          path: research-models/neural-month01/0
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 1
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-1
+          path: research-models/neural-month01/1
+          run-id: 46071941627
+          github-token: ${{ github.token }}
+      - name: Fetch pinned month 01 neural shard 2
+        uses: actions/download-artifact@v4
+        with:
+          name: Wolfie-neural-month01-resumed-2
+          path: research-models/neural-month01/2
+          run-id: 46072326239
+          github-token: ${{ github.token }}
+      - name: Verify and package 21 new neural dialogues
+        run: python3 scripts/import_neural_month01.py research-models/neural-month01/0 research-models/neural-month01/1 research-models/neural-month01/2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Require owner-provided signing material
+        shell: bash
+        env:
+          WOLFIE_RELEASE_KEYSTORE_BASE64: ${{ secrets.WOLFIE_RELEASE_KEYSTORE_BASE64 }}
+          WOLFIE_RELEASE_STORE_PASSWORD: ${{ secrets.WOLFIE_RELEASE_STORE_PASSWORD }}
+          WOLFIE_RELEASE_KEY_ALIAS: ${{ secrets.WOLFIE_RELEASE_KEY_ALIAS }}
+          WOLFIE_RELEASE_KEY_PASSWORD: ${{ secrets.WOLFIE_RELEASE_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          for name in WOLFIE_RELEASE_KEYSTORE_BASE64 WOLFIE_RELEASE_STORE_PASSWORD WOLFIE_RELEASE_KEY_ALIAS WOLFIE_RELEASE_KEY_PASSWORD; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Missing required repository secret: $name"
+              exit 1
+            fi
+          done
+          printf '%s' "$WOLFIE_RELEASE_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/wolfie-release.jks"
+          chmod 600 "$RUNNER_TEMP/wolfie-release.jks"
+          echo "WOLFIE_RELEASE_STORE_FILE=$RUNNER_TEMP/wolfie-release.jks" >> "$GITHUB_ENV"
+      - name: Build owner-signed release APK
+        env:
+          WOLFIE_RELEASE_STORE_PASSWORD: ${{ secrets.WOLFIE_RELEASE_STORE_PASSWORD }}
+          WOLFIE_RELEASE_KEY_ALIAS: ${{ secrets.WOLFIE_RELEASE_KEY_ALIAS }}
+          WOLFIE_RELEASE_KEY_PASSWORD: ${{ secrets.WOLFIE_RELEASE_KEY_PASSWORD }}
+        run: gradle --no-daemon :app:verifyReleaseSigningConfiguration :app:assembleRelease
+      - name: Verify packaged lessons and audio in owner release
+        run: python3 scripts/verify_context_apk.py app/build/outputs/apk/release/app-release.apk
+      - name: Verify signature and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd app/build/outputs/apk/release
+          "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner" verify --verbose --print-certs app-release.apk | tee app-release.certificate.txt
+          sha256sum app-release.apk > app-release.apk.sha256
+          sha256sum -c app-release.apk.sha256
+      - name: Remove temporary owner key
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/wolfie-release.jks"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Wolfie-English-owner-signed-release
+          path: |
+            app/build/outputs/apk/release/app-release.apk
+            app/build/outputs/apk/release/app-release.apk.sha256
+            app/build/outputs/apk/release/app-release.certificate.txt
+          if-no-files-found: error

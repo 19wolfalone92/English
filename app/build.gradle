@@ -1,4 +1,10 @@
 plugins { id 'com.android.application' }
+
+def ownerReleaseStoreFile = System.getenv('WOLFIE_RELEASE_STORE_FILE')?.trim()
+def ownerReleaseStorePassword = System.getenv('WOLFIE_RELEASE_STORE_PASSWORD')?.trim()
+def ownerReleaseKeyAlias = System.getenv('WOLFIE_RELEASE_KEY_ALIAS')?.trim()
+def ownerReleaseKeyPassword = System.getenv('WOLFIE_RELEASE_KEY_PASSWORD')?.trim()
+def ownerReleaseSigningConfigured = [ownerReleaseStoreFile, ownerReleaseStorePassword, ownerReleaseKeyAlias, ownerReleaseKeyPassword].every { it != null && !it.isEmpty() }
 android {
     namespace 'com.wolfie.english'
     compileSdk 35
@@ -6,9 +12,63 @@ android {
         applicationId 'com.wolfie.english'
         minSdk 24
         targetSdk 35
-        versionCode 5
-        versionName '0.5.0'
+        versionCode 26
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        versionName '0.9.6'
+        manifestPlaceholders = [appLabel: 'Wolfie English']
     }
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
-    buildTypes { release { minifyEnabled false } }
+    signingConfigs {
+        if (ownerReleaseSigningConfigured) {
+            create('ownerRelease') {
+                storeFile file(ownerReleaseStoreFile)
+                storePassword ownerReleaseStorePassword
+                keyAlias ownerReleaseKeyAlias
+                keyPassword ownerReleaseKeyPassword
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (ownerReleaseSigningConfigured) {
+                signingConfig signingConfigs.getByName('ownerRelease')
+            }
+        }
+        preview {
+            initWith debug
+            applicationIdSuffix '.preview'
+            versionNameSuffix '-preview'
+            manifestPlaceholders = [appLabel: 'Wolfie English Preview']
+            matchingFallbacks = ['debug']
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:core:1.6.1'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+}
+
+
+tasks.register('verifyReleaseSigningConfiguration') {
+    group = 'verification'
+    description = 'Fails closed unless an owner-controlled release keystore is configured.'
+    doLast {
+        if (!ownerReleaseSigningConfigured) {
+            throw new GradleException('WOLFIE_RELEASE_SIGNING_NOT_CONFIGURED: required owner signing inputs are missing')
+        }
+        def keystore = project.file(ownerReleaseStoreFile)
+        if (!keystore.isFile() || !keystore.canRead()) {
+            throw new GradleException('WOLFIE_RELEASE_KEYSTORE_NOT_READABLE: owner keystore file is missing or unreadable')
+        }
+    }
+}
+
+tasks.configureEach { task ->
+    if (task.name == 'assembleRelease') {
+        task.dependsOn('verifyReleaseSigningConfiguration')
+    }
 }

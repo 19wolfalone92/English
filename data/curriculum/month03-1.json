@@ -1,0 +1,1946 @@
+[
+  {
+    "pack": {
+      "id": "mission-v2-061",
+      "day": 61,
+      "level": "A2",
+      "title": "A weekend invitation with two possible dates",
+      "ru": "Приглашение на выходные с двумя датами",
+      "goal": "Предложить встречу, уточнить занятость и подтвердить удобную дату.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Would you like / would like to",
+        "rule": "Would you like to + глагол — вежливое приглашение; I'd like to + глагол — желание. После would like нужен to перед глаголом.",
+        "pattern": "Would you like to join us? / I'd like to come.",
+        "example": "Would you like to meet on Sunday afternoon?",
+        "pitfall": "Не говори Would you like join us?",
+        "exercises": [
+          [
+            "choice",
+            "Would you like ___ for a walk on Sunday?",
+            [
+              "come",
+              "to come",
+              "coming"
+            ],
+            1,
+            "Would like + to + verb."
+          ],
+          [
+            "type",
+            "Complete: I'd like ___ (visit) the park.",
+            [
+              "to visit"
+            ],
+            "Would like + infinitive."
+          ],
+          [
+            "order",
+            "Пригласи: не хочешь ли встретиться завтра?",
+            [
+              "tomorrow",
+              "meet",
+              "to",
+              "like",
+              "you",
+              "Would"
+            ],
+            "Would you like to meet tomorrow",
+            "Would you like to + verb?"
+          ],
+          [
+            "choice",
+            "I'd like ___ coffee before our walk.",
+            [
+              "a cup of",
+              "to a cup of",
+              "drinking a"
+            ],
+            0,
+            "Would like + noun phrase."
+          ],
+          [
+            "type",
+            "Complete: Would you like to ___ (join) our group?",
+            [
+              "join"
+            ],
+            "To + base form."
+          ],
+          [
+            "order",
+            "Скажи: я хотел бы прийти в воскресенье.",
+            [
+              "Sunday",
+              "on",
+              "come",
+              "to",
+              "like",
+              "would",
+              "I"
+            ],
+            "I would like to come on Sunday",
+            "Would like to come."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a weekend invitation",
+          "приглашение на выходные"
+        ],
+        [
+          "an afternoon walking plan",
+          "план дневной прогулки"
+        ],
+        [
+          "a proposed meeting date",
+          "предложенная дата встречи"
+        ],
+        [
+          "a free Sunday afternoon",
+          "свободное воскресенье после обеда"
+        ],
+        [
+          "a prior family arrangement",
+          "предварительная семейная договорённость"
+        ],
+        [
+          "a riverside picnic spot",
+          "место для пикника у реки"
+        ],
+        [
+          "a confirmed weekend plan",
+          "подтверждённый план выходных"
+        ],
+        [
+          "an alternative meeting date",
+          "альтернативная дата встречи"
+        ],
+        [
+          "a friendly invitation message",
+          "дружеское сообщение-приглашение"
+        ],
+        [
+          "a shared activity plan",
+          "совместный план занятия"
+        ]
+      ],
+      "phrases": [
+        [
+          "Would you like to join us for a walk this weekend?",
+          "Не хочешь присоединиться к нам на прогулке в выходные?"
+        ],
+        [
+          "Saturday is difficult for me because I have another arrangement.",
+          "Суббота мне не подходит, потому что у меня другая договорённость."
+        ],
+        [
+          "Would Sunday afternoon work for you instead?",
+          "Вместо этого тебе подойдёт воскресенье после обеда?"
+        ],
+        [
+          "I'd like to come if the weather is fine.",
+          "Я хотел бы прийти, если погода хорошая."
+        ],
+        [
+          "Let's confirm the date before inviting anyone else.",
+          "Подтвердим дату, прежде чем приглашать других."
+        ],
+        [
+          "I can bring something to share at the picnic.",
+          "Могу принести что-нибудь для общего пикника."
+        ],
+        [
+          "Where shall we meet before the walk?",
+          "Где встретимся перед прогулкой?"
+        ],
+        [
+          "Thanks for giving me another possible date.",
+          "Спасибо, что предложил другую возможную дату."
+        ],
+        [
+          "I'll check my family plans and reply this evening.",
+          "Я проверю семейные планы и отвечу сегодня вечером."
+        ],
+        [
+          "Sunday works well for me, so let's choose that day.",
+          "Воскресенье мне подходит, давай выберем этот день."
+        ]
+      ],
+      "reading": {
+        "title": "A weekend invitation with two possible dates",
+        "paragraphs": [
+          "Maya wants to invite three friends for a walk near the river at the weekend. She sends a message suggesting Saturday afternoon, but one friend already has a family arrangement. Another friend is free on both days. Maya offers Sunday as an alternative rather than asking everyone to change their existing plans. She asks the first friend whether Sunday afternoon would be convenient.",
+          "The friends agree that Sunday works for them. They choose a meeting place near a small bridge and decide to bring something to share at a picnic. Maya checks that the invitation includes the date, time and location. She sends one final message with the confirmed details. The weather may change, so the friends also agree to meet at a café if it rains. Nobody is expected to attend until they have accepted the invitation."
+        ],
+        "questions": [
+          [
+            "Why is Saturday difficult for one friend?",
+            [
+              "A family arrangement",
+              "A cancelled bus",
+              "A work interview"
+            ],
+            0
+          ],
+          [
+            "Which alternative does Maya offer?",
+            [
+              "Monday",
+              "Sunday afternoon",
+              "Friday morning"
+            ],
+            1
+          ],
+          [
+            "Where will they meet?",
+            [
+              "At a cinema",
+              "At the station",
+              "Near a small bridge"
+            ],
+            2
+          ],
+          [
+            "What will they do if it rains?",
+            [
+              "Meet at a café",
+              "Cancel without telling anyone",
+              "Go swimming"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Maya",
+          "Would you like to join us for a walk on Saturday afternoon?",
+          "Не хочешь присоединиться к нам на прогулке в субботу после обеда?"
+        ],
+        [
+          "Nina",
+          "I'd like to, but I have a family arrangement on Saturday.",
+          "Я хотела бы, но у меня семейная договорённость на субботу."
+        ],
+        [
+          "Maya",
+          "No problem. Would Sunday afternoon work for you instead?",
+          "Без проблем. Тебе вместо этого подойдёт воскресенье после обеда?"
+        ],
+        [
+          "Nina",
+          "Yes, Sunday is free. Where are you thinking of meeting?",
+          "Да, воскресенье свободно. Где думаешь встретиться?"
+        ],
+        [
+          "Maya",
+          "Near the small bridge by the river. We can bring a picnic.",
+          "У маленького моста возле реки. Можем устроить пикник."
+        ],
+        [
+          "Nina",
+          "That sounds good. I'd like to bring some fruit to share.",
+          "Звучит хорошо. Я хотела бы принести немного фруктов для всех."
+        ],
+        [
+          "Maya",
+          "Great. Shall we meet there at two?",
+          "Отлично. Встретимся там в два?"
+        ],
+        [
+          "Nina",
+          "Two is perfect. Let me know if the plan changes.",
+          "Два — отлично. Сообщи, если план изменится."
+        ]
+      ],
+      "listening": [
+        "What time do Maya and Nina agree to meet?",
+        [
+          "Two",
+          "Four",
+          "Six"
+        ],
+        0
+      ],
+      "speaking": [
+        "Invite a friend to a weekend activity using would you like to.",
+        "Decline one date politely and suggest another.",
+        "Explain the difference between a suggested date and a confirmed date.",
+        "Confirm a meeting point and time in one short message.",
+        "Role-play changing a picnic plan because of rain."
+      ],
+      "writing": [
+        "Write a friendly invitation with two possible dates.",
+        "Write a polite reply accepting one date and confirming the location.",
+        "Write four invitations and four suitable replies using would like."
+      ],
+      "model": "Would you like to join us for a walk? Saturday is difficult for me, but Sunday afternoon works. Shall we meet near the bridge at two?",
+      "competency": {
+        "prerequisites": "Basic time expressions, polite requests",
+        "canDo": "Предложить встречу, уточнить занятость и подтвердить удобную дату.",
+        "successCriteria": "Form invitations with would like to; negotiate and confirm a date.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "Would you like ___ the exhibition with us?",
+        [
+          "visit",
+          "to visit",
+          "visited"
+        ],
+        1,
+        "Would like + to + verb."
+      ],
+      [
+        "type",
+        "Complete: I'd like to ___ (meet) you after lunch.",
+        [
+          "meet"
+        ],
+        "To + base verb."
+      ],
+      [
+        "choice",
+        "A friend says Saturday is difficult. Which response respects that?",
+        [
+          "Would Sunday work instead?",
+          "You have already accepted Saturday.",
+          "You must change your other plan."
+        ],
+        0,
+        "Offer an alternative without inventing agreement."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-071",
+      "day": 71,
+      "level": "A2",
+      "title": "Packing for a two-day countryside trip",
+      "ru": "Сбор вещей для двухдневной поездки за город",
+      "goal": "Собрать вещи, оценить количество и договориться, кто что возьмёт.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Countable and uncountable quantities",
+        "rule": "A few + исчисляемые существительные во множественном числе; a little + неисчисляемые. Enough + noun — достаточное количество.",
+        "pattern": "a few shirts / a little water / enough food",
+        "example": "We need a few warm shirts and a little cooking oil.",
+        "pitfall": "Не говори a few water.",
+        "exercises": [
+          [
+            "choice",
+            "We need ___ clean shirts for the trip.",
+            [
+              "a little",
+              "a few",
+              "much of"
+            ],
+            1,
+            "Shirts are countable."
+          ],
+          [
+            "type",
+            "Complete: Take ___ (a little / a few) cooking oil.",
+            [
+              "a little"
+            ],
+            "Oil is uncountable."
+          ],
+          [
+            "order",
+            "Скажи: у нас достаточно еды на два дня.",
+            [
+              "days",
+              "two",
+              "for",
+              "food",
+              "enough",
+              "have",
+              "We"
+            ],
+            "We have enough food for two days",
+            "Enough before noun."
+          ],
+          [
+            "choice",
+            "There are only ___ spare socks in the bag.",
+            [
+              "a little",
+              "a few",
+              "much"
+            ],
+            1,
+            "Socks are countable."
+          ],
+          [
+            "type",
+            "Complete: We have ___ (a few / a little) space left.",
+            [
+              "a little"
+            ],
+            "Space is uncountable here."
+          ],
+          [
+            "order",
+            "Скажи: возьми несколько сухих полотенец.",
+            [
+              "towels",
+              "dry",
+              "few",
+              "a",
+              "Take"
+            ],
+            "Take a few dry towels",
+            "A few + plural."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a two-day packing list",
+          "список вещей на два дня"
+        ],
+        [
+          "a spare pair of socks",
+          "запасная пара носков"
+        ],
+        [
+          "a lightweight rain jacket",
+          "лёгкая непромокаемая куртка"
+        ],
+        [
+          "a refillable water bottle",
+          "многоразовая бутылка для воды"
+        ],
+        [
+          "a small food container",
+          "небольшой контейнер для еды"
+        ],
+        [
+          "a shared overnight bag",
+          "общая дорожная сумка"
+        ],
+        [
+          "a weather-appropriate layer",
+          "слой одежды по погоде"
+        ],
+        [
+          "a compact travel towel",
+          "компактное дорожное полотенце"
+        ],
+        [
+          "a spare charging cable",
+          "запасной кабель зарядки"
+        ],
+        [
+          "a bag weight limit",
+          "ограничение веса сумки"
+        ]
+      ],
+      "phrases": [
+        [
+          "We only need a few clothes for two days.",
+          "На два дня нам нужно всего несколько вещей."
+        ],
+        [
+          "Is there enough room for both towels?",
+          "Достаточно места для обоих полотенец?"
+        ],
+        [
+          "I'll bring a little cooking oil in a small container.",
+          "Возьму немного растительного масла в маленьком контейнере."
+        ],
+        [
+          "Can you pack the spare charging cable?",
+          "Можешь положить запасной кабель зарядки?"
+        ],
+        [
+          "Let's divide the shared items between our bags.",
+          "Разделим общие вещи между нашими сумками."
+        ],
+        [
+          "I need a lightweight jacket in case of rain.",
+          "Мне нужна лёгкая куртка на случай дождя."
+        ],
+        [
+          "There is a little space left beside the shoes.",
+          "Рядом с обувью осталось немного места."
+        ],
+        [
+          "We don't need to carry two copies of everything.",
+          "Не нужно нести по два экземпляра каждой вещи."
+        ],
+        [
+          "Could you check the bag weight limit before packing?",
+          "Проверь ограничение веса сумки перед сборами."
+        ],
+        [
+          "I'll add the missing items to our packing list.",
+          "Добавлю недостающие вещи в наш список."
+        ]
+      ],
+      "reading": {
+        "title": "Packing for a two-day countryside trip",
+        "paragraphs": [
+          "Rosa and her friend are going to spend two days in a small countryside guesthouse. They plan to travel by bus and walk from the village stop, so they want to carry light bags. Rosa makes a list of clothes, toiletries and shared food items. She checks the weather forecast and adds a light rain jacket and a warm layer. Her friend already has a towel and a phone charger.",
+          "They compare their lists before packing. They need a few spare socks, enough drinking water for the walk and a little cooking oil for the guesthouse kitchen. Rosa offers to carry the food container while her friend takes the towels and charging cable. They check the bag weight and remove two things they do not need. Finally, they save the shared packing list on both phones so they can check it again before leaving."
+        ],
+        "questions": [
+          [
+            "How will they reach the guesthouse area?",
+            [
+              "By bus and on foot",
+              "By plane",
+              "By boat only"
+            ],
+            0
+          ],
+          [
+            "Why do they compare lists?",
+            [
+              "To buy identical bags",
+              "To divide shared items and avoid duplication",
+              "To change the guesthouse"
+            ],
+            1
+          ],
+          [
+            "What does Rosa offer to carry?",
+            [
+              "The towels",
+              "The charger",
+              "The food container"
+            ],
+            2
+          ],
+          [
+            "What do they remove?",
+            [
+              "Two unnecessary things",
+              "All warm clothes",
+              "Their phones"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Rosa",
+          "We only have two days away. Shall we make a shared packing list?",
+          "У нас всего два дня поездки. Составим общий список вещей?"
+        ],
+        [
+          "Friend",
+          "Yes. I have a towel and a charger already.",
+          "Да. У меня уже есть полотенце и зарядка."
+        ],
+        [
+          "Rosa",
+          "Good. I'll bring a few spare socks and a lightweight jacket.",
+          "Хорошо. Возьму несколько запасных носков и лёгкую куртку."
+        ],
+        [
+          "Friend",
+          "Do we have enough space for food and water?",
+          "У нас достаточно места для еды и воды?"
+        ],
+        [
+          "Rosa",
+          "Yes, if we use a small container. We only need a little cooking oil.",
+          "Да, если используем маленький контейнер. Нужно совсем немного масла."
+        ],
+        [
+          "Friend",
+          "I'll carry the towels and the spare charging cable.",
+          "Я понесу полотенца и запасной кабель зарядки."
+        ],
+        [
+          "Rosa",
+          "Let's check the total bag weight before we leave.",
+          "Проверим общий вес сумок перед выходом."
+        ],
+        [
+          "Friend",
+          "Agreed. I'll remove the extra shoes from my bag.",
+          "Согласен. Уберу лишнюю обувь из сумки."
+        ]
+      ],
+      "listening": [
+        "What will the friend remove?",
+        [
+          "Extra shoes",
+          "All towels",
+          "The charging cable"
+        ],
+        0
+      ],
+      "speaking": [
+        "List countable and uncountable things for an overnight trip.",
+        "Use a few, a little and enough to describe your luggage.",
+        "Agree with a friend who carries three shared items.",
+        "Explain why you removed an unnecessary item.",
+        "Role-play checking the packing list before a bus journey."
+      ],
+      "writing": [
+        "Write a packing list with quantities for a two-day visit.",
+        "Write six quantity sentences using a few, a little and enough.",
+        "Write a message assigning shared items to two travellers."
+      ],
+      "model": "We need a few clean shirts, a little cooking oil and enough water. I'll carry the food container. Could you bring the towels?",
+      "competency": {
+        "prerequisites": "Countable/uncountable nouns, travel vocabulary",
+        "canDo": "Собрать вещи, оценить количество и договориться, кто что возьмёт.",
+        "successCriteria": "Use quantity phrases correctly and coordinate a realistic packing list.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "I have ___ minutes before departure.",
+        [
+          "a few",
+          "a little",
+          "much"
+        ],
+        0,
+        "Minutes are countable."
+      ],
+      [
+        "type",
+        "Complete: There is ___ (a little / a few) milk left.",
+        [
+          "a little"
+        ],
+        "Milk is uncountable."
+      ],
+      [
+        "choice",
+        "Both travellers have packed the same charger. What can they do?",
+        [
+          "Agree which one to bring and keep enough charging capacity.",
+          "Throw away both.",
+          "Assume the guesthouse provides every item."
+        ],
+        0,
+        "Avoid unnecessary duplication."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-072",
+      "day": 72,
+      "level": "A2",
+      "title": "A guesthouse with a shared kitchen",
+      "ru": "Гостевой дом с общей кухней",
+      "goal": "Уточнить правила общей кухни и договориться о пользовании.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Have to / can for facilities",
+        "rule": "Have to + начальная форма выражает необходимость; can + начальная форма — разрешение или возможность. В вопросе: Do I have to...? Can I...?",
+        "pattern": "have to clean / can use",
+        "example": "Do we have to wash the dishes before leaving?",
+        "pitfall": "После can не ставь to.",
+        "exercises": [
+          [
+            "choice",
+            "Guests ___ label food they leave in the fridge. It is required.",
+            [
+              "have to",
+              "has to",
+              "can to"
+            ],
+            0,
+            "Plural guests: have to."
+          ],
+          [
+            "type",
+            "Complete: Can I ___ (use) this shelf?",
+            [
+              "use"
+            ],
+            "Can + base form."
+          ],
+          [
+            "order",
+            "Спроси: нам нужно убирать стол?",
+            [
+              "table",
+              "the",
+              "clean",
+              "to",
+              "have",
+              "we",
+              "Do"
+            ],
+            "Do we have to clean the table",
+            "Do + subject + have to."
+          ],
+          [
+            "choice",
+            "She ___ to return the kitchen key.",
+            [
+              "have",
+              "has",
+              "can"
+            ],
+            1,
+            "She has to."
+          ],
+          [
+            "type",
+            "Complete: We ___ (can) cook here until nine.",
+            [
+              "can"
+            ],
+            "Can does not change by subject."
+          ],
+          [
+            "order",
+            "Скажи: можно пользоваться холодильником.",
+            [
+              "fridge",
+              "the",
+              "use",
+              "can",
+              "We"
+            ],
+            "We can use the fridge",
+            "Can + base form."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a shared guesthouse kitchen",
+          "общая кухня гостевого дома"
+        ],
+        [
+          "a fridge shelf label",
+          "наклейка на полке холодильника"
+        ],
+        [
+          "a communal dining table",
+          "общий обеденный стол"
+        ],
+        [
+          "a kitchen opening period",
+          "период доступности кухни"
+        ],
+        [
+          "a food storage container",
+          "контейнер для хранения еды"
+        ],
+        [
+          "a designated guest shelf",
+          "полка, выделенная гостю"
+        ],
+        [
+          "a dishwashing area",
+          "зона мытья посуды"
+        ],
+        [
+          "a kitchen access key",
+          "ключ доступа к кухне"
+        ],
+        [
+          "a guesthouse house rule",
+          "правило гостевого дома"
+        ],
+        [
+          "a food waste bin",
+          "контейнер для пищевых отходов"
+        ]
+      ],
+      "phrases": [
+        [
+          "Can guests use the kitchen in the evening?",
+          "Могут гости пользоваться кухней вечером?"
+        ],
+        [
+          "Do we have to label the food in the fridge?",
+          "Нам нужно подписывать продукты в холодильнике?"
+        ],
+        [
+          "Which shelf is available for our room?",
+          "Какая полка доступна для нашего номера?"
+        ],
+        [
+          "The communal table must be clean after use.",
+          "Общий стол должен быть чистым после использования."
+        ],
+        [
+          "Where is the food waste bin?",
+          "Где контейнер для пищевых отходов?"
+        ],
+        [
+          "Can I borrow a saucepan from this cupboard?",
+          "Могу взять кастрюлю из этого шкафа?"
+        ],
+        [
+          "We have to return the kitchen key at reception.",
+          "Нужно вернуть ключ от кухни на стойку."
+        ],
+        [
+          "Is the kitchen open before breakfast?",
+          "Кухня открыта перед завтраком?"
+        ],
+        [
+          "I'll wash the dishes before we go out.",
+          "Помою посуду, прежде чем мы уйдём."
+        ],
+        [
+          "Please let us know which supplies are shared.",
+          "Сообщите, какие принадлежности общие."
+        ]
+      ],
+      "reading": {
+        "title": "A guesthouse with a shared kitchen",
+        "paragraphs": [
+          "Leo and his friend arrive at a guesthouse in a village. Their room has no kitchen, but guests can use a shared kitchen on the ground floor. They have brought food for a simple breakfast and want to store it overnight. The host shows them a fridge with labelled shelves. Each room has a shelf, and guests have to write their room number on containers that they leave there.",
+          "The host also explains that the kitchen is open from seven in the morning until nine in the evening. Guests can use the basic cooking equipment, but they have to wash their dishes and clean the table afterwards. Leo asks where the food waste bin is and whether there is a separate charge for kitchen access. There is no charge. He thanks the host, labels his food and leaves the shared area tidy."
+        ],
+        "questions": [
+          [
+            "Where is the shared kitchen?",
+            [
+              "On the ground floor",
+              "On the roof",
+              "In Leo's room"
+            ],
+            0
+          ],
+          [
+            "What must guests write on containers?",
+            [
+              "Their bank number",
+              "Their room number",
+              "Their passport expiry date"
+            ],
+            1
+          ],
+          [
+            "When does the kitchen close?",
+            [
+              "Seven in the morning",
+              "At noon",
+              "Nine in the evening"
+            ],
+            2
+          ],
+          [
+            "Is there a separate access charge?",
+            [
+              "No",
+              "Yes, every hour",
+              "It is not possible to use the kitchen"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Leo",
+          "Can we use the shared kitchen to prepare breakfast?",
+          "Можем пользоваться общей кухней, чтобы приготовить завтрак?"
+        ],
+        [
+          "Host",
+          "Yes. It opens at seven in the morning and closes at nine in the evening.",
+          "Да. Она открывается в семь утра и закрывается в девять вечера."
+        ],
+        [
+          "Leo",
+          "Do we have to label the food we put in the fridge?",
+          "Нужно подписывать продукты, которые кладём в холодильник?"
+        ],
+        [
+          "Host",
+          "Yes. Please write your room number and use the shelf for room six.",
+          "Да. Укажите номер комнаты и пользуйтесь полкой для шестого номера."
+        ],
+        [
+          "Leo",
+          "Can I use the saucepan in this cupboard?",
+          "Могу воспользоваться кастрюлей в этом шкафу?"
+        ],
+        [
+          "Host",
+          "Certainly. You have to wash it and return it after use.",
+          "Конечно. Нужно помыть её и вернуть после использования."
+        ],
+        [
+          "Leo",
+          "Is there an extra charge for kitchen access?",
+          "Есть дополнительная плата за доступ к кухне?"
+        ],
+        [
+          "Host",
+          "No, it is included. Please leave the area clean for the next guests.",
+          "Нет, доступ включён. Оставляйте место чистым для следующих гостей."
+        ]
+      ],
+      "listening": [
+        "Which room shelf should Leo use?",
+        [
+          "Room two",
+          "Room six",
+          "Room nine"
+        ],
+        1
+      ],
+      "speaking": [
+        "Ask a host about three shared kitchen rules.",
+        "Explain which tasks are required and which are permitted.",
+        "Describe how you would label food in a shared fridge.",
+        "Ask about kitchen opening hours and charges.",
+        "Role-play confirming kitchen access for an early breakfast."
+      ],
+      "writing": [
+        "Write a guesthouse message asking about shared cooking facilities.",
+        "Write three have to sentences and three can sentences about kitchen rules.",
+        "Write a short notice for guests describing how to leave the shared kitchen."
+      ],
+      "model": "Can we use the kitchen at seven? Do we have to label our food? We'll wash the dishes and clean the table after breakfast.",
+      "competency": {
+        "prerequisites": "Can requests, necessity with have to, time expressions",
+        "canDo": "Уточнить правила общей кухни и договориться о пользовании.",
+        "successCriteria": "Ask and communicate clear permissions and requirements.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "Guests ___ use the shared microwave. It is permitted.",
+        [
+          "can",
+          "can to",
+          "has to"
+        ],
+        0,
+        "Can + base form."
+      ],
+      [
+        "type",
+        "Complete: He ___ (have to) wash his cup after use.",
+        [
+          "has to"
+        ],
+        "He has to."
+      ],
+      [
+        "choice",
+        "The host assigns fridge shelves by room number. What should you ask if your shelf is full?",
+        [
+          "Which other space may I use?",
+          "Can I remove another guest's food without asking?",
+          "Is every shelf automatically mine?"
+        ],
+        0,
+        "Clarify shared-space rules."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-073",
+      "day": 73,
+      "level": "A2",
+      "title": "A walking trail that is shorter than expected",
+      "ru": "Пешеходный маршрут оказался короче ожидаемого",
+      "goal": "Сравнить маршруты и описать пройденный путь.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Adverbs of manner and adjectives",
+        "rule": "Прилагательные описывают существительные; наречия часто образуются с -ly и описывают действия. Good → well; fast и hard имеют особые формы.",
+        "pattern": "a careful walker / walk carefully",
+        "example": "We walked slowly along the wet path.",
+        "pitfall": "Не говори walk careful, когда описываешь действие в стандартном английском.",
+        "exercises": [
+          [
+            "choice",
+            "We walked ___ because the path was wet.",
+            [
+              "careful",
+              "carefully",
+              "carefulness"
+            ],
+            1,
+            "Carefully describes walked."
+          ],
+          [
+            "type",
+            "Complete: He speaks English ___ (good, adverb).",
+            [
+              "well"
+            ],
+            "Good → well."
+          ],
+          [
+            "order",
+            "Скажи: мы шли медленно вдоль реки.",
+            [
+              "river",
+              "the",
+              "along",
+              "slowly",
+              "walked",
+              "We"
+            ],
+            "We walked slowly along the river",
+            "Slowly modifies walked."
+          ],
+          [
+            "choice",
+            "It was a ___ route through the woods.",
+            [
+              "quiet",
+              "quietly",
+              "quieten"
+            ],
+            0,
+            "Quiet describes route."
+          ],
+          [
+            "type",
+            "Complete: She checked the signs ___ (careful, adverb).",
+            [
+              "carefully"
+            ],
+            "Careful → carefully."
+          ],
+          [
+            "order",
+            "Скажи: он ясно объяснил маршрут.",
+            [
+              "clearly",
+              "route",
+              "the",
+              "explained",
+              "He"
+            ],
+            "He explained the route clearly",
+            "Clearly modifies explained."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a marked woodland trail",
+          "обозначенная лесная тропа"
+        ],
+        [
+          "a short circular walk",
+          "короткий круговой маршрут"
+        ],
+        [
+          "a wet gravel path",
+          "мокрая гравийная тропа"
+        ],
+        [
+          "a trail information board",
+          "информационный стенд маршрута"
+        ],
+        [
+          "a path distance marker",
+          "указатель расстояния на тропе"
+        ],
+        [
+          "a designated walking route",
+          "обозначенный пешеходный маршрут"
+        ],
+        [
+          "a viewpoint sign",
+          "указатель смотровой площадки"
+        ],
+        [
+          "a trail junction",
+          "развилка тропы"
+        ],
+        [
+          "a walking pace",
+          "темп ходьбы"
+        ],
+        [
+          "a return route marker",
+          "указатель обратного маршрута"
+        ]
+      ],
+      "phrases": [
+        [
+          "The trail was shorter than we expected.",
+          "Тропа оказалась короче, чем ожидали."
+        ],
+        [
+          "We walked carefully because the gravel was wet.",
+          "Мы шли осторожно, потому что гравий был мокрым."
+        ],
+        [
+          "The information board shows a circular route.",
+          "На информационном стенде указан круговой маршрут."
+        ],
+        [
+          "Could you explain the route to the viewpoint clearly?",
+          "Можете ясно объяснить путь к смотровой площадке?"
+        ],
+        [
+          "We followed the marked path rather than a shortcut.",
+          "Мы следовали обозначенной тропе, а не срезали путь."
+        ],
+        [
+          "The signs were clear at every trail junction.",
+          "На каждой развилке были понятные указатели."
+        ],
+        [
+          "I prefer a quiet walk at a steady pace.",
+          "Предпочитаю спокойную прогулку в устойчивом темпе."
+        ],
+        [
+          "We stopped briefly to read the distance marker.",
+          "Мы ненадолго остановились, чтобы прочитать указатель расстояния."
+        ],
+        [
+          "The return route is marked with a yellow arrow.",
+          "Обратный маршрут отмечен жёлтой стрелкой."
+        ],
+        [
+          "I'll describe how we completed the circular walk.",
+          "Я опишу, как мы прошли круговой маршрут."
+        ]
+      ],
+      "reading": {
+        "title": "A walking trail that is shorter than expected",
+        "paragraphs": [
+          "Nina and her brother plan a short walk through woodland near their guesthouse. At the trail information board, they choose a marked circular route of three kilometres. The path is wet after rain, so they walk slowly and carefully. They stop at a junction to check the yellow arrows rather than follow a narrow unmarked path. The signs lead them towards a small viewpoint above the village.",
+          "At the viewpoint, they compare the distance marker with the information board. They discover that they have already completed most of the route. The walk is shorter than Nina expected because the marked route does not include the longer hillside path. They return along the yellow arrows and reach the guesthouse before lunch. Nina describes the walk to the host and explains that the signs were clear and the route was suitable for their chosen pace."
+        ],
+        "questions": [
+          [
+            "How long is the chosen circular route?",
+            [
+              "Three kilometres",
+              "Ten kilometres",
+              "One hundred kilometres"
+            ],
+            0
+          ],
+          [
+            "Why do they walk carefully?",
+            [
+              "The signs are missing",
+              "The path is wet",
+              "They are in a shop"
+            ],
+            1
+          ],
+          [
+            "Which colour arrows do they follow?",
+            [
+              "Blue",
+              "Red",
+              "Yellow"
+            ],
+            2
+          ],
+          [
+            "When do they return?",
+            [
+              "Before lunch",
+              "After midnight",
+              "The next day"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Nina",
+          "The board shows a three-kilometre circular walk. Shall we take that one?",
+          "На стенде указан трёхкилометровый круговой маршрут. Выберем его?"
+        ],
+        [
+          "Brother",
+          "Yes. The path is wet, so let's walk carefully.",
+          "Да. Тропа мокрая, будем идти осторожно."
+        ],
+        [
+          "Nina",
+          "Which way do the yellow arrows point at this junction?",
+          "Куда показывают жёлтые стрелки на этой развилке?"
+        ],
+        [
+          "Brother",
+          "Towards the viewpoint. We should follow the marked path.",
+          "К смотровой площадке. Нужно следовать обозначенной тропе."
+        ],
+        [
+          "Nina",
+          "We have already walked most of the route. It is shorter than I expected.",
+          "Мы уже прошли большую часть маршрута. Он короче, чем я ожидала."
+        ],
+        [
+          "Brother",
+          "The longer hillside path is a separate route on the map.",
+          "Более длинная тропа по склону — отдельный маршрут на карте."
+        ],
+        [
+          "Nina",
+          "Let's return slowly and enjoy the view on the way.",
+          "Давай вернёмся не спеша и насладимся видом по дороге."
+        ],
+        [
+          "Brother",
+          "Good idea. We'll be back at the guesthouse before lunch.",
+          "Хорошая идея. Вернёмся в гостевой дом до обеда."
+        ]
+      ],
+      "listening": [
+        "Which route does the brother say is separate?",
+        [
+          "The longer hillside path",
+          "The marked three-kilometre walk",
+          "The road to the bus station"
+        ],
+        0
+      ],
+      "speaking": [
+        "Describe a marked trail using both adjectives and adverbs.",
+        "Explain why a walker may change their pace.",
+        "Give a short spoken account of following yellow arrows.",
+        "Compare two fictional walking routes by distance and terrain.",
+        "Retell the trip from choosing the path to returning."
+      ],
+      "writing": [
+        "Write a description of a circular walk using four manner adverbs.",
+        "Write a short message to a friend recommending a marked trail.",
+        "Write six adjective/adverb pairs in complete contextual sentences."
+      ],
+      "model": "The path was wet, so we walked carefully. The arrows clearly showed the circular route. It was shorter than we expected.",
+      "competency": {
+        "prerequisites": "Comparatives, place and movement prepositions",
+        "canDo": "Сравнить маршруты и описать пройденный путь.",
+        "successCriteria": "Distinguish adjective and adverb use and retell a route accurately.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "She answered the question ___.",
+        [
+          "clear",
+          "clearly",
+          "clearness"
+        ],
+        1,
+        "Clearly modifies answered."
+      ],
+      [
+        "type",
+        "Complete: We did the task ___ (good, adverb).",
+        [
+          "well"
+        ],
+        "Good → well."
+      ],
+      [
+        "choice",
+        "Two paths meet, but only one has the route marker. Which action fits the described plan?",
+        [
+          "Check the marked direction before continuing.",
+          "Follow any unmarked shortcut.",
+          "Assume the distance marker is always wrong."
+        ],
+        0,
+        "Use the selected route information."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-074",
+      "day": 74,
+      "level": "A2",
+      "title": "A picnic moved to the shelter",
+      "ru": "Пикник перенесён под навес",
+      "goal": "Обсудить происходящее и обычные действия, адаптировать план.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Present Simple vs Present Continuous",
+        "rule": "Present Simple описывает привычки и устойчивые факты; Present Continuous — происходящее сейчас или временное действие.",
+        "pattern": "We usually eat outside / We are eating inside today.",
+        "example": "It usually stays dry here, but it is raining now.",
+        "pitfall": "Не говори it raining без is.",
+        "exercises": [
+          [
+            "choice",
+            "It ___ now, so we are moving the picnic.",
+            [
+              "rains every day",
+              "is raining",
+              "rain"
+            ],
+            1,
+            "Now: is raining."
+          ],
+          [
+            "type",
+            "Complete: We usually ___ (eat) outside in summer.",
+            [
+              "eat"
+            ],
+            "Usually: Present Simple."
+          ],
+          [
+            "order",
+            "Скажи: мы сейчас ждём под навесом.",
+            [
+              "now",
+              "shelter",
+              "the",
+              "under",
+              "waiting",
+              "are",
+              "We"
+            ],
+            "We are waiting under the shelter now",
+            "Now: are waiting."
+          ],
+          [
+            "choice",
+            "The café ___ at nine every morning.",
+            [
+              "opens",
+              "is open every",
+              "opening"
+            ],
+            0,
+            "Regular time: opens."
+          ],
+          [
+            "type",
+            "Complete: She ___ (be, present) carrying the food now.",
+            [
+              "is"
+            ],
+            "She is carrying."
+          ],
+          [
+            "order",
+            "Скажи: они обычно встречаются у реки.",
+            [
+              "river",
+              "the",
+              "by",
+              "meet",
+              "usually",
+              "They"
+            ],
+            "They usually meet by the river",
+            "Habit: Present Simple."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a covered picnic shelter",
+          "крытый навес для пикника"
+        ],
+        [
+          "a sudden rain shower",
+          "внезапный ливень"
+        ],
+        [
+          "a dry picnic table",
+          "сухой стол для пикника"
+        ],
+        [
+          "a waterproof picnic bag",
+          "непромокаемая сумка для пикника"
+        ],
+        [
+          "a park shelter notice",
+          "объявление о навесе в парке"
+        ],
+        [
+          "a shared picnic meal",
+          "общая еда для пикника"
+        ],
+        [
+          "a wet grass area",
+          "участок мокрой травы"
+        ],
+        [
+          "a temporary rain plan",
+          "временный план на случай дождя"
+        ],
+        [
+          "a sheltered meeting spot",
+          "защищённое место встречи"
+        ],
+        [
+          "a picnic cleanup bag",
+          "пакет для уборки после пикника"
+        ]
+      ],
+      "phrases": [
+        [
+          "We usually have our picnic on the grass.",
+          "Обычно мы устраиваем пикник на траве."
+        ],
+        [
+          "It is raining now, so we are moving under the shelter.",
+          "Сейчас идёт дождь, поэтому переходим под навес."
+        ],
+        [
+          "Can you carry the waterproof bag to the dry table?",
+          "Можешь отнести непромокаемую сумку к сухому столу?"
+        ],
+        [
+          "The park shelter is open to visitors today.",
+          "Навес в парке сегодня открыт для посетителей."
+        ],
+        [
+          "We are waiting for our friends near the entrance.",
+          "Мы ждём друзей возле входа."
+        ],
+        [
+          "I normally bring sandwiches and fruit.",
+          "Обычно я приношу сэндвичи и фрукты."
+        ],
+        [
+          "Let's send a message with the new picnic location.",
+          "Отправим сообщение с новым местом пикника."
+        ],
+        [
+          "The rain is getting lighter at the moment.",
+          "Дождь сейчас ослабевает."
+        ],
+        [
+          "I'll leave the table clean when we finish.",
+          "Оставлю стол чистым, когда закончим."
+        ],
+        [
+          "We can go back outside when the grass dries.",
+          "Можем вернуться на улицу, когда трава высохнет."
+        ]
+      ],
+      "reading": {
+        "title": "A picnic moved to the shelter",
+        "paragraphs": [
+          "Omar and two friends usually meet in a park for a picnic once a month. They choose a table near a small lake and bring food to share. Today, however, a sudden shower begins just as they arrive. One of the friends sees a covered shelter with several tables. The group checks the sign and finds that the shelter is open to visitors.",
+          "Omar is carrying the food while his friend is moving the bags to a dry table. The third friend is still on the way, so they send him the new location. They normally eat on the grass, but today they are eating under the shelter. After lunch, the rain becomes lighter. They collect their rubbish, leave the table clean and decide to walk around the lake. They are pleased that a simple change of location allowed the picnic to continue."
+        ],
+        "questions": [
+          [
+            "How often do the friends usually meet for a picnic?",
+            [
+              "Once a month",
+              "Every morning",
+              "Once a year"
+            ],
+            0
+          ],
+          [
+            "Why do they change location?",
+            [
+              "The lake is gone",
+              "A sudden shower starts",
+              "The food is missing"
+            ],
+            1
+          ],
+          [
+            "What does Omar carry?",
+            [
+              "A bicycle",
+              "A new table",
+              "The food"
+            ],
+            2
+          ],
+          [
+            "What do they do after lunch?",
+            [
+              "Collect rubbish and decide to walk",
+              "Leave rubbish on the table",
+              "Cancel all future picnics"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Omar",
+          "It is raining now. Shall we move the picnic under that shelter?",
+          "Сейчас идёт дождь. Перенесём пикник под тот навес?"
+        ],
+        [
+          "Friend",
+          "Yes. The sign says the shelter is open today.",
+          "Да. На табличке сказано, что навес сегодня открыт."
+        ],
+        [
+          "Omar",
+          "I'll carry the food. Can you take the bags to the dry table?",
+          "Я понесу еду. Можешь отнести сумки к сухому столу?"
+        ],
+        [
+          "Friend",
+          "Of course. Our other friend is still walking here.",
+          "Конечно. Наш другой друг ещё идёт сюда."
+        ],
+        [
+          "Omar",
+          "Let's send him the new location. We usually meet by the lake.",
+          "Отправим ему новое место. Обычно встречаемся у озера."
+        ],
+        [
+          "Friend",
+          "I've sent it. He is coming to the shelter now.",
+          "Я отправил. Сейчас он идёт к навесу."
+        ],
+        [
+          "Omar",
+          "The rain is getting lighter, but let's eat here first.",
+          "Дождь ослабевает, но сначала поедим здесь."
+        ],
+        [
+          "Friend",
+          "Agreed. We'll leave the table clean and walk later.",
+          "Согласен. Оставим стол чистым и прогуляемся позже."
+        ]
+      ],
+      "listening": [
+        "Where is the third friend coming now?",
+        [
+          "To the shelter",
+          "To the airport",
+          "To a closed shop"
+        ],
+        0
+      ],
+      "speaking": [
+        "Describe your usual picnic and what is happening differently today.",
+        "Use three Present Continuous sentences about people moving items.",
+        "Explain a temporary meeting location change to a late friend.",
+        "Compare a usual outdoor activity with today's indoor alternative.",
+        "Role-play choosing a sheltered place without cancelling the event."
+      ],
+      "writing": [
+        "Write a message explaining where the group is waiting now.",
+        "Write four habitual and four current-action sentences about a picnic.",
+        "Write a brief account of how a rain shower changed a plan."
+      ],
+      "model": "We usually meet by the lake, but it is raining now. We're eating under the shelter. Please come to the dry table near the entrance.",
+      "competency": {
+        "prerequisites": "Present be, -ing forms, frequency adverbs",
+        "canDo": "Обсудить происходящее и обычные действия, адаптировать план.",
+        "successCriteria": "Contrast habits and temporary actions and explain a live plan change.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "She usually ___ tea, but today she is drinking coffee.",
+        [
+          "drinks",
+          "is drinking usually",
+          "drink"
+        ],
+        0,
+        "Usual action: drinks."
+      ],
+      [
+        "type",
+        "Complete: They ___ (be, present) waiting outside now.",
+        [
+          "are"
+        ],
+        "They are waiting."
+      ],
+      [
+        "choice",
+        "A group moves to a new picnic location while one friend is travelling. What information should they send?",
+        [
+          "The current meeting location",
+          "Only the old location",
+          "A claim the friend arrived"
+        ],
+        0,
+        "Communicate the update."
+      ]
+    ]
+  },
+  {
+    "pack": {
+      "id": "mission-v2-075",
+      "day": 75,
+      "level": "A2",
+      "title": "A photograph for the walking club",
+      "ru": "Фотография для клуба любителей прогулок",
+      "goal": "Попросить разрешение на фотографию и рассказать о снимке.",
+      "version": 1,
+      "profile": "extended-v1",
+      "quality": "authored-not-independently-reviewed",
+      "grammar": {
+        "title": "Object pronouns and polite permission",
+        "rule": "Object pronouns: me, you, him, her, it, us, them после глагола или предлога. Can I...? / Could I...? — просьба о разрешении.",
+        "pattern": "take a photo of us / send it to her",
+        "example": "Could you send the photograph to me?",
+        "pitfall": "Не говори send it to I: to me.",
+        "exercises": [
+          [
+            "choice",
+            "Could you send the photo to ___?",
+            [
+              "I",
+              "me",
+              "my"
+            ],
+            1,
+            "Object pronoun after to."
+          ],
+          [
+            "type",
+            "Complete: The photos belong to Anna and Leo. Send them to ___.",
+            [
+              "them"
+            ],
+            "Them replaces Anna and Leo."
+          ],
+          [
+            "order",
+            "Скажи: отправь фотографию ей.",
+            [
+              "her",
+              "to",
+              "photograph",
+              "the",
+              "Send"
+            ],
+            "Send the photograph to her",
+            "Her after to."
+          ],
+          [
+            "choice",
+            "Can you take a photo of ___ together?",
+            [
+              "we",
+              "our",
+              "us"
+            ],
+            2,
+            "Us after of."
+          ],
+          [
+            "type",
+            "Complete: The picture is ready. Could you show ___ to me?",
+            [
+              "it"
+            ],
+            "It is the object."
+          ],
+          [
+            "order",
+            "Скажи: мы можем показать им снимок.",
+            [
+              "picture",
+              "the",
+              "them",
+              "show",
+              "can",
+              "We"
+            ],
+            "We can show them the picture",
+            "Them as object."
+          ]
+        ]
+      },
+      "words": [
+        [
+          "a walking club photograph",
+          "фотография клуба любителей прогулок"
+        ],
+        [
+          "a group photo permission",
+          "разрешение на групповую фотографию"
+        ],
+        [
+          "a private photo album",
+          "закрытый фотоальбом"
+        ],
+        [
+          "a public club page",
+          "публичная страница клуба"
+        ],
+        [
+          "a landscape photo",
+          "пейзажная фотография"
+        ],
+        [
+          "a photo sharing preference",
+          "предпочтение по обмену фотографиями"
+        ],
+        [
+          "a group picture caption",
+          "подпись к групповому снимку"
+        ],
+        [
+          "a photo collection link",
+          "ссылка на подборку фотографий"
+        ],
+        [
+          "a cropped group image",
+          "обрезанный групповой снимок"
+        ],
+        [
+          "a selected photo",
+          "выбранная фотография"
+        ]
+      ],
+      "phrases": [
+        [
+          "Could you take a photograph of us by the bridge?",
+          "Можете сфотографировать нас возле моста?"
+        ],
+        [
+          "May I share this photograph in our private club album?",
+          "Можно поделиться этой фотографией в закрытом альбоме клуба?"
+        ],
+        [
+          "Please send it to me before posting it publicly.",
+          "Пришлите мне её до публичной публикации."
+        ],
+        [
+          "Does everyone agree to appear in the group picture?",
+          "Все согласны попасть на групповую фотографию?"
+        ],
+        [
+          "I can send the landscape photo to them instead.",
+          "Могу вместо этого отправить им пейзажную фотографию."
+        ],
+        [
+          "She prefers not to be in photographs on public pages.",
+          "Она предпочитает не появляться на фото публичных страниц."
+        ],
+        [
+          "Let's take another picture without the people who declined.",
+          "Сделаем другой снимок без тех, кто отказался."
+        ],
+        [
+          "Could you show her the selected picture?",
+          "Можешь показать ей выбранный снимок?"
+        ],
+        [
+          "I'll add a short caption describing the walk.",
+          "Добавлю короткую подпись с описанием прогулки."
+        ],
+        [
+          "Thank you for asking us before sharing the photo.",
+          "Спасибо, что спросили нас перед публикацией."
+        ]
+      ],
+      "reading": {
+        "title": "A photograph for the walking club",
+        "paragraphs": [
+          "Vera joins a small walking club on a Sunday morning. At the end of the walk, the organiser suggests taking a group photograph beside a bridge. Most people agree, but one member says that she prefers not to appear in photographs on public pages. The organiser thanks her for explaining and asks whether she would like to stand outside the picture. She chooses to do so.",
+          "Another walker takes the photograph and shows it to the group. The organiser asks whether everyone in the picture agrees to share it in the private club album. He does not assume that permission for a private album also allows a public post. Vera asks for a copy and offers to write a short caption about the route. Later, the organiser shares a landscape photograph on the public page instead of the group picture."
+        ],
+        "questions": [
+          [
+            "Where is the group photograph taken?",
+            [
+              "Beside a bridge",
+              "Inside a train",
+              "In a shop"
+            ],
+            0
+          ],
+          [
+            "What does one member prefer?",
+            [
+              "To post every photo publicly",
+              "Not to appear on public pages",
+              "To cancel the walk"
+            ],
+            1
+          ],
+          [
+            "Where does the group agree to share the group picture?",
+            [
+              "In a public newspaper",
+              "On every website",
+              "In the private club album"
+            ],
+            2
+          ],
+          [
+            "What appears on the public page later?",
+            [
+              "A landscape photograph",
+              "The refused group photo",
+              "A member's private details"
+            ],
+            0
+          ]
+        ]
+      },
+      "dialogue": [
+        [
+          "Organiser",
+          "Would you like to take a group photograph beside the bridge?",
+          "Хотите сделать групповую фотографию возле моста?"
+        ],
+        [
+          "Vera",
+          "Yes. Could you take a picture of us from this side?",
+          "Да. Можете сфотографировать нас с этой стороны?"
+        ],
+        [
+          "Member",
+          "I'd prefer not to be in photographs on a public page.",
+          "Я предпочла бы не попадать на фотографии публичной страницы."
+        ],
+        [
+          "Organiser",
+          "Of course. You can stand beside me, outside the picture.",
+          "Конечно. Можете встать рядом со мной вне кадра."
+        ],
+        [
+          "Vera",
+          "Could you show us the photograph before sharing it?",
+          "Можете показать нам фотографию перед публикацией?"
+        ],
+        [
+          "Organiser",
+          "Certainly. Is everyone in the picture happy to share it in the private album?",
+          "Конечно. Все на снимке согласны поделиться им в закрытом альбоме?"
+        ],
+        [
+          "Vera",
+          "Yes, please send it to me as well. I'll write a caption.",
+          "Да, пришлите её и мне. Я напишу подпись."
+        ],
+        [
+          "Organiser",
+          "Thanks. I'll use a landscape photo for the public page instead.",
+          "Спасибо. Для публичной страницы вместо этого использую пейзажный снимок."
+        ]
+      ],
+      "listening": [
+        "What will the organiser use on the public page?",
+        [
+          "A landscape photo",
+          "The group picture without checking",
+          "A private message"
+        ],
+        0
+      ],
+      "speaking": [
+        "Ask someone to take a picture of you using an object pronoun.",
+        "Request permission to share a fictional photograph.",
+        "Explain the difference between private sharing and public posting.",
+        "Role-play responding respectfully when someone declines a group photo.",
+        "Describe a photograph from a walk using two complete sentences."
+      ],
+      "writing": [
+        "Write a message asking whether a group photograph may be shared privately.",
+        "Write six sentences using me, him, her, us, them and it.",
+        "Write a short caption about a fictional walking-club route."
+      ],
+      "model": "Could you show us the photograph? Please send it to me. I'd like to share it privately, but I'll ask everyone before posting it.",
+      "competency": {
+        "prerequisites": "Personal pronouns, polite requests",
+        "canDo": "Попросить разрешение на фотографию и рассказать о снимке.",
+        "successCriteria": "Use object pronouns in sharing requests and distinguish consent scopes.",
+        "reviewDays": [
+          1,
+          3,
+          7
+        ],
+        "cefr": "A2-target-not-independently-calibrated"
+      }
+    },
+    "checks": [
+      [
+        "choice",
+        "Please give the printed photo to ___.",
+        [
+          "she",
+          "her",
+          "hers"
+        ],
+        1,
+        "Her after to."
+      ],
+      [
+        "type",
+        "Complete: Can you take a picture of Anna and me? Take a picture of ___.",
+        [
+          "us"
+        ],
+        "Us replaces Anna and me."
+      ],
+      [
+        "choice",
+        "Someone agrees to a private album but not a public page. What may you accurately say?",
+        [
+          "They agreed to private sharing only.",
+          "They approved every public post.",
+          "They did not express any preference."
+        ],
+        0,
+        "Respect the scope of consent."
+      ]
+    ]
+  }
+]

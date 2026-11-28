@@ -24,9 +24,11 @@ function unit(index){if(!Number.isInteger(index)||index<0||index>=300)return nul
  else if(mode==="mixed"){add(fw,5,7);add(fp,5,13);}
  else if(mode==="review"){add(fw,4,2);add(fp,5,17);add([grammar.example],1,0);}
  else {add(fp,5,3);add(fw,4,5);add(m.grammar.map(function(x){return x.example;}),1,0);}
- if(pairs.length<10)add(phrases,10-pairs.length,seed+18);
- if(pairs.length<10)add(words,10-pairs.length,seed+32);
- if(pairs.length<10)add(phrases,10-pairs.length,seed+50);
+ if(pairs.length<10)throw new Error('Insufficient topic-matched test material for '+(index+1)+': '+pairs.length+'/10');
+ const otherUsed=new Set(pairs.map(function(p){return p.id;})),practicePairs=[];
+ function addPractice(list,n,shift){practicePairs.push.apply(practicePairs,pick(list,n,seed+shift,otherUsed));}
+ addPractice(fw,8,21);addPractice(fp,10,29);
+ if(practicePairs.length<18)throw new Error('Insufficient topic-matched practice material for '+(index+1)+': '+practicePairs.length+'/18');
  const challenges={
  grammar:"Изучи правило, прочитай пример и придумай два собственных предложения.",
  words:"Составь три собственных предложения с новыми словами.",
@@ -37,7 +39,7 @@ function unit(index){if(!Number.isInteger(index)||index<0||index>=300)return nul
  review:"Повтори материал недели и объясни правило своими словами.",
  final:"Пройди контрольный тест и напиши краткий рассказ из пяти предложений."
  };
- return {id:"course-"+String(index+1).padStart(3,"0"),index:index,month:mi+1,day:day+1,level:m.level,title:names[mode]+" · "+m.title,courseKind:mode,grammar:mode==="grammar"?grammar:null,challenge:challenges[mode],pairs:pairs};
+ return {id:"course-"+String(index+1).padStart(3,"0"),index:index,month:mi+1,day:day+1,level:m.level,title:names[mode]+" · "+m.title,courseKind:mode,grammar:mode==="grammar"?grammar:null,challenge:challenges[mode],pairs:pairs,practicePairs:practicePairs};
 }
 window.WOLFIE_ROADMAP={months:months,names:names,unit:unit,build:function(){return Array.from({length:300},function(_,i){return unit(i);});},grammarPairs:grammarPairs};
 })();

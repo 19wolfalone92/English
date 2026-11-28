@@ -4,3 +4,22 @@
 local.properties
 *.iml
 .DS_Store
+
+# Generated from the original dialogue scripts during CI
+/app/src/main/assets/context_audio/
+/ui-evidence/
+
+/app/src/main/assets/reading_audio/
+
+/app/src/main/assets/neural_audio/
+/research-models/
+/research-evidence/
+
+# Never commit owner-controlled Android signing material
+*.jks
+*.keystore
+*.p12
+*.pfx
+/release-signing/
+
+/app/src/main/assets/neural_dialogue/

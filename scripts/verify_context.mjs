@@ -5,17 +5,18 @@ const names=['curriculum','vocab','expanded','roadmap','readings_a','readings_b'
 for(const name of names)vm.runInContext(fs.readFileSync(new URL(name+'.js',root),'utf8'),ctx);
 const c=w.WOLFIE_CONTEXT,unique=(arr,label)=>assert.equal(new Set(arr.map(c.norm)).size,arr.length,label);
 assert.equal(c.packs.length,111);unique(c.packs.map(p=>p.id),'IDs');assert.equal(new Set(c.packs.map(p=>p.day)).size,111);
-assert.equal(c.newCards.filter(p=>p.kind==='w').length,785);assert.equal(c.newCards.filter(p=>p.kind==='p').length,760);
+assert.equal(c.newCards.filter(p=>p.kind==='w').length,813);assert.equal(c.newCards.filter(p=>p.kind==='p').length,795);
 unique(c.newCards.map(p=>p.id),'card IDs');
 unique(c.packs.flatMap(p=>p.speaking),'speaking');unique(c.packs.flatMap(p=>p.writing),'writing');
 unique([...w.WOLFIE_READINGS.map(p=>p.paragraphs.join(' ')),...c.packs.map(p=>p.reading.paragraphs.join(' '))],'reading');
 assert.deepEqual(Array.from(c.packs.filter(p=>p.day<=30).map(p=>p.day)).sort((a,b)=>a-b),Array.from({length:30},(_,i)=>i+1));
-assert.equal(c.packs.filter(p=>p.day<=30&&p.profile==='extended-v1').length,23);
+assert.equal(c.packs.filter(p=>p.day<=30&&p.profile==='extended-v1').length,30);
+for(const day of [2,3,4,5,6,7,8]){const p=c.packs.find(x=>x.day===day);assert.equal(p.profile,'extended-v1');assert.equal(p.version,2);assert.equal(p.words.length,10);assert.equal(p.phrases.length,10);assert.equal(p.grammar.exercises.length,6);assert.equal(p.reading.questions.length,4);assert.equal(p.dialogue.length,8);assert.ok(p.reading.paragraphs.join(' ').split(/\s+/).length>=120);}
 const legacyIDs=new Set([...w.WOLFIE_WORDS,...w.WOLFIE_EXTRA_WORDS,...w.WOLFIE_EXTRA_PHRASES,...w.WOLFIE_LESSONS.flatMap(l=>l.pairs)].map(p=>p.id));
 assert.ok(c.newCards.every(p=>!legacyIDs.has(p.id)));
-assert.equal(c.packs.filter(p=>p.profile==='extended-v1').length,41);
-assert.equal(c.packs.reduce((n,p)=>n+p.grammar.exercises.length,0),456);
-assert.equal(c.packs.reduce((n,p)=>n+p.reading.questions.length,0),374);
+assert.equal(c.packs.filter(p=>p.profile==='extended-v1').length,48);
+assert.equal(c.packs.reduce((n,p)=>n+p.grammar.exercises.length,0),477);
+assert.equal(c.packs.reduce((n,p)=>n+p.reading.questions.length,0),381);
 for(const p of c.packs){
  const extended=p.profile==='extended-v1';
  assert.equal(c.get(w.WOLFIE_ROADMAP.unit(p.day-1)).id,p.id);
@@ -35,4 +36,4 @@ const transfer=Object.values(w.WOLFIE_CONTEXT_CHECKS).flat();assert.equal(transf
 for(const p of c.packs){const rows=w.WOLFIE_CONTEXT_CHECKS[p.id];assert.equal(rows.length,3);for(const ex of rows){const a=ex[0]==='choice'?ex[3]:ex[2][0];assert.ok(c.answerOk(ex,a));assert.ok(!c.answerOk(ex,ex[0]==='choice'?(a+1)%ex[2].length:'incorrect'));}}
 const training=new Set(c.packs.flatMap(p=>p.grammar.exercises.map(x=>c.norm(x[1]))));assert.ok(transfer.every(ex=>!training.has(c.norm(ex[1]))));
 console.log('PASS: 333 separately authored transfer checks, correct and incorrect answers, no exact overlap with grammar practice');
-console.log('PASS: 111 linked context packages, 785 new lexical units, 760 new phrases, 111 original readings/dialogues, 555 speaking and 333 writing prompts, 456 grammar checks; exact duplicate and correct/incorrect scoring checks');
+console.log('PASS: 111 linked context packages, 813 new lexical units, 795 new phrases, 111 original readings/dialogues, 555 speaking and 333 writing prompts, 477 grammar checks; exact duplicate and correct/incorrect scoring checks');
